@@ -38,13 +38,14 @@ import UIKit
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    layer.cornerRadius = self.frame.width / 2
+    layer.cornerRadius = self.frame.height / 2
   }
 
-  init(color: UIColor = .red, title: String, textColor: UIColor = .white, font: UIFont = UIFont.buttonCommonFont) {
+  init(color: UIColor = .red, title: String = "", image: UIImage? = nil, textColor: UIColor = .white, font: UIFont = UIFont.buttonCommonFont) {
     super.init(frame: .zero)
     setTitle(title.uppercased(), for: .normal)
     setTitleColor(textColor, for: .normal)
+    setImage(image, for: .normal)
     self.titleLabel?.font = font
     defaultBackgroundColor = color
     backgroundColor = defaultBackgroundColor

@@ -14,7 +14,7 @@ class UpdateAppViewController: UIViewController {
   let logoView = UIImageView(image: #imageLiteral(resourceName: "logo"))
   let updateButton = GoButton(title: "ОБНОВИТЬ")
   let titleLabel = UILabel()
-  let chatButton = UIButton()
+  let chatButton = UIButton(type: .system)
 
   override func viewDidLoad() {
     super.viewDidLoad()

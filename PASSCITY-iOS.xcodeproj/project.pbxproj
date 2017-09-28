@@ -38,6 +38,8 @@
 		888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C40391F7C4CC300CAF1EF /* ViewController.swift */; };
 		888C403F1F7C4CC300CAF1EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888C403E1F7C4CC300CAF1EF /* Assets.xcassets */; };
 		888C40421F7C4CC300CAF1EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888C40401F7C4CC300CAF1EF /* LaunchScreen.storyboard */; };
+		88C3496F1F7D95970003C9D4 /* BarcodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3496E1F7D95970003C9D4 /* BarcodeScanViewController.swift */; };
+		88C349721F7DAB7F0003C9D4 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */; };
 		88DCB9CA1F7D838F0058DBF6 /* UIColor+PASSCITY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */; };
 		88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,8 @@
 		888C403E1F7C4CC300CAF1EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		888C40411F7C4CC300CAF1EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		888C40431F7C4CC300CAF1EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88C3496E1F7D95970003C9D4 /* BarcodeScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScanViewController.swift; sourceTree = "<group>"; };
+		88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PASSCITY.swift"; sourceTree = "<group>"; };
 		88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		A60C0C334177EF8BE0FEA7AA /* Pods_PASSCITY_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PASSCITY_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,8 @@
 		880903BE1F7D4AC700158EC3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				88C349701F7DAB590003C9D4 /* PersonalInfo */,
+				88C3496D1F7D95850003C9D4 /* BarcodeScan */,
 				880903DC1F7D636000158EC3 /* Main */,
 				880903D71F7D616C00158EC3 /* Root */,
 				880903C51F7D4C8900158EC3 /* Common */,
@@ -305,6 +311,22 @@
 			path = "PASSCITY-iOS";
 			sourceTree = "<group>";
 		};
+		88C3496D1F7D95850003C9D4 /* BarcodeScan */ = {
+			isa = PBXGroup;
+			children = (
+				88C3496E1F7D95970003C9D4 /* BarcodeScanViewController.swift */,
+			);
+			name = BarcodeScan;
+			sourceTree = "<group>";
+		};
+		88C349701F7DAB590003C9D4 /* PersonalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */,
+			);
+			name = PersonalInfo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,6 +362,7 @@
 				TargetAttributes = {
 					888C40331F7C4CC200CAF1EF = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 7HLY3EQ26F;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -419,6 +442,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EasyPeasy/EasyPeasy.framework",
+				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -430,6 +454,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPeasy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -468,8 +493,10 @@
 				880903B61F7D46D600158EC3 /* JSONAPIResponse.swift in Sources */,
 				880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */,
 				880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */,
+				88C3496F1F7D95970003C9D4 /* BarcodeScanViewController.swift in Sources */,
 				880903C41F7D4BED00158EC3 /* UpdateAppViewController.swift in Sources */,
 				888C40381F7C4CC300CAF1EF /* AppDelegate.swift in Sources */,
+				88C349721F7DAB7F0003C9D4 /* PersonalInfoViewController.swift in Sources */,
 				880903E51F7D75EE00158EC3 /* MaskedInput.swift in Sources */,
 				880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */,
 				880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */,
@@ -592,6 +619,7 @@
 			baseConfigurationReference = 5678BD6A11552FF3B6EA2CDE /* Pods-PASSCITY-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7HLY3EQ26F;
 				INFOPLIST_FILE = "PASSCITY-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -606,6 +634,7 @@
 			baseConfigurationReference = 5B8B1627985CC7755FD89FA1 /* Pods-PASSCITY-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7HLY3EQ26F;
 				INFOPLIST_FILE = "PASSCITY-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

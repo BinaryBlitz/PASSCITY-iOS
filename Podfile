@@ -11,6 +11,7 @@ target 'PASSCITY-iOS' do
   pod 'KeychainAccess', '~> 3.0'
   pod 'Kingfisher', '~> 3.10'
   pod 'PhoneNumberKit', '~> 1.2'
+  pod 'JVFloatLabeledTextField', '~> 1.2'
 
   # Pods for PASSCITY-iOS
 

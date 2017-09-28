@@ -22,7 +22,12 @@ class CardEntryViewController: UIViewController {
   var observers: [Any] = []
 
   @IBAction func scanCodeButtonsAction(_ sender: Any) {
-
+    let viewController = BarcodeScanViewController()
+    viewController.codeDidPickHandler = { [weak self] code in
+      self?.cardNumberField.text = code
+      self?.barCodeMaskedInput.textFieldDidChange()
+    }
+    present(viewController, animated: true, completion: nil)
   }
 
   @IBAction func chatButtonAction(_ sender: Any) {

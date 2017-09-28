@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JVFloatLabeledTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KeychainAccess.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,17 +57,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E529C419495B12EFADF46C04400E253</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1215771836B84E9F9899950098D2FF80</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2A4448146C785C426971111F117D773C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>52ACA0236F086E72B74F0A090A743D41</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>62C5313EBC7E7440A590AFEDCE9A8951</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -30,5 +30,9 @@ extension UIColor {
       return self
     }
   }
-  
+
+  class var backgroundGrey: UIColor {
+    return UIColor(white: 216.0 / 255.0, alpha: 1.0)
+  }
+
 }
