@@ -17,13 +17,17 @@
 		880903B81F7D470800158EC3 /* JSONAPISerializedDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903B71F7D470800158EC3 /* JSONAPISerializedDataObject.swift */; };
 		880903BB1F7D47F400158EC3 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903BA1F7D47F400158EC3 /* DataError.swift */; };
 		880903BD1F7D482B00158EC3 /* JSONAPiResourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903BC1F7D482B00158EC3 /* JSONAPiResourceObject.swift */; };
-		880903C11F7D4AE500158EC3 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903C01F7D4AE500158EC3 /* OnboardingViewController.swift */; };
 		880903C41F7D4BED00158EC3 /* UpdateAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903C31F7D4BED00158EC3 /* UpdateAppViewController.swift */; };
 		880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903C61F7D4C9B00158EC3 /* GoButton.swift */; };
 		880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903C91F7D4D9B00158EC3 /* UIView+IBInspectable.swift */; };
 		880903CC1F7D4E9700158EC3 /* UIFont+PASSCITY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903CB1F7D4E9700158EC3 /* UIFont+PASSCITY.swift */; };
 		880903D01F7D515B00158EC3 /* CardChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903CF1F7D515B00158EC3 /* CardChoiceViewController.swift */; };
 		880903D21F7D519B00158EC3 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903D11F7D519B00158EC3 /* CardTableViewCell.swift */; };
+		880903D41F7D592200158EC3 /* UIView+nibInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903D31F7D592200158EC3 /* UIView+nibInstance.swift */; };
+		880903D61F7D594800158EC3 /* UITableView+PASSCITY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903D51F7D594800158EC3 /* UITableView+PASSCITY.swift */; };
+		880903D91F7D617A00158EC3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903D81F7D617A00158EC3 /* RootViewController.swift */; };
+		880903DB1F7D621600158EC3 /* PassCityNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903DA1F7D621600158EC3 /* PassCityNavigationController.swift */; };
+		880903DE1F7D636F00158EC3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903DD1F7D636F00158EC3 /* MainTabBarController.swift */; };
 		888C40381F7C4CC300CAF1EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C40371F7C4CC300CAF1EF /* AppDelegate.swift */; };
 		888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C40391F7C4CC300CAF1EF /* ViewController.swift */; };
 		888C403D1F7C4CC300CAF1EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888C403B1F7C4CC300CAF1EF /* Main.storyboard */; };
@@ -43,13 +47,17 @@
 		880903B71F7D470800158EC3 /* JSONAPISerializedDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPISerializedDataObject.swift; sourceTree = "<group>"; };
 		880903BA1F7D47F400158EC3 /* DataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		880903BC1F7D482B00158EC3 /* JSONAPiResourceObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPiResourceObject.swift; sourceTree = "<group>"; };
-		880903C01F7D4AE500158EC3 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		880903C31F7D4BED00158EC3 /* UpdateAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateAppViewController.swift; sourceTree = "<group>"; };
 		880903C61F7D4C9B00158EC3 /* GoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoButton.swift; sourceTree = "<group>"; };
 		880903C91F7D4D9B00158EC3 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
 		880903CB1F7D4E9700158EC3 /* UIFont+PASSCITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+PASSCITY.swift"; sourceTree = "<group>"; };
 		880903CF1F7D515B00158EC3 /* CardChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardChoiceViewController.swift; sourceTree = "<group>"; };
 		880903D11F7D519B00158EC3 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		880903D31F7D592200158EC3 /* UIView+nibInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+nibInstance.swift"; sourceTree = "<group>"; };
+		880903D51F7D594800158EC3 /* UITableView+PASSCITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+PASSCITY.swift"; sourceTree = "<group>"; };
+		880903D81F7D617A00158EC3 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		880903DA1F7D621600158EC3 /* PassCityNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassCityNavigationController.swift; sourceTree = "<group>"; };
+		880903DD1F7D636F00158EC3 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		888C40341F7C4CC300CAF1EF /* PASSCITY-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PASSCITY-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		888C40371F7C4CC300CAF1EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		888C40391F7C4CC300CAF1EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +147,8 @@
 		880903BE1F7D4AC700158EC3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				880903DC1F7D636000158EC3 /* Main */,
+				880903D71F7D616C00158EC3 /* Root */,
 				880903C81F7D4D8B00158EC3 /* Extensions */,
 				880903C51F7D4C8900158EC3 /* Common */,
 				880903BF1F7D4ACA00158EC3 /* Onboarding */,
@@ -152,7 +162,6 @@
 				880903C31F7D4BED00158EC3 /* UpdateAppViewController.swift */,
 				880903CE1F7D50D900158EC3 /* CardChoice */,
 				880903C21F7D4BD900158EC3 /* UpdateApp */,
-				880903C01F7D4AE500158EC3 /* OnboardingViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -169,6 +178,7 @@
 			children = (
 				880903CD1F7D50AE00158EC3 /* Table View Cells */,
 				880903C61F7D4C9B00158EC3 /* GoButton.swift */,
+				880903DA1F7D621600158EC3 /* PassCityNavigationController.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -178,6 +188,8 @@
 			children = (
 				880903C91F7D4D9B00158EC3 /* UIView+IBInspectable.swift */,
 				880903CB1F7D4E9700158EC3 /* UIFont+PASSCITY.swift */,
+				880903D31F7D592200158EC3 /* UIView+nibInstance.swift */,
+				880903D51F7D594800158EC3 /* UITableView+PASSCITY.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +208,22 @@
 				880903CF1F7D515B00158EC3 /* CardChoiceViewController.swift */,
 			);
 			name = CardChoice;
+			sourceTree = "<group>";
+		};
+		880903D71F7D616C00158EC3 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				880903D81F7D617A00158EC3 /* RootViewController.swift */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		880903DC1F7D636000158EC3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				880903DD1F7D636F00158EC3 /* MainTabBarController.swift */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 		888C402B1F7C4CC200CAF1EF = {
@@ -374,9 +402,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				880903CC1F7D4E9700158EC3 /* UIFont+PASSCITY.swift in Sources */,
+				880903D41F7D592200158EC3 /* UIView+nibInstance.swift in Sources */,
+				880903DE1F7D636F00158EC3 /* MainTabBarController.swift in Sources */,
 				880903BB1F7D47F400158EC3 /* DataError.swift in Sources */,
 				880903BD1F7D482B00158EC3 /* JSONAPiResourceObject.swift in Sources */,
 				880903D01F7D515B00158EC3 /* CardChoiceViewController.swift in Sources */,
+				880903DB1F7D621600158EC3 /* PassCityNavigationController.swift in Sources */,
 				880903B31F7D469300158EC3 /* NetworkActivityIndicator.swift in Sources */,
 				880903AA1F7D44CA00158EC3 /* AuthorizationPlugin.swift in Sources */,
 				888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */,
@@ -385,10 +416,11 @@
 				880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */,
 				880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */,
 				880903C41F7D4BED00158EC3 /* UpdateAppViewController.swift in Sources */,
-				880903C11F7D4AE500158EC3 /* OnboardingViewController.swift in Sources */,
 				888C40381F7C4CC300CAF1EF /* AppDelegate.swift in Sources */,
 				880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */,
 				880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */,
+				880903D91F7D617A00158EC3 /* RootViewController.swift in Sources */,
+				880903D61F7D594800158EC3 /* UITableView+PASSCITY.swift in Sources */,
 				880903B81F7D470800158EC3 /* JSONAPISerializedDataObject.swift in Sources */,
 				880903B11F7D45F000158EC3 /* JSONAPITargetType.swift in Sources */,
 			);

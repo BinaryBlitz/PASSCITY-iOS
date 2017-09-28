@@ -1,5 +1,5 @@
 //
-//  OnboardingViewController.swift
+//  MainTabBarController.swift
 //  PASSCITY-iOS
 //
 //  Created by Алексей on 28.09.17.
@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
+class MainTabBarController: UITabBarController {
+  
+}
