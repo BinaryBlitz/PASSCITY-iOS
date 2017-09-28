@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PhoneNumberKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PASSCITY-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,12 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1215771836B84E9F9899950098D2FF80</key>
+		<key>0E529C419495B12EFADF46C04400E253</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B9B5E65FA5CBB1C476C18B168D35B41</key>
+		<key>1215771836B84E9F9899950098D2FF80</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>8905DB6521F8FDC34752B69DEE3FDEB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8C5BD10883BD185426DD737247F56DEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

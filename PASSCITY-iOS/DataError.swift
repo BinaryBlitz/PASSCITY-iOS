@@ -15,7 +15,7 @@ enum DataError: Swift.Error, CustomStringConvertible {
   case customError(description: String)
   case noData
   case serializationError(Any?)
-  case jsonAPIErrors([JSONAPIResponseError])
+  case jsonAPIError(JSONAPIResponseError)
 
   var description: String {
     switch self {
@@ -23,15 +23,8 @@ enum DataError: Swift.Error, CustomStringConvertible {
       return error.errorDescription ?? ""
     case .serializationError(_):
       return "Ошибка обработки ответа сервера"
-    case .jsonAPIErrors(let errors):
-      var description = ""
-      errors.enumerated().forEach { (index, error) in
-        description += error.detail
-        if index < errors.count - 1 {
-          description += "\n"
-        }
-      }
-      return description
+    case .jsonAPIError(let error):
+      return error.msg
     case .customError(let description):
       return description
     default:
@@ -44,32 +37,16 @@ enum DataError: Swift.Error, CustomStringConvertible {
   }
 
   class JSONAPIResponseError: Mappable {
-    private(set) var status: String = ""
-    private(set) var detail: String = ""
-    private(set) var message: String = ""
+    private(set) var id: String = ""
+    private(set) var msg: String = ""
     private(set) var code: Code? = nil
-    private(set) var model: [String: Any]  = [:]
-    private(set) var source: [String: String]  = [:]
-
-    var description: String? {
-      if !detail.isEmpty {
-        return detail
-      }
-      if !message.isEmpty {
-        return message
-      }
-      return nil
-    }
 
     required init?(map: Map) { }
 
     func mapping(map: Map) {
-      status <- map["status"]
-      detail <- map["detail"]
-      message <- map["message"]
-      source <- map["source"]
-      code <- (map["code"], EnumTransform<Code>())
-      model <- map["model"]
+      id <- map["status"]
+      msg <- map["message"]
+      code <- (map["id"], EnumTransform<Code>())
     }
 
     enum Code: String {

@@ -59,7 +59,7 @@ extension UIView {
     }
   }
 
-  func addShadow(shadowColor: CGColor = UIColor.black8.cgColor,
+  func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
                  shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
                  shadowOpacity: Float = 0.2,
                  shadowRadius: CGFloat = 3.0) {
@@ -150,7 +150,7 @@ extension UITextField {
     gradient.frame = self.bounds
   }
 
-  init(first: UIColor = UIColor.redPinkGradientStart, second: UIColor = UIColor.tealishGradientEnd, bckColor: UIColor = .greyishPurpleBackground, axis: Axis) {
+  init(first: UIColor , second: UIColor, bckColor: UIColor, axis: Axis) {
     super.init(frame: CGRect.null)
     self.firstColor = first
     self.secondColor = second

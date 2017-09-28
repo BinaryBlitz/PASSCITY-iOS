@@ -42,12 +42,16 @@ import UIKit
   }
 
   init(color: UIColor = .red, title: String, textColor: UIColor = .white, font: UIFont = UIFont.buttonCommonFont) {
-    super.init(type: .custom)
+    super.init(frame: .zero)
     setTitle(title.uppercased(), for: .normal)
     setTitleColor(textColor, for: .normal)
     self.titleLabel?.font = font
     defaultBackgroundColor = color
     backgroundColor = defaultBackgroundColor
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
   }
   
 }

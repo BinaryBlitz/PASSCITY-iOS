@@ -24,11 +24,6 @@ public struct BearerTokenPlugin: PluginType {
 
   public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
 
-    var request = request
-    if let params = request.httpBody as? [String: Any] {
-      request.addValue(authVal, forHTTPHeaderField: "Authorization")
-    }
-
     return request
   }
 }

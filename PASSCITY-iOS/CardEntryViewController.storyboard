@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="isW-we-BdB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!-- -->
+        <scene sceneID="bMR-Y1-u3p">
+            <objects>
+                <viewController title=" " id="isW-we-BdB" customClass="CardEntryViewController" customModule="PASSCITY_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f7u-9C-kZW"/>
+                        <viewControllerLayoutGuide type="bottom" id="EAS-F4-WwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xqH-dK-S4w">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1L-xd-BGS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите номер карты" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImU-n3-xoG">
+                                        <rect key="frame" x="30" y="90" width="315" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Указан на обороте карты под штрих-кодом" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsH-y9-eFh">
+                                        <rect key="frame" x="20" y="132" width="335" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0  000000  000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EQU-S0-Vg8">
+                                        <rect key="frame" x="30" y="220" width="315.5" height="29"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7tb-51-B4W">
+                                        <rect key="frame" x="30" y="259" width="315" height="1"/>
+                                        <color key="backgroundColor" red="0.83912390469999998" green="0.83926850559999999" blue="0.83911478520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="eJH-jM-4op"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Осталось 3 попытки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Kd-98-T5A">
+                                        <rect key="frame" x="114.5" y="300" width="146" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyY-ed-XwQ">
+                                        <rect key="frame" x="152.5" y="348" width="70" height="70"/>
+                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="iconScanCode">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="scanCodeButtonsAction:" destination="isW-we-BdB" eventType="touchUpInside" id="hE7-8J-FZY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRp-RU-hUO">
+                                        <rect key="frame" x="30" y="545" width="30" height="28"/>
+                                        <state key="normal" image="chat">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chatButtonAction:" destination="isW-we-BdB" eventType="touchUpInside" id="xts-U6-7Gd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLW-rE-AP6" customClass="GoButton" customModule="PASSCITY_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="87.5" y="465" width="200" height="48"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="F4m-91-2Xh"/>
+                                            <constraint firstAttribute="height" constant="48" id="pTh-vj-a8G"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <state key="normal" title="ПОДТВЕРДИТЬ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nq6-oQ-hsw">
+                                        <rect key="frame" x="238" y="545" width="107" height="22"/>
+                                        <state key="normal" title="пропустить" image="iconArrowRight">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="skipButtonAction:" destination="isW-we-BdB" eventType="touchUpInside" id="VSK-Lo-3hH"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDone" translatesAutoresizingMaskIntoConstraints="NO" id="2Sb-sD-6wr">
+                                        <rect key="frame" x="325" y="224.5" width="20" height="20"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xll-U3-RZn">
+                                        <rect key="frame" x="126" y="424" width="123" height="30"/>
+                                        <state key="normal" title="Сканировать код">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="scanCodeButtonsAction:" destination="isW-we-BdB" eventType="touchUpInside" id="gjD-PQ-ejJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="QsH-y9-eFh" firstAttribute="leading" secondItem="M1L-xd-BGS" secondAttribute="leading" constant="20" id="4Xm-Jm-Nkl"/>
+                                    <constraint firstItem="Nq6-oQ-hsw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Xll-U3-RZn" secondAttribute="bottom" priority="600" constant="10" id="56h-LS-iul"/>
+                                    <constraint firstItem="Xll-U3-RZn" firstAttribute="centerX" secondItem="M1L-xd-BGS" secondAttribute="centerX" id="6aM-2v-M1I"/>
+                                    <constraint firstItem="ImU-n3-xoG" firstAttribute="leading" secondItem="M1L-xd-BGS" secondAttribute="leading" constant="30" id="H0a-pM-jOL"/>
+                                    <constraint firstItem="4Kd-98-T5A" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7tb-51-B4W" secondAttribute="bottom" constant="10" id="JFO-OO-TmQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="JLW-rE-AP6" secondAttribute="bottom" priority="500" constant="90" id="MJd-zf-k9w"/>
+                                    <constraint firstItem="4Kd-98-T5A" firstAttribute="centerX" secondItem="M1L-xd-BGS" secondAttribute="centerX" id="PIx-4W-sb6"/>
+                                    <constraint firstAttribute="trailing" secondItem="7tb-51-B4W" secondAttribute="trailing" constant="30" id="Pnj-0l-vBI"/>
+                                    <constraint firstItem="nyY-ed-XwQ" firstAttribute="top" secondItem="4Kd-98-T5A" secondAttribute="bottom" constant="30" id="QDg-qL-7N6"/>
+                                    <constraint firstItem="ImU-n3-xoG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M1L-xd-BGS" secondAttribute="top" constant="20" id="T9w-a9-osm"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nq6-oQ-hsw" secondAttribute="bottom" constant="36" id="X2Y-b4-fSf"/>
+                                    <constraint firstItem="QsH-y9-eFh" firstAttribute="centerX" secondItem="M1L-xd-BGS" secondAttribute="centerX" id="Yxw-cK-oLw"/>
+                                    <constraint firstItem="2Sb-sD-6wr" firstAttribute="centerY" secondItem="EQU-S0-Vg8" secondAttribute="centerY" id="ZLe-VI-cYB"/>
+                                    <constraint firstAttribute="trailing" secondItem="ImU-n3-xoG" secondAttribute="trailing" constant="30" id="awF-IV-Ve1"/>
+                                    <constraint firstItem="7tb-51-B4W" firstAttribute="top" secondItem="EQU-S0-Vg8" secondAttribute="bottom" constant="10" id="c51-oV-h7c"/>
+                                    <constraint firstItem="7tb-51-B4W" firstAttribute="leading" secondItem="M1L-xd-BGS" secondAttribute="leading" constant="30" id="cPC-cg-awr"/>
+                                    <constraint firstItem="nyY-ed-XwQ" firstAttribute="centerX" secondItem="M1L-xd-BGS" secondAttribute="centerX" id="cXH-KF-nNx"/>
+                                    <constraint firstItem="QsH-y9-eFh" firstAttribute="top" secondItem="ImU-n3-xoG" secondAttribute="bottom" constant="15" id="cqJ-0K-mqb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nq6-oQ-hsw" secondAttribute="trailing" constant="30" id="d9A-S1-jAe"/>
+                                    <constraint firstItem="4Kd-98-T5A" firstAttribute="top" secondItem="7tb-51-B4W" secondAttribute="bottom" priority="500" constant="40" id="hv5-ft-Vyt"/>
+                                    <constraint firstItem="ImU-n3-xoG" firstAttribute="centerX" secondItem="M1L-xd-BGS" secondAttribute="centerX" id="hxG-4e-atj"/>
+                                    <constraint firstAttribute="trailing" secondItem="QsH-y9-eFh" secondAttribute="trailing" constant="20" id="jSd-pX-wHd"/>
+                                    <constraint firstItem="JLW-rE-AP6" firstAttribute="centerX" secondItem="M1L-xd-BGS" secondAttribute="centerX" id="jjj-Rs-Noy"/>
+                                    <constraint firstItem="JLW-rE-AP6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4Kd-98-T5A" secondAttribute="bottom" constant="20" id="mis-EH-QSu"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JLW-rE-AP6" secondAttribute="bottom" constant="10" id="qS7-IX-Tkd"/>
+                                    <constraint firstItem="EQU-S0-Vg8" firstAttribute="leading" secondItem="7tb-51-B4W" secondAttribute="leading" id="r2U-Bq-XV2"/>
+                                    <constraint firstItem="SRp-RU-hUO" firstAttribute="leading" secondItem="M1L-xd-BGS" secondAttribute="leading" constant="30" id="r6g-7a-dXI"/>
+                                    <constraint firstItem="Xll-U3-RZn" firstAttribute="top" secondItem="nyY-ed-XwQ" secondAttribute="bottom" constant="6" id="ur7-uT-qUF"/>
+                                    <constraint firstItem="EQU-S0-Vg8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QsH-y9-eFh" secondAttribute="bottom" constant="20" id="utx-M5-KPk"/>
+                                    <constraint firstItem="2Sb-sD-6wr" firstAttribute="trailing" secondItem="7tb-51-B4W" secondAttribute="trailing" id="v8K-4y-nYy"/>
+                                    <constraint firstItem="EQU-S0-Vg8" firstAttribute="trailing" secondItem="7tb-51-B4W" secondAttribute="trailing" id="xZS-ue-NP8"/>
+                                    <constraint firstAttribute="bottom" secondItem="SRp-RU-hUO" secondAttribute="bottom" constant="30" id="yja-Zy-EOH"/>
+                                    <constraint firstItem="EQU-S0-Vg8" firstAttribute="top" secondItem="QsH-y9-eFh" secondAttribute="bottom" priority="500" constant="70" id="zkL-1O-54z"/>
+                                    <constraint firstItem="ImU-n3-xoG" firstAttribute="top" secondItem="M1L-xd-BGS" secondAttribute="top" priority="500" constant="90" id="zrj-fT-0L3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="M1L-xd-BGS" secondAttribute="trailing" id="NxT-TU-fB5"/>
+                            <constraint firstItem="M1L-xd-BGS" firstAttribute="top" secondItem="f7u-9C-kZW" secondAttribute="bottom" id="UiL-I5-KB2"/>
+                            <constraint firstItem="M1L-xd-BGS" firstAttribute="leading" secondItem="xqH-dK-S4w" secondAttribute="leading" id="myb-4H-SNA"/>
+                            <constraint firstItem="EAS-F4-WwX" firstAttribute="top" secondItem="M1L-xd-BGS" secondAttribute="bottom" id="yR8-Zk-MRL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cgy-4J-vMF">
+                        <barButtonItem key="backBarButtonItem" title=" " id="tfF-KE-7XX"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="bottomLayoutConstraint" destination="yR8-Zk-MRL" id="PrZ-UA-DqZ"/>
+                        <outlet property="cardNumberField" destination="EQU-S0-Vg8" id="Mec-W9-y2f"/>
+                        <outlet property="confirmButton" destination="JLW-rE-AP6" id="S9i-PH-kxI"/>
+                        <outlet property="iconDoneImageView" destination="2Sb-sD-6wr" id="xxX-bw-0Ia"/>
+                        <outlet property="retryLeftCountLabel" destination="4Kd-98-T5A" id="UdI-fN-WCh"/>
+                        <outlet property="scanCodeButton" destination="nyY-ed-XwQ" id="g1P-rp-Ur5"/>
+                        <outlet property="skipButton" destination="Nq6-oQ-hsw" id="lEY-oZ-Jv2"/>
+                        <outletCollection property="additionalViews" destination="nyY-ed-XwQ" collectionClass="NSMutableArray" id="46r-le-WbF"/>
+                        <outletCollection property="additionalViews" destination="Xll-U3-RZn" collectionClass="NSMutableArray" id="2uJ-ZQ-WHC"/>
+                        <outletCollection property="additionalViews" destination="SRp-RU-hUO" collectionClass="NSMutableArray" id="ulc-wo-Ms0"/>
+                        <outletCollection property="additionalViews" destination="Nq6-oQ-hsw" collectionClass="NSMutableArray" id="AEh-gg-v2f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wVr-8a-ZdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.6" y="215.44227886056973"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chat" width="30" height="28"/>
+        <image name="iconArrowRight" width="10" height="10"/>
+        <image name="iconDone" width="20" height="20"/>
+        <image name="iconScanCode" width="70" height="70"/>
+    </resources>
+</document>

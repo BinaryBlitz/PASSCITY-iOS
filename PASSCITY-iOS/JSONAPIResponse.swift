@@ -32,8 +32,8 @@ class JSONAPIResponse {
       _ = try moyaResponse.filterSuccessfulStatusCodes()
       return nil
     } catch let moyaError {
-      if let jsonAPIErrors = serializedDataObject?.errors {
-        return .jsonAPIErrors(jsonAPIErrors)
+      if let jsonAPIError = serializedDataObject?.error {
+        return .jsonAPIError(jsonAPIError)
       } else {
         guard let moyaError = moyaError as? MoyaError else { return .noData }
         return .moyaError(moyaError)

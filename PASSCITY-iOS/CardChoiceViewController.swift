@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EasyPeasy
 
 enum RegistrationTypeCellData: Int {
   case card = 0
@@ -24,7 +25,16 @@ enum RegistrationTypeCellData: Int {
   var titleAttributed: NSAttributedString {
     let attributedString = NSMutableAttributedString(string: title)
     attributedString.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 22.0), range: NSRange(location: 0, length: title.characters.count))
-    attributedString.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 22.0, weight: UIFontWeightBlack), range: title.range(of: "PASSCITY"))
+    let nsTitle = title as NSString
+    let textRange = NSMakeRange(0, nsTitle.length)
+
+    nsTitle.enumerateSubstrings(in: textRange, options: .byWords, using: {
+      (substring, substringRange, _, _) in
+      if substring == "PASSCITY" {
+        attributedString.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 22.0, weight: UIFontWeightBlack), range: substringRange)
+      }
+    })
+    return attributedString
   }
 
   var image: UIImage {
@@ -35,10 +45,12 @@ enum RegistrationTypeCellData: Int {
       return #imageLiteral(resourceName: "noCardBack")
     }
   }
+
+  static let count = 2
 }
 
 class CardChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-  let logoView = UIImageView(image: logo)
+  let logoView = UIImageView(image: #imageLiteral(resourceName: "logo"))
   let chatButton = UIButton()
   let tableView = UITableView()
 
@@ -55,7 +67,9 @@ class CardChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
     tableView.separatorStyle = .none
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.tableFooterView = UIVIew()
+    tableView.bounces = false
+    tableView.isScrollEnabled = false
+    tableView.tableFooterView = UIView()
     CardTableViewCell.register(in: tableView)
 
     chatButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
@@ -69,8 +83,8 @@ class CardChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
 
     logoView <- [
       Top(70),
-      Bottom(70),
-      CenterX()
+      CenterX(),
+      Height(26)
     ]
 
     chatButton <- [
@@ -79,7 +93,7 @@ class CardChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
     ]
 
     tableView <- [
-      Top().to(logoView),
+      Top(70).to(logoView),
       Bottom().to(chatButton),
       Left(),
       Right()
@@ -93,14 +107,30 @@ class CardChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 2
+    return RegistrationTypeCellData.count
+  }
+
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 170
   }
 
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = CardTableViewCell.instance(tableView)!
-    cell.configure(data: RegistrationTypeCellData(rawValue: indexPath.row))
+    cell.configure(data: RegistrationTypeCellData(rawValue: indexPath.row)!)
     return cell
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    let data = RegistrationTypeCellData(rawValue: indexPath.row)!
+    switch data {
+    case .card:
+      let cardEntryViewController = CardEntryViewController.storyboardInstance()!
+      navigationController?.pushViewController(cardEntryViewController, animated: true)
+    default:
+      break
+    }
   }
 
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RootViewController: UIViewController {
   private(set) static var instance: RootViewController? = nil
@@ -29,10 +30,10 @@ class RootViewController: UIViewController {
   }
 
   override func viewDidLoad() {
-    if ServicesManager.usersService.isAuthorized {
+    if ProfileService.instance.isAuthorized {
       setTabBar()
     } else {
-      setOnboarding()
+      setRegistration()
     }
   }
 

@@ -10,6 +10,7 @@ target 'PASSCITY-iOS' do
   pod 'EasyPeasy', '~> 1.4'
   pod 'KeychainAccess', '~> 3.0'
   pod 'Kingfisher', '~> 3.10'
+  pod 'PhoneNumberKit', '~> 1.2'
 
   # Pods for PASSCITY-iOS
 

@@ -49,5 +49,9 @@ class PassCityNavigationController: UINavigationController, UINavigationControll
     }
     return .lightContent
   }
+
+  override var prefersStatusBarHidden: Bool {
+    return false
+  }
   
 }

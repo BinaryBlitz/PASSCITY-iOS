@@ -37,7 +37,7 @@ class JSONAPIProvider<Target: JSONAPITargetType>: MoyaProvider<Target> {
         switch result {
         case .success(let response):
           if response.statusCode == 401 {
-            ServicesManager.usersService.signOut()
+            //ServicesManager.usersService.signOut()
             return completion(.failure(DataError.noData))
           }
           DispatchQueue.main.async {

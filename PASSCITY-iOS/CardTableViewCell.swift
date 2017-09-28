@@ -14,7 +14,7 @@ import Kingfisher
 class CardTableViewCell: UITableViewCell {
   let cardView = UIView()
   let backgroundImageView = UIImageView()
-  let maskView = UIView()
+  let maskedView = UIView()
   let disclosureIndicatorView = UIImageView(image: #imageLiteral(resourceName: "iconArrowDisclosure").withRenderingMode(.alwaysTemplate))
   let titleLabel = UILabel()
 
@@ -45,11 +45,14 @@ class CardTableViewCell: UITableViewCell {
     cardView.cornerRadius = 8
     cardView.layoutMargins = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
 
-    maskView.backgroundColor = UIColor.clear
+    maskedView.backgroundColor = UIColor.clear
 
     backgroundImageView.clipsToBounds = true
     backgroundImageView.cornerRadius = 8
     backgroundImageView.contentMode = .scaleAspectFill
+
+    titleLabel.textColor = UIColor.white
+    titleLabel.numberOfLines = 0
 
     disclosureIndicatorView.tintColor = UIColor.white
 
@@ -70,7 +73,7 @@ class CardTableViewCell: UITableViewCell {
     cardView.addSubview(backgroundImageView)
     cardView.addSubview(titleLabel)
     cardView.addSubview(disclosureIndicatorView)
-    cardView.addSubview(maskView)
+    cardView.addSubview(maskedView)
 
     backgroundImageView <- [
       Edges()
@@ -89,33 +92,33 @@ class CardTableViewCell: UITableViewCell {
       CenterY()
     ]
 
-    maskView <- [
+    maskedView <- [
       Edges()
     ]
 
   }
 
   func configure(data: RegistrationTypeCellData) {
-    titleLabel.attributedText = data.title
+    titleLabel.attributedText = data.titleAttributed
     backgroundImageView.image = data.image
   }
 
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: true)
     UIView.animate(withDuration: 0.2) { [weak self] in
-      self?.maskView.backgroundColor = selected ? UIColor.white.withAlphaComponent(0.2) : UIColor.clear
+      self?.maskedView.backgroundColor = selected ? UIColor.white.withAlphaComponent(0.2) : UIColor.clear
     }
   }
 
   override func setHighlighted(_ highlighted: Bool, animated: Bool) {
     super.setHighlighted(highlighted, animated: true)
     UIView.animate(withDuration: 0.2) { [weak self] in
-      self?.maskView.backgroundColor = highlighted ? UIColor.white.withAlphaComponent(0.2) : UIColor.clear
+      self?.maskedView.backgroundColor = highlighted ? UIColor.white.withAlphaComponent(0.2) : UIColor.clear
     }
   }
 
   override func prepareForReuse() {
     super.prepareForReuse()
-    backgroundImageView.kf.cancelBackgroundTask()
+    backgroundImageView.kf.cancelDownloadTask()
   }
 }

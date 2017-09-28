@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Moya
 
 // Custom target type. Extension contains default values
 protocol JSONAPITargetType: TargetType {

@@ -11,7 +11,7 @@ import ObjectMapper
 import Moya
 
 class JSONAPISerializedObject: Mappable {
-  private(set) var data: [String: Any]? = nil
+  private(set) var data: JSONAPISerializationData? = nil
   private(set) var included: [JSONAPIResourceObject]? = nil
   private(set) var meta: [String: Any]? = nil
   private(set) var error: DataError.JSONAPIResponseError? = nil
@@ -26,7 +26,7 @@ class JSONAPISerializedObject: Mappable {
   func mapping(map: Map) {
     included <- map["included"]
     meta <- map["meta"]
-    data <- (map["data"])
+    data <- (map["data"], JSONAPISerializationData.Transform())
     error <- map["error"]
   }
 }
