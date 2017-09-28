@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C248C4282436F1B2F1951D2 /* Pods_PASSCITY_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60C0C334177EF8BE0FEA7AA /* Pods_PASSCITY_iOS.framework */; };
+		880903AA1F7D44CA00158EC3 /* AuthorizationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903A91F7D44CA00158EC3 /* AuthorizationPlugin.swift */; };
+		880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903AC1F7D44FD00158EC3 /* StorageHelper.swift */; };
+		880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903AE1F7D459E00158EC3 /* JSONAPIProvider.swift */; };
+		880903B11F7D45F000158EC3 /* JSONAPITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903B01F7D45F000158EC3 /* JSONAPITargetType.swift */; };
+		880903B31F7D469300158EC3 /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903B21F7D469300158EC3 /* NetworkActivityIndicator.swift */; };
+		880903B61F7D46D600158EC3 /* JSONAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903B51F7D46D600158EC3 /* JSONAPIResponse.swift */; };
+		880903B81F7D470800158EC3 /* JSONAPISerializedDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903B71F7D470800158EC3 /* JSONAPISerializedDataObject.swift */; };
+		880903BB1F7D47F400158EC3 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903BA1F7D47F400158EC3 /* DataError.swift */; };
+		880903BD1F7D482B00158EC3 /* JSONAPiResourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903BC1F7D482B00158EC3 /* JSONAPiResourceObject.swift */; };
+		880903C11F7D4AE500158EC3 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903C01F7D4AE500158EC3 /* OnboardingViewController.swift */; };
+		880903C41F7D4BED00158EC3 /* UpdateAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903C31F7D4BED00158EC3 /* UpdateAppViewController.swift */; };
+		880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903C61F7D4C9B00158EC3 /* GoButton.swift */; };
+		880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903C91F7D4D9B00158EC3 /* UIView+IBInspectable.swift */; };
+		880903CC1F7D4E9700158EC3 /* UIFont+PASSCITY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903CB1F7D4E9700158EC3 /* UIFont+PASSCITY.swift */; };
+		880903D01F7D515B00158EC3 /* CardChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903CF1F7D515B00158EC3 /* CardChoiceViewController.swift */; };
+		880903D21F7D519B00158EC3 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903D11F7D519B00158EC3 /* CardTableViewCell.swift */; };
 		888C40381F7C4CC300CAF1EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C40371F7C4CC300CAF1EF /* AppDelegate.swift */; };
 		888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C40391F7C4CC300CAF1EF /* ViewController.swift */; };
 		888C403D1F7C4CC300CAF1EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888C403B1F7C4CC300CAF1EF /* Main.storyboard */; };
@@ -15,6 +32,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5678BD6A11552FF3B6EA2CDE /* Pods-PASSCITY-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSCITY-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5B8B1627985CC7755FD89FA1 /* Pods-PASSCITY-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSCITY-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		880903A91F7D44CA00158EC3 /* AuthorizationPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPlugin.swift; sourceTree = "<group>"; };
+		880903AC1F7D44FD00158EC3 /* StorageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
+		880903AE1F7D459E00158EC3 /* JSONAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPIProvider.swift; sourceTree = "<group>"; };
+		880903B01F7D45F000158EC3 /* JSONAPITargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPITargetType.swift; sourceTree = "<group>"; };
+		880903B21F7D469300158EC3 /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
+		880903B51F7D46D600158EC3 /* JSONAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPIResponse.swift; sourceTree = "<group>"; };
+		880903B71F7D470800158EC3 /* JSONAPISerializedDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPISerializedDataObject.swift; sourceTree = "<group>"; };
+		880903BA1F7D47F400158EC3 /* DataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
+		880903BC1F7D482B00158EC3 /* JSONAPiResourceObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPiResourceObject.swift; sourceTree = "<group>"; };
+		880903C01F7D4AE500158EC3 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		880903C31F7D4BED00158EC3 /* UpdateAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateAppViewController.swift; sourceTree = "<group>"; };
+		880903C61F7D4C9B00158EC3 /* GoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoButton.swift; sourceTree = "<group>"; };
+		880903C91F7D4D9B00158EC3 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
+		880903CB1F7D4E9700158EC3 /* UIFont+PASSCITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+PASSCITY.swift"; sourceTree = "<group>"; };
+		880903CF1F7D515B00158EC3 /* CardChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardChoiceViewController.swift; sourceTree = "<group>"; };
+		880903D11F7D519B00158EC3 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		888C40341F7C4CC300CAF1EF /* PASSCITY-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PASSCITY-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		888C40371F7C4CC300CAF1EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		888C40391F7C4CC300CAF1EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +57,7 @@
 		888C403E1F7C4CC300CAF1EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		888C40411F7C4CC300CAF1EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		888C40431F7C4CC300CAF1EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A60C0C334177EF8BE0FEA7AA /* Pods_PASSCITY_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PASSCITY_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +65,146 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C248C4282436F1B2F1951D2 /* Pods_PASSCITY_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E7D90AD9B86954836CA8065 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5678BD6A11552FF3B6EA2CDE /* Pods-PASSCITY-iOS.debug.xcconfig */,
+				5B8B1627985CC7755FD89FA1 /* Pods-PASSCITY-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7F73771F09CA846AA8730922 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A60C0C334177EF8BE0FEA7AA /* Pods_PASSCITY_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		880903A61F7D3AAB00158EC3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				880903A71F7D444D00158EC3 /* JSONAPI */,
+				880903B41F7D46B400158EC3 /* Serialization */,
+				880903BA1F7D47F400158EC3 /* DataError.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		880903A71F7D444D00158EC3 /* JSONAPI */ = {
+			isa = PBXGroup;
+			children = (
+				880903A81F7D445400158EC3 /* Plugin */,
+				880903AE1F7D459E00158EC3 /* JSONAPIProvider.swift */,
+				880903B01F7D45F000158EC3 /* JSONAPITargetType.swift */,
+			);
+			name = JSONAPI;
+			sourceTree = "<group>";
+		};
+		880903A81F7D445400158EC3 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				880903A91F7D44CA00158EC3 /* AuthorizationPlugin.swift */,
+			);
+			name = Plugin;
+			sourceTree = "<group>";
+		};
+		880903AB1F7D44F100158EC3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				880903AC1F7D44FD00158EC3 /* StorageHelper.swift */,
+				880903B21F7D469300158EC3 /* NetworkActivityIndicator.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		880903B41F7D46B400158EC3 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				880903B51F7D46D600158EC3 /* JSONAPIResponse.swift */,
+				880903B71F7D470800158EC3 /* JSONAPISerializedDataObject.swift */,
+				880903BC1F7D482B00158EC3 /* JSONAPiResourceObject.swift */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+		880903BE1F7D4AC700158EC3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				880903C81F7D4D8B00158EC3 /* Extensions */,
+				880903C51F7D4C8900158EC3 /* Common */,
+				880903BF1F7D4ACA00158EC3 /* Onboarding */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		880903BF1F7D4ACA00158EC3 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				880903C31F7D4BED00158EC3 /* UpdateAppViewController.swift */,
+				880903CE1F7D50D900158EC3 /* CardChoice */,
+				880903C21F7D4BD900158EC3 /* UpdateApp */,
+				880903C01F7D4AE500158EC3 /* OnboardingViewController.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		880903C21F7D4BD900158EC3 /* UpdateApp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UpdateApp;
+			sourceTree = "<group>";
+		};
+		880903C51F7D4C8900158EC3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				880903CD1F7D50AE00158EC3 /* Table View Cells */,
+				880903C61F7D4C9B00158EC3 /* GoButton.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		880903C81F7D4D8B00158EC3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				880903C91F7D4D9B00158EC3 /* UIView+IBInspectable.swift */,
+				880903CB1F7D4E9700158EC3 /* UIFont+PASSCITY.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		880903CD1F7D50AE00158EC3 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				880903D11F7D519B00158EC3 /* CardTableViewCell.swift */,
+			);
+			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		880903CE1F7D50D900158EC3 /* CardChoice */ = {
+			isa = PBXGroup;
+			children = (
+				880903CF1F7D515B00158EC3 /* CardChoiceViewController.swift */,
+			);
+			name = CardChoice;
+			sourceTree = "<group>";
+		};
 		888C402B1F7C4CC200CAF1EF = {
 			isa = PBXGroup;
 			children = (
 				888C40361F7C4CC300CAF1EF /* PASSCITY-iOS */,
 				888C40351F7C4CC300CAF1EF /* Products */,
+				0E7D90AD9B86954836CA8065 /* Pods */,
+				7F73771F09CA846AA8730922 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +219,9 @@
 		888C40361F7C4CC300CAF1EF /* PASSCITY-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				880903BE1F7D4AC700158EC3 /* UI */,
+				880903AB1F7D44F100158EC3 /* Util */,
+				880903A61F7D3AAB00158EC3 /* API */,
 				888C40371F7C4CC300CAF1EF /* AppDelegate.swift */,
 				888C40391F7C4CC300CAF1EF /* ViewController.swift */,
 				888C403B1F7C4CC300CAF1EF /* Main.storyboard */,
@@ -71,9 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 888C40461F7C4CC300CAF1EF /* Build configuration list for PBXNativeTarget "PASSCITY-iOS" */;
 			buildPhases = (
+				69D207359CDD573A4DF5F39D /* [CP] Check Pods Manifest.lock */,
 				888C40301F7C4CC200CAF1EF /* Sources */,
 				888C40311F7C4CC200CAF1EF /* Frameworks */,
 				888C40321F7C4CC200CAF1EF /* Resources */,
+				DD892CB8C81BF98363EB0728 /* [CP] Embed Pods Frameworks */,
+				388FAD0FEC3A121EB27C2D04 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +302,95 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		388FAD0FEC3A121EB27C2D04 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69D207359CDD573A4DF5F39D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PASSCITY-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD892CB8C81BF98363EB0728 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EasyPeasy/EasyPeasy.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPeasy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		888C40301F7C4CC200CAF1EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880903CC1F7D4E9700158EC3 /* UIFont+PASSCITY.swift in Sources */,
+				880903BB1F7D47F400158EC3 /* DataError.swift in Sources */,
+				880903BD1F7D482B00158EC3 /* JSONAPiResourceObject.swift in Sources */,
+				880903D01F7D515B00158EC3 /* CardChoiceViewController.swift in Sources */,
+				880903B31F7D469300158EC3 /* NetworkActivityIndicator.swift in Sources */,
+				880903AA1F7D44CA00158EC3 /* AuthorizationPlugin.swift in Sources */,
 				888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */,
+				880903D21F7D519B00158EC3 /* CardTableViewCell.swift in Sources */,
+				880903B61F7D46D600158EC3 /* JSONAPIResponse.swift in Sources */,
+				880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */,
+				880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */,
+				880903C41F7D4BED00158EC3 /* UpdateAppViewController.swift in Sources */,
+				880903C11F7D4AE500158EC3 /* OnboardingViewController.swift in Sources */,
 				888C40381F7C4CC300CAF1EF /* AppDelegate.swift in Sources */,
+				880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */,
+				880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */,
+				880903B81F7D470800158EC3 /* JSONAPISerializedDataObject.swift in Sources */,
+				880903B11F7D45F000158EC3 /* JSONAPITargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +511,7 @@
 		};
 		888C40471F7C4CC300CAF1EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5678BD6A11552FF3B6EA2CDE /* Pods-PASSCITY-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PASSCITY-iOS/Info.plist";
@@ -270,6 +524,7 @@
 		};
 		888C40481F7C4CC300CAF1EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B8B1627985CC7755FD89FA1 /* Pods-PASSCITY-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PASSCITY-iOS/Info.plist";
@@ -299,6 +554,7 @@
 				888C40481F7C4CC300CAF1EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
