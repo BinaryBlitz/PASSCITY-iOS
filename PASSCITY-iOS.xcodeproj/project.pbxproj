@@ -40,6 +40,7 @@
 		888C40421F7C4CC300CAF1EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888C40401F7C4CC300CAF1EF /* LaunchScreen.storyboard */; };
 		88C3496F1F7D95970003C9D4 /* BarcodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3496E1F7D95970003C9D4 /* BarcodeScanViewController.swift */; };
 		88C349721F7DAB7F0003C9D4 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */; };
+		88C349741F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88C349731F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard */; };
 		88DCB9CA1F7D838F0058DBF6 /* UIColor+PASSCITY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */; };
 		88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		888C40431F7C4CC300CAF1EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88C3496E1F7D95970003C9D4 /* BarcodeScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScanViewController.swift; sourceTree = "<group>"; };
 		88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
+		88C349731F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalInfoViewController.storyboard; sourceTree = "<group>"; };
 		88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PASSCITY.swift"; sourceTree = "<group>"; };
 		88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		A60C0C334177EF8BE0FEA7AA /* Pods_PASSCITY_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PASSCITY_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */,
+				88C349731F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard */,
 			);
 			name = PersonalInfo;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				880903E31F7D6C2900158EC3 /* CardEntryViewController.storyboard in Resources */,
+				88C349741F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard in Resources */,
 				888C40421F7C4CC300CAF1EF /* LaunchScreen.storyboard in Resources */,
 				888C403F1F7C4CC300CAF1EF /* Assets.xcassets in Resources */,
 				88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */,
