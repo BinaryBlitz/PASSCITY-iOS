@@ -33,9 +33,14 @@ class CardEntryViewController: UIViewController {
   @IBAction func chatButtonAction(_ sender: Any) {
 
   }
+  @IBAction func confirmButtonAction(_ sender: Any) {
+    let viewController = PersonalInfoViewController.storyboardInstance()!
+    navigationController?.pushViewController(viewController, animated: true)
+  }
 
   @IBAction func skipButtonAction(_ sender: Any) {
-    
+    let viewController = PersonalInfoViewController.storyboardInstance()!
+    navigationController?.pushViewController(viewController, animated: true)
   }
 
   var isValid: Bool = true {

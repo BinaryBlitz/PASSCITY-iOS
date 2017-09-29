@@ -51,7 +51,7 @@ enum RegistrationTypeCellData: Int {
 
 class CardChoiceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   let logoView = UIImageView(image: #imageLiteral(resourceName: "logo"))
-  let chatButton = UIButton()
+  let chatButton = UIButton(type: .system)
   let tableView = UITableView()
 
   override func viewDidLoad() {
@@ -73,6 +73,7 @@ class CardChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
     CardTableViewCell.register(in: tableView)
 
     chatButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
+    chatButton.tintColor = .black
 
   }
 

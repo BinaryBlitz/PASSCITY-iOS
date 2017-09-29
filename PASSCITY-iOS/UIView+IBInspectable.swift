@@ -117,7 +117,7 @@ extension UITextField {
   }
   @IBInspectable var firstColor: UIColor = .black
   @IBInspectable var gradientBackgroundColor: UIColor = .clear
-  @IBInspectable var axis: Axis = .vertical {
+  var axis: Axis = .vertical {
     didSet {
       reconfigureGradient()
     }

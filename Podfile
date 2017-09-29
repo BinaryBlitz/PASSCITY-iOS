@@ -7,10 +7,10 @@ target 'PASSCITY-iOS' do
 
   pod 'Moya', '~> 8.0'
   pod 'ObjectMapper', '~> 2.2'
-  pod 'EasyPeasy', '~> 1.4'
-  pod 'KeychainAccess', '~> 3.0'
-  pod 'Kingfisher', '~> 3.10'
-  pod 'PhoneNumberKit', '~> 1.2'
+  pod 'EasyPeasy', '~> 1.5'
+  pod 'KeychainAccess', '~> 3.1'
+  pod 'Kingfisher', '~> 3.13'
+  pod 'PhoneNumberKit', '~> 1.4'
   pod 'JVFloatLabeledTextField', '~> 1.2'
 
   # Pods for PASSCITY-iOS
