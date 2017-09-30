@@ -704,7 +704,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				INFOPLIST_FILE = "$(SRCROOT)/PASSCITY/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -729,15 +729,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				INFOPLIST_FILE = "$(SRCROOT)/PASSCITY/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.Passcity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1ba41a37-c43f-4346-98e3-9faf4d76e5db";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore ru.binaryblitz.Passcity";
+				PROVISIONING_PROFILE = "df015b1c-9a10-498e-bfcb-69dabbabd07c";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc ru.binaryblitz.Passcity";
 				SWIFT_OBJC_BRIDGING_HEADER = "PASSCITY/Supporting/PASSCITY-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
