@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'PASSCITY-iOS' do
+target 'PASSCITY' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
@@ -13,6 +13,6 @@ target 'PASSCITY-iOS' do
   pod 'PhoneNumberKit', '~> 1.4'
   pod 'JVFloatLabeledTextField', '~> 1.2'
 
-  # Pods for PASSCITY-iOS
+  # Pods for PASSCITY
 
 end
