@@ -11,6 +11,12 @@ import Moya
 
 // Custom target type. Extension contains default values
 protocol JSONAPITargetType: TargetType {
+
+  // Parameters that will be composed with login data into params object
+  var jsonAPIParams: [String: Any]? { get }
+
+  // Indicates whether login data should be included
+  var includeLogin: Bool { get }
 }
 
 extension JSONAPITargetType {
@@ -25,6 +31,14 @@ extension JSONAPITargetType {
     default:
       return URLEncoding.default
     }
+  }
+
+  var parameters: [String: Any]? {
+    var params: [String: Any] = jsonAPIParams ?? [:]
+    if includeLogin {
+      params["login"] = ProfileService.instance.currentLoginData.toJSON()
+    }
+    return ["params": params]
   }
 
   var task: Task {

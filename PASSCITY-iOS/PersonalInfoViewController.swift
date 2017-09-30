@@ -8,8 +8,7 @@
 
 import Foundation
 import UIKit
-
-private let emailRegexp = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+import SafariServices
 
 class PersonalInfoViewController: UIViewController {
   @IBOutlet weak var nameField: JVFloatLabeledTextField!
@@ -25,9 +24,32 @@ class PersonalInfoViewController: UIViewController {
   @IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
 
   @IBAction func confirmButtonAction(_ sender: Any) {
+    confirmButton.isEnabled = false
+    chatButton.isEnabled = false
+    view.endEditing(true)
+
+    ProfileService.instance.auth(name: nameField.text, email: emailField.text, phone: phoneNumberField.text?.onlyDigits) { [weak self] result in
+      self?.confirmButton.isEnabled = true
+      self?.chatButton.isEnabled = true
+
+      switch result {
+      case .success:
+        LocationService.instance.startMonitoring()
+        NotificationService.instance.configure()
+        let viewController = CodeConfirmViewController.storyboardInstance()!
+        self?.navigationController?.pushViewController(viewController, animated: true)
+      case .failure(let error):
+        self?.presentErrorAlert(message: error.localizedDescription)
+      }
+    }
+
   }
 
   @IBAction func skipButtonAction(_ sender: Any) {
+    let viewController = SFSafariViewController(url: Constants.passCitySkipUrl)
+    viewController.preferredControlTintColor = .black
+
+    present(viewController, animated: true)
   }
 
   @IBAction func textFieldEditingChanged(_ sender: Any) {
@@ -48,7 +70,7 @@ class PersonalInfoViewController: UIViewController {
     guard let text = emailField.text, !text.isEmpty else {
       return false
     }
-    return NSPredicate(format: "SELF MATCHES %@", emailRegexp).evaluate(with: text)
+    return NSPredicate(format: "SELF MATCHES %@", Constants.emailRegexp).evaluate(with: text)
   }
 
   var phoneIsValid: Bool {
@@ -68,17 +90,29 @@ class PersonalInfoViewController: UIViewController {
   }
 
   override func viewDidLoad() {
-    validateForm()
-    hideKeyboardWhenTappedAround()
+    navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logoNavbarRb"))
+
     maskedPhoneInput.configure(textField: phoneNumberField)
     maskedPhoneInput.isValidHandler = { [weak self] _ in
       self?.validateForm()
     }
     maskedPhoneInput.returnHandler = { self.view.endEditing(true) }
+
+    let currentUser = ProfileService.instance.currentLoginData
+    nameField.text = currentUser.name
+    emailField.text = currentUser.email
+    if let phone = currentUser.phone?.onlyDigits, !phone.isEmpty {
+      phoneNumberField.text = "+\(phone)"
+      maskedPhoneInput.textFieldDidChange()
+    }
+
+    validateForm()
+    hideKeyboardWhenTappedAround()
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    self.observers = bottomLayoutConstraint.addObserversUpdateWithKeyboard(view: view)
   }
 
   override func viewWillDisappear(_ animated: Bool) {

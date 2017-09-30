@@ -11,6 +11,9 @@ import Foundation
 import Moya
 import Result
 
+typealias ServiceResult<Object> = Result<Object, DataError>
+typealias ServiceCompletion<Object> = ((ServiceResult<Object>) -> Void)
+
 // This provider automatically serializes response to a format suitable for mapping with ObjectMapper
 class JSONAPIProvider<Target: JSONAPITargetType>: MoyaProvider<Target> {
   typealias JSONAPIResult = Result<JSONAPIResponse, DataError>
@@ -30,18 +33,15 @@ class JSONAPIProvider<Target: JSONAPITargetType>: MoyaProvider<Target> {
   func callAPI(_ target: Target, completion: @escaping JSONAPICompletion) -> Cancellable {
     debugPrint("JSON API Started request to path: \(target.path), method: \(target.method)")
 
-    var target = target
-
     return self.request(target, queue: nil) { result in
       DispatchQueue(label: "Parsing").async {
         switch result {
         case .success(let response):
-          if response.statusCode == 401 {
-            //ServicesManager.usersService.signOut()
-            return completion(.failure(DataError.noData))
-          }
+          let jsonAPIResponse = JSONAPIResponse(response)
           DispatchQueue.main.async {
-            let jsonAPIResponse = JSONAPIResponse(response)
+            if let login = jsonAPIResponse.login {
+              ProfileService.instance.validateLoginResponseData(data: login)
+            }
             if let error = jsonAPIResponse.error {
               return completion(.failure(error))
             } else {
@@ -68,7 +68,6 @@ class JSONAPIProvider<Target: JSONAPITargetType>: MoyaProvider<Target> {
     trackInflights: Bool = false
     ) {
     var plugins = plugins
-    plugins.append(BearerTokenPlugin())
     plugins.append(networkActivityPlugin)
     plugins.append(NetworkLoggerPlugin(verbose: true))
     super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins, trackInflights: trackInflights)

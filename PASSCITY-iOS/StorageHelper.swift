@@ -23,10 +23,6 @@ class StorageHelper {
   enum StorageKey: String {
     case currentProfile
     case accessToken
-    case currentCity
-    case futureBookings
-    case pastBookings
-    case favoriteStudios
 
     var storageType: StorageType {
       switch self {

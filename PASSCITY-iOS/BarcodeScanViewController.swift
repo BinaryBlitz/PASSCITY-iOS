@@ -41,6 +41,7 @@ class BarcodeScanViewController: UIViewController {
         return
       }
       frameImageView.tintColor = UIColor.green
+      codeDidPickHandler?(pickedCode)
     }
   }
 
@@ -53,23 +54,29 @@ class BarcodeScanViewController: UIViewController {
 
   func setupCodeScan() {
     let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-    guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
+    do {
+      let input = try AVCaptureDeviceInput(device: captureDevice)
 
-    captureSession = AVCaptureSession()
+      captureSession = AVCaptureSession()
 
-    captureSession?.addInput(input)
+      captureSession?.addInput(input)
 
-    let captureMetadataOutput = AVCaptureMetadataOutput()
-    captureSession?.addOutput(captureMetadataOutput)
+      let captureMetadataOutput = AVCaptureMetadataOutput()
+      captureSession?.addOutput(captureMetadataOutput)
 
-    captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-    captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
+      captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+      captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
 
-    videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-    videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-    qrCodeFrameView.layer.addSublayer(videoPreviewLayer!)
+      videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+      videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+      qrCodeFrameView.layer.addSublayer(videoPreviewLayer!)
 
-    captureSession?.startRunning()
+      captureSession?.startRunning()
+
+    } catch let error {
+      debugPrint("CAMERA ERROR : \(error)")
+    }
+
   }
 
   func setupView() {
@@ -94,7 +101,6 @@ class BarcodeScanViewController: UIViewController {
   func codeContainerDidTap() {
     guard let pickedCode = pickedCode, !pickedCode.isEmpty else { return }
     codeDidPickHandler?(pickedCode)
-    dismiss(animated: true, completion: nil)
   }
 
   func closeButtonAction() {

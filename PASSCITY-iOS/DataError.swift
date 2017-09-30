@@ -37,15 +37,15 @@ enum DataError: Swift.Error, CustomStringConvertible {
   }
 
   class JSONAPIResponseError: Mappable {
-    private(set) var id: String = ""
+    private(set) var id: Int = 0
     private(set) var msg: String = ""
     private(set) var code: Code? = nil
 
     required init?(map: Map) { }
 
     func mapping(map: Map) {
-      id <- map["status"]
-      msg <- map["message"]
+      id <- map["id"]
+      msg <- map["msg"]
       code <- (map["id"], EnumTransform<Code>())
     }
 

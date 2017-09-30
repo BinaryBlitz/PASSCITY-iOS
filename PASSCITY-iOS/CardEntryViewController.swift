@@ -14,6 +14,7 @@ class CardEntryViewController: UIViewController {
   @IBOutlet weak var cardNumberField: UITextField!
   @IBOutlet weak var confirmButton: GoButton!
   @IBOutlet weak var scanCodeButton: UIButton!
+  @IBOutlet weak var scanCodeTextButton: UIButton!
   @IBOutlet weak var skipButton: UIButton!
   @IBOutlet weak var retryLeftCountLabel: UILabel!
   @IBOutlet weak var iconDoneImageView: UIImageView!
@@ -21,9 +22,24 @@ class CardEntryViewController: UIViewController {
 
   var observers: [Any] = []
 
+  var leftTries = 3 {
+    didSet {
+      ProfileService.instance.cardInputTriesLeft = leftTries
+      retryLeftCountLabel.text = "Осталось \(leftTries.getRussianNumEnding(["попытка", "попытки", "попыток"]))"
+      if leftTries == 0 {
+        scanCodeButton.isEnabled = false
+        scanCodeTextButton.isEnabled = false
+        confirmButton.isEnabled = false
+        cardNumberField.isEnabled = false
+        presentAlert(title: nil, message: "Доступных попыток ввода карты не осталось")
+      }
+    }
+  }
+
   @IBAction func scanCodeButtonsAction(_ sender: Any) {
     let viewController = BarcodeScanViewController()
     viewController.codeDidPickHandler = { [weak self] code in
+      viewController.dismiss(animated: true, completion: nil)
       self?.cardNumberField.text = code
       self?.barCodeMaskedInput.textFieldDidChange()
     }
@@ -33,9 +49,26 @@ class CardEntryViewController: UIViewController {
   @IBAction func chatButtonAction(_ sender: Any) {
 
   }
+  
   @IBAction func confirmButtonAction(_ sender: Any) {
-    let viewController = PersonalInfoViewController.storyboardInstance()!
-    navigationController?.pushViewController(viewController, animated: true)
+    guard let cardNumber = cardNumberField.text?.onlyDigits, !cardNumber.isEmpty else { return }
+    confirmButton.isEnabled = false
+    cardNumberField.isEnabled = false
+
+    ProfileService.instance.auth(barCode: cardNumber) { [weak self] result in
+      self?.confirmButton.isEnabled = true
+      self?.cardNumberField.isEnabled = true
+
+      switch result {
+      case .success:
+        let viewController = PersonalInfoViewController.storyboardInstance()!
+        self?.navigationController?.pushViewController(viewController, animated: true)
+      case .failure(let error):
+        self?.cardNumberField.text = ""
+        self?.presentErrorAlert(message: error.localizedDescription)
+        self?.leftTries -= 1
+      }
+    }
   }
 
   @IBAction func skipButtonAction(_ sender: Any) {
@@ -68,6 +101,7 @@ class CardEntryViewController: UIViewController {
     barCodeMaskedInput.returnHandler = { self.view.endEditing(true) }
     barCodeMaskedInput.isValidHandler = { self.isValid = $0 }
 
+    leftTries = ProfileService.instance.cardInputTriesLeft
     hideKeyboardWhenTappedAround()
   }
 

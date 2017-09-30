@@ -16,23 +16,23 @@ import UIKit
 
   override var isEnabled: Bool {
     didSet {
-      if !isEnabled {
-        alpha = 0.6
-      } else {
-        alpha = 1
-      }
+      let isEnabled = self.isEnabled
+      UIView.animate(withDuration: animationDuration, animations: { [weak self] in
+        self?.backgroundColor = !isEnabled ? UIColor.disabledBtnColor : self?.defaultBackgroundColor
+        self?.alpha = !isEnabled ? 0.5 : 1
+        self?.layoutIfNeeded()
+      })
     }
   }
 
   override var isHighlighted: Bool {
     didSet {
-      if isHighlighted {
-        self.backgroundColor = self.defaultBackgroundColor.darker()
-      } else {
-        UIView.animate(withDuration: animationDuration, animations: {
-          self.backgroundColor = self.defaultBackgroundColor
-        })
-      }
+      let isHighlighted = self.isHighlighted
+      guard isEnabled else { return }
+      UIView.animate(withDuration: animationDuration, animations: { [weak self] in
+        self?.backgroundColor = isHighlighted ? self?.defaultBackgroundColor.darker() : self?.defaultBackgroundColor
+        self?.layoutIfNeeded()
+      })
     }
   }
 

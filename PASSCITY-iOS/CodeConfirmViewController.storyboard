@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="du3-M2-dpr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!-- -->
+        <scene sceneID="4rp-ob-zfD">
+            <objects>
+                <viewController title=" " id="du3-M2-dpr" customClass="CodeConfirmViewController" customModule="PASSCITY_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Abf-DC-Uru"/>
+                        <viewControllerLayoutGuide type="bottom" id="ySO-1W-PyU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BZ9-pS-1Gs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXx-Fq-u3v">
+                                <rect key="frame" x="0.0" y="10" width="375" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код, отправленный вам в SMS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GS5-AZ-tpG">
+                                        <rect key="frame" x="30" y="90" width="315" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0 0 0 0 0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rin-9r-6ub">
+                                        <rect key="frame" x="30" y="213" width="315.5" height="29"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aO9-tJ-IWH">
+                                        <rect key="frame" x="30" y="252" width="315" height="1"/>
+                                        <color key="backgroundColor" red="0.83912390469999998" green="0.83926850559999999" blue="0.83911478520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="LLC-uH-tHF"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-dT-nVn" customClass="GoButton" customModule="PASSCITY_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="87.5" y="509" width="200" height="48"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="ebl-5i-JSb"/>
+                                            <constraint firstAttribute="width" constant="200" id="kNP-4Z-3i8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <state key="normal" title="ПОДТВЕРДИТЬ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="confirmButtonAction:" destination="du3-M2-dpr" eventType="touchUpInside" id="5bL-Nd-eBz"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDone" translatesAutoresizingMaskIntoConstraints="NO" id="TxK-HK-Qco">
+                                        <rect key="frame" x="325" y="217.5" width="20" height="20"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqt-Hu-n6g">
+                                        <rect key="frame" x="122" y="293" width="131" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <state key="normal" title="Выслать повторно">
+                                            <color key="titleColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendAgainButtonAction:" destination="du3-M2-dpr" eventType="touchUpInside" id="MOG-Hm-u3x"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Nng-dT-nVn" secondAttribute="bottom" constant="10" id="0hT-cg-MSq"/>
+                                    <constraint firstItem="Nng-dT-nVn" firstAttribute="centerX" secondItem="yXx-Fq-u3v" secondAttribute="centerX" id="2hQ-L1-yPT"/>
+                                    <constraint firstItem="GS5-AZ-tpG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yXx-Fq-u3v" secondAttribute="top" constant="20" id="5o9-vx-aaI"/>
+                                    <constraint firstItem="TxK-HK-Qco" firstAttribute="trailing" secondItem="aO9-tJ-IWH" secondAttribute="trailing" id="7ky-84-rSK"/>
+                                    <constraint firstItem="Nng-dT-nVn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bqt-Hu-n6g" secondAttribute="bottom" constant="10" id="8uk-yY-S5O"/>
+                                    <constraint firstAttribute="trailing" secondItem="aO9-tJ-IWH" secondAttribute="trailing" constant="30" id="EQF-Ch-FLd"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nng-dT-nVn" secondAttribute="bottom" priority="500" constant="90" id="GgB-Aa-MmB"/>
+                                    <constraint firstItem="aO9-tJ-IWH" firstAttribute="top" secondItem="rin-9r-6ub" secondAttribute="bottom" constant="10" id="GmK-em-eUn"/>
+                                    <constraint firstItem="rin-9r-6ub" firstAttribute="top" secondItem="GS5-AZ-tpG" secondAttribute="bottom" priority="500" constant="70" id="R3q-UE-May"/>
+                                    <constraint firstItem="GS5-AZ-tpG" firstAttribute="leading" secondItem="yXx-Fq-u3v" secondAttribute="leading" constant="30" id="X8I-Ls-LPD"/>
+                                    <constraint firstItem="TxK-HK-Qco" firstAttribute="centerY" secondItem="rin-9r-6ub" secondAttribute="centerY" id="YMO-4H-pdw"/>
+                                    <constraint firstItem="bqt-Hu-n6g" firstAttribute="top" secondItem="aO9-tJ-IWH" secondAttribute="bottom" constant="40" id="YUU-68-XQR"/>
+                                    <constraint firstItem="bqt-Hu-n6g" firstAttribute="centerX" secondItem="yXx-Fq-u3v" secondAttribute="centerX" id="b8X-ZV-xvy"/>
+                                    <constraint firstItem="GS5-AZ-tpG" firstAttribute="centerX" secondItem="yXx-Fq-u3v" secondAttribute="centerX" id="dWG-D1-Y9h"/>
+                                    <constraint firstItem="rin-9r-6ub" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GS5-AZ-tpG" secondAttribute="bottom" constant="20" id="dgp-dP-KLr"/>
+                                    <constraint firstItem="aO9-tJ-IWH" firstAttribute="leading" secondItem="yXx-Fq-u3v" secondAttribute="leading" constant="30" id="k35-cu-OTx"/>
+                                    <constraint firstAttribute="trailing" secondItem="GS5-AZ-tpG" secondAttribute="trailing" constant="30" id="kSh-3B-XvV"/>
+                                    <constraint firstItem="GS5-AZ-tpG" firstAttribute="top" secondItem="yXx-Fq-u3v" secondAttribute="top" priority="500" constant="90" id="lef-sB-tg9"/>
+                                    <constraint firstItem="rin-9r-6ub" firstAttribute="leading" secondItem="aO9-tJ-IWH" secondAttribute="leading" id="mFw-NV-jMM"/>
+                                    <constraint firstItem="rin-9r-6ub" firstAttribute="trailing" secondItem="aO9-tJ-IWH" secondAttribute="trailing" id="o0g-yv-wry"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yXx-Fq-u3v" firstAttribute="top" secondItem="Abf-DC-Uru" secondAttribute="bottom" id="VXk-h9-cO6"/>
+                            <constraint firstItem="ySO-1W-PyU" firstAttribute="top" secondItem="yXx-Fq-u3v" secondAttribute="bottom" id="ZY2-BG-WBg"/>
+                            <constraint firstItem="yXx-Fq-u3v" firstAttribute="leading" secondItem="BZ9-pS-1Gs" secondAttribute="leading" id="l28-Ie-ntd"/>
+                            <constraint firstAttribute="trailing" secondItem="yXx-Fq-u3v" secondAttribute="trailing" id="lnZ-Cu-N8U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9n7-Tj-Bxn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="awe-qU-a0b">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ahs-Gt-Mnb"/>
+                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="bottomLayoutConstraint" destination="ZY2-BG-WBg" id="c4y-F1-z2g"/>
+                        <outlet property="codeField" destination="rin-9r-6ub" id="e77-Zk-vDd"/>
+                        <outlet property="confirmButton" destination="Nng-dT-nVn" id="IZu-Hc-RnB"/>
+                        <outlet property="iconDoneImageView" destination="TxK-HK-Qco" id="zQf-As-XeH"/>
+                        <outlet property="sendAgainButton" destination="bqt-Hu-n6g" id="BEC-3O-Waf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vOV-uY-IrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.6" y="215.44227886056973"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="iconDone" width="20" height="20"/>
+    </resources>
+</document>

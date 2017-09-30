@@ -14,30 +14,25 @@ class JSONAPIResponse {
   private let response: Moya.Response?
   private let serializedDataObject: JSONAPISerializedObject?
 
-  var meta: [String: Any?] {
-    return serializedDataObject?.meta ?? [:]
-  }
-
-  var serializedData: Any? {
-    return serializedDataObject?.serializedObject
+  var login: LoginData? {
+    return serializedDataObject?.login
   }
 
   var data: Any? {
-    return response?.data
+    return serializedDataObject?.data
   }
 
   var error: DataError? {
     do {
       guard let moyaResponse = response else { return .noData }
+      if let jsonAPIError = serializedDataObject?.error, jsonAPIError.id != 0 {
+        return .jsonAPIError(jsonAPIError)
+      }
       _ = try moyaResponse.filterSuccessfulStatusCodes()
       return nil
     } catch let moyaError {
-      if let jsonAPIError = serializedDataObject?.error {
-        return .jsonAPIError(jsonAPIError)
-      } else {
-        guard let moyaError = moyaError as? MoyaError else { return .noData }
-        return .moyaError(moyaError)
-      }
+      guard let moyaError = moyaError as? MoyaError else { return .noData }
+      return .moyaError(moyaError)
     }
   }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C248C4282436F1B2F1951D2 /* Pods_PASSCITY_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60C0C334177EF8BE0FEA7AA /* Pods_PASSCITY_iOS.framework */; };
-		880903AA1F7D44CA00158EC3 /* AuthorizationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903A91F7D44CA00158EC3 /* AuthorizationPlugin.swift */; };
 		880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903AC1F7D44FD00158EC3 /* StorageHelper.swift */; };
 		880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903AE1F7D459E00158EC3 /* JSONAPIProvider.swift */; };
 		880903B11F7D45F000158EC3 /* JSONAPITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903B01F7D45F000158EC3 /* JSONAPITargetType.swift */; };
@@ -34,6 +33,11 @@
 		880903E71F7D7B5500158EC3 /* NSLayoutConstraint+observeKeyboardChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903E61F7D7B5500158EC3 /* NSLayoutConstraint+observeKeyboardChange.swift */; };
 		880903EA1F7D7CAA00158EC3 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903E91F7D7CAA00158EC3 /* ProfileService.swift */; };
 		880903ED1F7D7D2A00158EC3 /* UIViewController+storyboardInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903EC1F7D7D2A00158EC3 /* UIViewController+storyboardInstance.swift */; };
+		8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5221F7EB1D8009D58C7 /* LocationService.swift */; };
+		8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */; };
+		88858E401F7F2EFA002D2B75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88858E3F1F7F2EFA002D2B75 /* Constants.swift */; };
+		88858E421F7F3160002D2B75 /* Int+getRussianEnumEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88858E411F7F3160002D2B75 /* Int+getRussianEnumEndings.swift */; };
+		88858E441F7F3722002D2B75 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88858E431F7F3722002D2B75 /* NotificationService.swift */; };
 		888C40381F7C4CC300CAF1EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C40371F7C4CC300CAF1EF /* AppDelegate.swift */; };
 		888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C40391F7C4CC300CAF1EF /* ViewController.swift */; };
 		888C403F1F7C4CC300CAF1EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888C403E1F7C4CC300CAF1EF /* Assets.xcassets */; };
@@ -43,13 +47,16 @@
 		88C349741F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88C349731F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard */; };
 		88DCB9CA1F7D838F0058DBF6 /* UIColor+PASSCITY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */; };
 		88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */; };
-		88E12A7C1F7E358000EB23ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E12A7B1F7E357F00EB23ED /* User.swift */; };
+		88E12A7E1F7E386800EB23ED /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E12A7D1F7E386700EB23ED /* LoginData.swift */; };
+		88E12A801F7E3D9D00EB23ED /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */; };
+		88FD35FF1F7F19D100584BE0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD35FE1F7F19D100584BE0 /* BaseView.swift */; };
+		88FD36021F7F229200584BE0 /* CodeConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD36011F7F229200584BE0 /* CodeConfirmViewController.swift */; };
+		88FD36041F7F236100584BE0 /* CodeConfirmViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FD36031F7F236100584BE0 /* CodeConfirmViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5678BD6A11552FF3B6EA2CDE /* Pods-PASSCITY-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSCITY-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5B8B1627985CC7755FD89FA1 /* Pods-PASSCITY-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSCITY-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		880903A91F7D44CA00158EC3 /* AuthorizationPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPlugin.swift; sourceTree = "<group>"; };
 		880903AC1F7D44FD00158EC3 /* StorageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		880903AE1F7D459E00158EC3 /* JSONAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPIProvider.swift; sourceTree = "<group>"; };
 		880903B01F7D45F000158EC3 /* JSONAPITargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPITargetType.swift; sourceTree = "<group>"; };
@@ -75,6 +82,11 @@
 		880903E61F7D7B5500158EC3 /* NSLayoutConstraint+observeKeyboardChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+observeKeyboardChange.swift"; sourceTree = "<group>"; };
 		880903E91F7D7CAA00158EC3 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		880903EC1F7D7D2A00158EC3 /* UIViewController+storyboardInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardInstance.swift"; sourceTree = "<group>"; };
+		8847E5221F7EB1D8009D58C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTarget.swift; sourceTree = "<group>"; };
+		88858E3F1F7F2EFA002D2B75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		88858E411F7F3160002D2B75 /* Int+getRussianEnumEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+getRussianEnumEndings.swift"; sourceTree = "<group>"; };
+		88858E431F7F3722002D2B75 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		888C40341F7C4CC300CAF1EF /* PASSCITY-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PASSCITY-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		888C40371F7C4CC300CAF1EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		888C40391F7C4CC300CAF1EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +99,11 @@
 		88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PASSCITY.swift"; sourceTree = "<group>"; };
 		88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
 		88E12A791F7E046000EB23ED /* PASSCITY-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PASSCITY-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		88E12A7B1F7E357F00EB23ED /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		88E12A7D1F7E386700EB23ED /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		88FD35FE1F7F19D100584BE0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		88FD36011F7F229200584BE0 /* CodeConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeConfirmViewController.swift; sourceTree = "<group>"; };
+		88FD36031F7F236100584BE0 /* CodeConfirmViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CodeConfirmViewController.storyboard; sourceTree = "<group>"; };
 		A60C0C334177EF8BE0FEA7AA /* Pods_PASSCITY_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PASSCITY_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,29 +139,13 @@
 		880903A61F7D3AAB00158EC3 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				880903A71F7D444D00158EC3 /* JSONAPI */,
 				880903B41F7D46B400158EC3 /* Serialization */,
+				8847E5241F7ED302009D58C7 /* TargetTypes */,
+				880903AE1F7D459E00158EC3 /* JSONAPIProvider.swift */,
+				880903B01F7D45F000158EC3 /* JSONAPITargetType.swift */,
 				880903BA1F7D47F400158EC3 /* DataError.swift */,
 			);
 			name = API;
-			sourceTree = "<group>";
-		};
-		880903A71F7D444D00158EC3 /* JSONAPI */ = {
-			isa = PBXGroup;
-			children = (
-				880903A81F7D445400158EC3 /* Plugin */,
-				880903AE1F7D459E00158EC3 /* JSONAPIProvider.swift */,
-				880903B01F7D45F000158EC3 /* JSONAPITargetType.swift */,
-			);
-			name = JSONAPI;
-			sourceTree = "<group>";
-		};
-		880903A81F7D445400158EC3 /* Plugin */ = {
-			isa = PBXGroup;
-			children = (
-				880903A91F7D44CA00158EC3 /* AuthorizationPlugin.swift */,
-			);
-			name = Plugin;
 			sourceTree = "<group>";
 		};
 		880903AB1F7D44F100158EC3 /* Util */ = {
@@ -154,6 +154,7 @@
 				880903AC1F7D44FD00158EC3 /* StorageHelper.swift */,
 				880903B21F7D469300158EC3 /* NetworkActivityIndicator.swift */,
 				880903E41F7D75EE00158EC3 /* MaskedInput.swift */,
+				88858E3F1F7F2EFA002D2B75 /* Constants.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -171,30 +172,23 @@
 		880903BE1F7D4AC700158EC3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				880903DF1F7D691E00158EC3 /* CardEntry */,
+				880903CE1F7D50D900158EC3 /* CardChoice */,
+				880903C21F7D4BD900158EC3 /* UpdateApp */,
+				88FD36001F7F227E00584BE0 /* CodeConfirm */,
 				88C349701F7DAB590003C9D4 /* PersonalInfo */,
 				88C3496D1F7D95850003C9D4 /* BarcodeScan */,
 				880903DC1F7D636000158EC3 /* Main */,
 				880903D71F7D616C00158EC3 /* Root */,
 				880903C51F7D4C8900158EC3 /* Common */,
-				880903BF1F7D4ACA00158EC3 /* Onboarding */,
 			);
 			name = UI;
-			sourceTree = "<group>";
-		};
-		880903BF1F7D4ACA00158EC3 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				880903C31F7D4BED00158EC3 /* UpdateAppViewController.swift */,
-				880903DF1F7D691E00158EC3 /* CardEntry */,
-				880903CE1F7D50D900158EC3 /* CardChoice */,
-				880903C21F7D4BD900158EC3 /* UpdateApp */,
-			);
-			name = Onboarding;
 			sourceTree = "<group>";
 		};
 		880903C21F7D4BD900158EC3 /* UpdateApp */ = {
 			isa = PBXGroup;
 			children = (
+				880903C31F7D4BED00158EC3 /* UpdateAppViewController.swift */,
 			);
 			name = UpdateApp;
 			sourceTree = "<group>";
@@ -205,6 +199,7 @@
 				880903CD1F7D50AE00158EC3 /* Table View Cells */,
 				880903C61F7D4C9B00158EC3 /* GoButton.swift */,
 				880903DA1F7D621600158EC3 /* PassCityNavigationController.swift */,
+				88FD35FE1F7F19D100584BE0 /* BaseView.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -219,6 +214,7 @@
 				880903E61F7D7B5500158EC3 /* NSLayoutConstraint+observeKeyboardChange.swift */,
 				880903EC1F7D7D2A00158EC3 /* UIViewController+storyboardInstance.swift */,
 				88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */,
+				88858E411F7F3160002D2B75 /* Int+getRussianEnumEndings.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -269,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				880903E91F7D7CAA00158EC3 /* ProfileService.swift */,
+				8847E5221F7EB1D8009D58C7 /* LocationService.swift */,
+				88858E431F7F3722002D2B75 /* NotificationService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -276,9 +274,18 @@
 		880903EB1F7D7CC000158EC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				88E12A7B1F7E357F00EB23ED /* User.swift */,
+				88E12A7D1F7E386700EB23ED /* LoginData.swift */,
+				88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		8847E5241F7ED302009D58C7 /* TargetTypes */ = {
+			isa = PBXGroup;
+			children = (
+				8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */,
+			);
+			name = TargetTypes;
 			sourceTree = "<group>";
 		};
 		888C402B1F7C4CC200CAF1EF = {
@@ -302,13 +309,13 @@
 		888C40361F7C4CC300CAF1EF /* PASSCITY-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				88E12A781F7E042C00EB23ED /* Supporting */,
+				880903A61F7D3AAB00158EC3 /* API */,
 				880903EB1F7D7CC000158EC3 /* Model */,
 				880903E81F7D7C9500158EC3 /* Services */,
-				880903C81F7D4D8B00158EC3 /* Extensions */,
 				880903BE1F7D4AC700158EC3 /* UI */,
+				880903C81F7D4D8B00158EC3 /* Extensions */,
 				880903AB1F7D44F100158EC3 /* Util */,
-				880903A61F7D3AAB00158EC3 /* API */,
+				88E12A781F7E042C00EB23ED /* Supporting */,
 				888C40371F7C4CC300CAF1EF /* AppDelegate.swift */,
 				888C40391F7C4CC300CAF1EF /* ViewController.swift */,
 				888C40401F7C4CC300CAF1EF /* LaunchScreen.storyboard */,
@@ -341,6 +348,15 @@
 				88E12A791F7E046000EB23ED /* PASSCITY-iOS-Bridging-Header.h */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		88FD36001F7F227E00584BE0 /* CodeConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				88FD36011F7F229200584BE0 /* CodeConfirmViewController.swift */,
+				88FD36031F7F236100584BE0 /* CodeConfirmViewController.storyboard */,
+			);
+			name = CodeConfirm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +426,7 @@
 				880903E31F7D6C2900158EC3 /* CardEntryViewController.storyboard in Resources */,
 				88C349741F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard in Resources */,
 				888C40421F7C4CC300CAF1EF /* LaunchScreen.storyboard in Resources */,
+				88FD36041F7F236100584BE0 /* CodeConfirmViewController.storyboard in Resources */,
 				888C403F1F7C4CC300CAF1EF /* Assets.xcassets in Resources */,
 				88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */,
 			);
@@ -495,8 +512,9 @@
 				880903CC1F7D4E9700158EC3 /* UIFont+PASSCITY.swift in Sources */,
 				88DCB9CA1F7D838F0058DBF6 /* UIColor+PASSCITY.swift in Sources */,
 				880903D41F7D592200158EC3 /* UIView+nibInstance.swift in Sources */,
+				88FD35FF1F7F19D100584BE0 /* BaseView.swift in Sources */,
 				880903E71F7D7B5500158EC3 /* NSLayoutConstraint+observeKeyboardChange.swift in Sources */,
-				88E12A7C1F7E358000EB23ED /* User.swift in Sources */,
+				88E12A801F7E3D9D00EB23ED /* Coordinate.swift in Sources */,
 				880903DE1F7D636F00158EC3 /* MainTabBarController.swift in Sources */,
 				880903BB1F7D47F400158EC3 /* DataError.swift in Sources */,
 				880903EA1F7D7CAA00158EC3 /* ProfileService.swift in Sources */,
@@ -504,8 +522,9 @@
 				880903D01F7D515B00158EC3 /* CardChoiceViewController.swift in Sources */,
 				880903E11F7D693400158EC3 /* CardEntryViewController.swift in Sources */,
 				880903DB1F7D621600158EC3 /* PassCityNavigationController.swift in Sources */,
+				88858E421F7F3160002D2B75 /* Int+getRussianEnumEndings.swift in Sources */,
+				88FD36021F7F229200584BE0 /* CodeConfirmViewController.swift in Sources */,
 				880903B31F7D469300158EC3 /* NetworkActivityIndicator.swift in Sources */,
-				880903AA1F7D44CA00158EC3 /* AuthorizationPlugin.swift in Sources */,
 				888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */,
 				880903ED1F7D7D2A00158EC3 /* UIViewController+storyboardInstance.swift in Sources */,
 				880903D21F7D519B00158EC3 /* CardTableViewCell.swift in Sources */,
@@ -514,15 +533,20 @@
 				880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */,
 				88C3496F1F7D95970003C9D4 /* BarcodeScanViewController.swift in Sources */,
 				880903C41F7D4BED00158EC3 /* UpdateAppViewController.swift in Sources */,
+				8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */,
 				888C40381F7C4CC300CAF1EF /* AppDelegate.swift in Sources */,
+				88858E441F7F3722002D2B75 /* NotificationService.swift in Sources */,
 				88C349721F7DAB7F0003C9D4 /* PersonalInfoViewController.swift in Sources */,
 				880903E51F7D75EE00158EC3 /* MaskedInput.swift in Sources */,
 				880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */,
 				880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */,
 				880903D91F7D617A00158EC3 /* RootViewController.swift in Sources */,
 				880903D61F7D594800158EC3 /* UITableView+PASSCITY.swift in Sources */,
+				88E12A7E1F7E386800EB23ED /* LoginData.swift in Sources */,
 				880903B81F7D470800158EC3 /* JSONAPISerializedDataObject.swift in Sources */,
+				8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */,
 				880903B11F7D45F000158EC3 /* JSONAPITargetType.swift in Sources */,
+				88858E401F7F2EFA002D2B75 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

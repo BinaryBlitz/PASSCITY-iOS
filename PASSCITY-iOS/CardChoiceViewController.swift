@@ -129,8 +129,9 @@ class CardChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
     case .card:
       let cardEntryViewController = CardEntryViewController.storyboardInstance()!
       navigationController?.pushViewController(cardEntryViewController, animated: true)
-    default:
-      break
+    case .noCard:
+      let infoViewController = PersonalInfoViewController.storyboardInstance()!
+      navigationController?.pushViewController(infoViewController, animated: true)
     }
   }
 
