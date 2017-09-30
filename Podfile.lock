@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (4.5.1)
+  - Crashlytics (3.8.6):
+    - Fabric (~> 1.6.3)
   - EasyPeasy (1.5.0)
+  - Fabric (1.6.13)
   - JVFloatLabeledTextField (1.2.0)
   - KeychainAccess (3.1.0)
   - Kingfisher (3.13.1)
@@ -19,7 +22,9 @@ PODS:
   - Result (3.2.4)
 
 DEPENDENCIES:
+  - Crashlytics
   - EasyPeasy (~> 1.5)
+  - Fabric
   - JVFloatLabeledTextField (~> 1.2)
   - KeychainAccess (~> 3.1)
   - Kingfisher (~> 3.13)
@@ -29,7 +34,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   EasyPeasy: 657ea5a046311f2e16f43779aa47a24ff02b55fb
+  Fabric: 2fb5676bc811af011a04513451f463dac6803206
   JVFloatLabeledTextField: 96c0c1b6739001801340d25b86aff990d67c4181
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   Kingfisher: ed9707a409cc47fddafbcd12a43a9757e3600af5
@@ -38,6 +45,6 @@ SPEC CHECKSUMS:
   PhoneNumberKit: a739c359d05701e2e9745654f53e7c64379c2516
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
 
-PODFILE CHECKSUM: ba14c2bacad3ddd5da44bc034c2d84e253a6d843
+PODFILE CHECKSUM: b2b59cf3135ceb0fb0429c48190d1d8ed1f1eac0
 
 COCOAPODS: 1.3.1

@@ -12,6 +12,9 @@ target 'PASSCITY' do
   pod 'Kingfisher', '~> 3.13'
   pod 'PhoneNumberKit', '~> 1.4'
   pod 'JVFloatLabeledTextField', '~> 1.2'
+  
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   # Pods for PASSCITY
 

@@ -101,7 +101,7 @@
 		88C349731F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalInfoViewController.storyboard; sourceTree = "<group>"; };
 		88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PASSCITY.swift"; sourceTree = "<group>"; };
 		88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
-		88E12A791F7E046000EB23ED /* PASSCITY-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PASSCITY-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		88E12A791F7E046000EB23ED /* PASSCITY-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PASSCITY-Bridging-Header.h"; sourceTree = "<group>"; };
 		88E12A7D1F7E386700EB23ED /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		88FD35FE1F7F19D100584BE0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 			children = (
 				888C403E1F7C4CC300CAF1EF /* Assets.xcassets */,
 				888C40431F7C4CC300CAF1EF /* Info.plist */,
-				88E12A791F7E046000EB23ED /* PASSCITY-iOS-Bridging-Header.h */,
+				88E12A791F7E046000EB23ED /* PASSCITY-Bridging-Header.h */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -381,6 +381,7 @@
 				888C40321F7C4CC200CAF1EF /* Resources */,
 				DD892CB8C81BF98363EB0728 /* [CP] Embed Pods Frameworks */,
 				388FAD0FEC3A121EB27C2D04 /* [CP] Copy Pods Resources */,
+				885976EB1F7F5D1200C9B091 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -403,6 +404,7 @@
 				TargetAttributes = {
 					888C40331F7C4CC200CAF1EF = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4WGG8V34K4;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
@@ -476,6 +478,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		885976EB1F7F5D1200C9B091 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 1d617e2e5a256bdc2af9074698f5140b34d9c25b 1dbf0d2680cc74f02f025cea43f28aeb3c6fef9ee62a41d75a2457e3e1320483";
 		};
 		DD892CB8C81BF98363EB0728 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -601,7 +616,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: app@binaryblitz.ru (ZM33RT99Q3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: app@binaryblitz.ru (ZM33RT99Q3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -657,7 +673,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Binary Blitz OOO (4WGG8V34K4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -684,17 +701,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				INFOPLIST_FILE = "$(SRCROOT)/PASSCITY/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.Passcity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "PASSCITY/Supporting/PASSCITY-iOS-Bridging-Header.h";
+				PROVISIONING_PROFILE = "fb1ade45-c20d-483d-8dbb-5fd933031801";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development ru.binaryblitz.Passcity";
+				SWIFT_OBJC_BRIDGING_HEADER = "PASSCITY/Supporting/PASSCITY-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -704,16 +726,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 4WGG8V34K4;
 				INFOPLIST_FILE = "$(SRCROOT)/PASSCITY/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.Passcity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "PASSCITY/Supporting/PASSCITY-iOS-Bridging-Header.h";
+				PROVISIONING_PROFILE = "1ba41a37-c43f-4346-98e3-9faf4d76e5db";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore ru.binaryblitz.Passcity";
+				SWIFT_OBJC_BRIDGING_HEADER = "PASSCITY/Supporting/PASSCITY-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

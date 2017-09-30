@@ -22,6 +22,20 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+  <key>Fabric</key>
+  <dict>
+    <key>APIKey</key>
+    <string>1d617e2e5a256bdc2af9074698f5140b34d9c25b</string>
+    <key>Kits</key>
+    <array>
+      <dict>
+        <key>KitInfo</key>
+        <dict/>
+        <key>KitName</key>
+        <string>Crashlytics</string>
+      </dict>
+    </array>
+  </dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Камера используется для сканирования штрих-кодов</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
