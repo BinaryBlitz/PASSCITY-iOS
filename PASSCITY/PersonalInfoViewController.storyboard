@@ -12,7 +12,7 @@
         <!-- -->
         <scene sceneID="c6b-jP-kir">
             <objects>
-                <viewController title=" " id="eQL-kY-efU" customClass="PersonalInfoViewController" customModule="PASSCITY_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title=" " id="eQL-kY-efU" customClass="PersonalInfoViewController" customModule="PASSCITY" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fFo-XX-nBa"/>
                         <viewControllerLayoutGuide type="bottom" id="Gup-mD-et7"/>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSU-8k-WpW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите Ваши данные" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-lX-2x9">
                                         <rect key="frame" x="30" y="70" width="315" height="26.5"/>
@@ -31,23 +31,26 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0f-CO-vLg">
-                                        <rect key="frame" x="30" y="545" width="30" height="28"/>
+                                        <rect key="frame" x="15" y="525" width="30" height="28"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="chat">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ts3-KH-Idk">
-                                        <rect key="frame" x="30" y="146.5" width="315" height="220"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ts3-KH-Idk">
+                                        <rect key="frame" x="30" y="146.5" width="315" height="180"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANg-MP-w2U">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ф. И. О." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-E7-mO3" customClass="JVFloatLabeledTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="59"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="59" id="xXe-qr-Rv2"/>
+                                                        </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="yes" keyboardAppearance="light" returnKeyType="next" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="next" smartDashesType="yes" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                                 <color key="value" red="0.83912390469999998" green="0.83926850559999999" blue="0.83911478520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,7 +69,7 @@
                                                         </constraints>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDone" translatesAutoresizingMaskIntoConstraints="NO" id="6zw-rc-FJN">
-                                                        <rect key="frame" x="294.5" y="19" width="20" height="20"/>
+                                                        <rect key="frame" x="294.5" y="19.5" width="20" height="20"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,13 +87,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leG-vq-s8P">
-                                                <rect key="frame" x="0.0" y="80" width="315" height="60"/>
+                                                <rect key="frame" x="0.0" y="60" width="315" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Электронная почта" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7jz-D3-c9W" customClass="JVFloatLabeledTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="59"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="59" id="eo7-zP-pQk"/>
+                                                        </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="next" textContentType="email"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                                 <color key="value" red="0.83912390469999998" green="0.83926850559999999" blue="0.83911478520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -127,10 +133,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2RP-8W-8xY">
-                                                <rect key="frame" x="0.0" y="160" width="315" height="60"/>
+                                                <rect key="frame" x="0.0" y="120" width="315" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Номер телефона" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUp-F7-GCW" customClass="JVFloatLabeledTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="59"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="59" id="Zr1-wi-Lm2"/>
+                                                        </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="light" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
@@ -170,19 +179,19 @@
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="220" id="lbT-0W-3Dh"/>
+                                            <constraint firstAttribute="height" constant="210" id="gR1-LD-Uuj"/>
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xp-BZ-cAy">
-                                        <rect key="frame" x="0.0" y="386.5" width="375" height="24"/>
+                                        <rect key="frame" x="0.0" y="346.5" width="375" height="24"/>
                                         <string key="text">Регистрируясь, Вы принимаете наши
 Пользовательское соглашение и Политику конфиденциальности</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysb-E9-JnE" customClass="GoButton" customModule="PASSCITY_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="108" y="450.5" width="150" height="48"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysb-E9-JnE" customClass="GoButton" customModule="PASSCITY" customModuleProvider="target">
+                                        <rect key="frame" x="108" y="410.5" width="150" height="48"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="331-PH-u5V"/>
@@ -205,7 +214,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMv-PL-qce">
-                                        <rect key="frame" x="260" y="544" width="100" height="30"/>
+                                        <rect key="frame" x="260" y="524" width="100" height="30"/>
                                         <state key="normal" title="пропустить  &gt;">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -221,7 +230,7 @@
                                     <constraint firstAttribute="trailing" secondItem="ts3-KH-Idk" secondAttribute="trailing" constant="30" id="B6V-4F-Y3k"/>
                                     <constraint firstItem="ts3-KH-Idk" firstAttribute="top" secondItem="V8Q-lX-2x9" secondAttribute="bottom" priority="500" constant="50" id="Cn8-Ut-mge"/>
                                     <constraint firstItem="L0f-CO-vLg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ysb-E9-JnE" secondAttribute="bottom" constant="-40" id="FcT-oO-wrv"/>
-                                    <constraint firstItem="L0f-CO-vLg" firstAttribute="leading" secondItem="PSU-8k-WpW" secondAttribute="leading" constant="30" id="Go9-Bv-HQv"/>
+                                    <constraint firstItem="L0f-CO-vLg" firstAttribute="leading" secondItem="PSU-8k-WpW" secondAttribute="leading" constant="15" id="Go9-Bv-HQv"/>
                                     <constraint firstAttribute="bottom" secondItem="L0f-CO-vLg" secondAttribute="bottom" priority="500" constant="30" id="IUy-8K-q5r"/>
                                     <constraint firstItem="ysb-E9-JnE" firstAttribute="centerX" secondItem="PSU-8k-WpW" secondAttribute="centerX" priority="500" id="Kef-rw-Rtq"/>
                                     <constraint firstItem="2Xp-BZ-cAy" firstAttribute="top" secondItem="ts3-KH-Idk" secondAttribute="bottom" constant="20" id="Lam-0J-8s0"/>

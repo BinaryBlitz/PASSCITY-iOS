@@ -12,7 +12,7 @@
         <!-- -->
         <scene sceneID="bMR-Y1-u3p">
             <objects>
-                <viewController title=" " id="isW-we-BdB" customClass="CardEntryViewController" customModule="PASSCITY_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title=" " id="isW-we-BdB" customClass="CardEntryViewController" customModule="PASSCITY" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f7u-9C-kZW"/>
                         <viewControllerLayoutGuide type="bottom" id="EAS-F4-WwX"/>
@@ -75,7 +75,7 @@
                                             <action selector="chatButtonAction:" destination="isW-we-BdB" eventType="touchUpInside" id="xts-U6-7Gd"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLW-rE-AP6" customClass="GoButton" customModule="PASSCITY_iOS" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLW-rE-AP6" customClass="GoButton" customModule="PASSCITY" customModuleProvider="target">
                                         <rect key="frame" x="87.5" y="465" width="200" height="48"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -107,8 +107,8 @@
                                             <action selector="skipButtonAction:" destination="isW-we-BdB" eventType="touchUpInside" id="VSK-Lo-3hH"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ч&gt;" translatesAutoresizingMaskIntoConstraints="NO" id="2Sb-sD-6wr">
-                                        <rect key="frame" x="325" y="224.5" width="20" height="20"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDone" translatesAutoresizingMaskIntoConstraints="NO" id="2Sb-sD-6wr">
+                                        <rect key="frame" x="329" y="226.5" width="16" height="16"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xll-U3-RZn">
                                         <rect key="frame" x="126" y="406" width="123" height="30"/>
@@ -301,7 +301,7 @@ AMIA2QDbAN0WnxakFq8WuBbLFs8W2hbjFugW8BbzFvgXBxcLFxIXGhcnFywXLhcwFzUXPRdAF0UXTRdQ
 F2IXZRdqAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAAF2w
 </mutableData>
         </image>
+        <image name="iconDone" width="20" height="20"/>
         <image name="iconScanCodeSmall" width="70" height="52"/>
-        <image name="ч&gt;" width="16" height="16"/>
     </resources>
 </document>
