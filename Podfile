@@ -15,7 +15,4 @@ target 'PASSCITY' do
   
   pod 'Fabric'
   pod 'Crashlytics'
-
-  # Pods for PASSCITY
-
 end
