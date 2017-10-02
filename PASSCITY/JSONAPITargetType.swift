@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import SwiftyJSON
 
 // Custom target type. Extension contains default values
 protocol JSONAPITargetType: TargetType {
@@ -38,7 +39,10 @@ extension JSONAPITargetType {
     if includeLogin {
       params["login"] = ProfileService.instance.currentLoginData.toJSON()
     }
-    return ["params": params]
+    let json = JSON(params).rawString(.utf8)!
+    return [
+      "params": parameterEncoding is JSONEncoding ? params : json
+    ]
   }
 
   var task: Task {

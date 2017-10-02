@@ -108,7 +108,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconDone" translatesAutoresizingMaskIntoConstraints="NO" id="2Sb-sD-6wr">
-                                        <rect key="frame" x="329" y="226.5" width="16" height="16"/>
+                                        <rect key="frame" x="325" y="224.5" width="20" height="20"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xll-U3-RZn">
                                         <rect key="frame" x="126" y="406" width="123" height="30"/>

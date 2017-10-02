@@ -7,6 +7,7 @@ target 'PASSCITY' do
 
   pod 'Moya', '~> 8.0'
   pod 'ObjectMapper', '~> 2.2'
+  pod 'SwiftyJSON', '~> 3.1'
   pod 'EasyPeasy', '~> 1.5'
   pod 'KeychainAccess', '~> 3.1'
   pod 'Kingfisher', '~> 3.13'

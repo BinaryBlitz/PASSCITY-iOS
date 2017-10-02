@@ -33,7 +33,7 @@ class ProfileService {
     let backendAV = Float(data.av ?? "") ?? 0
     if backendAV != currentAV {
       RootViewController.instance?.setAppUpdate()
-    } else if data.uid == nil || data.uid == 0 && isAuthorized {
+    } else if (data.uid == nil || data.uid == 0) && isAuthorized {
       isAuthorized = false
       RootViewController.instance?.setRegistration()
     }
@@ -80,7 +80,6 @@ class ProfileService {
     authProvider.callAPI(.register(loginData, sendCode: false)) { result in
       switch result {
       case .success(let response):
-        loginData.uid = response.login?.uid
         loginData.name = response.login?.name
         loginData.email = response.login?.email
         loginData.phone = response.login?.phone

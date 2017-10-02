@@ -24,6 +24,7 @@ class UpdateAppViewController: UIViewController {
 
   func setupView() {
     chatButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
+    chatButton.tintColor = .black
     titleLabel.text = "Ваша версия приложения устарела!"
     titleLabel.font = .titleLightFont
     titleLabel.numberOfLines = 0
@@ -55,7 +56,8 @@ class UpdateAppViewController: UIViewController {
     updateButton <- [
       CenterX(),
       Width(200),
-      Height(48)
+      Height(48),
+      Bottom(90).to(chatButton)
     ]
   }
 }
