@@ -14,6 +14,7 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    presenter?.fetchAnnounces()
   }
 
   var items: [PassCityFeedItemShort] = []
@@ -37,6 +38,10 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
+  }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

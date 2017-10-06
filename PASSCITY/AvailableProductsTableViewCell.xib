@@ -59,7 +59,7 @@
                         <state key="normal" image="iconMenuBig"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zk8-KQ-Hjt">
-                        <rect key="frame" x="98" y="44.5" width="269" height="17"/>
+                        <rect key="frame" x="98" y="44.5" width="232" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconClock" translatesAutoresizingMaskIntoConstraints="NO" id="exV-yD-fJr">
                         <rect key="frame" x="98" y="96" width="12" height="12"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Unr-sJ-ZNV">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Unr-sJ-ZNV">
                         <rect key="frame" x="116" y="95" width="31" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -91,10 +91,10 @@
                     <constraint firstItem="zk8-KQ-Hjt" firstAttribute="leading" secondItem="Iaf-kX-BJQ" secondAttribute="leading" id="B0O-pj-2mZ"/>
                     <constraint firstItem="Ggd-Ge-fTi" firstAttribute="top" secondItem="rjR-5V-pB2" secondAttribute="top" constant="15" id="C56-AR-Djx"/>
                     <constraint firstItem="1RG-WW-3vF" firstAttribute="top" secondItem="zk8-KQ-Hjt" secondAttribute="bottom" constant="10" id="DuN-cO-EI1"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="zk8-KQ-Hjt" secondAttribute="trailing" id="Hr8-sS-OCg"/>
                     <constraint firstItem="Unr-sJ-ZNV" firstAttribute="top" secondItem="t8G-NS-G9T" secondAttribute="bottom" constant="10" id="Pbz-de-MY0"/>
                     <constraint firstItem="t8G-NS-G9T" firstAttribute="centerY" secondItem="1RG-WW-3vF" secondAttribute="centerY" id="RhE-R6-7J6"/>
                     <constraint firstAttribute="trailing" secondItem="Ggd-Ge-fTi" secondAttribute="trailing" constant="15" id="WAS-m5-aEa"/>
+                    <constraint firstItem="Ggd-Ge-fTi" firstAttribute="leading" secondItem="zk8-KQ-Hjt" secondAttribute="trailing" id="afr-EU-oAe"/>
                     <constraint firstItem="Unr-sJ-ZNV" firstAttribute="leading" secondItem="exV-yD-fJr" secondAttribute="trailing" constant="6" id="cs2-zq-JY3"/>
                     <constraint firstItem="zk8-KQ-Hjt" firstAttribute="top" secondItem="Iaf-kX-BJQ" secondAttribute="bottom" constant="10" id="e9Z-An-1n3"/>
                     <constraint firstItem="Iaf-kX-BJQ" firstAttribute="leading" secondItem="aAZ-6d-51X" secondAttribute="trailing" constant="20" id="fPm-gV-qcY"/>
@@ -104,9 +104,19 @@
                     <constraint firstItem="t8G-NS-G9T" firstAttribute="leading" secondItem="1RG-WW-3vF" secondAttribute="trailing" constant="6" id="q4l-u5-P9A"/>
                     <constraint firstItem="aAZ-6d-51X" firstAttribute="leading" secondItem="rjR-5V-pB2" secondAttribute="leading" constant="20" id="qt4-De-jco"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="t8G-NS-G9T" secondAttribute="trailing" constant="20" id="uSk-hr-mwK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Unr-sJ-ZNV" secondAttribute="bottom" constant="5" id="zCZ-dB-OBB"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="circleView" destination="aAZ-6d-51X" id="aZo-CE-k06"/>
+                <outlet property="iconView" destination="0cR-dZ-Uwa" id="gD1-ld-Tpw"/>
+                <outlet property="moreButton" destination="Ggd-Ge-fTi" id="4Gm-Hx-73m"/>
+                <outlet property="subtitleLabel" destination="Iaf-kX-BJQ" id="gJb-sM-a6Q"/>
+                <outlet property="tariffLabel" destination="t8G-NS-G9T" id="mNs-5c-zAx"/>
+                <outlet property="titleLabel" destination="zk8-KQ-Hjt" id="N9d-QX-fAq"/>
+                <outlet property="validLabel" destination="Unr-sJ-ZNV" id="MZ7-Gm-3Of"/>
+            </connections>
             <point key="canvasLocation" x="34.5" y="149.5"/>
         </tableViewCell>
     </objects>

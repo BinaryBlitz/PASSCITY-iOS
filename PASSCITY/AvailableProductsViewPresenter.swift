@@ -1,5 +1,5 @@
 //
-//  AvailableAnnouncesViewPresenter.swift
+//  AvailableProductsViewPresenter.swift
 //  PASSCITY
 //
 //  Created by Алексей on 06.10.17.
@@ -9,18 +9,18 @@
 import Foundation
 import CoreLocation
 
-protocol AvailableAnnouncesView: BaseView {
-  func setItems(_: [PassCityFeedItemShort])
+protocol AvailableProductsView: BaseView {
+  func setItems(_: [PassCityProductShort])
 }
 
-class AvailableAnnouncesViewPresenter {
-  let view: AvailableAnnouncesView
-  var currentItems = Set<PassCityFeedItemShort>()
-  var currentFilters = EventsFiltersState() {
+class AvailableProductsViewPresenter {
+  let view: AvailableProductsView
+  var currentItems = Set<PassCityProductShort>()
+  var currentFilters = ProductsFiltersState() {
     didSet {
       guard currentFilters != oldValue else { return }
       currentPage = 1
-      fetchAnnounces()
+      fetchProducts()
     }
   }
 
@@ -42,21 +42,18 @@ class AvailableAnnouncesViewPresenter {
     return currentPage > totalPages
   }
 
-  init(view: AvailableAnnouncesView) {
+  init(view: AvailableProductsView) {
     self.view = view
 
-    var currentFilters = EventsFiltersState()
-    let coordinates = Coordinates.current
-    currentFilters.filter.coordinates = coordinates
-    self.currentFilters = currentFilters
+    self.currentFilters = ProductsFiltersState()
   }
 
-  func fetchAnnounces() {
+  func fetchProducts() {
     guard !pageLimit else { return }
     guard !isRefreshing else { return }
     isRefreshing = true
     let filters = currentFilters
-    ShortEventsService.instance.fetchEvents(target: .getAnnounces(filters)) { [weak self] result in
+    ShortEventsService.instance.fetchProducts(filters: filters) { [weak self] result in
       self?.isRefreshing = false
       switch result {
       case .success(let response):

@@ -23,7 +23,6 @@ class PassCityWebViewController: UIViewController {
 
   init(url: URL?) {
     super.init(nibName: nil, bundle: nil)
-    view = webView
     self.url = url
     guard let url = url else { return }
     webView.load(URLRequest(url: url))
@@ -31,7 +30,6 @@ class PassCityWebViewController: UIViewController {
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    view = webView
   }
 
   override func viewDidLoad() {
@@ -40,6 +38,17 @@ class PassCityWebViewController: UIViewController {
     if let navigationController = navigationController, navigationController.viewControllers.count == 1 {
       navigationItem.backBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarClose"), style: .plain, target: self, action: #selector(closeButtonAction))
     }
+    setupView()
+  }
+
+  func setupView() {
+    view.addSubview(webView)
+    webView <- [
+      Top().to(topLayoutGuide),
+      Bottom().to(bottomLayoutGuide),
+      Left(),
+      Right()
+    ]
   }
 
   func closeButtonAction() {

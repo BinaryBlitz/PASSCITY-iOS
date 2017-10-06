@@ -22,20 +22,20 @@
 	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-  <key>Fabric</key>
-  <dict>
-    <key>APIKey</key>
-    <string>1d617e2e5a256bdc2af9074698f5140b34d9c25b</string>
-    <key>Kits</key>
-    <array>
-      <dict>
-        <key>KitInfo</key>
-        <dict/>
-        <key>KitName</key>
-        <string>Crashlytics</string>
-      </dict>
-    </array>
-  </dict>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>1d617e2e5a256bdc2af9074698f5140b34d9c25b</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Камера используется для сканирования штрих-кодов</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -58,5 +58,29 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>passcity.ru</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>api.voxxter.ru</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>
