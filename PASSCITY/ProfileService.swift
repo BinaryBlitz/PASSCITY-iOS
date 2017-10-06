@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import ObjectMapper
 
 class ProfileService {
   static let instance = ProfileService()
@@ -25,6 +26,8 @@ class ProfileService {
     data.coordinates = Coordinates(LocationService.instance.currentLocation)
     return data
   }
+
+  private(set) var currentSettings: Settings? = nil
 
   var cardInputTriesLeft = 3
 
@@ -53,6 +56,7 @@ class ProfileService {
 
   private init() {
     self.loginInternalData = LoginData.current
+    self.currentSettings = Settings.current
   }
 
   func auth(name: String? = nil, email: String? = nil, phone: String? = nil, completion: @escaping ServiceCompletion<Void>) {
@@ -100,6 +104,10 @@ class ProfileService {
         loginData.kid = response.login?.kid
         loginData.client = response.login?.client
         self.loginInternalData = loginData
+        if let settings = Mapper<Settings>().map(JSONObject: response.data) {
+          self.currentSettings = settings
+          try? StorageHelper.save(settings.toJSONString(), forKey: .currentSettings)
+        }
         completion(.success())
       case .failure(let error):
         completion(.failure(error))

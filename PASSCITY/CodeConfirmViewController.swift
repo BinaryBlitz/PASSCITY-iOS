@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import SafariServices
 
 class CodeConfirmViewController: UIViewController {
   @IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
@@ -32,11 +31,10 @@ class CodeConfirmViewController: UIViewController {
       case .success:
         let currentProfile = ProfileService.instance.currentLoginData
         if currentProfile.client != 1 {
-          let viewController = SFSafariViewController(url: Constants.passCitySkipUrl)
-          viewController.preferredControlTintColor = .black
-          self?.present(viewController, animated: true)
+          let viewController = PassCityWebViewController(url: Constants.passCitySkipUrl)
+          self?.present(PassCityNavigationController(rootViewController: viewController), animated: true)
         } else {
-          self?.presentAlert(title: nil, message: "Регистрация завершена!")
+          RootViewController.instance?.setTabBar()
         }
       case .failure(let error):
         self?.presentErrorAlert(message: error.localizedDescription)

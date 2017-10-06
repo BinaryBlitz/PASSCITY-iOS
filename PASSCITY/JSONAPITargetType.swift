@@ -22,7 +22,7 @@ protocol JSONAPITargetType: TargetType {
 
 extension JSONAPITargetType {
   var baseURL: URL {
-    return URL(string: "https://passcity.ru/api/mobile_app")!
+    return URL(string: "https://passcity.ru/api/mobile_app/v1")!
   }
 
   var parameterEncoding: ParameterEncoding {

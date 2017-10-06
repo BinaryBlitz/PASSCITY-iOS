@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import SafariServices
 
 class PersonalInfoViewController: UIViewController {
   @IBOutlet weak var nameField: JVFloatLabeledTextField!
@@ -46,10 +45,8 @@ class PersonalInfoViewController: UIViewController {
   }
 
   @IBAction func skipButtonAction(_ sender: Any) {
-    let viewController = SFSafariViewController(url: Constants.passCitySkipUrl)
-    viewController.preferredControlTintColor = .black
-
-    present(viewController, animated: true)
+    let viewController = PassCityWebViewController(url: Constants.passCitySkipUrl)
+    present(PassCityNavigationController(rootViewController: viewController), animated: true)
   }
 
   @IBAction func textFieldEditingChanged(_ sender: Any) {

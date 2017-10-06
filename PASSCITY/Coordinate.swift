@@ -10,11 +10,17 @@ import Foundation
 import ObjectMapper
 import CoreLocation
 
-class Coordinates: Mappable {
+struct Coordinates: Mappable, Equatable {
   var lat: Float = 0
   var lng: Float = 0
 
-  required init?(map: Map) {
+  var mapScale: Int? = 0
+
+  var clLocationCoordinate2D: CLLocationCoordinate2D? {
+    return CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lng))
+  }
+
+  init?(map: Map) {
   }
 
   init?(_ coordinate: CLLocationCoordinate2D?) {
@@ -23,8 +29,17 @@ class Coordinates: Mappable {
     self.lng = Float(coordinate.longitude)
   }
 
-  func mapping(map: Map) {
+  static var current: Coordinates? {
+    return Coordinates(LocationService.instance.currentLocation)
+  }
+
+  mutating func mapping(map: Map) {
     lat <- map["lat"]
     lng <- map["lng"]
+    mapScale <- map["map_scale"]
+  }
+
+  static func ==(lhs: Coordinates, rhs: Coordinates) -> Bool {
+    return lhs.lat == rhs.lat && lhs.lng == rhs.lng && lhs.mapScale == rhs.mapScale
   }
 }

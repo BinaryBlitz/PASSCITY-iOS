@@ -46,6 +46,7 @@ struct LoginData: Mappable {
     kid <- map["kid"]
     did <- map["did"]
     av <- map["av"]
+    client <- map["client"]
     coordinates <- map["coordinates"]
 
     name <- map["name"]

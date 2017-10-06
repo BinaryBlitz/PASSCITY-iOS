@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  PASSCITY
+
+  Created by Алексей on 06.10.17.
+  Copyright © 2017 PASSCITY-iOS-TEST. All rights reserved.
+*/
+
+/* Available header */
+"availableHeaderMapItem" = "Карта";
+
+/* Available header */
+"availableAnnouncesMapItem" = "Афиша";
+
+/* Available header */
+"availableProductsMapItem" = "Продукты";

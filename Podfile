@@ -13,6 +13,8 @@ target 'PASSCITY' do
   pod 'Kingfisher', '~> 3.13'
   pod 'PhoneNumberKit', '~> 1.4'
   pod 'JVFloatLabeledTextField', '~> 1.2'
+  pod 'FloatRatingView', '~> 2.0'
+  pod 'GoogleMaps'
   
   pod 'Fabric'
   pod 'Crashlytics'

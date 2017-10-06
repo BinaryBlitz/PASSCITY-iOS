@@ -22,6 +22,7 @@ class StorageHelper {
 
   enum StorageKey: String {
     case currentProfile
+    case currentSettings
     case accessToken
 
     var storageType: StorageType {

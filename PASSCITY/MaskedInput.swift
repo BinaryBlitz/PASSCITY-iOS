@@ -57,10 +57,17 @@ class MaskedInput: NSObject {
       let formattedPhone = PartialFormatter().formatPartial(text)
       textField?.text = formattedPhone
       DispatchQueue(label: "Validating").async { [weak self] in
-        let isValid = (try? PhoneNumberKit().parse(formattedPhone)) != nil
-        DispatchQueue.main.async {
-          self?.isValid = isValid
+        debugPrint(formattedPhone)
+        do {
+          _ = try PhoneNumberKit().parse("+\(formattedPhone.onlyDigits)")
+          DispatchQueue.main.async {
+            self?.isValid = true
+          }
+        } catch let error {
+          self?.isValid = false
+          debugPrint(error)
         }
+
       }
     case .pattern(let formattingPattern):
       if text.characters.count > 0, formattingPattern.characters.count > 0 {
