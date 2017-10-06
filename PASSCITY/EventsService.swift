@@ -29,6 +29,21 @@ class ShortEventsService {
       }
     }
   }
+
+  func fetchProducts(filters: ProductsFiltersState, _ completion: @escaping ServiceCompletion<PassCityProductsResponse>) {
+    itemsProvider.callAPI(.getProducts(filters)) { result in
+      switch result {
+      case .success(let response):
+        guard let feedResponse = Mapper<PassCityProductsResponse>().map(JSONObject: response.data) else {
+          return completion(.failure(DataError.serializationError(response.data)))
+        }
+        return completion(.success(feedResponse))
+      case .failure(let error):
+        return completion(.failure(error))
+      }
+    }
+  }
+
 }
 
 struct PassCityFeedItemResponse: Mappable {
@@ -50,12 +65,53 @@ struct PassCityFeedItemResponse: Mappable {
 
 }
 
+struct PassCityProductsResponse: Mappable {
+  var state: ProductsFiltersState = ProductsFiltersState()
+  var objects: [PassCityProductShort] = []
+
+  init?(map: Map) {
+    state = ProductsFiltersState(map: map) ?? ProductsFiltersState()
+  }
+  
+  init() { }
+  
+  mutating func mapping(map: Map) {
+    state.mapping(map: map)
+    objects <- map["objects"]
+  }
+  
+}
+
+
+struct ProductsFiltersState: Mappable, Equatable {
+  var search: String = ""
+  var pagination: Pagination = Pagination()
+
+  init?(map: Map) {
+    self.mapping(map: map)
+  }
+
+  init() { }
+
+  mutating func mapping(map: Map) {
+    search <- map["search"]
+    pagination <- map["pagination"]
+  }
+
+  static func ==(lhs: ProductsFiltersState, rhs: ProductsFiltersState) -> Bool {
+    return lhs.search == rhs.search && lhs.pagination == rhs.pagination
+  }
+}
+
+
 struct EventsFiltersState: Mappable, Equatable {
   var filter: PassCityFeedItemFilter = PassCityFeedItemFilter()
   var search: String = ""
   var pagination: Pagination = Pagination()
 
-  init?(map: Map) { }
+  init?(map: Map) {
+    self.mapping(map: map)
+  }
 
   init() { }
 

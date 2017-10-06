@@ -37,6 +37,13 @@ class PassCityFeedItemShort: Mappable, Hashable {
   }
 
   required init?(map: Map) {
+  }
+
+  init() {
+
+  }
+
+  func mapping(map: Map) {
     id <- map["id"]
     type <- (map["type"], EnumTransform<PassCityFeedItemType>())
     title <- map["attributes.title"]
@@ -47,17 +54,9 @@ class PassCityFeedItemShort: Mappable, Hashable {
     address <- map["attributes.address"]
     favorites <- map["attributes.favorites"]
     coordinates <- map["attributes.coordinates"]
-    reviews <- map["reviews"]
+    reviews <- map["attributes.reviews"]
     imgURL <- (map["links.img"], URLTransform())
-    dates <- map["dates"]
-  }
-
-  init() {
-
-  }
-
-  func mapping(map: Map) {
-
+    dates <- map["attributes.dates"]
   }
 
   var hashValue: Int {

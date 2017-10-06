@@ -13,15 +13,14 @@ protocol AvailableAnnouncesView: BaseView {
   func setItems(_: [PassCityFeedItemShort])
 }
 
-class AvailableMapViewPresenter: NSObject {
-  let view: AvailableMapView
-  let locationManager = CLLocationManager()
+class AvailableAnnouncesViewPresenter {
+  let view: AvailableAnnouncesView
   var currentItems = Set<PassCityFeedItemShort>()
   var currentFilters = EventsFiltersState() {
     didSet {
       guard currentFilters != oldValue else { return }
       currentPage = 1
-      fetchMap()
+      fetchAnnounces()
     }
   }
 
@@ -43,59 +42,29 @@ class AvailableMapViewPresenter: NSObject {
     return currentPage > totalPages
   }
 
-  var zoom: Int = 15 {
-    didSet {
-      var currentFilters = self.currentFilters
-      var coordinates = currentFilters.filter.coordinates
-      coordinates?.mapScale = zoom
-      currentFilters.filter.coordinates = coordinates
-      self.currentFilters = currentFilters
-    }
-  }
-
-  init(view: AvailableMapView) {
+  init(view: AvailableAnnouncesView) {
     self.view = view
-    super.init()
-    locationManager.delegate = self
-    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
 
     var currentFilters = EventsFiltersState()
-    var coordinates = Coordinates.current
-    coordinates?.mapScale = zoom
+    let coordinates = Coordinates.current
     currentFilters.filter.coordinates = coordinates
     self.currentFilters = currentFilters
-    view.zoom = zoom
-    view.coordinates = coordinates?.clLocationCoordinate2D
   }
 
-  func updateLocation() {
-    locationManager.startUpdatingLocation()
-  }
-
-  func setLocation(_ location: CLLocationCoordinate2D) {
-    var currentFilters = self.currentFilters
-    var coordinates = Coordinates(location)
-    coordinates?.mapScale = zoom
-    currentFilters.filter.coordinates = coordinates
-    self.currentFilters = currentFilters
-    view.zoom = zoom
-    view.coordinates = coordinates?.clLocationCoordinate2D
-  }
-
-  func fetchMap() {
+  func fetchAnnounces() {
     guard !pageLimit else { return }
+    guard !isRefreshing else { return }
     isRefreshing = true
     let filters = currentFilters
-    ShortEventsService.instance.fetchEvents(target: .getMap(filters)) { [weak self] result in
+    ShortEventsService.instance.fetchEvents(target: .getAnnounces(filters)) { [weak self] result in
       self?.isRefreshing = false
       switch result {
       case .success(let response):
         guard let `self` = self, filters == self.currentFilters else { return }
         self.totalPages = response.state.pagination.totalPages
         self.currentItems.formUnion(response.objects)
-        self.view.setMarkers(Array(self.currentItems))
+        self.view.setItems(Array(self.currentItems))
         self.currentPage += 1
-        self.fetchMap()
       case .failure(_):
         self?.isRefreshing = false
       }

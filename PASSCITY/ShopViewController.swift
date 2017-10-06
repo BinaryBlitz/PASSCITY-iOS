@@ -9,6 +9,20 @@
 import Foundation
 import UIKit
 
-class ShopViewController: UIViewController {
+class ShopViewController: PassCityWebViewController {
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if url == nil {
+      url = ProfileService.instance.currentSettings?.shopUrl
+    }
+  }
+
+  init() {
+    super.init(url: nil)
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }

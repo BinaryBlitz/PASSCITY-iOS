@@ -12,6 +12,7 @@ import Moya
 enum AvailableItemsTarget: JSONAPITargetType {
   case getMap(EventsFiltersState)
   case getAnnounces(EventsFiltersState)
+  case getProducts(ProductsFiltersState)
 
   var path: String {
     switch self {
@@ -19,6 +20,8 @@ enum AvailableItemsTarget: JSONAPITargetType {
       return "map"
     case .getAnnounces(_):
       return "announces"
+    case .getProducts:
+      return "products"
     }
   }
 
@@ -35,6 +38,8 @@ enum AvailableItemsTarget: JSONAPITargetType {
     case .getMap(let filters):
       return filters.toJSON()
     case .getAnnounces(let filters):
+      return filters.toJSON()
+    case .getProducts(let filters):
       return filters.toJSON()
     }
   }

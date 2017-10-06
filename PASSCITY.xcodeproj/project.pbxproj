@@ -42,6 +42,11 @@
 		88255DC21F8781320082B8DA /* PasscityMapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88255DC11F8781320082B8DA /* PasscityMapCardView.swift */; };
 		88255DC41F878E060082B8DA /* PasscityMapCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88255DC31F878E060082B8DA /* PasscityMapCardView.xib */; };
 		88255DC61F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88255DC51F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift */; };
+		88255DC91F87B5180082B8DA /* AvailableAnnouncesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88255DC81F87B5180082B8DA /* AvailableAnnouncesTableViewCell.xib */; };
+		88255DCB1F87B8BA0082B8DA /* AvailableAnnouncesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88255DCA1F87B8BA0082B8DA /* AvailableAnnouncesTableViewCell.swift */; };
+		8836656D1F87C59B00CEB7D4 /* ProductShort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836656C1F87C59B00CEB7D4 /* ProductShort.swift */; };
+		883665701F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836656F1F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift */; };
+		883665721F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */; };
 		8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5221F7EB1D8009D58C7 /* LocationService.swift */; };
 		8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */; };
 		885976EA1F7F51B300C9B091 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 885976E91F7F51B300C9B091 /* Default-568h@2x.png */; };
@@ -122,6 +127,11 @@
 		88255DC11F8781320082B8DA /* PasscityMapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscityMapCardView.swift; sourceTree = "<group>"; };
 		88255DC31F878E060082B8DA /* PasscityMapCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasscityMapCardView.xib; sourceTree = "<group>"; };
 		88255DC51F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableAnnouncesViewPresenter.swift; sourceTree = "<group>"; };
+		88255DC81F87B5180082B8DA /* AvailableAnnouncesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableAnnouncesTableViewCell.xib; sourceTree = "<group>"; };
+		88255DCA1F87B8BA0082B8DA /* AvailableAnnouncesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableAnnouncesTableViewCell.swift; sourceTree = "<group>"; };
+		8836656C1F87C59B00CEB7D4 /* ProductShort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductShort.swift; sourceTree = "<group>"; };
+		8836656F1F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductsTableViewCell.swift; sourceTree = "<group>"; };
+		883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableProductsTableViewCell.xib; sourceTree = "<group>"; };
 		8847E5221F7EB1D8009D58C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTarget.swift; sourceTree = "<group>"; };
 		885976E91F7F51B300C9B091 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -359,6 +369,7 @@
 				88B1049C1F86A56000EDD98E /* Settings.swift */,
 				88F9CC8D1F86F987002C4EF9 /* Category.swift */,
 				8817EB8B1F871FF40026553D /* PassCityFeedItem.swift */,
+				8836656C1F87C59B00CEB7D4 /* ProductShort.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -387,6 +398,17 @@
 		88255DC71F87B4500082B8DA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				88255DC81F87B5180082B8DA /* AvailableAnnouncesTableViewCell.xib */,
+				88255DCA1F87B8BA0082B8DA /* AvailableAnnouncesTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		8836656E1F87C8D900CEB7D4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8836656F1F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift */,
+				883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -539,6 +561,7 @@
 		88F9CC7E1F86E4EE002C4EF9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				8836656E1F87C8D900CEB7D4 /* Cells */,
 				88F9CC7F1F86E501002C4EF9 /* AvailableProductsViewController.swift */,
 			);
 			name = Products;
@@ -627,6 +650,8 @@
 			files = (
 				880903E31F7D6C2900158EC3 /* CardEntryViewController.storyboard in Resources */,
 				88C349741F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard in Resources */,
+				883665721F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib in Resources */,
+				88255DC91F87B5180082B8DA /* AvailableAnnouncesTableViewCell.xib in Resources */,
 				888C40421F7C4CC300CAF1EF /* LaunchScreen.storyboard in Resources */,
 				88FD36041F7F236100584BE0 /* CodeConfirmViewController.storyboard in Resources */,
 				888C403F1F7C4CC300CAF1EF /* Assets.xcassets in Resources */,
@@ -748,6 +773,7 @@
 				880903BB1F7D47F400158EC3 /* DataError.swift in Sources */,
 				880903EA1F7D7CAA00158EC3 /* ProfileService.swift in Sources */,
 				880903BD1F7D482B00158EC3 /* JSONAPiResourceObject.swift in Sources */,
+				8836656D1F87C59B00CEB7D4 /* ProductShort.swift in Sources */,
 				880903D01F7D515B00158EC3 /* CardChoiceViewController.swift in Sources */,
 				880903E11F7D693400158EC3 /* CardEntryViewController.swift in Sources */,
 				880903DB1F7D621600158EC3 /* PassCityNavigationController.swift in Sources */,
@@ -784,10 +810,12 @@
 				880903E51F7D75EE00158EC3 /* MaskedInput.swift in Sources */,
 				880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */,
 				880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */,
+				883665701F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift in Sources */,
 				88B104AA1F86D7E500EDD98E /* UIViewController+passcityExtensions.swift in Sources */,
 				887B16E41F873396006A0BF9 /* FeedItemsFilter.swift in Sources */,
 				880903D91F7D617A00158EC3 /* RootViewController.swift in Sources */,
 				880903D61F7D594800158EC3 /* UITableView+PASSCITY.swift in Sources */,
+				88255DCB1F87B8BA0082B8DA /* AvailableAnnouncesTableViewCell.swift in Sources */,
 				887B16EC1F873A9A006A0BF9 /* AvailableItemsTarget.swift in Sources */,
 				88255DC61F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift in Sources */,
 				88F9CC7D1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift in Sources */,
