@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     Fabric.with([Crashlytics.self])
+    LocationService.instance.startMonitoring()
+    GMSServices.provideAPIKey("AIzaSyDTSsnBmJWu6VxN7mjE1lH6HSiwuAAKhbA")
     return true
   }
 

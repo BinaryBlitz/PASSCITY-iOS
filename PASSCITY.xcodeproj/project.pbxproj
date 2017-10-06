@@ -41,6 +41,7 @@
 		88255DC01F877CB70082B8DA /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88255DBF1F877CB70082B8DA /* MarkerView.swift */; };
 		88255DC21F8781320082B8DA /* PasscityMapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88255DC11F8781320082B8DA /* PasscityMapCardView.swift */; };
 		88255DC41F878E060082B8DA /* PasscityMapCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88255DC31F878E060082B8DA /* PasscityMapCardView.xib */; };
+		88255DC61F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88255DC51F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift */; };
 		8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5221F7EB1D8009D58C7 /* LocationService.swift */; };
 		8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */; };
 		885976EA1F7F51B300C9B091 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 885976E91F7F51B300C9B091 /* Default-568h@2x.png */; };
@@ -120,6 +121,7 @@
 		88255DBF1F877CB70082B8DA /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		88255DC11F8781320082B8DA /* PasscityMapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscityMapCardView.swift; sourceTree = "<group>"; };
 		88255DC31F878E060082B8DA /* PasscityMapCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasscityMapCardView.xib; sourceTree = "<group>"; };
+		88255DC51F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableAnnouncesViewPresenter.swift; sourceTree = "<group>"; };
 		8847E5221F7EB1D8009D58C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTarget.swift; sourceTree = "<group>"; };
 		885976E91F7F51B300C9B091 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -382,6 +384,13 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		88255DC71F87B4500082B8DA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		8847E5241F7ED302009D58C7 /* TargetTypes */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,7 +529,9 @@
 		88F9CC7B1F86E4AE002C4EF9 /* Announces */ = {
 			isa = PBXGroup;
 			children = (
+				88255DC71F87B4500082B8DA /* Cells */,
 				88F9CC7C1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift */,
+				88255DC51F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift */,
 			);
 			name = Announces;
 			sourceTree = "<group>";
@@ -687,6 +698,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PASSCITY/Pods-PASSCITY-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EasyPeasy/EasyPeasy.framework",
+				"${BUILT_PRODUCTS_DIR}/FloatRatingView/FloatRatingView.framework",
 				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -700,6 +712,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPeasy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatRatingView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -776,6 +789,7 @@
 				880903D91F7D617A00158EC3 /* RootViewController.swift in Sources */,
 				880903D61F7D594800158EC3 /* UITableView+PASSCITY.swift in Sources */,
 				887B16EC1F873A9A006A0BF9 /* AvailableItemsTarget.swift in Sources */,
+				88255DC61F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift in Sources */,
 				88F9CC7D1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift in Sources */,
 				88E12A7E1F7E386800EB23ED /* LoginData.swift in Sources */,
 				887B16EA1F8738C1006A0BF9 /* Pagination.swift in Sources */,

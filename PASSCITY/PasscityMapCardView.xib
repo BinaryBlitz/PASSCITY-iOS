@@ -13,13 +13,132 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PasscityMapCardView" customModule="PASSCITY" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="618" height="246"/>
+            <rect key="frame" x="0.0" y="0.0" width="417" height="104"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YpG-kh-c5m">
+                    <rect key="frame" x="0.0" y="0.0" width="90" height="104"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="90" id="6bH-3Q-MRz"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrM-DO-FXk">
+                    <rect key="frame" x="99" y="15" width="253" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4b-ba-dLy">
+                    <rect key="frame" x="367" y="0.0" width="50" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="T03-Oo-ucL"/>
+                        <constraint firstAttribute="height" constant="40" id="hzp-wh-QTe"/>
+                    </constraints>
+                    <state key="normal" image="iconNavbarClose"/>
+                    <connections>
+                        <action selector="closeButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="7Ep-Ee-oYM"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eK8-Ny-5gr" customClass="FloatRatingView" customModule="FloatRatingView">
+                    <rect key="frame" x="105" y="82" width="68" height="12"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="68" id="4VU-vD-DEG"/>
+                        <constraint firstAttribute="height" constant="12" id="gmc-xJ-6Qz"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="iconRatingStrocke"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="iconRatingFill"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="halfRatings" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="floatRatings" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconComments" translatesAutoresizingMaskIntoConstraints="NO" id="oxc-2b-aEa">
+                    <rect key="frame" x="105" y="62" width="12" height="12"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3r-O1-7hc">
+                    <rect key="frame" x="123" y="61" width="8" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLocation" translatesAutoresizingMaskIntoConstraints="NO" id="yFF-j0-smR">
+                    <rect key="frame" x="146" y="62" width="12" height="12"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 км" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCK-mo-oIk">
+                    <rect key="frame" x="164" y="61" width="26.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconClock" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-TU-Sol">
+                    <rect key="frame" x="205.5" y="62" width="12" height="12"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сегодня 18:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQX-ar-VsE">
+                    <rect key="frame" x="223.5" y="61" width="84.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DCK-mo-oIk" firstAttribute="leading" secondItem="yFF-j0-smR" secondAttribute="trailing" constant="6" id="2ct-jE-sg9"/>
+                <constraint firstItem="oxc-2b-aEa" firstAttribute="leading" secondItem="YpG-kh-c5m" secondAttribute="trailing" constant="15" id="36P-w9-T7j"/>
+                <constraint firstItem="M3r-O1-7hc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CrM-DO-FXk" secondAttribute="bottom" id="BbP-K4-zZ7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mQX-ar-VsE" secondAttribute="trailing" id="CVp-dp-iee"/>
+                <constraint firstItem="gkO-TU-Sol" firstAttribute="leading" secondItem="DCK-mo-oIk" secondAttribute="trailing" constant="15" id="Cx4-w9-pe4"/>
+                <constraint firstItem="CrM-DO-FXk" firstAttribute="leading" secondItem="YpG-kh-c5m" secondAttribute="trailing" constant="9" id="KNd-9u-hzF"/>
+                <constraint firstItem="Z4b-ba-dLy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="P9a-wg-HQy"/>
+                <constraint firstItem="M3r-O1-7hc" firstAttribute="leading" secondItem="oxc-2b-aEa" secondAttribute="trailing" constant="6" id="PTn-YZ-MUM"/>
+                <constraint firstItem="Z4b-ba-dLy" firstAttribute="leading" secondItem="CrM-DO-FXk" secondAttribute="trailing" constant="15" id="T5F-KP-6iQ"/>
+                <constraint firstItem="YpG-kh-c5m" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ZLg-1u-hbf"/>
+                <constraint firstItem="yFF-j0-smR" firstAttribute="leading" secondItem="M3r-O1-7hc" secondAttribute="trailing" constant="15" id="aED-Od-jdy"/>
+                <constraint firstItem="YpG-kh-c5m" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dMb-2t-vyy"/>
+                <constraint firstItem="yFF-j0-smR" firstAttribute="centerY" secondItem="oxc-2b-aEa" secondAttribute="centerY" id="fe8-bQ-3mJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Z4b-ba-dLy" secondAttribute="trailing" id="fzt-d9-d3G"/>
+                <constraint firstItem="DCK-mo-oIk" firstAttribute="centerY" secondItem="yFF-j0-smR" secondAttribute="centerY" id="hbt-fL-dGG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="YpG-kh-c5m" secondAttribute="bottom" id="iv4-RZ-e5e"/>
+                <constraint firstItem="mQX-ar-VsE" firstAttribute="centerY" secondItem="gkO-TU-Sol" secondAttribute="centerY" id="lzW-te-4b0"/>
+                <constraint firstItem="CrM-DO-FXk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="ox4-r0-dDW"/>
+                <constraint firstItem="eK8-Ny-5gr" firstAttribute="leading" secondItem="YpG-kh-c5m" secondAttribute="trailing" constant="15" id="pq6-41-cgU"/>
+                <constraint firstItem="mQX-ar-VsE" firstAttribute="leading" secondItem="gkO-TU-Sol" secondAttribute="trailing" constant="6" id="rfk-KS-rjj"/>
+                <constraint firstItem="eK8-Ny-5gr" firstAttribute="top" secondItem="oxc-2b-aEa" secondAttribute="bottom" constant="8" id="skK-mp-ER3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="eK8-Ny-5gr" secondAttribute="bottom" constant="10" id="swR-6f-UwB"/>
+                <constraint firstItem="gkO-TU-Sol" firstAttribute="centerY" secondItem="yFF-j0-smR" secondAttribute="centerY" id="web-qL-Rjt"/>
+                <constraint firstItem="M3r-O1-7hc" firstAttribute="centerY" secondItem="oxc-2b-aEa" secondAttribute="centerY" id="yBM-Av-Eks"/>
+            </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="156" y="267"/>
+            <connections>
+                <outlet property="commentsCountLabel" destination="M3r-O1-7hc" id="cOT-RT-AiL"/>
+                <outlet property="dateLabel" destination="mQX-ar-VsE" id="iWy-wd-rHj"/>
+                <outlet property="distanceLabel" destination="DCK-mo-oIk" id="qkU-s5-I2A"/>
+                <outlet property="imageView" destination="YpG-kh-c5m" id="Vm7-El-Lnm"/>
+                <outlet property="ratingView" destination="eK8-Ny-5gr" id="JtR-ik-ZL9"/>
+                <outlet property="titleLabel" destination="CrM-DO-FXk" id="Pg2-OD-Phb"/>
+            </connections>
+            <point key="canvasLocation" x="55.5" y="338"/>
         </view>
     </objects>
+    <resources>
+        <image name="iconClock" width="12" height="12"/>
+        <image name="iconComments" width="12" height="12"/>
+        <image name="iconLocation" width="12" height="12"/>
+        <image name="iconNavbarClose" width="20" height="20"/>
+        <image name="iconRatingFill" width="12" height="12"/>
+        <image name="iconRatingStrocke" width="12" height="12"/>
+    </resources>
 </document>

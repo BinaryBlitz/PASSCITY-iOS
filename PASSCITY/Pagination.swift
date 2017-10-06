@@ -25,6 +25,6 @@ struct Pagination: Mappable, Equatable {
   }
 
   static func ==(lhs: Pagination, rhs: Pagination) -> Bool {
-    return lhs.currentPage == rhs.currentPage && lhs.perPage == rhs.perPage
+    return lhs.totalPages == rhs.totalPages && lhs.perPage == rhs.perPage
   }
 }

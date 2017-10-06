@@ -13,23 +13,33 @@ import EasyPeasy
 
 class AvailableMapViewController: UIViewController, AvailableMapView {
   let animationDuration = 0.2
-  var presenter: AvailableMapViewPresenter!
-  let mapView = GMSMapView()
-  let audioGuideButton = UIButton(type: .system)
-  let zoomPlusButton = UIButton(type: .system)
-  let zoomMinusButton = UIButton(type: .system)
-  let myLocationButton = UIButton(type: .system)
-  let cardView = PasscityMapCardView()
+  var presenter: AvailableMapViewPresenter? = nil
+  var mapView: GMSMapView!
+  let audioGuideButton = UIButton()
+  let zoomPlusButton = UIButton()
+  let zoomMinusButton = UIButton()
+  let myLocationButton = UIButton()
+  let cardView = PasscityMapCardView.nibInstance()!
 
   var buttons: [UIButton] {
     return [audioGuideButton, zoomPlusButton, zoomMinusButton, myLocationButton]
   }
 
+  var markers: [GMSMarker] = []
+
   override func viewDidLoad() {
-    presenter = AvailableMapViewPresenter(view: self)
+    mapView = GMSMapView()
     mapView.delegate = self
 
+    presenter = AvailableMapViewPresenter(view: self)
+
     setupView()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    mapView.isMyLocationEnabled = true
+    presenter?.updateLocation()
   }
 
   func setupView() {
@@ -42,6 +52,10 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     zoomPlusButton.addTarget(self, action: #selector(zoomPlusAction), for: .touchUpInside)
     zoomMinusButton.addTarget(self, action: #selector(zoomMinusAction), for: .touchUpInside)
     myLocationButton.addTarget(self, action: #selector(myLocationAction), for: .touchUpInside)
+
+    cardView.closeButtonHandler = { [weak self] in
+      self?.hideCardView()
+    }
     addConstraints()
   }
 
@@ -50,7 +64,7 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
       return Int(mapView.camera.zoom)
     }
     set {
-      presenter.zoom = zoom
+      presenter?.zoom = newValue
       mapView.animate(toZoom: Float(newValue))
     }
   }
@@ -63,6 +77,8 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
   }
 
   func setMarkers(_ items: [PassCityFeedItemShort]) {
+    markers.forEach { $0.map = nil }
+    markers = []
     for item in items {
       let category = item.categoryObject
       let markerView = PasscityMarkerView(color: category?.color ?? UIColor.red, iconUrl: category?.icon)
@@ -70,10 +86,10 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
       let marker = GMSMarker()
       marker.position = coordinates
       marker.iconView = markerView
-
+      marker.userData = item.id
       marker.isDraggable = false
-      marker.map = mapView
-      marker.userData = index
+      marker.map = self.mapView
+      markers.append(marker)
     }
   }
 
@@ -91,10 +107,23 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
 
   func myLocationAction() {
     mapView.isMyLocationEnabled = true
+    presenter?.updateLocation()
   }
 
   func prepareCardView(id: Int) {
-    guard let item = presenter.currentItems.first(where: { $0.id == id }) else { return }
+    guard let item = presenter?.currentItems.first(where: { $0.id == id }) else { return }
+    cardView.configure(item: item)
+
+    UIView.animate(withDuration: animationDuration) { [weak self] in
+      guard let `self` = self else { return }
+
+      self.cardView <- [
+        Bottom().to(self.bottomLayoutGuide, .bottom)
+      ]
+      self.view.easy_reload()
+      self.view.setNeedsLayout()
+      self.view.layoutIfNeeded()
+    }
   }
 
   func addConstraints() {
@@ -114,7 +143,7 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
 
     audioGuideButton <- [
       Bottom(20).to(cardView, .top),
-      Left(20)
+      Right(20)
     ]
 
     myLocationButton <- [
@@ -123,6 +152,8 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     ]
 
     let zoomButtonsView = UIView()
+    view.addSubview(zoomButtonsView)
+
     zoomButtonsView.backgroundColor = .clear
 
     zoomButtonsView.addSubview(zoomPlusButton)
@@ -135,10 +166,9 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     ]
 
     zoomMinusButton <- [
-      Top(20).to(zoomPlusButton),
+      Top(20).to(zoomPlusButton, .bottom),
       Bottom(),
-      Left(),
-      Right()
+      CenterX().to(zoomPlusButton)
     ]
 
     zoomButtonsView <- [
@@ -147,21 +177,29 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     ]
 
   }
+
+  func hideCardView() {
+    UIView.animate(withDuration: animationDuration) { [weak self] in
+      guard let `self` = self else { return }
+      self.cardView <- [
+        Bottom(-90).to(self.bottomLayoutGuide, .top)
+      ]
+      self.view.easy_reload()
+      self.view.setNeedsLayout()
+      self.view.layoutIfNeeded()
+    }
+
+  }
 }
 
 extension AvailableMapViewController: GMSMapViewDelegate {
   func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
     guard let id = marker.userData as? Int else { return false }
-    prepareCardView(event: events[index])
+    prepareCardView(id: id)
     return true
   }
 
   func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-    UIView.animate(withDuration: animationDuration) { [weak self] in
-      guard let `self` = self else { return }
-      self.bottomCardConstraint.constant = -self.cardHeightConstraint.constant
-      self.view.setNeedsLayout()
-      self.view.layoutIfNeeded()
-    }
+    hideCardView()
   }
 }

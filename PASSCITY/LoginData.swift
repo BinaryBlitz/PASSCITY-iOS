@@ -63,4 +63,12 @@ struct LoginData: Mappable {
 
     return loginData
   }
+
+  static var new: LoginData {
+    var loginData = LoginData()
+    loginData.av = currentApplicationVersion
+    loginData.did = UIDevice.current.identifierForVendor?.uuidString
+
+    return loginData
+  }
 }

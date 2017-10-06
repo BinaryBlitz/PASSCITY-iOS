@@ -33,7 +33,7 @@ class PersonalInfoViewController: UIViewController {
 
       switch result {
       case .success:
-        LocationService.instance.startMonitoring()
+        LocationService.instance.beginMonitoring()
         NotificationService.instance.configure()
         let viewController = CodeConfirmViewController.storyboardInstance()!
         self?.navigationController?.pushViewController(viewController, animated: true)

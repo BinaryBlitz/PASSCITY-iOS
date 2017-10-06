@@ -33,7 +33,7 @@ class PassCityFeedItemShort: Mappable, Hashable {
 
   var categoryObject: Category? {
     let categories = ProfileService.instance.currentSettings?.categories
-    return categories.first { $0.id == category }
+    return categories?.first { $0.id == category }
   }
 
   required init?(map: Map) {

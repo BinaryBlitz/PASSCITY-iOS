@@ -32,13 +32,17 @@ class ProfileService {
   var cardInputTriesLeft = 3
 
   func validateLoginResponseData(data: LoginData) {
-    let currentAV = Float(currentLoginData.av ?? "") ?? 0
-    let backendAV = Float(data.av ?? "") ?? 0
+    let currentAV = Float(currentLoginData.av ?? "") ?? 1
+    let backendAV = Float(data.av ?? "") ?? currentAV
     if backendAV != currentAV {
-      RootViewController.instance?.setAppUpdate()
+      DispatchQueue.main.async {
+        RootViewController.instance?.setAppUpdate()
+      }
     } else if (data.uid == nil || data.uid == 0) && isAuthorized {
-      isAuthorized = false
-      RootViewController.instance?.setRegistration()
+      /*isAuthorized = false
+      DispatchQueue.main.async {
+        RootViewController.instance?.setRegistration()
+      }*/
     }
   }
 
@@ -50,7 +54,7 @@ class ProfileService {
     }
     set {
       guard !newValue else { return }
-      loginInternalData = LoginData.current
+      loginInternalData = LoginData.new
     }
   }
 

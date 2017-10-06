@@ -46,8 +46,7 @@ class AvailableViewController: UIViewController {
 
       addChildViewController(newViewController)
       containerView.addSubview(newViewController.view)
-      newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-      newViewController.view.frame = containerView.bounds
+      newViewController.view <- Edges()
       newViewController.didMove(toParentViewController: self)
     }
   }
@@ -72,6 +71,8 @@ class AvailableViewController: UIViewController {
 
     setupView()
     setupNavigationBar()
+
+    currentViewController = mapViewController
   }
 
   func setupView() {

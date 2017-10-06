@@ -26,6 +26,10 @@ class LocationService: NSObject {
   }
 
   func startMonitoring() {
+    locationManager.startUpdatingLocation()
+  }
+
+  func beginMonitoring() {
     locationManager.requestAlwaysAuthorization()
     locationManager.startUpdatingLocation()
   }

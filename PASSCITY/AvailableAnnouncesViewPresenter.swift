@@ -1,5 +1,5 @@
 //
-//  AvailableMapViewPresenter.swift
+//  AvailableAnnouncesViewPresenter.swift
 //  PASSCITY
 //
 //  Created by Алексей on 06.10.17.
@@ -9,10 +9,8 @@
 import Foundation
 import CoreLocation
 
-protocol AvailableMapView: BaseView {
-  func setMarkers(_: [PassCityFeedItemShort])
-  var zoom: Int { get set }
-  var coordinates: CLLocationCoordinate2D? { get set }
+protocol AvailableAnnouncesView: BaseView {
+  func setItems(_: [PassCityFeedItemShort])
 }
 
 class AvailableMapViewPresenter: NSObject {
@@ -102,15 +100,6 @@ class AvailableMapViewPresenter: NSObject {
         self?.isRefreshing = false
       }
     }
-  }
-
-}
-
-extension AvailableMapViewPresenter: CLLocationManagerDelegate {
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    guard let location = locations.first else { return }
-    manager.stopUpdatingLocation()
-    setLocation(location.coordinate)
   }
 
 }

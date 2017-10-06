@@ -16,7 +16,7 @@ class PasscityMarkerView: UIView {
   let iconImageView = UIImageView()
 
   init(color: UIColor = .red, iconUrl: URL?) {
-    super.init(frame: CGRect.null)
+    super.init(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
     backgroundImageView.image = backgroundImageView.image?.withRenderingMode(.alwaysTemplate)
     backgroundImageView.tintColor = color
     iconImageView.contentMode = .scaleAspectFit
