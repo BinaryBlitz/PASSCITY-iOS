@@ -8,9 +8,12 @@
 
 import Foundation
 import UIKit
+import EasyPeasy
 
 class AvailableProductsViewController: UITableViewController, AvailableProductsView {
   var presenter: AvailableProductsViewPresenter? = nil
+  let loaderView = LoaderView()
+  let backgroundLoaderView = LoaderView()
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -21,7 +24,17 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
 
   func setItems(_ items: [PassCityProductShort]) {
     self.items = items
+    //tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
+    tableView.backgroundView?.isHidden = false
+    tableView.separatorStyle = isRefreshing ? .none : .singleLine
     tableView.reloadData()
+  }
+
+  var isRefreshing: Bool = false {
+    didSet {
+      tableView.backgroundView?.isHidden = false
+      //tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
+    }
   }
 
   override func viewDidLoad() {
@@ -30,6 +43,18 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
     let nib = UINib(nibName: "AvailableProductsTableViewCell", bundle: nil)
     tableView.register(nib, forCellReuseIdentifier: AvailableProductsTableViewCell.defaultReuseIdentifier)
     presenter?.fetchProducts()
+    tableView.backgroundView = backgroundLoaderView
+    refreshControl = UIRefreshControl()
+    guard let refreshControl = refreshControl else { return }
+    tableView.addSubview(refreshControl)
+    refreshControl.addSubview(loaderView)
+    loaderView <- Edges()
+    loaderView.alpha = 0
+    refreshControl.addTarget(self, action: #selector(refreshingChanged), for: .valueChanged)
+  }
+
+  func refreshingChanged() {
+    loaderView.alpha = (refreshControl?.isRefreshing ?? false) ? 1 : 0
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {

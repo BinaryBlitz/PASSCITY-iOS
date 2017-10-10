@@ -20,17 +20,14 @@ class PasscityMarkerView: UIView {
     backgroundImageView.image = backgroundImageView.image?.withRenderingMode(.alwaysTemplate)
     backgroundImageView.tintColor = color
     iconImageView.contentMode = .scaleAspectFit
-    iconImageView.kf.setImage(with: iconUrl) { [weak self] image, _, _, _ in
-      guard let image = image?.withRenderingMode(.alwaysTemplate) else { return }
-      self?.iconImageView.image = image
-      self?.iconImageView.tintColor = UIColor.white
-    }
+    iconImageView.kf.setImage(with: iconUrl)
     addSubview(backgroundImageView)
     backgroundImageView <- Edges()
 
     addSubview(iconImageView)
     iconImageView <- [
-      Center(),
+      CenterX(),
+      Top(5),
       Size(25)
     ]
   }

@@ -26,12 +26,26 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
   @IBOutlet weak var locationImageView: UIImageView!
   @IBOutlet weak var clockImageView: UIImageView!
 
+  @IBOutlet weak var descriptionButton: GoButton!
+
+  @IBOutlet weak var descriptionLabel: UILabel!
+  
+  @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
+
   var icons: [UIImageView] {
     return [commentsImageView, locationImageView, clockImageView]
   }
 
+  var isExpanded: Bool = false {
+    didSet {
+      bottomConstraint?.isActive = isExpanded
+      updateConstraints()
+      layoutIfNeeded()
+    }
+  }
+
   var likeButtonHandler: (() -> Void)? = nil
-  var moreButtonHandler: (() -> Void)? = nil
+  var isExpandedHandler: ((Bool) -> Void)? = nil
 
   @IBAction func likeButtonAction(_ sender: Any) {
   }
@@ -42,6 +56,7 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     icons.forEach { $0.image = $0.image?.withRenderingMode(.alwaysTemplate) }
+    bottomConstraint?.isActive = false
   }
 
   func configure(item: PassCityFeedItemShort) {
@@ -50,8 +65,25 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
     backgroundImageView.kf.setImage(with: item.imgURL)
     commentsCountLabel.text = "\(item.reviews.qty)"
     distationLabel.text = item.distance
-    dateLabel.text = item.dates
+    dateLabel.text = item.schedule.isEmpty ? item.dates : item.schedule
     likeButton.isSelected = item.favorites != 0
+    descriptionLabel.text = item.description
+  }
+  @IBAction func bottomButtonTouchDownAction(_ sender: Any) {
+    descriptionButton.isHighlighted = true
+  }
+
+  @IBAction func bottomButtonTouchUpInsideAction(_ sender: Any) {
+    descriptionButton.isHighlighted = false
+    isExpandedHandler?(true)
+  }
+  
+  @IBAction func touchUpOutsideAction(_ sender: Any) {
+    descriptionButton.isHighlighted = false
+  }
+
+  @IBAction func closeButtonAction(_ sender: Any) {
+    isExpandedHandler?(false)
   }
 
 }

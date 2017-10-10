@@ -13,7 +13,8 @@ import ObjectMapper
 class ProfileService {
   static let instance = ProfileService()
 
-  let authProvider = JSONAPIProvider<AuthenticationTarget>()
+  private let authProvider = JSONAPIProvider<AuthenticationTarget>()
+  private let itemsProvider = JSONAPIProvider<AvailableItemsTarget>()
 
   private var loginInternalData: LoginData {
     didSet {
@@ -99,7 +100,7 @@ class ProfileService {
     }
   }
 
-  func checkCode(code: String, completion: @escaping ServiceCompletion<Void>) {
+  func checkCode(code: String, completion: ServiceCompletion<Void>?) {
     var loginData = currentLoginData
 
     authProvider.callAPI(.checkCode(data: loginData, code: code)) { result in
@@ -112,10 +113,30 @@ class ProfileService {
           self.currentSettings = settings
           try? StorageHelper.save(settings.toJSONString(), forKey: .currentSettings)
         }
+        completion?(.success())
+      case .failure(let error):
+        completion?(.failure(error))
+      }
+    }
+  }
+
+  func getSettings(completion: @escaping ServiceCompletion<Void>) {
+    guard isAuthorized else {
+      return
+    }
+
+    itemsProvider.callAPI(.getSettings) { result in
+      switch result {
+      case .success(let response):
+        if let settings = Mapper<Settings>().map(JSONObject: response.data) {
+          self.currentSettings = settings
+          try? StorageHelper.save(settings.toJSONString(), forKey: .currentSettings)
+        }
         completion(.success())
       case .failure(let error):
         completion(.failure(error))
       }
+
     }
   }
 }

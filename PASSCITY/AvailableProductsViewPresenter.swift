@@ -11,6 +11,7 @@ import CoreLocation
 
 protocol AvailableProductsView: BaseView {
   func setItems(_: [PassCityProductShort])
+  var isRefreshing: Bool { get set }
 }
 
 class AvailableProductsViewPresenter {
@@ -35,7 +36,11 @@ class AvailableProductsViewPresenter {
     }
   }
 
-  var isRefreshing: Bool = false
+  var isRefreshing: Bool = false {
+    didSet {
+      view.isRefreshing = isRefreshing
+    }
+  }
 
   var pageLimit: Bool {
     let totalPages = self.totalPages ?? 1
@@ -48,12 +53,13 @@ class AvailableProductsViewPresenter {
     self.currentFilters = ProductsFiltersState()
   }
 
-  func fetchProducts() {
+  func fetchProducts(_ completion: (() -> Void)? = nil) {
     guard !pageLimit else { return }
     guard !isRefreshing else { return }
     isRefreshing = true
     let filters = currentFilters
     ShortEventsService.instance.fetchProducts(filters: filters) { [weak self] result in
+      completion?()
       self?.isRefreshing = false
       switch result {
       case .success(let response):

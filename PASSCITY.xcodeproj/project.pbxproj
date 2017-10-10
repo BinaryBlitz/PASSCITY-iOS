@@ -63,6 +63,9 @@
 		888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C40391F7C4CC300CAF1EF /* ViewController.swift */; };
 		888C403F1F7C4CC300CAF1EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888C403E1F7C4CC300CAF1EF /* Assets.xcassets */; };
 		888C40421F7C4CC300CAF1EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888C40401F7C4CC300CAF1EF /* LaunchScreen.storyboard */; };
+		889866441F8C51590065FF57 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889866431F8C51590065FF57 /* LoaderView.swift */; };
+		889866461F8C52360065FF57 /* iOSDevCenter+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889866451F8C52360065FF57 /* iOSDevCenter+GIF.swift */; };
+		88A3D6C21F8BEF6E0063375F /* IdTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A3D6C11F8BEF6E0063375F /* IdTransform.swift */; };
 		88B1049D1F86A56000EDD98E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1049C1F86A56000EDD98E /* Settings.swift */; };
 		88B104A21F86CB9C00EDD98E /* AvailableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B104A11F86CB9C00EDD98E /* AvailableViewController.swift */; };
 		88B104A51F86CC4700EDD98E /* TopBarHeaderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B104A41F86CC4700EDD98E /* TopBarHeaderItemView.swift */; };
@@ -151,6 +154,10 @@
 		888C403E1F7C4CC300CAF1EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		888C40411F7C4CC300CAF1EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		888C40431F7C4CC300CAF1EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		889866431F8C51590065FF57 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		889866451F8C52360065FF57 /* iOSDevCenter+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSDevCenter+GIF.swift"; sourceTree = "<group>"; };
+		889866471F8C565A0065FF57 /* preloader_3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = preloader_3.gif; sourceTree = "<group>"; };
+		88A3D6C11F8BEF6E0063375F /* IdTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdTransform.swift; sourceTree = "<group>"; };
 		88B1049C1F86A56000EDD98E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		88B104A11F86CB9C00EDD98E /* AvailableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableViewController.swift; sourceTree = "<group>"; };
 		88B104A41F86CC4700EDD98E /* TopBarHeaderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarHeaderItemView.swift; sourceTree = "<group>"; };
@@ -287,6 +294,7 @@
 				88FD35FE1F7F19D100584BE0 /* BaseView.swift */,
 				88B104AB1F86D82D00EDD98E /* PassCityLogoLeftNavigationItemView.swift */,
 				88B104AD1F86D9A100EDD98E /* PassCityButtonsRightNavigationItem.swift */,
+				889866431F8C51590065FF57 /* LoaderView.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -304,6 +312,7 @@
 				88858E411F7F3160002D2B75 /* Int+getRussianEnumEndings.swift */,
 				88B104A91F86D7E500EDD98E /* UIViewController+passcityExtensions.swift */,
 				8817EB901F8730700026553D /* Date+PASSCITY.swift */,
+				889866451F8C52360065FF57 /* iOSDevCenter+GIF.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -428,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				8817EB8E1F8730340026553D /* DateTimeTransform.swift */,
+				88A3D6C11F8BEF6E0063375F /* IdTransform.swift */,
 			);
 			name = Transform;
 			sourceTree = "<group>";
@@ -542,6 +552,7 @@
 		88E12A781F7E042C00EB23ED /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				889866471F8C565A0065FF57 /* preloader_3.gif */,
 				888C403E1F7C4CC300CAF1EF /* Assets.xcassets */,
 				888C40431F7C4CC300CAF1EF /* Info.plist */,
 				88E12A791F7E046000EB23ED /* PASSCITY-Bridging-Header.h */,
@@ -783,6 +794,7 @@
 				88B104AE1F86D9A100EDD98E /* PassCityButtonsRightNavigationItem.swift in Sources */,
 				88B104A81F86D40600EDD98E /* AvailableMapViewController.swift in Sources */,
 				88858E421F7F3160002D2B75 /* Int+getRussianEnumEndings.swift in Sources */,
+				889866461F8C52360065FF57 /* iOSDevCenter+GIF.swift in Sources */,
 				88FD36021F7F229200584BE0 /* CodeConfirmViewController.swift in Sources */,
 				88F9CC801F86E501002C4EF9 /* AvailableProductsViewController.swift in Sources */,
 				88255DC01F877CB70082B8DA /* MarkerView.swift in Sources */,
@@ -805,6 +817,7 @@
 				880903C41F7D4BED00158EC3 /* UpdateAppViewController.swift in Sources */,
 				887B16E81F8733F1006A0BF9 /* Intervals.swift in Sources */,
 				8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */,
+				88A3D6C21F8BEF6E0063375F /* IdTransform.swift in Sources */,
 				888C40381F7C4CC300CAF1EF /* AppDelegate.swift in Sources */,
 				88B104A21F86CB9C00EDD98E /* AvailableViewController.swift in Sources */,
 				8869B0A11F87D1D700F5A4E4 /* AvailableProductsViewPresenter.swift in Sources */,
@@ -822,6 +835,7 @@
 				88255DCB1F87B8BA0082B8DA /* AvailableAnnouncesTableViewCell.swift in Sources */,
 				887B16EC1F873A9A006A0BF9 /* AvailableItemsTarget.swift in Sources */,
 				88255DC61F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift in Sources */,
+				889866441F8C51590065FF57 /* LoaderView.swift in Sources */,
 				88F9CC7D1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift in Sources */,
 				88E12A7E1F7E386800EB23ED /* LoginData.swift in Sources */,
 				887B16EA1F8738C1006A0BF9 /* Pagination.swift in Sources */,

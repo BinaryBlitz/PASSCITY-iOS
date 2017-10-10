@@ -23,13 +23,13 @@ class Category: Mappable {
   }
 
  func mapping(map: Map) {
-    id <- map["id"]
+    id <- (map["id"], IdTransform())
     type <- map["type"]
     title <- map["attributes.title"]
     parentId <- map["attributes.parent_id"]
     selected <- map["attributes.selected"]
     children <- map["relationships.children"]
     color <- (map["attributes.color"], HexColorTransform())
-    icon <- (map["icon"], URLTransform())
+    icon <- (map["links.icon"], URLTransform())
   }
 }

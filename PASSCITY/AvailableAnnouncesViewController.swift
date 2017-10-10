@@ -12,12 +12,22 @@ import UIKit
 class AvailableAnnouncesViewController: UITableViewController, AvailableAnnouncesView {
   var presenter: AvailableAnnouncesViewPresenter? = nil
 
+  var backgroundView: LoaderView!
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     presenter?.fetchAnnounces()
   }
 
+  var isExpandedItemId: Int? = nil
+
   var items: [PassCityFeedItemShort] = []
+
+  var isRefreshing: Bool = false {
+    didSet {
+      tableView.backgroundView = isRefreshing ? backgroundView : nil
+    }
+  }
 
   func setItems(_ items: [PassCityFeedItemShort]) {
     self.items = items
@@ -27,9 +37,10 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
   override func viewDidLoad() {
     super.viewDidLoad()
     presenter = AvailableAnnouncesViewPresenter(view: self)
+    backgroundView = LoaderView()
     let nib = UINib(nibName: "AvailableAnnouncesTableViewCell", bundle: nil)
     tableView.register(nib, forCellReuseIdentifier: AvailableAnnouncesTableViewCell.defaultReuseIdentifier)
-    presenter?.fetchAnnounces()
+      presenter?.fetchAnnounces()
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,12 +57,23 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: AvailableAnnouncesTableViewCell.defaultReuseIdentifier, for: indexPath) as! AvailableAnnouncesTableViewCell
-    cell.configure(item: items[indexPath.row])
+    let item = items[indexPath.row]
+    cell.configure(item: item)
+    cell.isExpanded = item.id == isExpandedItemId
+    cell.isExpandedHandler = { [weak self] isExpanded in
+      self?.isExpandedItemId = isExpanded ? item.id : nil
+      tableView.beginUpdates()
+      tableView.endUpdates()
+    }
     return cell
   }
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 275
+    return isExpandedItemId == items[indexPath.row].id ? 419 : 275
+  }
+
+  override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return isExpandedItemId == items[indexPath.row].id ? 419 : 275
   }
 
   override func scrollViewDidScroll(_ scrollView: UIScrollView) {

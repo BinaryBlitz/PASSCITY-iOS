@@ -12,7 +12,7 @@ import Moya
 enum AuthenticationTarget: JSONAPITargetType {
   case register(LoginData, sendCode: Bool)
   case checkCode(data: LoginData, code: String)
-
+  
   var includeLogin: Bool {
     return false
   }

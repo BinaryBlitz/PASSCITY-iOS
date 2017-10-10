@@ -13,6 +13,7 @@ enum AvailableItemsTarget: JSONAPITargetType {
   case getMap(EventsFiltersState)
   case getAnnounces(EventsFiltersState)
   case getProducts(ProductsFiltersState)
+  case getSettings
 
   var path: String {
     switch self {
@@ -22,6 +23,8 @@ enum AvailableItemsTarget: JSONAPITargetType {
       return "announces"
     case .getProducts:
       return "products"
+    case .getSettings:
+      return "settings"
     }
   }
 
@@ -41,6 +44,8 @@ enum AvailableItemsTarget: JSONAPITargetType {
       return filters.toJSON()
     case .getProducts(let filters):
       return filters.toJSON()
+    case .getSettings:
+      return nil
     }
   }
 }

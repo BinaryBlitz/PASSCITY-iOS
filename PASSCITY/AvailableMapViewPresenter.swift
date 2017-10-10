@@ -45,7 +45,7 @@ class AvailableMapViewPresenter: NSObject {
     return currentPage > totalPages
   }
 
-  var zoom: Int = 15 {
+  var zoom: Int = 14 {
     didSet {
       var currentFilters = self.currentFilters
       var coordinates = currentFilters.filter.coordinates
@@ -74,14 +74,20 @@ class AvailableMapViewPresenter: NSObject {
     locationManager.startUpdatingLocation()
   }
 
-  func setLocation(_ location: CLLocationCoordinate2D) {
-    var currentFilters = self.currentFilters
-    var coordinates = Coordinates(location)
-    coordinates?.mapScale = zoom
-    currentFilters.filter.coordinates = coordinates
-    self.currentFilters = currentFilters
-    view.zoom = zoom
-    view.coordinates = coordinates?.clLocationCoordinate2D
+  var currentLocation: Coordinates? {
+    get {
+      return Coordinates(currentFilters.filter.coordinates?.clLocationCoordinate2D)
+    }
+    set {
+      guard newValue != currentLocation else { return }
+      var currentFilters = self.currentFilters
+        var coordinates = newValue
+      coordinates?.mapScale = zoom
+      currentFilters.filter.coordinates = coordinates
+      self.currentFilters = currentFilters
+      view.zoom = zoom
+      view.coordinates = coordinates?.clLocationCoordinate2D
+    }
   }
 
   func fetchMap() {
@@ -110,7 +116,7 @@ extension AvailableMapViewPresenter: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     guard let location = locations.first else { return }
     manager.stopUpdatingLocation()
-    setLocation(location.coordinate)
+    currentLocation = Coordinates(location.coordinate)
   }
 
 }

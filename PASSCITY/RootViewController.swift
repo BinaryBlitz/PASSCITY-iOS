@@ -30,7 +30,9 @@ class RootViewController: UIViewController {
   }
 
   override func viewDidLoad() {
+    super.viewDidLoad()
     if ProfileService.instance.isAuthorized {
+      ProfileService.instance.getSettings(completion: { _ in })
       setTabBar()
     } else {
       setRegistration()

@@ -37,7 +37,7 @@ class PassCityProductShort: Mappable, Hashable {
   }
 
   func mapping(map: Map) {
-    id <- map["id"]
+    id <- (map["id"], IdTransform())
     type <- (map["type"], EnumTransform<PassCityProductType>())
     title <- map["attributes.title"]
     category <- map["attributes.category"]

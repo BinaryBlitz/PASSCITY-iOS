@@ -11,6 +11,11 @@ import ObjectMapper
 import CoreLocation
 
 struct Settings: Mappable {
+  var categoriesDict: [String: Category] = [:] {
+    didSet {
+      categories = Array(categoriesDict.values)
+    }
+  }
   var categories: [Category] = []
   var notifications: NotificationsSettings = NotificationsSettings()
   var language: Language = .ru
@@ -20,13 +25,26 @@ struct Settings: Mappable {
   init?(map: Map) {
   }
 
+  var allCategories: [Category] {
+    return categories.reduce([], { (result, category) -> [Category] in
+      var result = result
+      result.append(category)
+      category.children.forEach { child in
+        child.color = child.color ?? category.color
+        child.icon = child.icon ?? category.icon
+        result.append(child)
+      }
+      return result
+    })
+  }
+
   static var current: Settings? {
     let loginDataJSON: String = StorageHelper.loadObjectForKey(.currentSettings) ?? ""
     return Mapper<Settings>().map(JSONString: loginDataJSON)
   }
 
   mutating func mapping(map: Map) {
-    categories <- map["categories"]
+    categoriesDict <- map["categories"]
     notifications <- map["notifications"]
     language <- (map["language"], EnumTransform<Language>())
     shopUrl <- (map["shop_url"], URLTransform())

@@ -59,13 +59,10 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     addConstraints()
   }
 
-  var zoom: Int {
-    get {
-      return Int(mapView.camera.zoom)
-    }
-    set {
-      presenter?.zoom = newValue
-      mapView.animate(toZoom: Float(newValue))
+  var zoom: Int = 0 {
+    didSet {
+      presenter?.zoom = 17 - zoom > 0 ? 17 - zoom : 0
+      mapView.animate(toZoom: Float(zoom))
     }
   }
 
@@ -79,17 +76,20 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
   func setMarkers(_ items: [PassCityFeedItemShort]) {
     markers.forEach { $0.map = nil }
     markers = []
+    let categories = ProfileService.instance.currentSettings?.allCategories
     for item in items {
-      let category = item.categoryObject
-      let markerView = PasscityMarkerView(color: category?.color ?? UIColor.red, iconUrl: category?.icon)
-      guard let coordinates = item.coordinates?.clLocationCoordinate2D else { return }
-      let marker = GMSMarker()
-      marker.position = coordinates
-      marker.iconView = markerView
-      marker.userData = item.id
-      marker.isDraggable = false
-      marker.map = self.mapView
-      markers.append(marker)
+      DispatchQueue.main.async { [weak self] in
+        let category = categories?.first { $0.id == item.category }
+        let markerView = PasscityMarkerView(color: category?.color ?? UIColor.red, iconUrl: category?.icon)
+        guard let coordinates = item.coordinates?.clLocationCoordinate2D else { return }
+        let marker = GMSMarker()
+        marker.position = coordinates
+        marker.iconView = markerView
+        marker.userData = item.id
+        marker.isDraggable = false
+        marker.map = self?.mapView
+        self?.markers.append(marker)
+      }
     }
   }
 

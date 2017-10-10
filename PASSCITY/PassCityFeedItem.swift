@@ -32,7 +32,7 @@ class PassCityFeedItemShort: Mappable, Hashable {
   var distance: String = ""
 
   var categoryObject: Category? {
-    let categories = ProfileService.instance.currentSettings?.categories
+    let categories = ProfileService.instance.currentSettings?.allCategories
     return categories?.first { $0.id == category }
   }
 
@@ -44,10 +44,10 @@ class PassCityFeedItemShort: Mappable, Hashable {
   }
 
   func mapping(map: Map) {
-    id <- map["id"]
+    id <- (map["id"], IdTransform())
     type <- (map["type"], EnumTransform<PassCityFeedItemType>())
     title <- map["attributes.title"]
-    category <- map["attributes.category"]
+    category <- (map["attributes.category"], IdTransform())
     schedule <- map["attributes.schedule"]
     distance <- map["attributes.distance"]
     description <- map["attributes.description"]
