@@ -11,6 +11,7 @@ import CoreLocation
 
 protocol AvailableAnnouncesView: BaseView {
   func setItems(_: [PassCityFeedItemShort])
+  var isRefreshing: Bool { get set }
 }
 
 class AvailableAnnouncesViewPresenter {
@@ -35,7 +36,11 @@ class AvailableAnnouncesViewPresenter {
     }
   }
 
-  var isRefreshing: Bool = false
+  var isRefreshing: Bool = false {
+    didSet {
+      view.isRefreshing = isRefreshing
+    }
+  }
 
   var pageLimit: Bool {
     let totalPages = self.totalPages ?? 1
@@ -51,16 +56,21 @@ class AvailableAnnouncesViewPresenter {
     self.currentFilters = currentFilters
   }
 
-  func fetchAnnounces() {
-    guard !pageLimit else { return }
+  func fetchAnnounces(increasePage: Bool = true, _ completion: (() -> Void)? = nil) {
+    if pageLimit && increasePage {
+      completion?()
+      return
+    }
     guard !isRefreshing else { return }
     isRefreshing = true
-    let filters = currentFilters
+    var filters = currentFilters
+    filters.pagination.currentPage = !increasePage ? filters.pagination.currentPage : 1
     ShortEventsService.instance.fetchEvents(target: .getAnnounces(filters)) { [weak self] result in
+      completion?()
       self?.isRefreshing = false
       switch result {
       case .success(let response):
-        guard let `self` = self, filters == self.currentFilters else { return }
+        guard let `self` = self else { return }
         self.totalPages = 1
         self.currentItems.formUnion(response.objects)
         self.view.setItems(Array(self.currentItems))

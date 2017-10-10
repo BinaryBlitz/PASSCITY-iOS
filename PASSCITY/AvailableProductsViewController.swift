@@ -12,8 +12,11 @@ import EasyPeasy
 
 class AvailableProductsViewController: UITableViewController, AvailableProductsView {
   var presenter: AvailableProductsViewPresenter? = nil
-  let loaderView = LoaderView()
+  let loaderView = LoaderView(size: 64)
+  let loaderFooterView = LoaderView(size: 64)
   let backgroundLoaderView = LoaderView()
+
+  var loadMoreStatus: Bool = false
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -24,16 +27,16 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
 
   func setItems(_ items: [PassCityProductShort]) {
     self.items = items
-    //tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
-    tableView.backgroundView?.isHidden = false
+    tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
     tableView.separatorStyle = isRefreshing ? .none : .singleLine
     tableView.reloadData()
   }
 
   var isRefreshing: Bool = false {
     didSet {
-      tableView.backgroundView?.isHidden = false
-      //tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
+      tableView.separatorStyle = isRefreshing ? .none : .singleLine
+      tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
+      tableView.reloadData()
     }
   }
 
@@ -44,6 +47,8 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
     tableView.register(nib, forCellReuseIdentifier: AvailableProductsTableViewCell.defaultReuseIdentifier)
     presenter?.fetchProducts()
     tableView.backgroundView = backgroundLoaderView
+    tableView.tableFooterView = loaderFooterView
+    loaderFooterView.alpha = 0
     refreshControl = UIRefreshControl()
     guard let refreshControl = refreshControl else { return }
     tableView.addSubview(refreshControl)
@@ -54,7 +59,20 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
   }
 
   func refreshingChanged() {
-    loaderView.alpha = (refreshControl?.isRefreshing ?? false) ? 1 : 0
+    UIView.animate(withDuration: 0.8, animations: { [weak self] in
+      self?.loaderView.alpha = 1
+    }, completion: { [weak self] _ in
+      self?.loadMoreStatus = true
+      self?.presenter?.fetchProducts(increasePage: false) { [weak self] in
+        self?.loadMoreStatus = true
+        UIView.animate(withDuration: 0.8, animations: {
+          self?.loaderView.alpha = 0
+        }, completion: { [weak self] _ in
+          self?.refreshControl?.endRefreshing()
+        })
+      }
+    })
+
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -89,7 +107,19 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
     let deltaOffset = maximumOffset - currentOffset
 
     if deltaOffset <= 0 {
-      presenter?.fetchProducts()
+      loadMore()
+    }
+  }
+
+  func loadMore() {
+    if !loadMoreStatus {
+      loadMoreStatus = true
+      loaderFooterView.alpha = 1
+      presenter?.fetchProducts() { [weak self] in
+        self?.loadMoreStatus = false
+        self?.loaderFooterView.alpha = 0
+      }
+      
     }
   }
 

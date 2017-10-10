@@ -53,21 +53,30 @@ class AvailableProductsViewPresenter {
     self.currentFilters = ProductsFiltersState()
   }
 
-  func fetchProducts(_ completion: (() -> Void)? = nil) {
-    guard !pageLimit else { return }
-    guard !isRefreshing else { return }
+  func fetchProducts(increasePage: Bool = true, _ completion: (() -> Void)? = nil) {
+    if pageLimit && increasePage {
+      completion?()
+      return
+    }
+    guard !isRefreshing else {
+      completion?()
+      return
+    }
     isRefreshing = true
-    let filters = currentFilters
+    var filters = currentFilters
+    filters.pagination.currentPage = !increasePage ? filters.pagination.currentPage : 1
     ShortEventsService.instance.fetchProducts(filters: filters) { [weak self] result in
       completion?()
       self?.isRefreshing = false
       switch result {
       case .success(let response):
-        guard let `self` = self, filters == self.currentFilters else { return }
+        guard let `self` = self else { return }
         self.totalPages = 1
         self.currentItems.formUnion(response.objects)
         self.view.setItems(Array(self.currentItems))
-        self.currentPage += 1
+        if increasePage {
+          self.currentPage += 1
+        }
       case .failure(_):
         self?.isRefreshing = false
       }

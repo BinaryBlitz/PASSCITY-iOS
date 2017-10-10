@@ -8,11 +8,16 @@
 
 import Foundation
 import UIKit
+import EasyPeasy
 
 class AvailableAnnouncesViewController: UITableViewController, AvailableAnnouncesView {
   var presenter: AvailableAnnouncesViewPresenter? = nil
 
-  var backgroundView: LoaderView!
+  let loaderView = LoaderView(size: 50)
+  let loaderFooterView = LoaderView(size: 64)
+  let backgroundLoaderView = LoaderView()
+
+  var loadMoreStatus: Bool = false
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -23,24 +28,55 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
 
   var items: [PassCityFeedItemShort] = []
 
+  func setItems(_ items: [PassCityFeedItemShort]) {
+    self.items = items
+    tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
+    tableView.separatorStyle = isRefreshing ? .none : .singleLine
+    tableView.reloadData()
+  }
+
   var isRefreshing: Bool = false {
     didSet {
-      tableView.backgroundView = isRefreshing ? backgroundView : nil
+      tableView.separatorStyle = isRefreshing ? .none : .singleLine
+      tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
+      tableView.reloadData()
     }
   }
 
-  func setItems(_ items: [PassCityFeedItemShort]) {
-    self.items = items
-    tableView.reloadData()
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     presenter = AvailableAnnouncesViewPresenter(view: self)
-    backgroundView = LoaderView()
     let nib = UINib(nibName: "AvailableAnnouncesTableViewCell", bundle: nil)
     tableView.register(nib, forCellReuseIdentifier: AvailableAnnouncesTableViewCell.defaultReuseIdentifier)
       presenter?.fetchAnnounces()
+    tableView.backgroundView = backgroundLoaderView
+    tableView.tableFooterView = loaderFooterView
+    loaderFooterView.alpha = 0
+    refreshControl = UIRefreshControl()
+    guard let refreshControl = refreshControl else { return }
+    tableView.addSubview(refreshControl)
+    refreshControl.addSubview(loaderView)
+    loaderView <- Edges()
+    loaderView.alpha = 0
+    refreshControl.addTarget(self, action: #selector(refreshingChanged), for: .valueChanged)
+  }
+
+  func refreshingChanged() {
+    UIView.animate(withDuration: 0.8, animations: { [weak self] in
+      self?.loaderView.alpha = 1
+      }, completion: { [weak self] _ in
+        self?.loadMoreStatus = true
+        self?.presenter?.fetchAnnounces(increasePage: false) { [weak self] in
+          self?.loadMoreStatus = true
+          UIView.animate(withDuration: 0.8, animations: {
+            self?.loaderView.alpha = 0
+          }, completion: { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
+          })
+        }
+    })
+
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,8 +118,21 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
     let deltaOffset = maximumOffset - currentOffset
 
     if deltaOffset <= 0 {
-      presenter?.fetchAnnounces()
+      loadMore()
     }
   }
+
+  func loadMore() {
+    if !loadMoreStatus {
+      loadMoreStatus = true
+      loaderFooterView.alpha = 1
+      presenter?.fetchAnnounces() { [weak self] in
+        self?.loadMoreStatus = false
+        self?.loaderFooterView.alpha = 0
+      }
+
+    }
+  }
+
 
 }

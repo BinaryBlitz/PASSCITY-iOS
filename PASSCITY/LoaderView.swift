@@ -13,17 +13,18 @@ import EasyPeasy
 class LoaderView: UIView {
   let imageView = UIImageView(image: UIImage.gifImageWithName(name: "preloader_3"))
 
-  func setup() {
+  func setup(size: Int = 128) {
     addSubview(imageView)
 
     imageView <- [
-      Center()
+      Center(),
+      Size(CGFloat(size))
     ]
   }
 
-  init() {
+  init(size: Int = 128) {
     super.init(frame: CGRect.null)
-    setup()
+    setup(size: size)
   }
 
   override init(frame: CGRect) {
