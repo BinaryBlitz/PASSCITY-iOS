@@ -37,6 +37,6 @@ class PasscityMapCardView: UIView {
     ratingView.rating = item.reviews.rating
     commentsCountLabel.text = "\(item.reviews.qty)"
     distanceLabel.text = item.distance
-    dateLabel.text = item.dates
+    dateLabel.text = item.schedule.isEmpty ? item.dates : item.schedule
   }
 }

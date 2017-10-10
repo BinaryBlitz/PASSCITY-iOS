@@ -24,8 +24,6 @@ class PassCityWebViewController: UIViewController {
   init(url: URL?) {
     super.init(nibName: nil, bundle: nil)
     self.url = url
-    guard let url = url else { return }
-    webView.load(URLRequest(url: url))
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -38,7 +36,10 @@ class PassCityWebViewController: UIViewController {
     if let navigationController = navigationController, navigationController.viewControllers.count == 1 {
       navigationItem.backBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarClose"), style: .plain, target: self, action: #selector(closeButtonAction))
     }
+    webView.navigationDelegate = self
     setupView()
+    guard let url = url else { return }
+    webView.load(URLRequest(url: url))
   }
 
   func setupView() {
@@ -53,5 +54,15 @@ class PassCityWebViewController: UIViewController {
 
   func closeButtonAction() {
     dismiss(animated: true, completion: nil)
+  }
+}
+
+extension PassCityWebViewController: WKNavigationDelegate {
+  func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+    NetworkActivityIndicator.sharedIndicator.visible = true
+  }
+
+  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    NetworkActivityIndicator.sharedIndicator.visible = false
   }
 }

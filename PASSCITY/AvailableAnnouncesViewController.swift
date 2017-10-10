@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import EasyPeasy
 
-enum MenuOptions: Int {
+private enum MenuOptions: Int {
   case favorite = 0
   case mark
   case share
@@ -69,13 +69,11 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
   func setItems(_ items: [PassCityFeedItemShort]) {
     self.items = items
     tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
-    tableView.separatorStyle = isRefreshing ? .none : .singleLine
     tableView.reloadData()
   }
 
   var isRefreshing: Bool = false {
     didSet {
-      tableView.separatorStyle = isRefreshing ? .none : .singleLine
       tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
       tableView.reloadData()
     }
@@ -84,6 +82,7 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.separatorStyle = .none
     presenter = AvailableAnnouncesViewPresenter(view: self)
     let nib = UINib(nibName: "AvailableAnnouncesTableViewCell", bundle: nil)
     tableView.register(nib, forCellReuseIdentifier: AvailableAnnouncesTableViewCell.defaultReuseIdentifier)

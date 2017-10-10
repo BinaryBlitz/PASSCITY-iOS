@@ -15,6 +15,18 @@ class PasscityMarkerView: UIView {
   let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "locationPin"))
   let iconImageView = UIImageView()
 
+  var isSelected: Bool = false {
+    didSet {
+      frame = isSelected ? CGRect(x: 0, y: 0, width: 54, height: 54) : CGRect(x: 0, y: 0, width: 38, height: 38)
+      iconImageView <- [
+        Size(isSelected ? 40 : 25)
+      ]
+      easy_reload()
+      layoutIfNeeded()
+      updateConstraints()
+    }
+  }
+
   init(color: UIColor = .red, iconUrl: URL?) {
     super.init(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
     backgroundImageView.image = backgroundImageView.image?.withRenderingMode(.alwaysTemplate)
@@ -27,7 +39,7 @@ class PasscityMarkerView: UIView {
     addSubview(iconImageView)
     iconImageView <- [
       CenterX(),
-      Top(5),
+      Top(3),
       Size(25)
     ]
   }

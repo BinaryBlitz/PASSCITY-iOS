@@ -137,10 +137,10 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     mapView <- Edges()
 
     cardView <- [
-      Height(90),
+      Height(100),
       Left(),
       Right(),
-      Bottom(-90).to(bottomLayoutGuide)
+      Bottom(-100).to(bottomLayoutGuide)
     ]
 
     audioGuideButton <- [
@@ -184,11 +184,23 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     UIView.animate(withDuration: animationDuration) { [weak self] in
       guard let `self` = self else { return }
       self.cardView <- [
-        Bottom(-90).to(self.bottomLayoutGuide, .top)
+        Bottom(-100).to(self.bottomLayoutGuide, .top)
       ]
       self.view.easy_reload()
       self.view.setNeedsLayout()
       self.view.layoutIfNeeded()
+    }
+    markers.forEach { newMarker in
+      guard let view = newMarker.iconView as? PasscityMarkerView else { return }
+      if false != view.isSelected {
+        view.isHidden = true
+        view.isSelected = false
+        newMarker.iconView = view
+        newMarker.iconView = nil
+        newMarker.iconView = view
+        newMarker.map = self.mapView
+        view.isHidden = false
+      }
     }
 
   }
@@ -197,6 +209,19 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
 extension AvailableMapViewController: GMSMapViewDelegate {
   func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
     guard let id = marker.userData as? Int else { return false }
+    markers.forEach { newMarker in
+      guard let markerId = newMarker.userData as? Int, let view = newMarker.iconView as? PasscityMarkerView else { return }
+      let isSelected = id == markerId
+      if isSelected != view.isSelected {
+        view.isHidden = true
+        view.isSelected = isSelected
+        newMarker.iconView = view
+        newMarker.iconView = nil
+        newMarker.iconView = view
+        newMarker.map = self.mapView
+        view.isHidden = false
+      }
+    }
     prepareCardView(id: id)
     return true
   }

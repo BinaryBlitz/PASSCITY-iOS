@@ -20,17 +20,22 @@ class AvailableProductsTableViewCell: UITableViewCell {
   @IBOutlet weak var tariffLabel: UILabel!
   @IBOutlet weak var validLabel: UILabel!
 
+  @IBAction func moreButtonAction(_ sender: Any?) {
+    moreButtonHandler?()
+  }
+
+  var moreButtonHandler: (() -> Void)? = nil
+
   func configure(product: PassCityProductShort) {
     titleLabel.text = product.title
     tariffLabel.text = product.tariff
-    validLabel.text = product.valid
+    validLabel.text = String(product.valid.replacingOccurrences(of: "\t", with: " ", options: [], range: nil))
 
     circleView.backgroundColor = product.categoryObject?.color ?? UIColor.red
-    iconView.kf.setImage(with: product.imgURL) { [weak self] image, _, _, _ in
-      guard let image = image?.withRenderingMode(.alwaysTemplate) else { return }
-      self?.iconView.image = image
-      self?.iconView.tintColor = UIColor.white
-    }
+    iconView.kf.setImage(with: product.imgURL)
+
+    layoutIfNeeded()
+    updateConstraints()
   }
 
 }

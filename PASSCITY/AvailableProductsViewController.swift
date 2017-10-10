@@ -10,17 +10,45 @@ import Foundation
 import UIKit
 import EasyPeasy
 
+private enum MenuOptions: Int {
+  case share = 0
+  case cancel
+
+  var title: String {
+    switch self {
+    case .share:
+      return "Поделиться"
+    case .cancel:
+      return "Отмена"
+    }
+  }
+
+  var icon: UIImage {
+    switch self {
+    case .share:
+      return #imageLiteral(resourceName: "iconMenuShare")
+    case .cancel:
+      return #imageLiteral(resourceName: "iconNavbarClose")
+    }
+  }
+
+  static let allValues = [share, cancel]
+}
+
 class AvailableProductsViewController: UITableViewController, AvailableProductsView {
   var presenter: AvailableProductsViewPresenter? = nil
   let loaderView = LoaderView(size: 64)
   let loaderFooterView = LoaderView(size: 64)
   let backgroundLoaderView = LoaderView()
 
+  var optionViews: [MenuOptionItemView] = MenuOptions.allValues.map { MenuOptionItemView(icon: $0.icon, title: $0.title )}
+
   var loadMoreStatus: Bool = false
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     presenter?.fetchProducts()
+    RootViewController.instance?.configureMenuView(items: optionViews, handler: nil)
   }
 
   var items: [PassCityProductShort] = []
@@ -86,6 +114,9 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: AvailableProductsTableViewCell.defaultReuseIdentifier, for: indexPath) as! AvailableProductsTableViewCell
     cell.configure(product: items[indexPath.row])
+    cell.moreButtonHandler = {
+      RootViewController.instance?.menuVisible = true
+    }
     return cell
   }
 
