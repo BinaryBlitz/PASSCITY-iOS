@@ -18,7 +18,7 @@ struct Settings: Mappable {
   }
   var categories: [Category] = []
   var notifications: NotificationsSettings = NotificationsSettings()
-  var language: Language = .ru
+  var language: Language? = nil
   var shopUrl: URL? = nil
   var serverUpdatePeriod: IntInterval = IntInterval()
 
@@ -40,7 +40,11 @@ struct Settings: Mappable {
 
   static var current: Settings? {
     let loginDataJSON: String = StorageHelper.loadObjectForKey(.currentSettings) ?? ""
-    return Mapper<Settings>().map(JSONString: loginDataJSON)
+    var settings = Mapper<Settings>().map(JSONString: loginDataJSON)
+    if settings?.language == nil {
+      settings?.language = Language(rawValue: Locale.preferredLanguages.first ?? "en") ?? .en
+    }
+    return settings
   }
 
   mutating func mapping(map: Map) {

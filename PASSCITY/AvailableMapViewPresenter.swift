@@ -79,9 +79,8 @@ class AvailableMapViewPresenter: NSObject {
       return Coordinates(currentFilters.filter.coordinates?.clLocationCoordinate2D)
     }
     set {
-      guard newValue != currentLocation else { return }
       var currentFilters = self.currentFilters
-        var coordinates = newValue
+      var coordinates = newValue
       coordinates?.mapScale = zoom
       currentFilters.filter.coordinates = coordinates
       self.currentFilters = currentFilters

@@ -33,6 +33,8 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
 
     presenter = AvailableMapViewPresenter(view: self)
 
+    zoom = 14
+
     setupView()
   }
 
@@ -59,9 +61,9 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     addConstraints()
   }
 
-  var zoom: Int = 0 {
+  var zoom: Int = 14 {
     didSet {
-      presenter?.zoom = 17 - zoom > 0 ? 17 - zoom : 0
+      presenter?.zoom = zoom
       mapView.animate(toZoom: Float(zoom))
     }
   }

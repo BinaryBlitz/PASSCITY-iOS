@@ -10,6 +10,41 @@ import Foundation
 import UIKit
 import EasyPeasy
 
+enum MenuOptions: Int {
+  case favorite = 0
+  case mark
+  case share
+  case cancel
+
+  var title: String {
+    switch self {
+    case .favorite:
+      return "В избранное"
+    case .mark:
+      return "Оценить"
+    case .share:
+      return "Поделиться"
+    case .cancel:
+      return "Отмена"
+    }
+  }
+
+  var icon: UIImage {
+    switch self {
+    case .favorite:
+      return #imageLiteral(resourceName: "iconMenuFavorites")
+    case .mark:
+      return #imageLiteral(resourceName: "iconMenuRating")
+    case .share:
+      return #imageLiteral(resourceName: "iconMenuShare")
+    case .cancel:
+      return #imageLiteral(resourceName: "iconNavbarClose")
+    }
+  }
+
+  static let allValues = [favorite, mark, share, cancel]
+}
+
 class AvailableAnnouncesViewController: UITableViewController, AvailableAnnouncesView {
   var presenter: AvailableAnnouncesViewPresenter? = nil
 
@@ -17,11 +52,14 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
   let loaderFooterView = LoaderView(size: 64)
   let backgroundLoaderView = LoaderView()
 
+  var optionViews: [MenuOptionItemView] = MenuOptions.allValues.map { MenuOptionItemView(icon: $0.icon, title: $0.title )}
+
   var loadMoreStatus: Bool = false
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     presenter?.fetchAnnounces()
+    RootViewController.instance?.configureMenuView(items: optionViews, handler: nil)
   }
 
   var isExpandedItemId: Int? = nil
@@ -100,6 +138,9 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
       self?.isExpandedItemId = isExpanded ? item.id : nil
       tableView.beginUpdates()
       tableView.endUpdates()
+    }
+    cell.moreButtonHandler = {
+      RootViewController.instance?.menuVisible = true
     }
     return cell
   }

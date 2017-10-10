@@ -109,8 +109,9 @@ class ProfileService {
         loginData.kid = response.login?.kid
         loginData.client = response.login?.client
         self.loginInternalData = loginData
-        if let settings = Mapper<Settings>().map(JSONObject: response.data) {
+        if var settings = Mapper<Settings>().map(JSONObject: response.data) {
           self.currentSettings = settings
+          settings.language = Language(rawValue: Locale.preferredLanguages.first ?? "en")
           try? StorageHelper.save(settings.toJSONString(), forKey: .currentSettings)
         }
         completion?(.success())

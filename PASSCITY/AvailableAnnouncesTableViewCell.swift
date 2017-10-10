@@ -45,12 +45,14 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
   }
 
   var likeButtonHandler: (() -> Void)? = nil
+  var moreButtonHandler: (() -> Void)? = nil
   var isExpandedHandler: ((Bool) -> Void)? = nil
 
   @IBAction func likeButtonAction(_ sender: Any) {
   }
 
   @IBAction func moreButtonAction(_ sender: Any) {
+    moreButtonHandler?()
   }
 
   override func awakeFromNib() {

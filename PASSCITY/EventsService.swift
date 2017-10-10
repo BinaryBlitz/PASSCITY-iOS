@@ -86,6 +86,7 @@ struct PassCityProductsResponse: Mappable {
 struct ProductsFiltersState: Mappable, Equatable {
   var search: String = ""
   var pagination: Pagination = Pagination()
+  var filter: ProductsFilter = ProductsFilter()
 
   init?(map: Map) {
     self.mapping(map: map)
@@ -96,10 +97,11 @@ struct ProductsFiltersState: Mappable, Equatable {
   mutating func mapping(map: Map) {
     search <- map["search"]
     pagination <- map["pagination"]
+    filter <- map["filter"]
   }
 
   static func ==(lhs: ProductsFiltersState, rhs: ProductsFiltersState) -> Bool {
-    return lhs.search == rhs.search && lhs.pagination == rhs.pagination
+    return lhs.search == rhs.search && lhs.pagination == rhs.pagination && lhs.filter == rhs.filter
   }
 }
 

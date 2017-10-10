@@ -11,15 +11,25 @@ import UIKit
 
 class ShopViewController: PassCityWebViewController {
 
+  var query: [String: String] {
+    return ["lang": ProfileService.instance.currentSettings?.language?.rawValue ?? "en"]
+  }
+
   override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
     if url == nil {
-      url = ProfileService.instance.currentSettings?.shopUrl
+      url = ProfileService.instance.currentSettings?.shopUrl?.appendingQueryParams(parameters: query)
     }
   }
 
+  override func viewDidLoad() {
+    if url == nil {
+      url = ProfileService.instance.currentSettings?.shopUrl?.appendingQueryParams(parameters: query)
+    }
+    super.viewDidLoad()
+  }
+
   init() {
-    super.init(url: nil)
+    super.init(url: ProfileService.instance.currentSettings?.shopUrl?.appendingQueryParams(parameters: query))
   }
 
   required init?(coder aDecoder: NSCoder) {
