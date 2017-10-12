@@ -29,9 +29,10 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
   @IBOutlet weak var descriptionButton: GoButton!
 
   @IBOutlet weak var descriptionLabel: UILabel!
+  @IBOutlet weak var datesLabel: UILabel!
+  @IBOutlet weak var datesView: UIView!
   
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
-
   var icons: [UIImageView] {
     return [commentsImageView, locationImageView, clockImageView]
   }
@@ -70,6 +71,8 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
     dateLabel.text = item.schedule.isEmpty ? item.dates : item.schedule
     likeButton.isSelected = item.favorites != 0
     descriptionLabel.text = item.description
+    datesView.isHidden = item.type != .event
+    datesLabel.text = item.dates
   }
   @IBAction func bottomButtonTouchDownAction(_ sender: Any) {
     descriptionButton.isHighlighted = true

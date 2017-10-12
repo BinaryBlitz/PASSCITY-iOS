@@ -41,7 +41,8 @@ extension JSONAPITargetType {
     }
     let json = JSON(params).rawString(.utf8)!
     return [
-      "params": parameterEncoding is JSONEncoding ? params : json
+      "params": parameterEncoding is JSONEncoding ? params : json,
+      "test": 1
     ]
   }
 
