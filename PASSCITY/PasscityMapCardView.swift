@@ -19,11 +19,12 @@ class PasscityMapCardView: UIView {
   @IBOutlet weak var commentsCountLabel: UILabel!
   @IBOutlet weak var distanceLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var button: UIButton!
 
-  var closeButtonHandler: (() -> Void)? = nil
+  var buttonHandler: (() -> Void)? = nil
 
-  @IBAction func closeButtonAction(_ sender: Any) {
-    closeButtonHandler?()
+  @IBAction func buttonAction(_ sender: Any) {
+    buttonHandler?()
   }
   
   override func awakeFromNib() {

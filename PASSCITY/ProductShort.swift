@@ -14,7 +14,7 @@ enum PassCityProductType: String {
   case ticket = "ticket"
 }
 
-class PassCityProductShort: Mappable, Hashable {
+class PassCityProduct: Mappable, Hashable {
   var id: Int = 0
   var title: String = ""
   var type: PassCityProductType = .package
@@ -24,8 +24,13 @@ class PassCityProductShort: Mappable, Hashable {
   var valid: String = ""
   var imgURL: URL? = nil
 
+  // Full
+  var imgs: [URL] = []
+  var categories: [Category] = []
+  var offer: URL? = nil
+
   var categoryObject: Category? {
-    let categories = ProfileService.instance.currentSettings?.categories
+    let categories = ProfileService.instance.currentSettings?.allCategories
     return categories?.first { $0.id == category }
   }
 
@@ -45,13 +50,17 @@ class PassCityProductShort: Mappable, Hashable {
     tariff <- map["attributes.tariff"]
     valid <- map["attributes.valid"]
     imgURL <- (map["links.icon"], URLTransform())
+
+    categories <- map["relationships.categories"]
+    imgs <- (map["links.imgs"], URLTransform())
+    offer <- (map["links.offer"], URLTransform())
   }
 
   var hashValue: Int {
     return id
   }
 
-  static func ==(lhs: PassCityProductShort, rhs: PassCityProductShort) -> Bool {
+  static func ==(lhs: PassCityProduct, rhs: PassCityProduct) -> Bool {
     return lhs.id == rhs.id
   }
 

@@ -45,7 +45,7 @@ class PersonalInfoViewController: UIViewController {
   }
 
   @IBAction func skipButtonAction(_ sender: Any) {
-    let viewController = PassCityWebViewController(url: Constants.passCitySkipUrl)
+    let viewController = PassCityWebViewController(Constants.passCitySkipUrl)
     present(PassCityNavigationController(rootViewController: viewController), animated: true)
   }
 

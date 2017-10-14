@@ -74,6 +74,7 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
     datesView.isHidden = item.type != .event
     datesLabel.text = item.dates
   }
+  
   @IBAction func bottomButtonTouchDownAction(_ sender: Any) {
     descriptionButton.isHighlighted = true
   }

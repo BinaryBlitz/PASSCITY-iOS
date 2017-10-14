@@ -21,7 +21,7 @@ class PassCityWebViewController: UIViewController {
     }
   }
 
-  init(url: URL?) {
+  init(_ url: URL? = nil) {
     super.init(nibName: nil, bundle: nil)
     self.url = url
   }

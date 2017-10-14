@@ -18,7 +18,7 @@ protocol BaseView: class {
   func popFromNavigationController(animated: Bool)
   func popToRootViewController(animated: Bool)
   func present(_ viewController: UIViewController, animated: Bool)
-  func pushViewController(newViewController: UIViewController)
+  func pushViewController(_ newViewController: UIViewController)
 }
 
 extension UIViewController: BaseView {
@@ -47,7 +47,7 @@ extension UIViewController: BaseView {
     navigationVC?.popToRootViewController(animated: true)
   }
 
-  func pushViewController(newViewController: UIViewController) {
+  func pushViewController(_ newViewController: UIViewController) {
     let navigationVC = navigationController ?? self as? UINavigationController
     navigationVC?.pushViewController(newViewController, animated: true)
   }

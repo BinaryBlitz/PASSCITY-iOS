@@ -26,7 +26,7 @@ class AvailableProductsTableViewCell: UITableViewCell {
 
   var moreButtonHandler: (() -> Void)? = nil
 
-  func configure(product: PassCityProductShort) {
+  func configure(product: PassCityProduct) {
     titleLabel.text = product.title
     tariffLabel.text = product.tariff
     validLabel.text = String(product.valid.replacingOccurrences(of: "\t", with: " ", options: [], range: nil))

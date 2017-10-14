@@ -29,7 +29,7 @@ class ShopViewController: PassCityWebViewController {
   }
 
   init() {
-    super.init(url: ProfileService.instance.currentSettings?.shopUrl?.appendingQueryParams(parameters: query))
+    super.init(ProfileService.instance.currentSettings?.shopUrl?.appendingQueryParams(parameters: query))
   }
 
   required init?(coder aDecoder: NSCoder) {

@@ -75,6 +75,11 @@ class AvailableViewController: UIViewController {
     currentViewController = mapViewController
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.tabBarController?.tabBar.isHidden = false
+  }
+
   func setupView() {
     view.addSubview(headerView)
     view.addSubview(containerView)

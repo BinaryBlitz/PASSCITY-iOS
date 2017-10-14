@@ -10,8 +10,8 @@ import Foundation
 import ObjectMapper
 import Moya
 
-class ShortEventsService {
-  static let instance = ShortEventsService()
+class ItemsService {
+  static let instance = ItemsService()
   private init() { }
   
   private let itemsProvider = JSONAPIProvider<AvailableItemsTarget>()
@@ -44,6 +44,20 @@ class ShortEventsService {
     }
   }
 
+  func fetchFullProduct(_ product: PassCityProduct, _ completion: @escaping ServiceCompletion<PassCityProduct>) {
+    itemsProvider.callAPI(.getProduct(type: product.type, id: product.id)) { result in
+      switch result {
+      case .success(let response):
+        guard let feedResponse = Mapper<PassCityProduct>().map(JSONObject: response.data) else {
+          return completion(.failure(DataError.serializationError(response.data)))
+        }
+        return completion(.success(feedResponse))
+      case .failure(let error):
+        return completion(.failure(error))
+      }
+    }
+  }
+
 }
 
 struct PassCityFeedItemResponse: Mappable {
@@ -67,7 +81,7 @@ struct PassCityFeedItemResponse: Mappable {
 
 struct PassCityProductsResponse: Mappable {
   var state: ProductsFiltersState = ProductsFiltersState()
-  var objects: [PassCityProductShort] = []
+  var objects: [PassCityProduct] = []
 
   init?(map: Map) {
     state = ProductsFiltersState(map: map) ?? ProductsFiltersState()

@@ -19,6 +19,14 @@ class Category: Mappable {
   var children: [Category] = []
   var icon: URL? = nil
 
+  var conditions: [String] = []
+  var objects: [PassCityFeedItemShort] = []
+
+  var fullObject: Category? {
+    let categories = ProfileService.instance.currentSettings?.allCategories
+    return categories?.first { $0.id == id }
+  }
+
   required init?(map: Map) {
   }
 
@@ -26,10 +34,16 @@ class Category: Mappable {
     id <- (map["id"], IdTransform())
     type <- map["type"]
     title <- map["attributes.title"]
+    if map.mappingType == .fromJSON && title.isEmpty {
+      title <- map["title"]
+    }
     parentId <- map["attributes.parent_id"]
     selected <- map["attributes.selected"]
     children <- map["relationships.children"]
     color <- (map["attributes.color"], HexColorTransform())
     icon <- (map["links.icon"], URLTransform())
+    objects <- map["objects"]
+    conditions <- map["conditions"]
+
   }
 }

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 protocol LightContentViewController { }
+protocol TransparentViewController: class { }
 
 class PassCityNavigationController: UINavigationController, UINavigationControllerDelegate {
 
@@ -38,8 +39,9 @@ class PassCityNavigationController: UINavigationController, UINavigationControll
     navigationBar.titleTextAttributes =
       [NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular), NSForegroundColorAttributeName: tintColor]
 
-    view.backgroundColor = .white
-
+    view.backgroundColor = viewController is TransparentViewController ? .clear : .white
+    navigationBar.backgroundColor = viewController is TransparentViewController ? .clear : .white
+    navigationBar.barStyle = viewController is TransparentViewController ? UIBarStyle.blackOpaque : UIBarStyle.default
     setNeedsStatusBarAppearanceUpdate()
   }
 

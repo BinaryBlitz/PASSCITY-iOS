@@ -93,7 +93,7 @@ class AvailableMapViewPresenter: NSObject {
     guard !pageLimit else { return }
     isRefreshing = true
     let filters = currentFilters
-    ShortEventsService.instance.fetchEvents(target: .getMap(filters)) { [weak self] result in
+    ItemsService.instance.fetchEvents(target: .getMap(filters)) { [weak self] result in
       self?.isRefreshing = false
       switch result {
       case .success(let response):

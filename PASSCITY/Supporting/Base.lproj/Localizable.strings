@@ -14,3 +14,12 @@
 
 /* Available header */
 "availableProductsMapItem" = "Продукты";
+
+/* Product card header */
+"productCardHeaderItems" = "Где действует";
+
+/* Product card header */
+"productCardHeaderConditions" = "Инструкция";
+
+/* Product card header */
+"productCardHeaderOffer" = "Оферта";

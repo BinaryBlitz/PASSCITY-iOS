@@ -10,13 +10,13 @@ import Foundation
 import CoreLocation
 
 protocol AvailableProductsView: BaseView {
-  func setItems(_: [PassCityProductShort])
+  func setItems(_: [PassCityProduct])
   var isRefreshing: Bool { get set }
 }
 
 class AvailableProductsViewPresenter {
   let view: AvailableProductsView
-  var currentItems = Set<PassCityProductShort>()
+  var currentItems = Set<PassCityProduct>()
   var currentFilters = ProductsFiltersState() {
     didSet {
       guard currentFilters != oldValue else { return }
@@ -65,7 +65,7 @@ class AvailableProductsViewPresenter {
     isRefreshing = true
     var filters = currentFilters
     filters.pagination.currentPage = !increasePage ? filters.pagination.currentPage : 1
-    ShortEventsService.instance.fetchProducts(filters: filters) { [weak self] result in
+    ItemsService.instance.fetchProducts(filters: filters) { [weak self] result in
       completion?()
       self?.isRefreshing = false
       switch result {
@@ -81,6 +81,12 @@ class AvailableProductsViewPresenter {
         self?.isRefreshing = false
       }
     }
+  }
+
+  func didSelectProduct(_ product: PassCityProduct) {
+    let viewController = ProductCardViewController()
+    viewController.presenter = ProductCardViewPresenter(view: viewController, product: product)
+    view.pushViewController(viewController)
   }
 
 }

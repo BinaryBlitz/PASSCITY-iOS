@@ -55,7 +55,7 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     zoomMinusButton.addTarget(self, action: #selector(zoomMinusAction), for: .touchUpInside)
     myLocationButton.addTarget(self, action: #selector(myLocationAction), for: .touchUpInside)
 
-    cardView.closeButtonHandler = { [weak self] in
+    cardView.buttonHandler = { [weak self] in
       self?.hideCardView()
     }
     addConstraints()

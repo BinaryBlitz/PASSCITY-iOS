@@ -23,7 +23,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrM-DO-FXk">
-                    <rect key="frame" x="99" y="15" width="253" height="14.5"/>
+                    <rect key="frame" x="105" y="15" width="262" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -34,14 +34,14 @@
                         <constraint firstAttribute="width" constant="50" id="T03-Oo-ucL"/>
                         <constraint firstAttribute="height" constant="40" id="hzp-wh-QTe"/>
                     </constraints>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" image="iconNavbarClose"/>
                     <connections>
-                        <action selector="closeButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="7Ep-Ee-oYM"/>
+                        <action selector="buttonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="5u3-BE-dDT"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eK8-Ny-5gr" customClass="FloatRatingView" customModule="FloatRatingView">
                     <rect key="frame" x="105" y="82" width="68" height="12"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="68" id="4VU-vD-DEG"/>
@@ -100,10 +100,10 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mQX-ar-VsE" secondAttribute="trailing" id="CVp-dp-iee"/>
                 <constraint firstItem="mQX-ar-VsE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CrM-DO-FXk" secondAttribute="bottom" constant="5" id="Cgk-jo-KeW"/>
                 <constraint firstItem="gkO-TU-Sol" firstAttribute="leading" secondItem="DCK-mo-oIk" secondAttribute="trailing" constant="15" id="Cx4-w9-pe4"/>
-                <constraint firstItem="CrM-DO-FXk" firstAttribute="leading" secondItem="YpG-kh-c5m" secondAttribute="trailing" constant="9" id="KNd-9u-hzF"/>
+                <constraint firstItem="CrM-DO-FXk" firstAttribute="leading" secondItem="YpG-kh-c5m" secondAttribute="trailing" constant="15" id="KNd-9u-hzF"/>
                 <constraint firstItem="Z4b-ba-dLy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="P9a-wg-HQy"/>
                 <constraint firstItem="M3r-O1-7hc" firstAttribute="leading" secondItem="oxc-2b-aEa" secondAttribute="trailing" constant="6" id="PTn-YZ-MUM"/>
-                <constraint firstItem="Z4b-ba-dLy" firstAttribute="leading" secondItem="CrM-DO-FXk" secondAttribute="trailing" constant="15" id="T5F-KP-6iQ"/>
+                <constraint firstItem="Z4b-ba-dLy" firstAttribute="leading" secondItem="CrM-DO-FXk" secondAttribute="trailing" id="T5F-KP-6iQ"/>
                 <constraint firstItem="YpG-kh-c5m" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ZLg-1u-hbf"/>
                 <constraint firstItem="yFF-j0-smR" firstAttribute="leading" secondItem="M3r-O1-7hc" secondAttribute="trailing" constant="15" id="aED-Od-jdy"/>
                 <constraint firstItem="YpG-kh-c5m" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dMb-2t-vyy"/>
@@ -125,6 +125,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="button" destination="Z4b-ba-dLy" id="Ivv-AC-JSI"/>
                 <outlet property="commentsCountLabel" destination="M3r-O1-7hc" id="cOT-RT-AiL"/>
                 <outlet property="dateLabel" destination="mQX-ar-VsE" id="iWy-wd-rHj"/>
                 <outlet property="distanceLabel" destination="DCK-mo-oIk" id="qkU-s5-I2A"/>

@@ -31,7 +31,7 @@ class CodeConfirmViewController: UIViewController {
       case .success:
         let currentProfile = ProfileService.instance.currentLoginData
         if currentProfile.client != 1 {
-          let viewController = PassCityWebViewController(url: Constants.passCitySkipUrl)
+          let viewController = PassCityWebViewController(Constants.passCitySkipUrl)
           self?.present(PassCityNavigationController(rootViewController: viewController), animated: true)
         } else {
           RootViewController.instance?.setTabBar()

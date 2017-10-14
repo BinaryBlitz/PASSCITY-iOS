@@ -51,9 +51,9 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
     RootViewController.instance?.configureMenuView(items: optionViews, handler: nil)
   }
 
-  var items: [PassCityProductShort] = []
+  var items: [PassCityProduct] = []
 
-  func setItems(_ items: [PassCityProductShort]) {
+  func setItems(_ items: [PassCityProduct]) {
     self.items = items
     tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
     tableView.separatorStyle = isRefreshing ? .none : .singleLine
@@ -130,6 +130,7 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    presenter?.didSelectProduct(items[indexPath.row])
   }
 
   override func scrollViewDidScroll(_ scrollView: UIScrollView) {

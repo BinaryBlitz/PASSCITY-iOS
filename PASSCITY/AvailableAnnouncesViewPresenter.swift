@@ -65,7 +65,7 @@ class AvailableAnnouncesViewPresenter {
     isRefreshing = true
     var filters = currentFilters
     filters.pagination.currentPage = !increasePage ? filters.pagination.currentPage : 1
-    ShortEventsService.instance.fetchEvents(target: .getAnnounces(filters)) { [weak self] result in
+    ItemsService.instance.fetchEvents(target: .getAnnounces(filters)) { [weak self] result in
       completion?()
       self?.isRefreshing = false
       switch result {
