@@ -89,6 +89,9 @@ class CardViewController: UIViewController, TransparentViewController, LightCont
 
     super.viewDidLoad()
 
+    navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "logoNavbarRb")))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarSettings").withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(settingsAction))
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     view.addSubview(headerView)
     view.addSubview(contentView)
 
@@ -149,6 +152,11 @@ class CardViewController: UIViewController, TransparentViewController, LightCont
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     refresh()
+  }
+
+  func settingsAction() {
+    let viewController = SettingsViewController()
+    navigationController?.pushViewController(viewController, animated: true)
   }
 
 }

@@ -34,6 +34,25 @@ extension UITableViewCell {
   }
 }
 
+extension UITableViewHeaderFooterView {
+  /// Default reuse identifier should be the same as object class name
+  static var defaultReuseIdentifier: String {
+    return String(describing: self)
+  }
+
+  class func register(in tableView: UITableView) {
+    tableView.register(self, forHeaderFooterViewReuseIdentifier: defaultReuseIdentifier)
+  }
+
+  private class func loadInstance<FooterHeaderType: UITableViewHeaderFooterView>(_ tableView: UITableView, identifier: String? = nil) -> FooterHeaderType? {
+    return tableView.dequeueReusableHeaderFooterView(withIdentifier: identifier ?? defaultReuseIdentifier) as? FooterHeaderType
+  }
+
+  class func instance(_ tableView: UITableView, identifier: String? = nil) -> Self? {
+    return loadInstance(tableView, identifier: identifier)
+  }
+}
+
 extension UITableView {
   //set the tableFooterView so that the required height can be determined, update the header's frame and set it again
   func setAndLayoutTableFooterView(footer: UIView) {

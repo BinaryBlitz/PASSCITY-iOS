@@ -78,4 +78,17 @@ enum Language: String {
   case ru = "ru"
   case en = "en"
   case cn = "cn"
+
+  var name: String {
+    switch self {
+    case .ru:
+      return "Русский (Ru)"
+    case .en:
+      return "English (En)"
+    case .cn:
+      return "Chinese (Cn)"
+    }
+  }
+
+  static let allValues = [ru, en, cn]
 }

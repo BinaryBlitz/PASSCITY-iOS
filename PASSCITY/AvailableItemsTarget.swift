@@ -16,6 +16,7 @@ enum AvailableItemsTarget: JSONAPITargetType {
   case getProduct(type: PassCityProductType, id: Int)
   case getSettings
   case getCard
+  case updateSettings(Settings)
 
   var path: String {
     switch self {
@@ -29,6 +30,8 @@ enum AvailableItemsTarget: JSONAPITargetType {
       return "\(type)/\(id)"
     case .getSettings:
       return "settings"
+    case .updateSettings(_):
+      return "settings"
     case .getCard:
       return "card"
     }
@@ -39,7 +42,12 @@ enum AvailableItemsTarget: JSONAPITargetType {
   }
 
   var method: Moya.Method {
-    return .get
+    switch self {
+    case .updateSettings(_):
+      return .post
+    default:
+      return .get
+    }
   }
 
   var jsonAPIParams: [String : Any]? {
@@ -50,6 +58,10 @@ enum AvailableItemsTarget: JSONAPITargetType {
       return filters.toJSON()
     case .getProducts(let filters):
       return filters.toJSON()
+    case .updateSettings(let settings):
+      return [
+        "data": settings.toJSON()
+      ]
     case .getSettings, .getProduct(_, _), .getCard:
       return nil
     }

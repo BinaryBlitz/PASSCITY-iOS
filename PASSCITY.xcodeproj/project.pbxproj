@@ -57,6 +57,8 @@
 		883665721F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */; };
 		8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5221F7EB1D8009D58C7 /* LocationService.swift */; };
 		8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */; };
+		884FCCD61F93435D002B3DFB /* SettingsCategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FCCD51F93435D002B3DFB /* SettingsCategorySelectViewController.swift */; };
+		884FCCD81F9345BB002B3DFB /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FCCD71F9345BB002B3DFB /* Debounce.swift */; };
 		8851BE441F9176580032C177 /* ProductCardTableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851BE431F9176580032C177 /* ProductCardTableSectionHeaderView.swift */; };
 		8851BE471F9181C10032C177 /* ProductCardItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851BE461F9181C10032C177 /* ProductCardItemTableViewCell.swift */; };
 		885976EA1F7F51B300C9B091 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 885976E91F7F51B300C9B091 /* Default-568h@2x.png */; };
@@ -73,6 +75,13 @@
 		887B16E81F8733F1006A0BF9 /* Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B16E71F8733F1006A0BF9 /* Intervals.swift */; };
 		887B16EA1F8738C1006A0BF9 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B16E91F8738C1006A0BF9 /* Pagination.swift */; };
 		887B16EC1F873A9A006A0BF9 /* AvailableItemsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B16EB1F873A9A006A0BF9 /* AvailableItemsTarget.swift */; };
+		887E34EC1F9309C600DE4A01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34EB1F9309C600DE4A01 /* SettingsViewController.swift */; };
+		887E34EF1F931E3600DE4A01 /* SettingsTableSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34EE1F931E3600DE4A01 /* SettingsTableSectionView.swift */; };
+		887E34F21F9323E200DE4A01 /* SettingsCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34F11F9323E200DE4A01 /* SettingsCategoryTableViewCell.swift */; };
+		887E34F41F93258A00DE4A01 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34F31F93258A00DE4A01 /* SwitchTableViewCell.swift */; };
+		887E34F61F93288F00DE4A01 /* SliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34F51F93288F00DE4A01 /* SliderTableViewCell.swift */; };
+		887E34F81F932A4A00DE4A01 /* SettingsSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34F71F932A4A00DE4A01 /* SettingsSelectableCell.swift */; };
+		887E34FA1F932DDA00DE4A01 /* PassCityButtonFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34F91F932DDA00DE4A01 /* PassCityButtonFooterView.swift */; };
 		88825D121F8C7DEA007213CE /* preloader_3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 889866471F8C565A0065FF57 /* preloader_3.gif */; };
 		88858E401F7F2EFA002D2B75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88858E3F1F7F2EFA002D2B75 /* Constants.swift */; };
 		88858E421F7F3160002D2B75 /* Int+getRussianEnumEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88858E411F7F3160002D2B75 /* Int+getRussianEnumEndings.swift */; };
@@ -169,6 +178,8 @@
 		883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableProductsTableViewCell.xib; sourceTree = "<group>"; };
 		8847E5221F7EB1D8009D58C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTarget.swift; sourceTree = "<group>"; };
+		884FCCD51F93435D002B3DFB /* SettingsCategorySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCategorySelectViewController.swift; sourceTree = "<group>"; };
+		884FCCD71F9345BB002B3DFB /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
 		8851BE431F9176580032C177 /* ProductCardTableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardTableSectionHeaderView.swift; sourceTree = "<group>"; };
 		8851BE461F9181C10032C177 /* ProductCardItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardItemTableViewCell.swift; sourceTree = "<group>"; };
 		885976E91F7F51B300C9B091 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -185,6 +196,13 @@
 		887B16E71F8733F1006A0BF9 /* Intervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intervals.swift; sourceTree = "<group>"; };
 		887B16E91F8738C1006A0BF9 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		887B16EB1F873A9A006A0BF9 /* AvailableItemsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableItemsTarget.swift; sourceTree = "<group>"; };
+		887E34EB1F9309C600DE4A01 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		887E34EE1F931E3600DE4A01 /* SettingsTableSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableSectionView.swift; sourceTree = "<group>"; };
+		887E34F11F9323E200DE4A01 /* SettingsCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		887E34F31F93258A00DE4A01 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		887E34F51F93288F00DE4A01 /* SliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTableViewCell.swift; sourceTree = "<group>"; };
+		887E34F71F932A4A00DE4A01 /* SettingsSelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectableCell.swift; sourceTree = "<group>"; };
+		887E34F91F932DDA00DE4A01 /* PassCityButtonFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCityButtonFooterView.swift; sourceTree = "<group>"; };
 		88858E3F1F7F2EFA002D2B75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88858E411F7F3160002D2B75 /* Int+getRussianEnumEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+getRussianEnumEndings.swift"; sourceTree = "<group>"; };
 		88858E431F7F3722002D2B75 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -287,6 +305,7 @@
 				880903B21F7D469300158EC3 /* NetworkActivityIndicator.swift */,
 				880903E41F7D75EE00158EC3 /* MaskedInput.swift */,
 				88858E3F1F7F2EFA002D2B75 /* Constants.swift */,
+				884FCCD71F9345BB002B3DFB /* Debounce.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -304,6 +323,7 @@
 		880903BE1F7D4AC700158EC3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				887E34EA1F9309B700DE4A01 /* Settings */,
 				88F9CC811F86E69F002C4EF9 /* Web */,
 				88B104B51F86DEFC00EDD98E /* Shop */,
 				88B104B21F86DE7B00EDD98E /* Notifications */,
@@ -341,6 +361,7 @@
 				88B104AD1F86D9A100EDD98E /* PassCityButtonsRightNavigationItem.swift */,
 				889866431F8C51590065FF57 /* LoaderView.swift */,
 				885D2DD61F8C8D1F001D2A91 /* MenuOptionItem.swift */,
+				887E34F91F932DDA00DE4A01 /* PassCityButtonFooterView.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -514,6 +535,36 @@
 				88A3D6C11F8BEF6E0063375F /* IdTransform.swift */,
 			);
 			name = Transform;
+			sourceTree = "<group>";
+		};
+		887E34EA1F9309B700DE4A01 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				887E34F01F93238B00DE4A01 /* Cells */,
+				887E34ED1F931E2600DE4A01 /* Views */,
+				887E34EB1F9309C600DE4A01 /* SettingsViewController.swift */,
+				884FCCD51F93435D002B3DFB /* SettingsCategorySelectViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		887E34ED1F931E2600DE4A01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				887E34EE1F931E3600DE4A01 /* SettingsTableSectionView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		887E34F01F93238B00DE4A01 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				887E34F11F9323E200DE4A01 /* SettingsCategoryTableViewCell.swift */,
+				887E34F31F93258A00DE4A01 /* SwitchTableViewCell.swift */,
+				887E34F51F93288F00DE4A01 /* SliderTableViewCell.swift */,
+				887E34F71F932A4A00DE4A01 /* SettingsSelectableCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		888C402B1F7C4CC200CAF1EF = {
@@ -892,9 +943,11 @@
 				881179301F918A63008CF07B /* ProductCardConditionsTableView.swift in Sources */,
 				880903BD1F7D482B00158EC3 /* JSONAPiResourceObject.swift in Sources */,
 				886714201F92E7DA00F10666 /* CardBonusInfoView.swift in Sources */,
+				887E34F21F9323E200DE4A01 /* SettingsCategoryTableViewCell.swift in Sources */,
 				8836656D1F87C59B00CEB7D4 /* ProductShort.swift in Sources */,
 				880903D01F7D515B00158EC3 /* CardChoiceViewController.swift in Sources */,
 				880903E11F7D693400158EC3 /* CardEntryViewController.swift in Sources */,
+				887E34EC1F9309C600DE4A01 /* SettingsViewController.swift in Sources */,
 				880903DB1F7D621600158EC3 /* PassCityNavigationController.swift in Sources */,
 				88B104AE1F86D9A100EDD98E /* PassCityButtonsRightNavigationItem.swift in Sources */,
 				88B104A81F86D40600EDD98E /* AvailableMapViewController.swift in Sources */,
@@ -905,6 +958,7 @@
 				88255DC01F877CB70082B8DA /* MarkerView.swift in Sources */,
 				88B1049D1F86A56000EDD98E /* Settings.swift in Sources */,
 				880903B31F7D469300158EC3 /* NetworkActivityIndicator.swift in Sources */,
+				887E34F61F93288F00DE4A01 /* SliderTableViewCell.swift in Sources */,
 				88F9CC8E1F86F987002C4EF9 /* Category.swift in Sources */,
 				888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */,
 				880903ED1F7D7D2A00158EC3 /* UIViewController+storyboardInstance.swift in Sources */,
@@ -914,17 +968,21 @@
 				880903D21F7D519B00158EC3 /* CardTableViewCell.swift in Sources */,
 				88B104A51F86CC4700EDD98E /* TopBarHeaderItemView.swift in Sources */,
 				880903B61F7D46D600158EC3 /* JSONAPIResponse.swift in Sources */,
+				887E34F41F93258A00DE4A01 /* SwitchTableViewCell.swift in Sources */,
 				880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */,
 				88B104AC1F86D82D00EDD98E /* PassCityLogoLeftNavigationItemView.swift in Sources */,
 				880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */,
 				886714221F92EBAA00F10666 /* CardPromoCodeView.swift in Sources */,
 				8817EB8C1F871FF40026553D /* PassCityFeedItem.swift in Sources */,
+				887E34FA1F932DDA00DE4A01 /* PassCityButtonFooterView.swift in Sources */,
 				8817EB911F8730700026553D /* Date+PASSCITY.swift in Sources */,
 				886714181F92B7EC00F10666 /* CardOptionView.swift in Sources */,
 				88C3496F1F7D95970003C9D4 /* BarcodeScanViewController.swift in Sources */,
+				884FCCD81F9345BB002B3DFB /* Debounce.swift in Sources */,
 				88D1D11D1F92EE1700BC3A04 /* CardBalanceView.swift in Sources */,
 				8867141A1F92CA5500F10666 /* CardFooterView.swift in Sources */,
 				880903C41F7D4BED00158EC3 /* UpdateAppViewController.swift in Sources */,
+				884FCCD61F93435D002B3DFB /* SettingsCategorySelectViewController.swift in Sources */,
 				887B16E81F8733F1006A0BF9 /* Intervals.swift in Sources */,
 				8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */,
 				88A3D6C21F8BEF6E0063375F /* IdTransform.swift in Sources */,
@@ -959,9 +1017,11 @@
 				88E12A7E1F7E386800EB23ED /* LoginData.swift in Sources */,
 				887B16EA1F8738C1006A0BF9 /* Pagination.swift in Sources */,
 				880903B81F7D470800158EC3 /* JSONAPISerializedDataObject.swift in Sources */,
+				887E34F81F932A4A00DE4A01 /* SettingsSelectableCell.swift in Sources */,
 				8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */,
 				88B104B11F86DE7600EDD98E /* CardViewController.swift in Sources */,
 				880903B11F7D45F000158EC3 /* JSONAPITargetType.swift in Sources */,
+				887E34EF1F931E3600DE4A01 /* SettingsTableSectionView.swift in Sources */,
 				881179391F928638008CF07B /* Card.swift in Sources */,
 				88255DC21F8781320082B8DA /* PasscityMapCardView.swift in Sources */,
 				882DF59B1F8C9FC4001A431B /* ProductsFilter.swift in Sources */,

@@ -143,6 +143,24 @@ class ProfileService {
     }
   }
 
+  func updateSettings(_ settings: Settings, _ completion: @escaping ServiceCompletion<Void>) {
+    guard isAuthorized else {
+      return
+    }
+
+    itemsProvider.callAPI(.updateSettings(settings)) { result in
+      switch result {
+      case .success(let response):
+        self.currentSettings = settings
+        try? StorageHelper.save(settings.toJSONString(), forKey: .currentSettings)
+        completion(.success())
+      case .failure(let error):
+        completion(.failure(error))
+      }
+
+    }
+  }
+
 
   func fetchCard(_ completion: @escaping ServiceCompletion<PassCityCard>) {
     itemsProvider.callAPI(.getCard) { result in

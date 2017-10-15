@@ -137,6 +137,9 @@
                 <constraint firstItem="c2n-DW-Agp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="z2S-Ti-huk"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="cardBackgroundView" destination="poT-S9-YLb" id="fHt-HU-f4j"/>
                 <outlet property="cardNumberLabel" destination="slH-bm-Q3T" id="xUL-sZ-CLz"/>
