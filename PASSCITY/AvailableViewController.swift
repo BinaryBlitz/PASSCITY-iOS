@@ -67,6 +67,12 @@ class AvailableViewController: UIViewController {
     }
   }
 
+  var isSearching: Bool = false {
+    didSet {
+      
+    }
+  }
+
   override func viewDidLoad() {
 
     setupView()

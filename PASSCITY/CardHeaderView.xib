@@ -72,7 +72,7 @@
                             <rect key="frame" x="177" y="139" width="10" height="10"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="номер карты на обороте" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocZ-5F-Veo">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="номер карты на обороте" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocZ-5F-Veo">
                             <rect key="frame" x="195" y="137.5" width="135" height="13.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,6 +84,7 @@
                         <constraint firstItem="FMS-N4-Rxf" firstAttribute="leading" secondItem="poT-S9-YLb" secondAttribute="leading" constant="20" id="9JB-qU-U96"/>
                         <constraint firstItem="1yR-xv-SMr" firstAttribute="top" secondItem="poT-S9-YLb" secondAttribute="top" constant="20" id="BjD-ug-cLk"/>
                         <constraint firstItem="5TZ-Iz-lkc" firstAttribute="leading" secondItem="FMS-N4-Rxf" secondAttribute="trailing" constant="20" id="KTi-34-Aa6"/>
+                        <constraint firstAttribute="trailing" secondItem="ocZ-5F-Veo" secondAttribute="trailing" constant="5" id="LAs-Xk-8ga"/>
                         <constraint firstItem="1yR-xv-SMr" firstAttribute="leading" secondItem="poT-S9-YLb" secondAttribute="leading" id="QBt-hj-jLS"/>
                         <constraint firstItem="5TZ-Iz-lkc" firstAttribute="top" secondItem="FMS-N4-Rxf" secondAttribute="top" id="RJy-aG-wyi"/>
                         <constraint firstItem="AZs-Gf-nGK" firstAttribute="top" secondItem="5TZ-Iz-lkc" secondAttribute="bottom" id="Rqg-In-7eV"/>
