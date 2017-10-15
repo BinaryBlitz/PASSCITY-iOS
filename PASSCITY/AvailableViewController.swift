@@ -33,6 +33,8 @@ class AvailableViewController: UIViewController {
   let headerView = UIStackView()
   var headerItemViews: [TopBarHeaderItemView] = []
   let containerView = UIView()
+
+  var searchController: UISearchController!
   
   let mapViewController = AvailableMapViewController()
   let productsViewController = AvailableProductsViewController()
