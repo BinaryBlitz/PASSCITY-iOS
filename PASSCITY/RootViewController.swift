@@ -121,6 +121,10 @@ class RootViewController: UIViewController {
     ]
   }
 
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return currentViewController?.preferredStatusBarStyle ?? .default
+  }
+
   override func loadView() {
     RootViewController.instance = self
     super.loadView()

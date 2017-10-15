@@ -26,8 +26,10 @@ class ProductCardItemsTableView: UITableView, UITableViewDelegate, UITableViewDa
     backgroundColor = .white
     delegate = self
     dataSource = self
+    tableFooterView = UIView()
     register(ProductCardItemTableViewCell.self, forCellReuseIdentifier: ProductCardItemTableViewCell.defaultReuseIdentifier)
     register(ProductCardTableSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: headerReuseIdentifier)
+    separatorStyle = .singleLine
     self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
   }
 

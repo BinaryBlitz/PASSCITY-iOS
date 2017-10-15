@@ -41,4 +41,8 @@ class MainTabBarController: UITabBarController {
 
   }
 
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return selectedViewController?.preferredStatusBarStyle ?? .default
+  }
+
 }

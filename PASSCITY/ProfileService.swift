@@ -29,6 +29,7 @@ class ProfileService {
   }
 
   private(set) var currentSettings: Settings? = nil
+  private(set) var currentCard: PassCityCard? = nil
 
   var cardInputTriesLeft = 3
 
@@ -62,6 +63,7 @@ class ProfileService {
   private init() {
     self.loginInternalData = LoginData.current
     self.currentSettings = Settings.current
+    self.currentCard = PassCityCard.current
   }
 
   func auth(name: String? = nil, email: String? = nil, phone: String? = nil, completion: @escaping ServiceCompletion<Void>) {
@@ -138,6 +140,23 @@ class ProfileService {
         completion(.failure(error))
       }
 
+    }
+  }
+
+
+  func fetchCard(_ completion: @escaping ServiceCompletion<PassCityCard>) {
+    itemsProvider.callAPI(.getCard) { result in
+      switch result {
+      case .success(let response):
+        guard let card = Mapper<PassCityCard>().map(JSONObject: response.data) else {
+          return completion(.failure(DataError.serializationError(response.data)))
+        }
+        self.currentCard = card
+        try? StorageHelper.save(card.toJSONString(), forKey: .currentCard)
+        return completion(.success(card))
+      case .failure(let error):
+        return completion(.failure(error))
+      }
     }
   }
 }

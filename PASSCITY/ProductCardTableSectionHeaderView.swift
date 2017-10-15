@@ -48,6 +48,7 @@ class ProductCardTableSectionHeaderView: UITableViewHeaderFooterView {
   func setup() {
     let view = UIView()
     backgroundView = view
+    view.backgroundColor = .white
 
     view.addSubview(circleView)
 

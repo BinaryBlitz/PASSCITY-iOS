@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
-class NotificationsListViewController: UIViewController {
-
+class NotificationsListViewController: PassCityWebViewController {
+  init() {
+    super.init(URL(string: "https://passcity.ru/api/chatra/"))
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }

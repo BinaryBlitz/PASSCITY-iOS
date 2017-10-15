@@ -25,6 +25,7 @@ class ProductCardConditionsTableView: UITableView, UITableViewDelegate, UITableV
     super.init(frame: CGRect.null, style: .plain)
     delegate = self
     dataSource = self
+    tableFooterView = UIView()
     register(ProductCardConditionsTableViewCell.self, forCellReuseIdentifier: ProductCardConditionsTableViewCell.defaultReuseIdentifier)
     register(ProductCardTableSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: headerReuseIdentifier)
     self.separatorInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)

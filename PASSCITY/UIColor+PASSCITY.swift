@@ -39,4 +39,8 @@ extension UIColor {
     return UIColor(white: 214.0 / 255.0, alpha: 1.0)
   }
 
+  class var warmGrey: UIColor {
+    return UIColor(white: 153.0 / 255.0, alpha: 1.0)
+  }
+
 }
