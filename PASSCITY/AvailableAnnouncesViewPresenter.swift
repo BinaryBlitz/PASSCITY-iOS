@@ -16,7 +16,7 @@ protocol AvailableAnnouncesView: BaseView {
 
 class AvailableAnnouncesViewPresenter {
   let view: AvailableAnnouncesView
-  var currentItems = Set<PassCityFeedItemShort>()
+  var currentItems: [PassCityFeedItemShort] = []
   var currentFilters = EventsFiltersState() {
     didSet {
       guard currentFilters != oldValue else { return }
@@ -56,15 +56,15 @@ class AvailableAnnouncesViewPresenter {
     self.currentFilters = currentFilters
   }
 
-  func fetchAnnounces(increasePage: Bool = true, _ completion: (() -> Void)? = nil) {
-    if pageLimit && increasePage {
+  func fetchAnnounces(reset: Bool = false, _ completion: (() -> Void)? = nil) {
+    if pageLimit && !reset {
       completion?()
       return
     }
     guard !isRefreshing else { return }
     isRefreshing = true
     var filters = currentFilters
-    filters.pagination.currentPage = !increasePage ? filters.pagination.currentPage : 1
+    filters.pagination.currentPage = reset ? 1 : filters.pagination.currentPage
     ItemsService.instance.fetchEvents(target: .getAnnounces(filters)) { [weak self] result in
       completion?()
       self?.isRefreshing = false
@@ -72,8 +72,12 @@ class AvailableAnnouncesViewPresenter {
       case .success(let response):
         guard let `self` = self else { return }
         self.totalPages = 1
-        self.currentItems.formUnion(response.objects)
-        self.view.setItems(Array(self.currentItems))
+        if reset {
+          self.currentItems = response.objects
+        } else {
+          self.currentItems.append(contentsOf: response.objects)
+        }
+        self.view.setItems(self.currentItems)
         self.currentPage += 1
       case .failure(_):
         self?.isRefreshing = false

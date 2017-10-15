@@ -16,7 +16,7 @@ protocol AvailableProductsView: BaseView {
 
 class AvailableProductsViewPresenter {
   let view: AvailableProductsView
-  var currentItems = Set<PassCityProduct>()
+  var currentItems: [PassCityProduct] = []
   var currentFilters = ProductsFiltersState() {
     didSet {
       guard currentFilters != oldValue else { return }
@@ -53,8 +53,8 @@ class AvailableProductsViewPresenter {
     self.currentFilters = ProductsFiltersState()
   }
 
-  func fetchProducts(increasePage: Bool = true, _ completion: (() -> Void)? = nil) {
-    if pageLimit && increasePage {
+  func fetchProducts(reset: Bool = false, _ completion: (() -> Void)? = nil) {
+    if pageLimit && !reset {
       completion?()
       return
     }
@@ -64,7 +64,7 @@ class AvailableProductsViewPresenter {
     }
     isRefreshing = true
     var filters = currentFilters
-    filters.pagination.currentPage = !increasePage ? filters.pagination.currentPage : 1
+    filters.pagination.currentPage = reset ? 1 : filters.pagination.currentPage
     ItemsService.instance.fetchProducts(filters: filters) { [weak self] result in
       completion?()
       self?.isRefreshing = false
@@ -72,11 +72,13 @@ class AvailableProductsViewPresenter {
       case .success(let response):
         guard let `self` = self else { return }
         self.totalPages = 1
-        self.currentItems.formUnion(response.objects)
-        self.view.setItems(Array(self.currentItems))
-        if increasePage {
-          self.currentPage += 1
+        if reset {
+          self.currentItems = response.objects
+        } else {
+          self.currentItems.append(contentsOf: response.objects)
         }
+        self.view.setItems(self.currentItems)
+        self.currentPage += 1
       case .failure(_):
         self?.isRefreshing = false
       }

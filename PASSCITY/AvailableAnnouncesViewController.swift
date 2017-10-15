@@ -104,7 +104,7 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
       self?.loaderView.alpha = 1
       }, completion: { [weak self] _ in
         self?.loadMoreStatus = true
-        self?.presenter?.fetchAnnounces(increasePage: false) { [weak self] in
+        self?.presenter?.fetchAnnounces(reset: true) { [weak self] in
           self?.loadMoreStatus = true
           UIView.animate(withDuration: 0.8, animations: {
             self?.loaderView.alpha = 0

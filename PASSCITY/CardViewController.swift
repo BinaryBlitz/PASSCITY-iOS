@@ -57,7 +57,7 @@ class CardViewController: UIViewController, TransparentViewController, LightCont
     }
   }
 
-  var card: PassCityCard? = ProfileService.instance.currentCard {
+  var card: PassCityCard? = nil {
     didSet {
       configure()
     }
@@ -74,6 +74,7 @@ class CardViewController: UIViewController, TransparentViewController, LightCont
   }
 
   func refresh() {
+    card = ProfileService.instance.currentCard
     ProfileService.instance.fetchCard { result in
       switch result {
       case .success(let card):

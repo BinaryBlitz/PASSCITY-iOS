@@ -24,6 +24,7 @@ class SettingsCategorySelectViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let category = categories[indexPath.row]
     let cell = SwitchTableViewCell.instance(tableView, indexPath)!
+    cell.titleLabel.text = category.title
     cell.isOn = category.selected > 0
     cell.handler = { [weak self] isOn in
       self?.categories[indexPath.row].selected = isOn ? 1 : 0

@@ -31,6 +31,8 @@ class PassCityWebViewController: UIViewController {
   }
 
   override func viewDidLoad() {
+    automaticallyAdjustsScrollViewInsets = false
+    edgesForExtendedLayout = UIRectEdge()
     navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logoNavbarRb"))
 
     if let navigationController = navigationController, navigationController.viewControllers.count == 1 {
@@ -43,13 +45,7 @@ class PassCityWebViewController: UIViewController {
   }
 
   func setupView() {
-    view.addSubview(webView)
-    webView <- [
-      Top().to(topLayoutGuide),
-      Bottom().to(bottomLayoutGuide),
-      Left(),
-      Right()
-    ]
+    view = webView
   }
 
   func closeButtonAction() {

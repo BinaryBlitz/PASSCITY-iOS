@@ -74,7 +74,7 @@ class SliderTableViewCell: UITableViewCell {
 
     rightLabel <- [
       Right(16),
-      CenterY()
+      CenterY().to(middleLabel)
     ]
 
     slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)

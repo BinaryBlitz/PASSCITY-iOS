@@ -66,6 +66,14 @@ class ProfileService {
     self.currentCard = PassCityCard.current
   }
 
+  func logout() {
+    try? StorageHelper.save(nil, forKey: .currentSettings)
+    try? StorageHelper.save(nil, forKey: .currentCard)
+    try? StorageHelper.save(nil, forKey: .currentProfile)
+    isAuthorized = false
+    RootViewController.instance?.setRegistration()
+  }
+
   func auth(name: String? = nil, email: String? = nil, phone: String? = nil, completion: @escaping ServiceCompletion<Void>) {
     var loginData = currentLoginData
     loginData.name = name ?? currentLoginData.name
@@ -150,7 +158,7 @@ class ProfileService {
 
     itemsProvider.callAPI(.updateSettings(settings)) { result in
       switch result {
-      case .success(let response):
+      case .success(_):
         self.currentSettings = settings
         try? StorageHelper.save(settings.toJSONString(), forKey: .currentSettings)
         completion(.success())

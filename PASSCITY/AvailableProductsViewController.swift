@@ -91,7 +91,7 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
       self?.loaderView.alpha = 1
     }, completion: { [weak self] _ in
       self?.loadMoreStatus = true
-      self?.presenter?.fetchProducts(increasePage: false) { [weak self] in
+      self?.presenter?.fetchProducts(reset: true) { [weak self] in
         self?.loadMoreStatus = true
         UIView.animate(withDuration: 0.8, animations: {
           self?.loaderView.alpha = 0

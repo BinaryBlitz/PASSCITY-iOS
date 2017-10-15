@@ -62,15 +62,27 @@ class SettingsViewController: UITableViewController {
 
   let distanceCell = SliderTableViewCell()
 
-  var categories: [Category] = []
+  var categories: [Category] {
+    return currentSettings?.categories ?? []
+  }
 
   var currentSettings: Settings? = nil {
     didSet {
       guard let currentSettings = currentSettings else { return }
-      categories = currentSettings.categories
       notificationProductCell.isOn = currentSettings.notifications.newProductsNearMe == 0
       notificationServiceCell.isOn = currentSettings.notifications.servicesNearMe == 0
-      distanceCell.value = Float(currentSettings.notifications.distance)
+      distanceCell.value = Float(currentSettings.notifications.distance) / 1000
+    }
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if currentSettings == nil {
+      view.isUserInteractionEnabled = false
+      ProfileService.instance.getSettings { [weak self] _ in
+        self?.view.isUserInteractionEnabled = true
+        self?.currentSettings = ProfileService.instance.currentSettings
+      }
     }
   }
 
@@ -87,18 +99,26 @@ class SettingsViewController: UITableViewController {
     SettingsTableSectionView.register(in: tableView)
     tableView.tableFooterView = footerView
 
+    distanceCell.leftLabel.text = "100 м"
+    distanceCell.middleLabel.text = "500 м"
+    distanceCell.rightLabel.text = "1 км"
+
     navigationItem.title = "Настройки"
 
     notificationProductCell.handler = { [weak self] isOn in
-
+      self?.currentSettings?.notifications.newProductsNearMe = isOn ? 1 : 0
     }
 
     notificationServiceCell.handler = { [weak self] isOn in
-
+      self?.currentSettings?.notifications.servicesNearMe = isOn ? 1 : 0
     }
 
     distanceCell.handler =  { [weak self] distance in
+      self?.currentSettings?.notifications.distance = Int(1000 * distance)
+    }
 
+    footerView.buttonHandler = {
+      ProfileService.instance.logout()
     }
 
     currentSettings = ProfileService.instance.currentSettings
@@ -144,7 +164,7 @@ class SettingsViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     guard let section = Sections(rawValue: indexPath.section), section == .notificationsDistance else { return 44 }
-    return 80
+    return 90
   }
 
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -163,12 +183,38 @@ class SettingsViewController: UITableViewController {
     guard let section = Sections(rawValue: indexPath.section) else { return }
     switch section {
     case .categories:
-      break
+      let category = categories[indexPath.row]
+      let viewController = SettingsCategorySelectViewController()
+      viewController.title = category.title
+      viewController.categories = category.children
+      viewController.handler = { [weak self] categories in
+        self?.currentSettings?.categories[indexPath.row].children = categories
+        self?.currentSettings?.categories[indexPath.row].selected = categories.filter { $0.selected > 0 }.count
+        self?.tableView.reloadData()
+      }
+      navigationController?.pushViewController(viewController, animated: true)
     case .language:
       currentSettings?.language = Language.allValues[indexPath.row]
       tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
     default:
       break
+    }
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    updateSettings()
+  }
+
+  func updateSettings() {
+    guard let settings = currentSettings else { return }
+    ProfileService.instance.updateSettings(settings) { [weak self] result in
+      switch result {
+      case .success:
+        break
+      case .failure(_):
+        self?.currentSettings = ProfileService.instance.currentSettings
+      }
     }
   }
 }
