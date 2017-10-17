@@ -75,6 +75,9 @@
 		887B16E81F8733F1006A0BF9 /* Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B16E71F8733F1006A0BF9 /* Intervals.swift */; };
 		887B16EA1F8738C1006A0BF9 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B16E91F8738C1006A0BF9 /* Pagination.swift */; };
 		887B16EC1F873A9A006A0BF9 /* AvailableItemsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B16EB1F873A9A006A0BF9 /* AvailableItemsTarget.swift */; };
+		887B9E8F1F936B30004AC6F1 /* FeedItemsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B9E8E1F936B30004AC6F1 /* FeedItemsListViewController.swift */; };
+		887B9E921F950DA9004AC6F1 /* ResultFeedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B9E911F950DA9004AC6F1 /* ResultFeedItemTableViewCell.swift */; };
+		887B9E941F950DBB004AC6F1 /* ResultFeedItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887B9E931F950DBB004AC6F1 /* ResultFeedItemTableViewCell.xib */; };
 		887E34EC1F9309C600DE4A01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34EB1F9309C600DE4A01 /* SettingsViewController.swift */; };
 		887E34EF1F931E3600DE4A01 /* SettingsTableSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34EE1F931E3600DE4A01 /* SettingsTableSectionView.swift */; };
 		887E34F21F9323E200DE4A01 /* SettingsCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34F11F9323E200DE4A01 /* SettingsCategoryTableViewCell.swift */; };
@@ -196,6 +199,9 @@
 		887B16E71F8733F1006A0BF9 /* Intervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intervals.swift; sourceTree = "<group>"; };
 		887B16E91F8738C1006A0BF9 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		887B16EB1F873A9A006A0BF9 /* AvailableItemsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableItemsTarget.swift; sourceTree = "<group>"; };
+		887B9E8E1F936B30004AC6F1 /* FeedItemsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsListViewController.swift; sourceTree = "<group>"; };
+		887B9E911F950DA9004AC6F1 /* ResultFeedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultFeedItemTableViewCell.swift; sourceTree = "<group>"; };
+		887B9E931F950DBB004AC6F1 /* ResultFeedItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultFeedItemTableViewCell.xib; sourceTree = "<group>"; };
 		887E34EB1F9309C600DE4A01 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		887E34EE1F931E3600DE4A01 /* SettingsTableSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableSectionView.swift; sourceTree = "<group>"; };
 		887E34F11F9323E200DE4A01 /* SettingsCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -335,7 +341,7 @@
 				88FD36001F7F227E00584BE0 /* CodeConfirm */,
 				88C349701F7DAB590003C9D4 /* PersonalInfo */,
 				88C3496D1F7D95850003C9D4 /* BarcodeScan */,
-				880903DC1F7D636000158EC3 /* Main */,
+				880903DC1F7D636000158EC3 /* MainTabBar */,
 				880903D71F7D616C00158EC3 /* Root */,
 				880903C51F7D4C8900158EC3 /* Common */,
 			);
@@ -410,12 +416,12 @@
 			name = Root;
 			sourceTree = "<group>";
 		};
-		880903DC1F7D636000158EC3 /* Main */ = {
+		880903DC1F7D636000158EC3 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
 				880903DD1F7D636F00158EC3 /* MainTabBarController.swift */,
 			);
-			name = Main;
+			name = MainTabBar;
 			sourceTree = "<group>";
 		};
 		880903DF1F7D691E00158EC3 /* CardEntry */ = {
@@ -537,6 +543,24 @@
 			name = Transform;
 			sourceTree = "<group>";
 		};
+		887B9E8D1F936B08004AC6F1 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				887B9E901F950D95004AC6F1 /* Cells */,
+				887B9E8E1F936B30004AC6F1 /* FeedItemsListViewController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		887B9E901F950D95004AC6F1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				887B9E911F950DA9004AC6F1 /* ResultFeedItemTableViewCell.swift */,
+				887B9E931F950DBB004AC6F1 /* ResultFeedItemTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		887E34EA1F9309B700DE4A01 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,6 +630,7 @@
 		88B104A01F86CA6500EDD98E /* Available */ = {
 			isa = PBXGroup;
 			children = (
+				887B9E8D1F936B08004AC6F1 /* Search */,
 				88BBE6B91F8FC41200EFD94A /* ProductCard */,
 				88F9CC7E1F86E4EE002C4EF9 /* Products */,
 				88F9CC7B1F86E4AE002C4EF9 /* Announces */,
@@ -815,6 +840,7 @@
 				880903E31F7D6C2900158EC3 /* CardEntryViewController.storyboard in Resources */,
 				88C349741F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard in Resources */,
 				883665721F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib in Resources */,
+				887B9E941F950DBB004AC6F1 /* ResultFeedItemTableViewCell.xib in Resources */,
 				88255DC91F87B5180082B8DA /* AvailableAnnouncesTableViewCell.xib in Resources */,
 				888C40421F7C4CC300CAF1EF /* LaunchScreen.storyboard in Resources */,
 				88FD36041F7F236100584BE0 /* CodeConfirmViewController.storyboard in Resources */,
@@ -957,6 +983,7 @@
 				88F9CC801F86E501002C4EF9 /* AvailableProductsViewController.swift in Sources */,
 				88255DC01F877CB70082B8DA /* MarkerView.swift in Sources */,
 				88B1049D1F86A56000EDD98E /* Settings.swift in Sources */,
+				887B9E8F1F936B30004AC6F1 /* FeedItemsListViewController.swift in Sources */,
 				880903B31F7D469300158EC3 /* NetworkActivityIndicator.swift in Sources */,
 				887E34F61F93288F00DE4A01 /* SliderTableViewCell.swift in Sources */,
 				88F9CC8E1F86F987002C4EF9 /* Category.swift in Sources */,
@@ -971,6 +998,7 @@
 				887E34F41F93258A00DE4A01 /* SwitchTableViewCell.swift in Sources */,
 				880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */,
 				88B104AC1F86D82D00EDD98E /* PassCityLogoLeftNavigationItemView.swift in Sources */,
+				887B9E921F950DA9004AC6F1 /* ResultFeedItemTableViewCell.swift in Sources */,
 				880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */,
 				886714221F92EBAA00F10666 /* CardPromoCodeView.swift in Sources */,
 				8817EB8C1F871FF40026553D /* PassCityFeedItem.swift in Sources */,

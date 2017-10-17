@@ -21,7 +21,14 @@ class AvailableProductsViewPresenter {
     didSet {
       guard currentFilters != oldValue else { return }
       currentPage = 1
-      fetchProducts()
+      fetchProducts(reset: true)
+    }
+  }
+
+  var searchText: String = "" {
+    didSet {
+      view.setItems(searchText.isEmpty ? currentItems : currentItems.filter { $0.title.lowercased().contains(searchText.lowercased())})
+      refreshSearchAction?()
     }
   }
 
@@ -49,8 +56,14 @@ class AvailableProductsViewPresenter {
 
   init(view: AvailableProductsView) {
     self.view = view
-
     self.currentFilters = ProductsFiltersState()
+
+    self.refreshSearchAction = debounce(delay: .seconds(1)) { [weak self] in
+      self?.currentPage = 1
+      guard var filters = self?.currentFilters else { return }
+      filters.search = self?.searchText ?? ""
+      self?.currentFilters = filters
+    }
   }
 
   func fetchProducts(reset: Bool = false, _ completion: (() -> Void)? = nil) {
@@ -71,8 +84,8 @@ class AvailableProductsViewPresenter {
       switch result {
       case .success(let response):
         guard let `self` = self else { return }
-        self.totalPages = 1
-        if reset {
+        self.totalPages = response.state.pagination.totalPages ?? 1
+        if reset || self.currentPage == 1 {
           self.currentItems = response.objects
         } else {
           self.currentItems.append(contentsOf: response.objects)
@@ -90,5 +103,7 @@ class AvailableProductsViewPresenter {
     viewController.presenter = ProductCardViewPresenter(view: viewController, product: product)
     view.pushViewController(viewController)
   }
+
+  private var refreshSearchAction: (() -> Void)? = nil
 
 }

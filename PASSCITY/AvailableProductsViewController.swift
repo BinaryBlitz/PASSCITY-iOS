@@ -41,6 +41,8 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
   let loaderFooterView = LoaderView(size: 64)
   let backgroundLoaderView = LoaderView()
 
+  var searchController: UISearchController!
+
   var optionViews: [MenuOptionItemView] = MenuOptions.allValues.map { MenuOptionItemView(icon: $0.icon, title: $0.title )}
 
   var loadMoreStatus: Bool = false
@@ -55,15 +57,13 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
 
   func setItems(_ items: [PassCityProduct]) {
     self.items = items
-    tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
-    tableView.separatorStyle = isRefreshing ? .none : .singleLine
+    tableView.backgroundView?.isHidden = !items.isEmpty
+    tableView.separatorStyle = items.isEmpty ? .none : .singleLine
     tableView.reloadData()
   }
 
   var isRefreshing: Bool = false {
     didSet {
-      tableView.separatorStyle = isRefreshing ? .none : .singleLine
-      tableView.backgroundView?.isHidden = !isRefreshing || !items.isEmpty
       tableView.reloadData()
     }
   }
@@ -71,8 +71,7 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
   override func viewDidLoad() {
     super.viewDidLoad()
     presenter = AvailableProductsViewPresenter(view: self)
-    let nib = UINib(nibName: "AvailableProductsTableViewCell", bundle: nil)
-    tableView.register(nib, forCellReuseIdentifier: AvailableProductsTableViewCell.defaultReuseIdentifier)
+    AvailableProductsTableViewCell.registerNib(in: tableView)
     presenter?.fetchProducts()
     tableView.backgroundView = backgroundLoaderView
     tableView.tableFooterView = loaderFooterView
@@ -84,6 +83,16 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
     loaderView <- Edges()
     loaderView.alpha = 0
     refreshControl.addTarget(self, action: #selector(refreshingChanged), for: .valueChanged)
+    setupSearchController()
+  }
+
+  func setupSearchController() {
+    searchController = UISearchController(searchResultsController: nil)
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.searchBarStyle = .minimal
+    searchController.hidesNavigationBarDuringPresentation = false
+    searchController.dimsBackgroundDuringPresentation = false
+    searchController.delegate = self
   }
 
   func refreshingChanged() {
@@ -151,8 +160,20 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
         self?.loadMoreStatus = false
         self?.loaderFooterView.alpha = 0
       }
-      
     }
   }
 
+}
+
+extension AvailableProductsViewController: UISearchResultsUpdating, UISearchControllerDelegate {
+  func updateSearchResults(for searchController: UISearchController) {
+    presenter?.searchText = searchController.searchBar.text ?? ""
+  }
+
+  func willDismissSearchController(_ searchController: UISearchController) {
+    searchController.searchBar.text = ""
+    presenter?.searchText = ""
+    guard let parentVC = parent as? AvailableViewController else { return }
+    parentVC.isSearching = false
+  }
 }

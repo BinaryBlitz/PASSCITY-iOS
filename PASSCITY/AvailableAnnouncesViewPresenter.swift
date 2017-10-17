@@ -21,7 +21,14 @@ class AvailableAnnouncesViewPresenter {
     didSet {
       guard currentFilters != oldValue else { return }
       currentPage = 1
-      fetchAnnounces()
+      fetchAnnounces(reset: true)
+    }
+  }
+
+  var searchText: String = "" {
+    didSet {
+      view.setItems( searchText.isEmpty ? currentItems : currentItems.filter { $0.title.lowercased().contains(searchText.lowercased())} )
+      refreshSearchAction?()
     }
   }
 
@@ -54,6 +61,12 @@ class AvailableAnnouncesViewPresenter {
     let coordinates = Coordinates.current
     currentFilters.filter.coordinates = coordinates
     self.currentFilters = currentFilters
+
+    self.refreshSearchAction = debounce(delay: .seconds(1)) { [weak self] in
+      guard var filters = self?.currentFilters else { return }
+      filters.search = self?.searchText ?? ""
+      self?.currentFilters = filters
+    }
   }
 
   func fetchAnnounces(reset: Bool = false, _ completion: (() -> Void)? = nil) {
@@ -84,5 +97,7 @@ class AvailableAnnouncesViewPresenter {
       }
     }
   }
+
+  private var refreshSearchAction: (() -> Void)? = nil
 
 }

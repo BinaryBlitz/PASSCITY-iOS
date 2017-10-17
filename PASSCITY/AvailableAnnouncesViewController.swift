@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import EasyPeasy
 
-private enum MenuOptions: Int {
+enum AnnouncesMenuOptions: Int {
   case favorite = 0
   case mark
   case share
@@ -48,13 +48,21 @@ private enum MenuOptions: Int {
 class AvailableAnnouncesViewController: UITableViewController, AvailableAnnouncesView {
   var presenter: AvailableAnnouncesViewPresenter? = nil
 
+  var searchController: UISearchController!
+
   let loaderView = LoaderView(size: 50)
   let loaderFooterView = LoaderView(size: 64)
   let backgroundLoaderView = LoaderView()
 
-  var optionViews: [MenuOptionItemView] = MenuOptions.allValues.map { MenuOptionItemView(icon: $0.icon, title: $0.title )}
+  let searchResultsController = FeedItemsListViewController()
 
-  var loadMoreStatus: Bool = false
+  var optionViews: [MenuOptionItemView] = AnnouncesMenuOptions.allValues.map { MenuOptionItemView(icon: $0.icon, title: $0.title )}
+
+  var loadMoreStatus: Bool = false {
+    didSet {
+      searchResultsController.loadMoreStatus = loadMoreStatus
+    }
+  }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -64,7 +72,11 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
 
   var isExpandedItemId: Int? = nil
 
-  var items: [PassCityFeedItemShort] = []
+  var items: [PassCityFeedItemShort] = [] {
+    didSet {
+      searchResultsController.items = items
+    }
+  }
 
   func setItems(_ items: [PassCityFeedItemShort]) {
     self.items = items
@@ -79,14 +91,12 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
     }
   }
 
-
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.separatorStyle = .none
     presenter = AvailableAnnouncesViewPresenter(view: self)
-    let nib = UINib(nibName: "AvailableAnnouncesTableViewCell", bundle: nil)
-    tableView.register(nib, forCellReuseIdentifier: AvailableAnnouncesTableViewCell.defaultReuseIdentifier)
-      presenter?.fetchAnnounces()
+    AvailableAnnouncesTableViewCell.registerNib(in: tableView)
+    presenter?.fetchAnnounces()
     tableView.backgroundView = backgroundLoaderView
     tableView.tableFooterView = loaderFooterView
     loaderFooterView.alpha = 0
@@ -97,6 +107,24 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
     loaderView <- Edges()
     loaderView.alpha = 0
     refreshControl.addTarget(self, action: #selector(refreshingChanged), for: .valueChanged)
+    setupSearchController()
+  }
+
+  func setupSearchController() {
+    searchController = UISearchController(searchResultsController: searchResultsController)
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.searchBarStyle = .minimal
+    searchController.delegate = self
+    searchController.hidesNavigationBarDuringPresentation = false
+    searchController.dimsBackgroundDuringPresentation = false
+
+    searchResultsController.loadMoreHandler = { [weak self] in
+      self?.presenter?.fetchAnnounces()
+    }
+
+    searchResultsController.moreButtonHandler = { _ in
+      RootViewController.instance?.menuVisible = true
+    }
   }
 
   func refreshingChanged() {
@@ -173,6 +201,19 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
 
     }
   }
+}
 
+extension AvailableAnnouncesViewController: UISearchResultsUpdating, UISearchControllerDelegate {
+
+  func updateSearchResults(for searchController: UISearchController) {
+    presenter?.searchText = searchController.searchBar.text ?? ""
+  }
+  
+  func willDismissSearchController(_ searchController: UISearchController) {
+    searchController.searchBar.text = ""
+    presenter?.searchText = ""
+    guard let parentVC = parent as? AvailableViewController else { return }
+    parentVC.isSearching = false
+  }
 
 }

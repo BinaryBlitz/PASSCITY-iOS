@@ -20,10 +20,14 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
   let zoomMinusButton = UIButton()
   let myLocationButton = UIButton()
   let cardView = PasscityMapCardView.nibInstance()!
+  var searchController: UISearchController!
+  let searchResultsController = FeedItemsListViewController()
 
   var buttons: [UIButton] {
     return [audioGuideButton, zoomPlusButton, zoomMinusButton, myLocationButton]
   }
+
+  var optionViews: [MenuOptionItemView] = AnnouncesMenuOptions.allValues.map { MenuOptionItemView(icon: $0.icon, title: $0.title )}
 
   var markers: [GMSMarker] = []
 
@@ -38,9 +42,20 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     setupView()
   }
 
+  func setSearchItems(_ items: [PassCityFeedItemShort]) {
+    searchResultsController.items = items
+  }
+
+  var isRefreshing: Bool = false {
+    didSet {
+      searchResultsController.isRefreshing = isRefreshing
+    }
+  }
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     mapView.isMyLocationEnabled = true
+    RootViewController.instance?.configureMenuView(items: optionViews, handler: nil)
     presenter?.updateLocation()
   }
 
@@ -59,6 +74,24 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
       self?.hideCardView()
     }
     addConstraints()
+    setupSearchController()
+  }
+
+  func setupSearchController() {
+    searchController = UISearchController(searchResultsController: searchResultsController)
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.searchBarStyle = .minimal
+    searchController.delegate = self
+    searchController.hidesNavigationBarDuringPresentation = false
+    searchController.dimsBackgroundDuringPresentation = false
+
+    searchResultsController.loadMoreHandler = { [weak self] in
+      self?.presenter?.fetchSearchResults()
+    }
+
+    searchResultsController.moreButtonHandler = { _ in
+      RootViewController.instance?.menuVisible = true
+    }
   }
 
   var zoom: Int = 14 {
@@ -229,4 +262,20 @@ extension AvailableMapViewController: GMSMapViewDelegate {
   func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
     hideCardView()
   }
+}
+
+
+extension AvailableMapViewController: UISearchResultsUpdating, UISearchControllerDelegate {
+
+  func updateSearchResults(for searchController: UISearchController) {
+    presenter?.searchText = searchController.searchBar.text ?? ""
+  }
+
+  func willDismissSearchController(_ searchController: UISearchController) {
+    searchController.searchBar.text = ""
+    presenter?.searchText = ""
+    guard let parentVC = parent as? AvailableViewController else { return }
+    parentVC.isSearching = false
+  }
+
 }

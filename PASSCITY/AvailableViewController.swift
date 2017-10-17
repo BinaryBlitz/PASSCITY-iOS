@@ -33,9 +33,6 @@ class AvailableViewController: UIViewController {
   let headerView = UIStackView()
   var headerItemViews: [TopBarHeaderItemView] = []
   let containerView = UIView()
-
-  var searchController: UISearchController!
-  
   let mapViewController = AvailableMapViewController()
   let productsViewController = AvailableProductsViewController()
   let announcesViewController = AvailableAnnouncesViewController()
@@ -44,6 +41,7 @@ class AvailableViewController: UIViewController {
     didSet {
       oldValue?.removeFromParentViewController()
       oldValue?.view.removeFromSuperview()
+      setupNavigationBar()
       guard let newViewController = currentViewController else { return }
 
       addChildViewController(newViewController)
@@ -71,7 +69,37 @@ class AvailableViewController: UIViewController {
 
   var isSearching: Bool = false {
     didSet {
-      
+      if isSearching {
+        searchController.searchBar.backgroundColor = UIColor.clear
+        searchController.searchBar.isTranslucent = true
+        searchController.searchBar.setImage(#imageLiteral(resourceName: "iconNavbarSearchCopy"), for: .search, state: .normal)
+
+        navigationItem.rightBarButtonItems = []
+        navigationItem.leftBarButtonItem = nil
+        if #available(iOS 11.0, *) {
+          searchController.searchBar.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        }
+        navigationItem.titleView = searchController.searchBar
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.changeSearchBarColor(color: UIColor.clear)
+        searchController.searchBar.searchTextPositionAdjustment = UIOffsetMake(5.0, 0.0)
+        searchController.isActive = true
+        searchController.searchBar.becomeFirstResponder()
+        navigationController?.navigationBar.layoutIfNeeded()
+      } else {
+        setupNavigationBar()
+      }
+    }
+  }
+
+  var searchController: UISearchController {
+    switch currentItem {
+    case .announces:
+      return announcesViewController.searchController
+    case .products:
+      return productsViewController.searchController
+    case .map:
+      return mapViewController.searchController
     }
   }
 
@@ -91,6 +119,8 @@ class AvailableViewController: UIViewController {
   func setupView() {
     view.addSubview(headerView)
     view.addSubview(containerView)
+
+    definesPresentationContext = true
 
     headerView.axis = .horizontal
     headerView.distribution = .fillEqually
@@ -121,20 +151,40 @@ class AvailableViewController: UIViewController {
     ]
   }
 
-  func setupNavigationBar() {
+  private func setupNavigationBar() {
     let searchItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarSearch"), style: .plain, target: self, action: #selector(searchButtonAction))
     let filtersItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarFilter"), style: .plain, target: self, action: #selector(searchButtonAction))
+
     navigationItem.rightBarButtonItems = [searchItem, filtersItem]
     navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "logoNavbarRb")))
-
+    navigationItem.titleView = nil
     navigationItem.title = nil
   }
 
   func searchButtonAction() {
-
+    isSearching = true
   }
 
   func filtersButtonAction() {
 
+  }
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    guard isSearching else { return }
+    searchController.searchBar.sizeToFit()
+  }
+
+}
+
+extension UISearchBar {
+  func changeSearchBarColor(color: UIColor) {
+    UIGraphicsBeginImageContext(self.frame.size)
+    color.setFill()
+    UIBezierPath(rect: self.frame).fill()
+    let bgImage = UIGraphicsGetImageFromCurrentImageContext()!
+    UIGraphicsEndImageContext()
+
+    self.setSearchFieldBackgroundImage(bgImage, for: .normal)
   }
 }

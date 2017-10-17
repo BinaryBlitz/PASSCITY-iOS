@@ -29,6 +29,11 @@ extension UITableViewCell {
     tableView.register(self, forCellReuseIdentifier: defaultReuseIdentifier)
   }
 
+  class func registerNib(in tableView: UITableView, nib: UINib? = nil) {
+    let cellNib = nib ?? UINib(nibName: defaultReuseIdentifier, bundle: nil)
+    tableView.register(cellNib, forCellReuseIdentifier: defaultReuseIdentifier)
+  }
+
   class func instance(_ tableView: UITableView, _ indexPath: IndexPath? = nil, identifier: String? = nil) -> Self? {
     return loadInstance(tableView, indexPath, identifier: identifier)
   }
