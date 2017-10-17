@@ -26,8 +26,10 @@ class PassCityProduct: Mappable, Hashable {
 
   // Full
   var imgs: [URL] = []
+  var price: Double = 0
   var categories: [Category] = []
   var offer: URL? = nil
+  var url: URL? = nil
 
   var categoryObject: Category? {
     let categories = ProfileService.instance.currentSettings?.allCategories
@@ -45,7 +47,7 @@ class PassCityProduct: Mappable, Hashable {
     id <- (map["id"], IdTransform())
     type <- (map["type"], EnumTransform<PassCityProductType>())
     title <- map["attributes.title"]
-    category <- map["attributes.category"]
+    category <- (map["attributes.category"], IdTransform())
     subTitle <- map["attributes.sub-title"]
     tariff <- map["attributes.tariff"]
     valid <- map["attributes.valid"]
@@ -54,6 +56,8 @@ class PassCityProduct: Mappable, Hashable {
     categories <- map["relationships.categories"]
     imgs <- (map["links.imgs"], URLTransform())
     offer <- (map["links.offer"], URLTransform())
+    url <- (map["links.self"], URLTransform())
+    price <- map["attributes.price"]
   }
 
   var hashValue: Int {

@@ -14,12 +14,12 @@ private let headerReuseIdentifier = "ProductCardTableSectionHeaderView"
 class ProductCardItemsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
   var items: [Category] = [] {
     didSet {
-      self.hiddenSections = Set<Int>()
+      self.expandedSections = Set<Int>()
       reloadData()
     }
   }
 
-  var hiddenSections = Set<Int>()
+  var expandedSections = Set<Int>()
 
   init() {
     super.init(frame: CGRect.null, style: .plain)
@@ -42,12 +42,15 @@ class ProductCardItemsTableView: UITableView, UITableViewDelegate, UITableViewDa
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return hiddenSections.contains(section) ? 0 : items[section].objects.count
+    return expandedSections.contains(section) ? items[section].objects.count : 0
 
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = ProductCardItemTableViewCell.instance(self, indexPath)!
+    cell.moreHandler = {
+      RootViewController.instance?.menuVisible = true
+    }
     cell.configure(items[indexPath.section].objects[indexPath.row])
     return cell
   }
@@ -56,23 +59,16 @@ class ProductCardItemsTableView: UITableView, UITableViewDelegate, UITableViewDa
     let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerReuseIdentifier) as! ProductCardTableSectionHeaderView
     view.configure(category: items[section].fullObject ?? items[section])
     view.backgroundColor = .white
-    view.isActive = !hiddenSections.contains(section)
+    view.isActive = expandedSections.contains(section)
     view.handler = { [weak self] in
       guard let `self` = self else { return }
-
-      if self.hiddenSections.contains(section) {
-        self.hiddenSections.remove(section)
+      if self.expandedSections.contains(section) {
+        self.expandedSections.remove(section)
       } else {
-        self.hiddenSections.insert(section)
+        self.expandedSections.insert(section)
       }
       self.reloadSections(IndexSet(integer: section), with: .fade)
     }
-    return view
-  }
-
-  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    let view = UIView()
-    view.backgroundColor = UIColor.clear
     return view
   }
 

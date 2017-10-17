@@ -84,6 +84,8 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
     loaderView.alpha = 0
     refreshControl.addTarget(self, action: #selector(refreshingChanged), for: .valueChanged)
     setupSearchController()
+
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
   }
 
   func setupSearchController() {

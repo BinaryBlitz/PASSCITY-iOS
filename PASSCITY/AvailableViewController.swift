@@ -157,6 +157,7 @@ class AvailableViewController: UIViewController {
 
     navigationItem.rightBarButtonItems = [searchItem, filtersItem]
     navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "logoNavbarRb")))
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     navigationItem.titleView = nil
     navigationItem.title = nil
   }

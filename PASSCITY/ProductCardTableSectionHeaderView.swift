@@ -24,7 +24,8 @@ class ProductCardTableSectionHeaderView: UITableViewHeaderFooterView {
     didSet {
       guard isActive != oldValue else { return }
       UIView.animate(withDuration: 0.2) { [weak self] in
-        self?.arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        guard let `self` = self else { return }
+        self.arrowView.transform = CGAffineTransform(rotationAngle: self.isActive ? 0 : CGFloat(Double.pi))
       }
     }
   }
@@ -77,6 +78,8 @@ class ProductCardTableSectionHeaderView: UITableViewHeaderFooterView {
       CenterY(),
       Left(15).to(circleView)
     ]
+
+    arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
 
     view.addSubview(arrowView)
     arrowView <- [

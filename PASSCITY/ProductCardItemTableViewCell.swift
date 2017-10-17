@@ -42,5 +42,6 @@ class ProductCardItemTableViewCell: UITableViewCell {
 
   func configure(_ item: PassCityFeedItemShort) {
     cardView.configure(item: item)
+    cardView.layoutIfNeeded()
   }
 }

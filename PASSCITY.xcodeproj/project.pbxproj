@@ -55,6 +55,7 @@
 		8836656D1F87C59B00CEB7D4 /* ProductShort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836656C1F87C59B00CEB7D4 /* ProductShort.swift */; };
 		883665701F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836656F1F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift */; };
 		883665721F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */; };
+		883F398D1F95CBAA00FA8FDC /* TicketCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883F398C1F95CBAA00FA8FDC /* TicketCardViewController.swift */; };
 		8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5221F7EB1D8009D58C7 /* LocationService.swift */; };
 		8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */; };
 		884FCCD61F93435D002B3DFB /* SettingsCategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FCCD51F93435D002B3DFB /* SettingsCategorySelectViewController.swift */; };
@@ -85,6 +86,7 @@
 		887E34F61F93288F00DE4A01 /* SliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34F51F93288F00DE4A01 /* SliderTableViewCell.swift */; };
 		887E34F81F932A4A00DE4A01 /* SettingsSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34F71F932A4A00DE4A01 /* SettingsSelectableCell.swift */; };
 		887E34FA1F932DDA00DE4A01 /* PassCityButtonFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E34F91F932DDA00DE4A01 /* PassCityButtonFooterView.swift */; };
+		887E67EA1F95C40500EBDAA6 /* Double+currencyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887E67E91F95C40500EBDAA6 /* Double+currencyString.swift */; };
 		88825D121F8C7DEA007213CE /* preloader_3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 889866471F8C565A0065FF57 /* preloader_3.gif */; };
 		88858E401F7F2EFA002D2B75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88858E3F1F7F2EFA002D2B75 /* Constants.swift */; };
 		88858E421F7F3160002D2B75 /* Int+getRussianEnumEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88858E411F7F3160002D2B75 /* Int+getRussianEnumEndings.swift */; };
@@ -179,6 +181,7 @@
 		8836656C1F87C59B00CEB7D4 /* ProductShort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductShort.swift; sourceTree = "<group>"; };
 		8836656F1F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductsTableViewCell.swift; sourceTree = "<group>"; };
 		883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableProductsTableViewCell.xib; sourceTree = "<group>"; };
+		883F398C1F95CBAA00FA8FDC /* TicketCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCardViewController.swift; sourceTree = "<group>"; };
 		8847E5221F7EB1D8009D58C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTarget.swift; sourceTree = "<group>"; };
 		884FCCD51F93435D002B3DFB /* SettingsCategorySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCategorySelectViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +212,7 @@
 		887E34F51F93288F00DE4A01 /* SliderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTableViewCell.swift; sourceTree = "<group>"; };
 		887E34F71F932A4A00DE4A01 /* SettingsSelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectableCell.swift; sourceTree = "<group>"; };
 		887E34F91F932DDA00DE4A01 /* PassCityButtonFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCityButtonFooterView.swift; sourceTree = "<group>"; };
+		887E67E91F95C40500EBDAA6 /* Double+currencyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+currencyString.swift"; sourceTree = "<group>"; };
 		88858E3F1F7F2EFA002D2B75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88858E411F7F3160002D2B75 /* Int+getRussianEnumEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+getRussianEnumEndings.swift"; sourceTree = "<group>"; };
 		88858E431F7F3722002D2B75 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 		880903BE1F7D4AC700158EC3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				883F398B1F95CB9A00FA8FDC /* TicketCard */,
 				887E34EA1F9309B700DE4A01 /* Settings */,
 				88F9CC811F86E69F002C4EF9 /* Web */,
 				88B104B51F86DEFC00EDD98E /* Shop */,
@@ -387,6 +392,7 @@
 				8817EB901F8730700026553D /* Date+PASSCITY.swift */,
 				889866451F8C52360065FF57 /* iOSDevCenter+GIF.swift */,
 				882DF5981F8C9D70001A431B /* URL+appendingQueryParams.swift */,
+				887E67E91F95C40500EBDAA6 /* Double+currencyString.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -514,6 +520,14 @@
 				883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		883F398B1F95CB9A00FA8FDC /* TicketCard */ = {
+			isa = PBXGroup;
+			children = (
+				883F398C1F95CBAA00FA8FDC /* TicketCardViewController.swift */,
+			);
+			name = TicketCard;
 			sourceTree = "<group>";
 		};
 		8847E5241F7ED302009D58C7 /* TargetTypes */ = {
@@ -990,6 +1004,7 @@
 				888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */,
 				880903ED1F7D7D2A00158EC3 /* UIViewController+storyboardInstance.swift in Sources */,
 				88BBE6C41F916F7A00EFD94A /* ProductCardItemsTableView.swift in Sources */,
+				887E67EA1F95C40500EBDAA6 /* Double+currencyString.swift in Sources */,
 				88F9CC831F86E6BA002C4EF9 /* PasscityWebViewController.swift in Sources */,
 				88B104B41F86DEC800EDD98E /* NotificationsListViewController.swift in Sources */,
 				880903D21F7D519B00158EC3 /* CardTableViewCell.swift in Sources */,
@@ -1025,6 +1040,7 @@
 				880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */,
 				881179341F91917D008CF07B /* ProductCardConditionsTableViewCell.swift in Sources */,
 				880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */,
+				883F398D1F95CBAA00FA8FDC /* TicketCardViewController.swift in Sources */,
 				883665701F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift in Sources */,
 				88BBE6BE1F915EE700EFD94A /* ProductCardHeaderView.swift in Sources */,
 				88B104AA1F86D7E500EDD98E /* UIViewController+passcityExtensions.swift in Sources */,

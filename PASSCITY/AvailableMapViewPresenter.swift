@@ -159,7 +159,7 @@ class AvailableMapViewPresenter: NSObject {
   func fetchSearchResults(reset: Bool = false) {
     guard !searchPageLimit || reset else { return }
     isRefreshing = true
-    ItemsService.instance.fetchEvents(target: .getMap(filters)) { [weak self] result in
+    ItemsService.instance.fetchEvents(target: .getMap(currentSearchFilters)) { [weak self] result in
       self?.isRefreshing = false
       switch result {
       case .success(let response):

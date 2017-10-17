@@ -21,6 +21,8 @@ class ProductCardViewController: UIViewController, ProductCardView, LightContent
   let conditionsTableView = ProductCardConditionsTableView()
   let offerView = WKWebView()
 
+  var optionViews: [MenuOptionItemView] = AnnouncesMenuOptions.allValues.map { MenuOptionItemView(icon: $0.icon, title: $0.title )}
+
   var currentItem: ProductCardHeaderItem = .items {
     didSet {
       headerView.currentItem = currentItem
@@ -109,5 +111,6 @@ class ProductCardViewController: UIViewController, ProductCardView, LightContent
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.tabBarController?.tabBar.isHidden = true
+    RootViewController.instance?.configureMenuView(items: optionViews, handler: nil)
   }
 }

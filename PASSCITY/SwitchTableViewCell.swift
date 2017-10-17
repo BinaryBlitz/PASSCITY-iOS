@@ -48,19 +48,24 @@ class SwitchTableViewCell: UITableViewCell {
 
     titleLabel.textAlignment = .left
     titleLabel.font = UIFont.systemFont(ofSize: 15)
+    titleLabel.adjustsFontSizeToFitWidth = true
+    
     titleLabel <- [
       Left(20),
-      Right(0).to(uiSwitch),
+      Right(5).to(uiSwitch),
       CenterY()
     ]
 
     uiSwitch.onTintColor = UIColor.red
     uiSwitch.tintColor = UIColor.warmGrey
-
+    
     uiSwitch <- [
       Right(20),
       CenterY()
     ]
+
+    uiSwitch.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+    uiSwitch.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
 
     uiSwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
   }

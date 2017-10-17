@@ -14,16 +14,47 @@ class SettingsTableSectionView: UITableViewHeaderFooterView {
   let iconView = UIImageView()
   let titleLabel = UILabel()
   let descriptionLabel = UILabel()
+  let stackView = UIStackView()
+  let titleView = UIView()
 
   func configure(title: String?, description: String?, icon: UIImage?) {
     titleLabel.text = title
     descriptionLabel.text = description
     iconView.image = icon
 
-    titleLabel.isHidden = title == nil
-    iconView.isHidden = title == nil || icon == nil
-    descriptionLabel.isHidden = description == nil
-    easy_reload()
+    if title == nil {
+      stackView.removeArrangedSubview(titleView)
+      titleView.removeFromSuperview()
+    } else if !stackView.arrangedSubviews.contains(titleView) {
+      stackView.removeArrangedSubview(descriptionLabel)
+      descriptionLabel.removeFromSuperview()
+
+      stackView.addArrangedSubview(titleView)
+      stackView.addArrangedSubview(descriptionLabel)
+    }
+
+    if description == nil {
+      stackView.removeArrangedSubview(descriptionLabel)
+      descriptionLabel.removeFromSuperview()
+    } else if !stackView.arrangedSubviews.contains(descriptionLabel) {
+      stackView.addArrangedSubview(descriptionLabel)
+    }
+
+    updateConstraints()
+    layoutIfNeeded()
+  }
+
+  var descriptionLabelHidden: Bool = false {
+    didSet {
+      descriptionLabel.isHidden = descriptionLabelHidden
+    }
+  }
+
+  var titleLabelHidden: Bool = false {
+    didSet {
+      titleLabel.isHidden = titleLabelHidden
+
+    }
   }
   
   override init(reuseIdentifier: String?) {
@@ -41,37 +72,44 @@ class SettingsTableSectionView: UITableViewHeaderFooterView {
     backgroundView = view
     view.backgroundColor = .white
     
-    view.addSubview(iconView)
-    view.addSubview(titleLabel)
-    view.addSubview(descriptionLabel)
+    view.addSubview(stackView)
+    stackView.addArrangedSubview(titleView)
+    stackView.addArrangedSubview(descriptionLabel)
+    titleView.addSubview(titleLabel)
+    titleView.addSubview(iconView)
 
     iconView.tintColor = UIColor.white
     iconView.contentMode = .scaleAspectFit
-    
-    iconView <- [
-      Left(20),
-      Size(12),
-      CenterY().to(titleLabel)
-    ]
 
     titleLabel.font = UIFont.systemFont(ofSize: 12)
     titleLabel.textAlignment = .left
 
+    stackView.axis = .vertical
+    stackView.distribution = .fillEqually
+    stackView.spacing = 10
+
+    stackView <- [
+      Top(),
+      Bottom(),
+      Left(),
+      Right()
+    ]
+
+    iconView <- [
+      Left(),
+      Size(12),
+      CenterY().to(titleLabel)
+    ]
+
     titleLabel <- [
-      Top(10),
+      Top(),
       Left(6).to(iconView),
-      Right(>=0)
+      Right(>=0),
+      Bottom()
     ]
 
     descriptionLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightLight)
     descriptionLabel.textColor = UIColor.warmGrey
     descriptionLabel.numberOfLines = 0
-
-    descriptionLabel <- [
-      Top(10).to(titleLabel).when { !self.titleLabel.isHidden },
-      Left(20),
-      Right(<=10),
-      CenterY().when { self.titleLabel.isHidden }
-    ]
   }
 }

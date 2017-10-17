@@ -31,13 +31,13 @@
                             <rect key="frame" x="20" y="192" width="12" height="12"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rg-dJ-dJN">
-                            <rect key="frame" x="38" y="191" width="31" height="14.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="800" verticalCompressionResistancePriority="800" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rg-dJ-dJN">
+                            <rect key="frame" x="38" y="191" width="263" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmW-QS-oUj">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmW-QS-oUj">
                             <rect key="frame" x="38" y="166.5" width="31" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,13 +50,13 @@
                                 <constraint firstAttribute="height" constant="37" id="hmB-O0-Olm"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="0 ₽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-FN-or0">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" text="0 ₽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-FN-or0">
                             <rect key="frame" x="306" y="180" width="49" height="29"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ОПЛАЧЕНО" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htO-ym-4NT">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" text="ОПЛАЧЕНО" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htO-ym-4NT">
                             <rect key="frame" x="306" y="169" width="49" height="10"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="8"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,6 +81,8 @@
                         <constraint firstItem="Xvm-Wl-eI8" firstAttribute="top" secondItem="lY0-6N-cMN" secondAttribute="top" constant="65" id="HJz-WG-dVb"/>
                         <constraint firstAttribute="trailing" secondItem="VUH-NQ-GiL" secondAttribute="trailing" constant="20" id="K2X-Ts-twh"/>
                         <constraint firstItem="htO-ym-4NT" firstAttribute="leading" secondItem="iaX-FN-or0" secondAttribute="leading" id="MW1-4V-Oxo"/>
+                        <constraint firstItem="htO-ym-4NT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EmW-QS-oUj" secondAttribute="trailing" constant="5" id="QY0-1q-Eo9"/>
+                        <constraint firstItem="iaX-FN-or0" firstAttribute="leading" secondItem="8Rg-dJ-dJN" secondAttribute="trailing" constant="5" id="ZlG-ra-zoO"/>
                         <constraint firstItem="EmW-QS-oUj" firstAttribute="leading" secondItem="zaz-O2-gKp" secondAttribute="trailing" constant="6" id="cgz-Gb-gEQ"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="htO-ym-4NT" secondAttribute="trailing" constant="20" id="f9v-y1-WyX"/>
                         <constraint firstItem="htO-ym-4NT" firstAttribute="top" secondItem="VUH-NQ-GiL" secondAttribute="bottom" constant="10" id="mFy-w8-Duh"/>

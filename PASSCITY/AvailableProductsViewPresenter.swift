@@ -99,9 +99,15 @@ class AvailableProductsViewPresenter {
   }
 
   func didSelectProduct(_ product: PassCityProduct) {
-    let viewController = ProductCardViewController()
-    viewController.presenter = ProductCardViewPresenter(view: viewController, product: product)
-    view.pushViewController(viewController)
+    switch product.type {
+    case .package:
+      let viewController = ProductCardViewController()
+      viewController.presenter = ProductCardViewPresenter(view: viewController, product: product)
+      view.pushViewController(viewController)
+    case .ticket:
+      let viewController = TicketCardViewController(product.url)
+      view.pushViewController(viewController)
+    }
   }
 
   private var refreshSearchAction: (() -> Void)? = nil

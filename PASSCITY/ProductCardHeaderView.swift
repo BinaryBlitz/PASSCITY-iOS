@@ -72,7 +72,7 @@ class ProductCardHeaderView: UIView {
     titleLabel.text = product.title
     tariffLabel.text = product.tariff
     validLabel.text = String(product.valid.replacingOccurrences(of: "\t", with: " ", options: [], range: nil))
-
+    priceLabel.text = product.price.currencyString
     productIconView.kf.setImage(with: product.categoryObject?.icon)
     backgroundImageView.kf.setImage(with: product.imgs.first)
   }

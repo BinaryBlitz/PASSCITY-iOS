@@ -30,6 +30,8 @@ private enum Sections: Int {
 
   var description: String? {
     switch self {
+    case .categories:
+      return "Выберите интересующие Вас виды услуг"
     case .notificationsDistance:
       return "Уведомлять об объектах, находящихся от меня на расcтоянии"
     default:

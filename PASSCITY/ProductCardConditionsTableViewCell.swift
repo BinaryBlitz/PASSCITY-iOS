@@ -26,6 +26,7 @@ class ProductCardConditionsTableViewCell: UITableViewCell {
   }
 
   func setup() {
+    selectionStyle = .none
     addSubview(dotLabel)
     addSubview(tipLabel)
     dotLabel.text = "•"
