@@ -90,7 +90,7 @@ class CardViewController: UIViewController, TransparentViewController, LightCont
 
     super.viewDidLoad()
 
-    navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "logoNavbarRb")))
+    navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "logoNavbarRw")))
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarSettings").withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(settingsAction))
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     view.addSubview(headerView)
@@ -147,7 +147,21 @@ class CardViewController: UIViewController, TransparentViewController, LightCont
   }
 
   func configureHandlers() {
-    headerView.itemChangedHandler = { self.currentItem = $0 }
+    headerView.itemChangedHandler = { [weak self] in self?.currentItem = $0 }
+
+    ownerView.menuHandler = {
+
+    }
+
+    ownerView.isActiveHandler = { [weak self] in
+      self?.updateViewConstraints()
+      self?.view.layoutIfNeeded()
+    }
+    
+    footerView.handler = { [weak self] document in
+      let viewController = PassCityWebViewController(document.url)
+      self?.navigationController?.pushViewController(viewController, animated: true)
+    }
   }
 
   override func viewWillAppear(_ animated: Bool) {

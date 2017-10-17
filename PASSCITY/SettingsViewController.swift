@@ -170,7 +170,8 @@ class SettingsViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 60
+    guard let currentSection = Sections(rawValue: section) else { return 0 }
+    return currentSection.title == nil || currentSection.description == nil ? 40 : 60
   }
 
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

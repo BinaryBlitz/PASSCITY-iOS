@@ -40,7 +40,7 @@ class PassCityCard: Mappable, Hashable {
     code <- map["attributes.code"]
     bonusAccrued <- map["attributes.bonus.accrued"]
     bonusCharged <- map["attributes.bonus.charged"]
-    bonusBalance <- map["attributes.tariff"]
+    bonusBalance <- map["attributes.bonus.balance"]
     promoCode <- map["attributes.promo.code"]
     promoCodeUsed <- map["attributes.promo.used"]
     balance <- map["attributes.balance"]

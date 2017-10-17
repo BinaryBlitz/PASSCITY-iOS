@@ -57,7 +57,7 @@ class SliderTableViewCell: UITableViewCell {
     slider.tintColor = UIColor.red
 
     slider <- [
-      Top(20),
+      Top(15),
       Left(16),
       Right(16)
     ]

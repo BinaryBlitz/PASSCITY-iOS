@@ -18,8 +18,10 @@ class CardUserView: UIView {
 
   var isActive: Bool = false {
     didSet {
-      easy_reload()
-      layoutIfNeeded()
+      UIView.animate(withDuration: 0.2) { [weak self] in
+        self?.easy_reload()
+        self?.layoutIfNeeded()
+      }
       isActiveHandler?()
     }
   }
@@ -37,6 +39,7 @@ class CardUserView: UIView {
 
     footerButtonView.backgroundColor = UIColor.disabledBtnColor
     footerButtonView.cornerRadius = 2
+    footerButtonView.isUserInteractionEnabled = false
 
     attributesView.axis = .vertical
     attributesView.distribution = .fillEqually
@@ -57,8 +60,10 @@ class CardUserView: UIView {
       Top(20),
       Left(20),
       Right(>=20).to(menuButton, .left),
-      Bottom().to(footerButton).when { self.isActive },
+      Bottom(5).to(footerButton, .top).with(.low),
     ]
+
+    footerButton.backgroundColor = UIColor.white
 
     footerButton <- [
       Left(),

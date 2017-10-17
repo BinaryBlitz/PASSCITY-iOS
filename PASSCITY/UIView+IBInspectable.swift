@@ -70,12 +70,12 @@ extension UIView {
   }
 
   func addBlur() {
-    let blurEffect = UIBlurEffect(style: .light)
+    let blurEffect = UIBlurEffect(style: .dark)
     let blurEffectView = UIVisualEffectView(effect: blurEffect)
     blurEffectView.frame = bounds
     blurEffectView.clipsToBounds = true
     blurEffectView.cornerRadius = cornerRadius
-    blurEffectView.alpha = 0.9
+    blurEffectView.alpha = 0.8
     blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     insertSubview(blurEffectView, at: 0)
   }

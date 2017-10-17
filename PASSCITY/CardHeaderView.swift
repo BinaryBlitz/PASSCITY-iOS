@@ -68,8 +68,6 @@ class CardHeaderView: UIView {
   override func awakeFromNib() {
     super.awakeFromNib()
     iconArrowView.image = iconArrowView.image?.withRenderingMode(.alwaysTemplate)
-
-    cardBackgroundView.addBlur()
     
     CardScreenItem.allItems.forEach { item in
       let view = CardOptionView()

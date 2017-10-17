@@ -21,13 +21,14 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poT-S9-YLb">
                     <rect key="frame" x="20" y="72" width="335" height="191"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yR-xv-SMr">
-                            <rect key="frame" x="0.0" y="20" width="335" height="40"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.49787912193251532" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="wGJ-0r-ACc"/>
-                            </constraints>
-                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="ijw-QK-fQp">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="191"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMS-N4-Rxf">
                             <rect key="frame" x="20" y="80" width="137" height="71"/>
                             <subviews>
@@ -68,12 +69,16 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowLeft" translatesAutoresizingMaskIntoConstraints="NO" id="pNN-r6-7D6">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="999" verticalHuggingPriority="999" verticalCompressionResistancePriority="999" image="iconArrowLeft" translatesAutoresizingMaskIntoConstraints="NO" id="pNN-r6-7D6">
                             <rect key="frame" x="177" y="139" width="10" height="10"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="10" id="W5I-pV-McK"/>
+                                <constraint firstAttribute="width" constant="10" id="eWl-7o-uAL"/>
+                            </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="номер карты на обороте" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocZ-5F-Veo">
-                            <rect key="frame" x="195" y="137.5" width="135" height="13.5"/>
+                            <rect key="frame" x="195" y="137.5" width="137" height="13.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -82,18 +87,19 @@
                     <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.40063027223926378" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="FMS-N4-Rxf" firstAttribute="leading" secondItem="poT-S9-YLb" secondAttribute="leading" constant="20" id="9JB-qU-U96"/>
-                        <constraint firstItem="1yR-xv-SMr" firstAttribute="top" secondItem="poT-S9-YLb" secondAttribute="top" constant="20" id="BjD-ug-cLk"/>
+                        <constraint firstItem="ijw-QK-fQp" firstAttribute="top" secondItem="poT-S9-YLb" secondAttribute="top" id="BKE-SI-Bnz"/>
+                        <constraint firstItem="ijw-QK-fQp" firstAttribute="leading" secondItem="poT-S9-YLb" secondAttribute="leading" id="GoX-6o-8nk"/>
                         <constraint firstItem="5TZ-Iz-lkc" firstAttribute="leading" secondItem="FMS-N4-Rxf" secondAttribute="trailing" constant="20" id="KTi-34-Aa6"/>
-                        <constraint firstAttribute="trailing" secondItem="ocZ-5F-Veo" secondAttribute="trailing" constant="5" id="LAs-Xk-8ga"/>
-                        <constraint firstItem="1yR-xv-SMr" firstAttribute="leading" secondItem="poT-S9-YLb" secondAttribute="leading" id="QBt-hj-jLS"/>
+                        <constraint firstAttribute="trailing" secondItem="ocZ-5F-Veo" secondAttribute="trailing" constant="3" id="LAs-Xk-8ga"/>
+                        <constraint firstItem="FMS-N4-Rxf" firstAttribute="top" secondItem="poT-S9-YLb" secondAttribute="top" constant="80" id="ORe-TZ-OpJ"/>
                         <constraint firstItem="5TZ-Iz-lkc" firstAttribute="top" secondItem="FMS-N4-Rxf" secondAttribute="top" id="RJy-aG-wyi"/>
                         <constraint firstItem="AZs-Gf-nGK" firstAttribute="top" secondItem="5TZ-Iz-lkc" secondAttribute="bottom" id="Rqg-In-7eV"/>
-                        <constraint firstItem="FMS-N4-Rxf" firstAttribute="top" secondItem="1yR-xv-SMr" secondAttribute="bottom" constant="20" id="VQ8-kU-hjS"/>
                         <constraint firstItem="pNN-r6-7D6" firstAttribute="top" secondItem="AZs-Gf-nGK" secondAttribute="bottom" constant="6" id="Vyw-UQ-qeh"/>
-                        <constraint firstAttribute="trailing" secondItem="1yR-xv-SMr" secondAttribute="trailing" id="YTd-8O-meQ"/>
                         <constraint firstItem="ocZ-5F-Veo" firstAttribute="leading" secondItem="pNN-r6-7D6" secondAttribute="trailing" constant="8" id="bl5-Qt-vf2"/>
+                        <constraint firstAttribute="bottom" secondItem="ijw-QK-fQp" secondAttribute="bottom" id="cIk-NL-phE"/>
                         <constraint firstAttribute="bottom" secondItem="FMS-N4-Rxf" secondAttribute="bottom" constant="40" id="iSk-ee-UKF"/>
                         <constraint firstItem="ocZ-5F-Veo" firstAttribute="centerY" secondItem="pNN-r6-7D6" secondAttribute="centerY" id="lGM-3s-UjA"/>
+                        <constraint firstAttribute="trailing" secondItem="ijw-QK-fQp" secondAttribute="trailing" id="sY0-zy-PzJ"/>
                         <constraint firstItem="pNN-r6-7D6" firstAttribute="leading" secondItem="FMS-N4-Rxf" secondAttribute="trailing" constant="20" id="tRQ-Wm-CNr"/>
                         <constraint firstItem="AZs-Gf-nGK" firstAttribute="leading" secondItem="FMS-N4-Rxf" secondAttribute="trailing" constant="20" id="vfS-RC-pgb"/>
                     </constraints>
@@ -151,6 +157,7 @@
         </view>
     </objects>
     <resources>
+        <image name="cardBack" width="335" height="170"/>
         <image name="cardBackBg" width="375" height="243"/>
         <image name="code" width="101" height="45"/>
         <image name="iconArrowLeft" width="10" height="10"/>

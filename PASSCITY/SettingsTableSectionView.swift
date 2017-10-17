@@ -85,14 +85,13 @@ class SettingsTableSectionView: UITableViewHeaderFooterView {
     titleLabel.textAlignment = .left
 
     stackView.axis = .vertical
-    stackView.distribution = .fillEqually
+    stackView.distribution = .equalSpacing
     stackView.spacing = 10
 
     stackView <- [
-      Top(),
-      Bottom(),
-      Left(),
-      Right()
+      Left(20),
+      Right(15),
+      CenterY()
     ]
 
     iconView <- [
