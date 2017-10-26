@@ -19,11 +19,11 @@ class SettingsCategoryTableViewCell: UITableViewCell {
   let arrowView = UIImageView(image: #imageLiteral(resourceName: "iconArrowRight"))
 
 
-  func configure(category: Category) {
+  func configure(category: Category, selectedCategories: [Int]? = nil) {
     iconView.kf.setImage(with: category.icon)
     circleView.backgroundColor = category.color
     titleLabel.text = category.title
-    badgeLabel.text = "\(category.selected)"
+    badgeLabel.text = "\(selectedCategories?.count ?? category.selected)"
   }
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

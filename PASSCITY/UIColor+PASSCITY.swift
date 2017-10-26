@@ -47,4 +47,8 @@ extension UIColor {
     return UIColor(red: 80.0 / 255.0, green: 195.0 / 255.0, blue: 208.0 / 255.0, alpha: 1.0)
   }
 
+  class var lowGrey: UIColor {
+    return UIColor(red: 214.0 / 255.0, green: 214.0 / 255.0, blue: 214.0 / 255.0, alpha: 1.0)
+  }
+
 }

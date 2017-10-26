@@ -71,8 +71,12 @@
 		8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */; };
 		884FCCD61F93435D002B3DFB /* SettingsCategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FCCD51F93435D002B3DFB /* SettingsCategorySelectViewController.swift */; };
 		884FCCD81F9345BB002B3DFB /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884FCCD71F9345BB002B3DFB /* Debounce.swift */; };
+		885043591FA68DB000E6A0DA /* FiltersLocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885043581FA68DAF00E6A0DA /* FiltersLocationSelectViewController.swift */; };
 		8851BE441F9176580032C177 /* ProductCardTableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851BE431F9176580032C177 /* ProductCardTableSectionHeaderView.swift */; };
 		8851BE471F9181C10032C177 /* ProductCardItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851BE461F9181C10032C177 /* ProductCardItemTableViewCell.swift */; };
+		8858B1C51FA2F3EF00290A17 /* FiltersCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858B1C41FA2F3EF00290A17 /* FiltersCalendarCell.swift */; };
+		8858B1C71FA2F40000290A17 /* FiltersCalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8858B1C61FA2F40000290A17 /* FiltersCalendarCell.xib */; };
+		8858B1CA1FA6831F00290A17 /* FiltersCategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858B1C91FA6831F00290A17 /* FiltersCategoriesListViewController.swift */; };
 		885976EA1F7F51B300C9B091 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 885976E91F7F51B300C9B091 /* Default-568h@2x.png */; };
 		885D2DD71F8C8D1F001D2A91 /* MenuOptionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885D2DD61F8C8D1F001D2A91 /* MenuOptionItem.swift */; };
 		886714181F92B7EC00F10666 /* CardOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886714171F92B7EC00F10666 /* CardOptionView.swift */; };
@@ -211,8 +215,12 @@
 		8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTarget.swift; sourceTree = "<group>"; };
 		884FCCD51F93435D002B3DFB /* SettingsCategorySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCategorySelectViewController.swift; sourceTree = "<group>"; };
 		884FCCD71F9345BB002B3DFB /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
+		885043581FA68DAF00E6A0DA /* FiltersLocationSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersLocationSelectViewController.swift; sourceTree = "<group>"; };
 		8851BE431F9176580032C177 /* ProductCardTableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardTableSectionHeaderView.swift; sourceTree = "<group>"; };
 		8851BE461F9181C10032C177 /* ProductCardItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardItemTableViewCell.swift; sourceTree = "<group>"; };
+		8858B1C41FA2F3EF00290A17 /* FiltersCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCalendarCell.swift; sourceTree = "<group>"; };
+		8858B1C61FA2F40000290A17 /* FiltersCalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersCalendarCell.xib; sourceTree = "<group>"; };
+		8858B1C91FA6831F00290A17 /* FiltersCategoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCategoriesListViewController.swift; sourceTree = "<group>"; };
 		885976E91F7F51B300C9B091 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		885D2DD61F8C8D1F001D2A91 /* MenuOptionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionItem.swift; sourceTree = "<group>"; };
 		886714171F92B7EC00F10666 /* CardOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOptionView.swift; sourceTree = "<group>"; };
@@ -623,7 +631,10 @@
 		8837CEF51FA2D88B008C52E5 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				8858B1C31FA2F3DF00290A17 /* Cells */,
 				8837CEF61FA2DDF4008C52E5 /* FeedItemsFilterViewController.swift */,
+				8858B1C91FA6831F00290A17 /* FiltersCategoriesListViewController.swift */,
+				885043581FA68DAF00E6A0DA /* FiltersLocationSelectViewController.swift */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -650,6 +661,15 @@
 			children = (
 				8851BE461F9181C10032C177 /* ProductCardItemTableViewCell.swift */,
 				881179331F91917D008CF07B /* ProductCardConditionsTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		8858B1C31FA2F3DF00290A17 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8858B1C41FA2F3EF00290A17 /* FiltersCalendarCell.swift */,
+				8858B1C61FA2F40000290A17 /* FiltersCalendarCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -980,6 +1000,7 @@
 				88202CD31F9D095600322323 /* AudioguideCardHeaderView.xib in Resources */,
 				885976EA1F7F51B300C9B091 /* Default-568h@2x.png in Resources */,
 				88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */,
+				8858B1C71FA2F40000290A17 /* FiltersCalendarCell.xib in Resources */,
 				88255DC41F878E060082B8DA /* PasscityMapCardView.xib in Resources */,
 				88BBE6C01F915F0200EFD94A /* ProductCardHeaderView.xib in Resources */,
 			);
@@ -996,6 +1017,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PASSCITY/Pods-PASSCITY-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1087,6 +1109,7 @@
 				887B16E61F8733C9006A0BF9 /* ReviewsOverview.swift in Sources */,
 				880903CC1F7D4E9700158EC3 /* UIFont+PASSCITY.swift in Sources */,
 				88DCB9CA1F7D838F0058DBF6 /* UIColor+PASSCITY.swift in Sources */,
+				8858B1CA1FA6831F00290A17 /* FiltersCategoriesListViewController.swift in Sources */,
 				881179321F918C39008CF07B /* ProductCardViewPresenter.swift in Sources */,
 				880903D41F7D592200158EC3 /* UIView+nibInstance.swift in Sources */,
 				88FD35FF1F7F19D100584BE0 /* BaseView.swift in Sources */,
@@ -1128,6 +1151,7 @@
 				88B104B41F86DEC800EDD98E /* NotificationsListViewController.swift in Sources */,
 				880903D21F7D519B00158EC3 /* CardTableViewCell.swift in Sources */,
 				8815E0CE1FA28EEC00614FA9 /* PlayerWidgetView.swift in Sources */,
+				885043591FA68DB000E6A0DA /* FiltersLocationSelectViewController.swift in Sources */,
 				88B104A51F86CC4700EDD98E /* TopBarHeaderItemView.swift in Sources */,
 				880903B61F7D46D600158EC3 /* JSONAPIResponse.swift in Sources */,
 				887E34F41F93258A00DE4A01 /* SwitchTableViewCell.swift in Sources */,
@@ -1169,6 +1193,7 @@
 				88F65BD51FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift in Sources */,
 				88B104AA1F86D7E500EDD98E /* UIViewController+passcityExtensions.swift in Sources */,
 				887B16E41F873396006A0BF9 /* FeedItemsFilter.swift in Sources */,
+				8858B1C51FA2F3EF00290A17 /* FiltersCalendarCell.swift in Sources */,
 				8867141C1F92CBA700F10666 /* CardUserView.swift in Sources */,
 				880903D91F7D617A00158EC3 /* RootViewController.swift in Sources */,
 				88F65BD71FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift in Sources */,

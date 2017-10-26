@@ -11,18 +11,19 @@ import Fabric
 import Crashlytics
 import GoogleMaps
 import AVKit
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     Fabric.with([Crashlytics.self])
     LocationService.instance.startMonitoring()
     GMSServices.provideAPIKey("AIzaSyDTSsnBmJWu6VxN7mjE1lH6HSiwuAAKhbA")
+    GMSPlacesClient.provideAPIKey("AIzaSyAkMa9NS62Q2B91ykfquBhW7SOOfURfE5A")
     try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
     return true
   }

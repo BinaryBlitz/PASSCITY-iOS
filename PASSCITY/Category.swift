@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Category: Mappable {
+class Category: Mappable, Hashable {
   var id: Int = 0
   var title: String = ""
   var type: String = "category"
@@ -25,6 +25,10 @@ class Category: Mappable {
   var fullObject: Category? {
     let categories = ProfileService.instance.currentSettings?.allCategories
     return categories?.first { $0.id == id }
+  }
+
+  var hashValue: Int {
+    return id
   }
 
   required init?(map: Map) {
@@ -44,6 +48,9 @@ class Category: Mappable {
     icon <- (map["links.icon"], URLTransform())
     objects <- map["objects"]
     conditions <- map["conditions"]
+  }
 
+  static func ==(lhs: Category, rhs: Category) -> Bool {
+    return lhs.id == rhs.id
   }
 }

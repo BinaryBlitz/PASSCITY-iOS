@@ -37,34 +37,44 @@ private enum Sections: Int {
 }
 
 class FeedItemsFilterViewController: UITableViewController {
-  let notificationServiceCell = SwitchTableViewCell("Доступные услуги поблизости")
-  let notificationProductCell = SwitchTableViewCell("Доступные продукты поблизости")
-  var notificationCells: [UITableViewCell] { return [notificationServiceCell, notificationProductCell] }
+  let beginningDateCell =  FiltersCalendarCell.nibInstance()!
+  let endDateCell =  FiltersCalendarCell.nibInstance()!
+  let rightNowCell = UITableViewCell()
 
-  let distanceCell = SliderTableViewCell()
-
-  var categories: [Category] {
-    return currentSettings?.categories ?? []
+  var datesCells: [UITableViewCell] {
+    return [rightNowCell, beginningDateCell, endDateCell]
   }
 
-  var currentSettings: Settings? = nil {
+  let categoriesCell = SettingsCategoryTableViewCell()
+  let locationCell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+  let favoritesCell = SwitchTableViewCell("Избранное", description: "Показывать только избранное", image: #imageLiteral(resourceName: "iconFilterFavorites"))
+  let hotOffersCell = SwitchTableViewCell("Горячие предложения", description: "Показывать только горячие предложения", image: #imageLiteral(resourceName: "iconFilterSentence"))
+
+  var rightNowSelected: Bool = true {
     didSet {
-      guard let currentSettings = currentSettings else { return }
-      notificationProductCell.isOn = currentSettings.notifications.newProductsNearMe == 0
-      notificationServiceCell.isOn = currentSettings.notifications.servicesNearMe == 0
-      distanceCell.value = Float(currentSettings.notifications.distance) / 1000
+      rightNowCell.textLabel?.textColor = rightNowSelected ? UIColor.black : UIColor.lowGrey
+      rightNowCell.accessoryType = rightNowSelected ? .checkmark : .none
     }
+  }
+
+  var filters: PassCityFeedItemFilter? = nil {
+    didSet {
+      guard let filters = filters else { return }
+      categoriesCell.badgeLabel.text = "\(filters.categories.count)"
+      categoriesCell.badgeView.isHidden = filters.categories.isEmpty
+      beginningDateCell.date = filters.dates?.from
+      endDateCell.date = filters.dates?.to
+      favoritesCell.isOn = filters.favorites == 1
+      hotOffersCell.isOn = filters.favorites == 1
+    }
+  }
+
+  var otherCells: [UITableViewCell] {
+    return [categoriesCell, locationCell, favoritesCell, hotOffersCell]
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    if currentSettings == nil {
-      view.isUserInteractionEnabled = false
-      ProfileService.instance.getSettings { [weak self] _ in
-        self?.view.isUserInteractionEnabled = true
-        self?.currentSettings = ProfileService.instance.currentSettings
-      }
-    }
     updateLayout()
   }
 
@@ -75,31 +85,38 @@ class FeedItemsFilterViewController: UITableViewController {
     edgesForExtendedLayout = UIRectEdge()
     automaticallyAdjustsScrollViewInsets = false
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    tableView.tableFooterView = UIView()
+    configureCells()
+    navigationItem.title = "Настройки"
+  }
+
+  func configureCells() {
+    rightNowCell.textLabel?.text = "Прямо сейчас"
+    rightNowCell.textLabel?.font = UIFont.systemFont(ofSize: 15)
+    rightNowCell.tintColor = UIColor.red
+    rightNowCell.textLabel?.textColor = UIColor.black
+    rightNowCell.accessoryType = .checkmark
+
+    locationCell.textLabel?.text = "Локация"
+    locationCell.textLabel?.font = UIFont.systemFont(ofSize: 15)
+    locationCell.tintColor = UIColor.red
+    locationCell.textLabel?.textColor = UIColor.black
+    locationCell.accessoryType = .disclosureIndicator
+    locationCell.detailTextLabel?.text = "Поблизости"
+    locationCell.imageView?.image = #imageLiteral(resourceName: "iconFilterMap")
+
+    beginningDateCell.tableView = tableView
+    endDateCell.tableView = tableView
+    endDateCell.titleLabel.text = "Конец"
 
     SettingsCategoryTableViewCell.register(in: tableView)
-    SettingsSelectableCell.register(in: tableView)
+    FiltersCalendarCell.register(in: tableView)
+    SwitchTableViewCell.register(in: tableView)
     SettingsTableSectionView.register(in: tableView)
 
-    distanceCell.leftLabel.text = "100 м"
-    distanceCell.middleLabel.text = "500 м"
-    distanceCell.rightLabel.text = "1 км"
+    datesCells.forEach { $0.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0) }
+    otherCells.forEach { $0.separatorInset = UIEdgeInsets(top: 0, left: 55, bottom: 0, right: 0) }
 
-    navigationItem.title = "Настройки"
-
-    notificationProductCell.handler = { [weak self] isOn in
-      self?.currentSettings?.notifications.newProductsNearMe = isOn ? 1 : 0
-    }
-
-    notificationServiceCell.handler = { [weak self] isOn in
-      self?.currentSettings?.notifications.servicesNearMe = isOn ? 1 : 0
-    }
-
-    distanceCell.handler =  { [weak self] distance in
-      self?.currentSettings?.notifications.distance = Int(1000 * distance)
-    }
-
-
-    currentSettings = ProfileService.instance.currentSettings
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -110,55 +127,84 @@ class FeedItemsFilterViewController: UITableViewController {
     guard let section = Sections(rawValue: section) else { return 0 }
     switch section {
     case .datesRange:
-      return 2
+      return 3
     case .other:
-      return 4
+      return otherCells.count
     }
   }
-/*
+
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let section = Sections(rawValue: indexPath.section) else { return UITableViewCell() }
     switch section {
     case .datesRange:
-      let cell = SettingsCategoryTableViewCell.instance(tableView, indexPath)!
-      cell.configure(category: categories[indexPath.row])
-      return cell
+      return datesCells[indexPath.row]
     case .other:
-      return notificationCells[indexPath.row]
-    case .language:
-      let lang = Language.allValues[indexPath.row]
-      let cell = SettingsSelectableCell.instance(tableView, indexPath)!
-      cell.label.text = lang.name
-      cell.isActive = currentSettings?.language == lang
-      return cell
-    case .notificationsDistance:
-      return distanceCell
+      return otherCells[indexPath.row]
     }
   }
-*/
+
   func updateLayout() {
     tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: MainTabBarController.instance.playerWidgetHeight, right: 0)
   }
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    guard let section = Sections(rawValue: indexPath.section), section != .datesRange else { return UITableViewAutomaticDimension }
-    return 90
+    guard let section = Sections(rawValue: indexPath.section), section == .datesRange else {
+      return 44
+    }
+    switch indexPath.row {
+    case datesCells.index(of: beginningDateCell)! where beginningDateCell.isExpanded:
+      return 340
+    case datesCells.index(of: endDateCell)! where endDateCell.isExpanded:
+      return 340
+    default:
+      return 44
+    }
   }
 
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     guard let currentSection = Sections(rawValue: section) else { return 0 }
-    return 40
+    return 30
   }
 
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let currentSection = Sections(rawValue: section) else { return nil }
     let view = SettingsTableSectionView.instance(tableView)
-    //view?.configure(title: currentSection.title, description: currentSection.description, icon: currentSection.image)
+    view?.backgroundColor = UIColor.white
+    switch currentSection {
+    case .datesRange:
+      view?.configure(title: "Фильтр по диапазону дат", description: nil, icon: #imageLiteral(resourceName: "iconTitleDaterange"))
+    default:
+      break
+    }
     return view
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    guard let currentSection = Sections(rawValue: indexPath.section) else { return }
+    switch currentSection {
+    case .datesRange:
+      switch indexPath.row {
+      case datesCells.index(of: rightNowCell)!:
+        rightNowSelected = !rightNowSelected
+      case datesCells.index(of: beginningDateCell)!:
+        beginningDateCell.isExpanded = !beginningDateCell.isExpanded
+      case datesCells.index(of: endDateCell)!:
+        endDateCell.isExpanded = !endDateCell.isExpanded
+      default:
+        break
+      }
+    case .other:
+      switch indexPath.row {
+      case otherCells.index(of: categoriesCell)!:
+        let viewController = FiltersCategoriesViewController()
+        viewController.handler = { [weak self] categories in
+          self?.filters?.categories = categories
+        }
+      case otherCells.index(of: locationCell):
+        
+      }
+    }
   }
 
   override func viewWillDisappear(_ animated: Bool) {

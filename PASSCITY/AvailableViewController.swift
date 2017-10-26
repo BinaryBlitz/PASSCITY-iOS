@@ -159,7 +159,7 @@ class AvailableViewController: UIViewController {
 
   private func setupNavigationBar() {
     let searchItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarSearch"), style: .plain, target: self, action: #selector(searchButtonAction))
-    let filtersItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarFilter"), style: .plain, target: self, action: #selector(searchButtonAction))
+    let filtersItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarFilter"), style: .plain, target: self, action: #selector(filtersButtonAction))
 
     navigationItem.rightBarButtonItems = [searchItem, filtersItem]
     navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "logoNavbarRb")))
@@ -173,7 +173,8 @@ class AvailableViewController: UIViewController {
   }
 
   func filtersButtonAction() {
-
+    let viewController = FeedItemsFilterViewController()
+    navigationController?.pushViewController(viewController, animated: true)
   }
 
   override func viewDidLayoutSubviews() {
@@ -181,7 +182,6 @@ class AvailableViewController: UIViewController {
     guard isSearching else { return }
     searchController.searchBar.sizeToFit()
   }
-  
 
 }
 

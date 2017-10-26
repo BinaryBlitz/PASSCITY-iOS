@@ -13,6 +13,9 @@ import EasyPeasy
 class SwitchTableViewCell: UITableViewCell {
   let uiSwitch = UISwitch()
   let titleLabel = UILabel()
+  let descriptionLabel = UILabel()
+  let titleView = UIView()
+  let iconView = UIImageView()
 
   var isOn: Bool {
     get {
@@ -35,26 +38,65 @@ class SwitchTableViewCell: UITableViewCell {
     setup()
   }
 
-  init(_ title: String) {
+  init(_ title: String, description: String? = nil, image: UIImage? = nil) {
     super.init(style: .default, reuseIdentifier: nil)
     titleLabel.text = title
+    descriptionLabel.text = description
+    iconView.image = image
     setup()
   }
 
   func setup() {
     selectionStyle = .none
-    addSubview(titleLabel)
-    addSubview(uiSwitch)
-
+    addSubview(titleView)
+    titleView.addSubview(titleLabel)
     titleLabel.textAlignment = .left
     titleLabel.font = UIFont.systemFont(ofSize: 15)
     titleLabel.adjustsFontSizeToFitWidth = true
-    
+
     titleLabel <- [
-      Left(20),
-      Right(5).to(uiSwitch),
-      CenterY()
+      Top(),
+      Left(),
+      Right()
     ]
+
+    if let text = descriptionLabel.text, !text.isEmpty {
+      descriptionLabel.textColor = .warmGrey
+      descriptionLabel.font = UIFont.systemFont(ofSize: 10, weight: UIFontWeightLight)
+      titleView.addSubview(descriptionLabel)
+      descriptionLabel <- [
+        Top().to(titleLabel),
+        Left(),
+        Right(),
+        Bottom()
+      ]
+    } else {
+      titleLabel <- Bottom()
+    }
+    
+    addSubview(uiSwitch)
+
+    if iconView.image != nil {
+      addSubview(iconView)
+      iconView.contentMode = .scaleAspectFit
+      iconView <- [
+        Left(20).with(.high),
+        Size(20),
+        CenterY()
+      ]
+      titleView <- [
+        Left(15).to(iconView),
+        Right(5).to(uiSwitch),
+        CenterY()
+      ]
+    } else {
+      titleView <- [
+        Left(20),
+        Right(5).to(uiSwitch),
+        CenterY()
+      ]
+    }
+
 
     uiSwitch.onTintColor = UIColor.red
     uiSwitch.tintColor = UIColor.warmGrey
