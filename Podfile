@@ -15,6 +15,7 @@ target 'PASSCITY' do
   pod 'JVFloatLabeledTextField', '~> 1.2'
   pod 'FloatRatingView', '~> 2.0'
   pod 'GoogleMaps'
+  pod 'UICircularProgressRing', '~> 1.7'
   
   pod 'Fabric'
   pod 'Crashlytics'

@@ -129,7 +129,8 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
   }
 
   func audioGuideAction() {
-
+    let vc = AudioguidesListViewController()
+    navigationController?.pushViewController(vc, animated: true)
   }
 
   func zoomPlusAction() {

@@ -86,6 +86,7 @@ class SettingsViewController: UITableViewController {
         self?.currentSettings = ProfileService.instance.currentSettings
       }
     }
+    updateLayout()
   }
 
   override func viewDidLoad() {
@@ -162,6 +163,10 @@ class SettingsViewController: UITableViewController {
     case .notificationsDistance:
       return distanceCell
     }
+  }
+
+  func updateLayout() {
+    tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: MainTabBarController.instance.playerWidgetHeight, right: 0)
   }
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -167,6 +167,13 @@ class CardViewController: UIViewController, TransparentViewController, LightCont
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     refresh()
+
+    footerView <- [
+      Left(),
+      Right(),
+      Top().to(lineView),
+      Bottom(MainTabBarController.instance.playerWidgetHeight)
+    ]
   }
 
   func settingsAction() {

@@ -10,6 +10,7 @@ import UIKit
 import Fabric
 import Crashlytics
 import GoogleMaps
+import AVKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Fabric.with([Crashlytics.self])
     LocationService.instance.startMonitoring()
     GMSServices.provideAPIKey("AIzaSyDTSsnBmJWu6VxN7mjE1lH6HSiwuAAKhbA")
+    try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
     return true
   }
 

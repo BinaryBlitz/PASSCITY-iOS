@@ -25,6 +25,8 @@ class StorageHelper {
     case currentSettings
     case currentCard
     case accessToken
+    case tours
+    case fullTours
 
     var storageType: StorageType {
       switch self {

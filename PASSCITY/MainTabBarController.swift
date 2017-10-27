@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import EasyPeasy
 
 class MainTabBarController: UITabBarController {
   let availableViewController = AvailableViewController()
@@ -20,8 +21,42 @@ class MainTabBarController: UITabBarController {
   var shopNavigationViewController: PassCityNavigationController!
   var notificationsListNavigationViewController: PassCityNavigationController!
 
+  var playerHeightConstraint: NSLayoutConstraint!
+
+  static var instance: MainTabBarController!
+
+  let playerView = PlayerWidgetView.nibInstance()!
+
+  var playerWidgetHeight: CGFloat {
+    return playerHeightConstraint.constant
+  }
+
+  var playerIsHidden: Bool = true {
+    didSet {
+      playerHeightConstraint.constant = playerIsHidden ? 0 : 58
+      playerView.isHidden = playerIsHidden
+      NotificationCenter.default.post(name: .playerHeightChanged, object: nil)
+    }
+  }
+
+  var tabBarHidden: Bool {
+    get {
+      return tabBar.isHidden
+    }
+    set {
+      tabBar.isHidden = newValue
+      playerView <- [
+        Bottom(newValue ? 0 : tabBar.frame.height),
+        Left(),
+        Right()
+      ]
+    }
+  }
+
   override func loadView() {
     super.loadView()
+
+    MainTabBarController.instance = self
 
     availableNavigationViewController = PassCityNavigationController(rootViewController: availableViewController)
     availableNavigationViewController.tabBarItem = UITabBarItem(title: "Доступно", image: #imageLiteral(resourceName: "iconTabbarAvailable"), tag: 0)
@@ -39,6 +74,16 @@ class MainTabBarController: UITabBarController {
     tabBar.unselectedItemTintColor = UIColor.black
     setViewControllers([availableNavigationViewController, cardNavigationViewController, notificationsListNavigationViewController, shopNavigationViewController], animated: false)
 
+    view.addSubview(playerView)
+
+    playerView <- [
+      Bottom(tabBar.frame.height),
+      Left(),
+      Right()
+    ]
+    playerView.isHidden = true
+    playerHeightConstraint = playerView.heightAnchor.constraint(equalToConstant: 0)
+    playerHeightConstraint.isActive = true
   }
 
   override var preferredStatusBarStyle: UIStatusBarStyle {

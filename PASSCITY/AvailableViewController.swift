@@ -113,7 +113,13 @@ class AvailableViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.tabBarController?.tabBar.isHidden = false
+    MainTabBarController.instance.tabBarHidden = false
+    containerView <- [
+      Top().to(headerView),
+      Bottom(MainTabBarController.instance.playerWidgetHeight).to(bottomLayoutGuide),
+      Left(),
+      Right()
+    ]
   }
 
   func setupView() {
@@ -175,6 +181,7 @@ class AvailableViewController: UIViewController {
     guard isSearching else { return }
     searchController.searchBar.sizeToFit()
   }
+  
 
 }
 

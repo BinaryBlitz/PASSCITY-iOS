@@ -39,11 +39,21 @@
 		881179371F9285B4008CF07B /* CardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881179361F9285B4008CF07B /* CardHeaderView.xib */; };
 		881179391F928638008CF07B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881179381F928638008CF07B /* Card.swift */; };
 		8811793B1F92A851008CF07B /* CardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8811793A1F92A851008CF07B /* CardHeaderView.swift */; };
+		8815E0CC1FA2861000614FA9 /* PlayerWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8815E0CB1FA2861000614FA9 /* PlayerWidgetView.xib */; };
+		8815E0CE1FA28EEC00614FA9 /* PlayerWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8815E0CD1FA28EEC00614FA9 /* PlayerWidgetView.swift */; };
 		8817EB881F871B5A0026553D /* AvailableMapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817EB871F871B5A0026553D /* AvailableMapViewPresenter.swift */; };
 		8817EB8A1F871BF90026553D /* ItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817EB891F871BF90026553D /* ItemsService.swift */; };
 		8817EB8C1F871FF40026553D /* PassCityFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817EB8B1F871FF40026553D /* PassCityFeedItem.swift */; };
 		8817EB8F1F8730340026553D /* DateTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817EB8E1F8730340026553D /* DateTimeTransform.swift */; };
 		8817EB911F8730700026553D /* Date+PASSCITY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817EB901F8730700026553D /* Date+PASSCITY.swift */; };
+		88202CB01F981F9900322323 /* AudioguidesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88202CAF1F981F9900322323 /* AudioguidesListViewController.swift */; };
+		88202CB31F9835B500322323 /* AudioguidesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88202CB21F9835B500322323 /* AudioguidesListTableViewCell.swift */; };
+		88202CB51F9A922300322323 /* AudioguidesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88202CB41F9A922300322323 /* AudioguidesService.swift */; };
+		88202CC81F9B8D0900322323 /* MTGObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88202CC71F9B8D0900322323 /* MTGObject.swift */; };
+		88202CCC1F9BED2D00322323 /* AudioguideCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88202CCB1F9BED2D00322323 /* AudioguideCardViewController.swift */; };
+		88202CCF1F9BF0B000322323 /* TimeInterval+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88202CCE1F9BF0B000322323 /* TimeInterval+toString.swift */; };
+		88202CD11F9C2C5500322323 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88202CD01F9C2C5500322323 /* HeaderView.swift */; };
+		88202CD31F9D095600322323 /* AudioguideCardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88202CD21F9D095600322323 /* AudioguideCardHeaderView.xib */; };
 		88255DC01F877CB70082B8DA /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88255DBF1F877CB70082B8DA /* MarkerView.swift */; };
 		88255DC21F8781320082B8DA /* PasscityMapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88255DC11F8781320082B8DA /* PasscityMapCardView.swift */; };
 		88255DC41F878E060082B8DA /* PasscityMapCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88255DC31F878E060082B8DA /* PasscityMapCardView.xib */; };
@@ -165,11 +175,21 @@
 		881179361F9285B4008CF07B /* CardHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardHeaderView.xib; sourceTree = "<group>"; };
 		881179381F928638008CF07B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8811793A1F92A851008CF07B /* CardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHeaderView.swift; sourceTree = "<group>"; };
+		8815E0CB1FA2861000614FA9 /* PlayerWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerWidgetView.xib; sourceTree = "<group>"; };
+		8815E0CD1FA28EEC00614FA9 /* PlayerWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWidgetView.swift; sourceTree = "<group>"; };
 		8817EB871F871B5A0026553D /* AvailableMapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableMapViewPresenter.swift; sourceTree = "<group>"; };
 		8817EB891F871BF90026553D /* ItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsService.swift; sourceTree = "<group>"; };
 		8817EB8B1F871FF40026553D /* PassCityFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCityFeedItem.swift; sourceTree = "<group>"; };
 		8817EB8E1F8730340026553D /* DateTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeTransform.swift; sourceTree = "<group>"; };
 		8817EB901F8730700026553D /* Date+PASSCITY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+PASSCITY.swift"; sourceTree = "<group>"; };
+		88202CAF1F981F9900322323 /* AudioguidesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguidesListViewController.swift; sourceTree = "<group>"; };
+		88202CB21F9835B500322323 /* AudioguidesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguidesListTableViewCell.swift; sourceTree = "<group>"; };
+		88202CB41F9A922300322323 /* AudioguidesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguidesService.swift; sourceTree = "<group>"; };
+		88202CC71F9B8D0900322323 /* MTGObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGObject.swift; sourceTree = "<group>"; };
+		88202CCB1F9BED2D00322323 /* AudioguideCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguideCardViewController.swift; sourceTree = "<group>"; };
+		88202CCE1F9BF0B000322323 /* TimeInterval+toString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+toString.swift"; sourceTree = "<group>"; };
+		88202CD01F9C2C5500322323 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		88202CD21F9D095600322323 /* AudioguideCardHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioguideCardHeaderView.xib; sourceTree = "<group>"; };
 		88255DBF1F877CB70082B8DA /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		88255DC11F8781320082B8DA /* PasscityMapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscityMapCardView.swift; sourceTree = "<group>"; };
 		88255DC31F878E060082B8DA /* PasscityMapCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasscityMapCardView.xib; sourceTree = "<group>"; };
@@ -333,6 +353,9 @@
 		880903BE1F7D4AC700158EC3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8815E0CA1FA285F300614FA9 /* Player */,
+				88202CCA1F9BED1900322323 /* AudioguideCard */,
+				88202CAE1F981F8100322323 /* Audioguides */,
 				883F398B1F95CB9A00FA8FDC /* TicketCard */,
 				887E34EA1F9309B700DE4A01 /* Settings */,
 				88F9CC811F86E69F002C4EF9 /* Web */,
@@ -393,6 +416,7 @@
 				889866451F8C52360065FF57 /* iOSDevCenter+GIF.swift */,
 				882DF5981F8C9D70001A431B /* URL+appendingQueryParams.swift */,
 				887E67E91F95C40500EBDAA6 /* Double+currencyString.swift */,
+				88202CCE1F9BF0B000322323 /* TimeInterval+toString.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -446,6 +470,7 @@
 				8847E5221F7EB1D8009D58C7 /* LocationService.swift */,
 				88858E431F7F3722002D2B75 /* NotificationService.swift */,
 				8817EB891F871BF90026553D /* ItemsService.swift */,
+				88202CB41F9A922300322323 /* AudioguidesService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -453,6 +478,7 @@
 		880903EB1F7D7CC000158EC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				88202CC61F9B8CEF00322323 /* IZI.travel */,
 				887B16E21F873364006A0BF9 /* Transform */,
 				8817EB8D1F8730260026553D /* Common */,
 				88E12A7D1F7E386700EB23ED /* LoginData.swift */,
@@ -482,6 +508,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		8815E0CA1FA285F300614FA9 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				8815E0CB1FA2861000614FA9 /* PlayerWidgetView.xib */,
+				8815E0CD1FA28EEC00614FA9 /* PlayerWidgetView.swift */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 		8817EB8D1F8730260026553D /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +527,57 @@
 				882DF59A1F8C9FC4001A431B /* ProductsFilter.swift */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		88202CAE1F981F8100322323 /* Audioguides */ = {
+			isa = PBXGroup;
+			children = (
+				88202CC91F9BED0B00322323 /* Views */,
+				88202CB11F9833B600322323 /* Cells */,
+				88202CAF1F981F9900322323 /* AudioguidesListViewController.swift */,
+			);
+			name = Audioguides;
+			sourceTree = "<group>";
+		};
+		88202CB11F9833B600322323 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				88202CB21F9835B500322323 /* AudioguidesListTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		88202CC61F9B8CEF00322323 /* IZI.travel */ = {
+			isa = PBXGroup;
+			children = (
+				88202CC71F9B8D0900322323 /* MTGObject.swift */,
+			);
+			name = IZI.travel;
+			sourceTree = "<group>";
+		};
+		88202CC91F9BED0B00322323 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		88202CCA1F9BED1900322323 /* AudioguideCard */ = {
+			isa = PBXGroup;
+			children = (
+				88202CCD1F9BED4D00322323 /* Views */,
+				88202CCB1F9BED2D00322323 /* AudioguideCardViewController.swift */,
+			);
+			name = AudioguideCard;
+			sourceTree = "<group>";
+		};
+		88202CCD1F9BED4D00322323 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88202CD01F9C2C5500322323 /* HeaderView.swift */,
+				88202CD21F9D095600322323 /* AudioguideCardHeaderView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		88255DBE1F877C940082B8DA /* Views */ = {
@@ -857,11 +943,13 @@
 				887B9E941F950DBB004AC6F1 /* ResultFeedItemTableViewCell.xib in Resources */,
 				88255DC91F87B5180082B8DA /* AvailableAnnouncesTableViewCell.xib in Resources */,
 				888C40421F7C4CC300CAF1EF /* LaunchScreen.storyboard in Resources */,
+				8815E0CC1FA2861000614FA9 /* PlayerWidgetView.xib in Resources */,
 				88FD36041F7F236100584BE0 /* CodeConfirmViewController.storyboard in Resources */,
 				888C403F1F7C4CC300CAF1EF /* Assets.xcassets in Resources */,
 				881179371F9285B4008CF07B /* CardHeaderView.xib in Resources */,
 				88825D121F8C7DEA007213CE /* preloader_3.gif in Resources */,
 				88F9CC891F86EFA9002C4EF9 /* Localizable.strings in Resources */,
+				88202CD31F9D095600322323 /* AudioguideCardHeaderView.xib in Resources */,
 				885976EA1F7F51B300C9B091 /* Default-568h@2x.png in Resources */,
 				88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */,
 				88255DC41F878E060082B8DA /* PasscityMapCardView.xib in Resources */,
@@ -939,6 +1027,7 @@
 				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -953,6 +1042,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -978,6 +1068,7 @@
 				8817EB881F871B5A0026553D /* AvailableMapViewPresenter.swift in Sources */,
 				88E12A801F7E3D9D00EB23ED /* Coordinate.swift in Sources */,
 				880903DE1F7D636F00158EC3 /* MainTabBarController.swift in Sources */,
+				88202CB31F9835B500322323 /* AudioguidesListTableViewCell.swift in Sources */,
 				880903BB1F7D47F400158EC3 /* DataError.swift in Sources */,
 				880903EA1F7D7CAA00158EC3 /* ProfileService.swift in Sources */,
 				881179301F918A63008CF07B /* ProductCardConditionsTableView.swift in Sources */,
@@ -1008,6 +1099,7 @@
 				88F9CC831F86E6BA002C4EF9 /* PasscityWebViewController.swift in Sources */,
 				88B104B41F86DEC800EDD98E /* NotificationsListViewController.swift in Sources */,
 				880903D21F7D519B00158EC3 /* CardTableViewCell.swift in Sources */,
+				8815E0CE1FA28EEC00614FA9 /* PlayerWidgetView.swift in Sources */,
 				88B104A51F86CC4700EDD98E /* TopBarHeaderItemView.swift in Sources */,
 				880903B61F7D46D600158EC3 /* JSONAPIResponse.swift in Sources */,
 				887E34F41F93258A00DE4A01 /* SwitchTableViewCell.swift in Sources */,
@@ -1037,17 +1129,20 @@
 				88858E441F7F3722002D2B75 /* NotificationService.swift in Sources */,
 				88C349721F7DAB7F0003C9D4 /* PersonalInfoViewController.swift in Sources */,
 				880903E51F7D75EE00158EC3 /* MaskedInput.swift in Sources */,
+				88202CCC1F9BED2D00322323 /* AudioguideCardViewController.swift in Sources */,
 				880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */,
 				881179341F91917D008CF07B /* ProductCardConditionsTableViewCell.swift in Sources */,
 				880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */,
 				883F398D1F95CBAA00FA8FDC /* TicketCardViewController.swift in Sources */,
 				883665701F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift in Sources */,
 				88BBE6BE1F915EE700EFD94A /* ProductCardHeaderView.swift in Sources */,
+				88202CCF1F9BF0B000322323 /* TimeInterval+toString.swift in Sources */,
 				88B104AA1F86D7E500EDD98E /* UIViewController+passcityExtensions.swift in Sources */,
 				887B16E41F873396006A0BF9 /* FeedItemsFilter.swift in Sources */,
 				8867141C1F92CBA700F10666 /* CardUserView.swift in Sources */,
 				880903D91F7D617A00158EC3 /* RootViewController.swift in Sources */,
 				880903D61F7D594800158EC3 /* UITableView+PASSCITY.swift in Sources */,
+				88202CB01F981F9900322323 /* AudioguidesListViewController.swift in Sources */,
 				88255DCB1F87B8BA0082B8DA /* AvailableAnnouncesTableViewCell.swift in Sources */,
 				887B16EC1F873A9A006A0BF9 /* AvailableItemsTarget.swift in Sources */,
 				8811793B1F92A851008CF07B /* CardHeaderView.swift in Sources */,
@@ -1060,9 +1155,11 @@
 				88F9CC7D1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift in Sources */,
 				88E12A7E1F7E386800EB23ED /* LoginData.swift in Sources */,
 				887B16EA1F8738C1006A0BF9 /* Pagination.swift in Sources */,
+				88202CC81F9B8D0900322323 /* MTGObject.swift in Sources */,
 				880903B81F7D470800158EC3 /* JSONAPISerializedDataObject.swift in Sources */,
 				887E34F81F932A4A00DE4A01 /* SettingsSelectableCell.swift in Sources */,
 				8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */,
+				88202CB51F9A922300322323 /* AudioguidesService.swift in Sources */,
 				88B104B11F86DE7600EDD98E /* CardViewController.swift in Sources */,
 				880903B11F7D45F000158EC3 /* JSONAPITargetType.swift in Sources */,
 				887E34EF1F931E3600DE4A01 /* SettingsTableSectionView.swift in Sources */,
@@ -1071,6 +1168,7 @@
 				882DF59B1F8C9FC4001A431B /* ProductsFilter.swift in Sources */,
 				88858E401F7F2EFA002D2B75 /* Constants.swift in Sources */,
 				882DF5991F8C9D70001A431B /* URL+appendingQueryParams.swift in Sources */,
+				88202CD11F9C2C5500322323 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

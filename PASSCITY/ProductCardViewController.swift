@@ -110,7 +110,7 @@ class ProductCardViewController: UIViewController, ProductCardView, LightContent
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.tabBarController?.tabBar.isHidden = true
+    MainTabBarController.instance.tabBarHidden = true
     RootViewController.instance?.configureMenuView(items: optionViews, handler: nil)
   }
 }

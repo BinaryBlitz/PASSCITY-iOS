@@ -45,11 +45,22 @@ class PassCityWebViewController: UIViewController {
   }
 
   func setupView() {
-    view = webView
+    view.addSubview(webView)
+    webView <- Edges()
   }
 
   func closeButtonAction() {
     dismiss(animated: true, completion: nil)
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    webView <- [
+      Top(),
+      Left(),
+      Right(),
+      Bottom(MainTabBarController.instance.playerWidgetHeight)
+    ]
   }
 }
 

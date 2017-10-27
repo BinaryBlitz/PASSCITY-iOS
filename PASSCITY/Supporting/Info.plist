@@ -42,6 +42,24 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+      <key>media.izi.travel</key>
+      <dict>
+        <key>NSExceptionAllowsInsecureHTTPLoads</key>
+        <true/>
+        <key>NSExceptionRequiresForwardSecrecy</key>
+        <false/>
+        <key>NSIncludesSubdomains</key>
+        <true/>
+      </dict>
+			<key>api.izi.travel</key>
+      <dict>
+        <key>NSExceptionAllowsInsecureHTTPLoads</key>
+        <true/>
+        <key>NSExceptionRequiresForwardSecrecy</key>
+        <false/>
+        <key>NSIncludesSubdomains</key>
+        <true/>
+			</dict>
 			<key>api.voxxter.ru</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
