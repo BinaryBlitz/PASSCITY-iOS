@@ -59,6 +59,7 @@ class AudioguideCardItemTableViewCell: UITableViewCell {
 
     soundbarsIconView <- [
       Right(20).with(.high),
+      Size(20),
       CenterY()
     ]
 

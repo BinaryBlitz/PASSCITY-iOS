@@ -21,6 +21,7 @@ class AvailableAnnouncesViewPresenter {
     didSet {
       guard currentFilters != oldValue else { return }
       currentPage = 1
+      currentItems = []
       fetchAnnounces(reset: true)
     }
   }
@@ -84,7 +85,7 @@ class AvailableAnnouncesViewPresenter {
       switch result {
       case .success(let response):
         guard let `self` = self else { return }
-        self.totalPages = 1
+        self.totalPages = response.state.pagination.totalPages ?? 1
         if reset {
           self.currentItems = response.objects
         } else {

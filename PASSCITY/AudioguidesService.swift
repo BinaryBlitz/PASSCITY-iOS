@@ -444,6 +444,17 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
     guard !downloadingToursIds.contains(tour.uuid) else {
       return
     }
+    if tour.isDownloaded {
+      tour.isDownloaded = false
+      for item in (tour.content.first?.children ?? []) {
+        let docsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let url = docsUrl.appendingPathComponent("\(tour.uuid)_\(item.uuid).m4a")
+
+        if FileManager.default.fileExists(atPath: url.path) {
+          try? FileManager.default.removeItem(atPath: url.path)
+        }
+      }
+    }
     downloadingToursIds.insert(tour.uuid)
     guard let content = tour.content.first else { return }
     var downloadCount: Int = 0

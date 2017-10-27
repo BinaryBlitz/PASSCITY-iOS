@@ -36,7 +36,7 @@ private enum Sections: Int {
   static let allValues = [datesRange, other]
 }
 
-class SettingsViewController: UITableViewController {
+class FeedItemsFilterViewController: UITableViewController {
   let notificationServiceCell = SwitchTableViewCell("Доступные услуги поблизости")
   let notificationProductCell = SwitchTableViewCell("Доступные продукты поблизости")
   var notificationCells: [UITableViewCell] { return [notificationServiceCell, notificationProductCell] }
@@ -79,7 +79,6 @@ class SettingsViewController: UITableViewController {
     SettingsCategoryTableViewCell.register(in: tableView)
     SettingsSelectableCell.register(in: tableView)
     SettingsTableSectionView.register(in: tableView)
-    tableView.tableFooterView = footerView
 
     distanceCell.leftLabel.text = "100 м"
     distanceCell.middleLabel.text = "500 м"
@@ -99,9 +98,6 @@ class SettingsViewController: UITableViewController {
       self?.currentSettings?.notifications.distance = Int(1000 * distance)
     }
 
-    footerView.buttonHandler = {
-      ProfileService.instance.logout()
-    }
 
     currentSettings = ProfileService.instance.currentSettings
   }
@@ -113,25 +109,21 @@ class SettingsViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     guard let section = Sections(rawValue: section) else { return 0 }
     switch section {
-    case .categories:
-      return categories.count
-    case .notifications:
-      return notificationCells.count
-    case .language:
-      return Language.allValues.count
-    case .notificationsDistance:
-      return 1
+    case .datesRange:
+      return 2
+    case .other:
+      return 4
     }
   }
-
+/*
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let section = Sections(rawValue: indexPath.section) else { return UITableViewCell() }
     switch section {
-    case .categories:
+    case .datesRange:
       let cell = SettingsCategoryTableViewCell.instance(tableView, indexPath)!
       cell.configure(category: categories[indexPath.row])
       return cell
-    case .notifications:
+    case .other:
       return notificationCells[indexPath.row]
     case .language:
       let lang = Language.allValues[indexPath.row]
@@ -143,65 +135,33 @@ class SettingsViewController: UITableViewController {
       return distanceCell
     }
   }
-
+*/
   func updateLayout() {
     tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: MainTabBarController.instance.playerWidgetHeight, right: 0)
   }
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    guard let section = Sections(rawValue: indexPath.section), section == .notificationsDistance else { return 44 }
+    guard let section = Sections(rawValue: indexPath.section), section != .datesRange else { return UITableViewAutomaticDimension }
     return 90
   }
 
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     guard let currentSection = Sections(rawValue: section) else { return 0 }
-    return currentSection.title == nil || currentSection.description == nil ? 40 : 60
+    return 40
   }
 
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let currentSection = Sections(rawValue: section) else { return nil }
     let view = SettingsTableSectionView.instance(tableView)
-    view?.configure(title: currentSection.title, description: currentSection.description, icon: currentSection.image)
+    //view?.configure(title: currentSection.title, description: currentSection.description, icon: currentSection.image)
     return view
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    guard let section = Sections(rawValue: indexPath.section) else { return }
-    switch section {
-    case .categories:
-      let category = categories[indexPath.row]
-      let viewController = SettingsCategorySelectViewController()
-      viewController.title = category.title
-      viewController.categories = category.children
-      viewController.handler = { [weak self] categories in
-        self?.currentSettings?.categories[indexPath.row].children = categories
-        self?.currentSettings?.categories[indexPath.row].selected = categories.filter { $0.selected > 0 }.count
-        self?.tableView.reloadData()
-      }
-      navigationController?.pushViewController(viewController, animated: true)
-    case .language:
-      currentSettings?.language = Language.allValues[indexPath.row]
-      tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
-    default:
-      break
-    }
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    updateSettings()
-  }
-
-  func updateSettings() {
-    guard let settings = currentSettings else { return }
-    ProfileService.instance.updateSettings(settings) { [weak self] result in
-      switch result {
-      case .success:
-        break
-      case .failure(_):
-        self?.currentSettings = ProfileService.instance.currentSettings
-      }
-    }
   }
 }

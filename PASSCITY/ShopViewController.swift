@@ -12,7 +12,7 @@ import UIKit
 class ShopViewController: PassCityWebViewController {
 
   var query: [String: String] {
-    return ["lang": ProfileService.instance.currentSettings?.language?.rawValue ?? "en"]
+    return ["lang": ProfileService.instance.currentSettings?.language?.rawValue ?? "en", "chat": "no"]
   }
 
   override func viewWillAppear(_ animated: Bool) {

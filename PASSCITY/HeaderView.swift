@@ -110,6 +110,7 @@ class AudioguideCardHeaderView: UIView {
 
   func configure(_ item: MTGObject) {
     headerItemViews[AudioguideScreenItem.download.rawValue].iconButton.setImage(!item.isDownloaded ? #imageLiteral(resourceName: "iconMenubarDownload") : #imageLiteral(resourceName: "iconMenubarDownloadDel"), for: .normal)
+    headerItemViews[AudioguideScreenItem.download.rawValue].titleButton.setTitle(!item.isDownloaded ? "Скачать" : "Удалить", for: .normal)
 
     headerItemViews[AudioguideScreenItem.download.rawValue].alpha = AudioguidesPlayer.instance.downloadingToursIds.index(of: item.uuid) == nil ? 0.8 : 1.0
 

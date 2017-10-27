@@ -52,6 +52,10 @@ class AudioguidesListViewController: UITableViewController {
         self?.updateLayout()
       }
     }
+    cell.downloadHandler = {
+      AudioguidesPlayer.instance.downloadTour(tourId: guide.uuid)
+      tableView.reloadData()
+    }
     return cell
   }
 

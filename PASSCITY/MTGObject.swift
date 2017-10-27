@@ -94,6 +94,10 @@ class MTGFullObject: MTGObject {
   var ratingsCount: Int = 0
   var name: String = ""
 
+  var coordinate: CLLocationCoordinate2D? {
+    return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+  }
+
   override func mapping(map: Map) {
     super.mapping(map: map)
     distance <- map["distance"]

@@ -15,7 +15,7 @@ class AudioguideCardViewController: UIViewController, LightContentViewController
   let headerView = AudioguideCardHeaderView.nibInstance()!
   let contentContainerView = UIView()
   let listTableView = AudioguideCardItemsListTableView()
-  var mapView: GMSMapView!
+  var mapView = GMSMapView()
   var markers: [GMSMarker] = []
 
   var currentItem: AudioguideScreenItem = .list {
@@ -35,6 +35,9 @@ class AudioguideCardViewController: UIViewController, LightContentViewController
       guard let tour = tour else { return }
       headerView.configure(tour)
       listTableView.tour = tour
+      if let coordinate = tour.coordinate {
+        mapView.camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 14)
+      }
       setMarkers()
     }
   }
@@ -88,22 +91,20 @@ class AudioguideCardViewController: UIViewController, LightContentViewController
   func setMarkers() {
     markers.forEach { $0.map = nil }
     markers = []
-    let categories = ProfileService.instance.currentSettings?.allCategories
     let path = GMSMutablePath()
     for (offset, item) in (tour?.content.first?.children ?? []).enumerated() {
-      DispatchQueue.main.async { [weak self] in
-        let markerView = AudioguideCardPlayingItemMarkerView()
-        markerView.configure(index: offset, isPlaying: AudioguidesPlayer.instance.isPlaying(tourId: self?.tour?.uuid ?? "", itemId: item.uuid))
-        guard let coordinates = item.coordinate else { return }
-        path.add(coordinates)
-        let marker = GMSMarker()
-        marker.position = coordinates
-        marker.iconView = markerView
-        marker.userData = item.uuid
-        marker.isDraggable = false
-        marker.map = self?.mapView
-        self?.markers.append(marker)
-      }
+      let markerView = AudioguideCardPlayingItemMarkerView()
+      markerView.configure(index: offset, isPlaying: AudioguidesPlayer.instance.isPlaying(tourId: tour?.uuid ?? "", itemId: item.uuid))
+      guard let coordinates = item.coordinate else { return }
+      path.add(coordinates)
+      let marker = GMSMarker()
+      marker.position = coordinates
+      marker.iconView = markerView
+      marker.userData = item.uuid
+      marker.isDraggable = false
+      marker.map = mapView
+      marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+      markers.append(marker)
     }
     rectangle = GMSPolyline(path: path)
     rectangle?.strokeWidth = 2
@@ -113,7 +114,6 @@ class AudioguideCardViewController: UIViewController, LightContentViewController
 
 
   override func viewDidLoad() {
-    mapView = GMSMapView()
     mapView.delegate = self
     automaticallyAdjustsScrollViewInsets = false
 
@@ -136,7 +136,6 @@ class AudioguideCardViewController: UIViewController, LightContentViewController
     ]
 
     currentView = listTableView
-
     configureHandlers()
   }
 

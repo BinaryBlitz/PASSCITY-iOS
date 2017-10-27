@@ -42,7 +42,7 @@ struct LoginData: Mappable {
   init() { }
 
   mutating func mapping(map: Map) {
-    uid <- map["uid"]
+    uid <- (map["uid"], IdTransform())
     kid <- map["kid"]
     did <- map["did"]
     av <- map["av"]

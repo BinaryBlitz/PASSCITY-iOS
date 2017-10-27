@@ -33,10 +33,10 @@ class AudioguideCardPlayingItemMarkerView: UIView {
     addSubview(dotOuterView)
 
     dotOuterView <- [
-      Left(20),
       Size(22),
-      CenterY()
+      Center()
     ]
+    dotOuterView.cornerRadius = 11
 
     dotOuterView.addSubview(dotInnerView)
 
@@ -44,6 +44,7 @@ class AudioguideCardPlayingItemMarkerView: UIView {
       Size(16),
       Center()
     ]
+    dotInnerView.cornerRadius = 8
 
     dotInnerView.addSubview(dotLabel)
 
@@ -57,10 +58,12 @@ class AudioguideCardPlayingItemMarkerView: UIView {
     dotLabel.text = "\(index + 1)"
     if isPlaying {
       dotOuterView <- Size(24)
+      dotOuterView.cornerRadius = 12
       dotInnerView.backgroundColor = .clear
       dotLabel.textColor = .white
     } else {
       dotOuterView <- Size(22)
+      dotOuterView.cornerRadius = 11
       dotInnerView.backgroundColor = .white
       dotLabel.textColor = .black
     }
