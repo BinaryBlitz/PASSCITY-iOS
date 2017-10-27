@@ -49,7 +49,6 @@ class AudioguidesListViewController: UITableViewController {
       AudioguidesPlayer.instance.togglePlayAudioguide(tourId: guide.uuid)
       DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
         self?.tableView.reloadData()
-        MainTabBarController.instance.playerIsHidden = false
         self?.updateLayout()
       }
     }
@@ -67,6 +66,13 @@ class AudioguidesListViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return UITableViewAutomaticDimension
+  }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    let viewController = AudioguideCardViewController()
+    viewController.shortTour = guides[indexPath.row]
+    navigationController?.pushViewController(viewController, animated: true)
   }
 
   override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

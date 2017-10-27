@@ -43,4 +43,8 @@ extension UIColor {
     return UIColor(white: 153.0 / 255.0, alpha: 1.0)
   }
 
+  class var seafoamBlue: UIColor {
+    return UIColor(red: 80.0 / 255.0, green: 195.0 / 255.0, blue: 208.0 / 255.0, alpha: 1.0)
+  }
+
 }

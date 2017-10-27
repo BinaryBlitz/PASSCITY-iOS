@@ -55,12 +55,21 @@ class MTGChildObject: MTGObject {
   var audio: [MTGObject] = []
   var children: [MTGChildObject] = []
   var triggerZones: TriggerZone? = nil
+  var latitude: Double = 0
+  var longitude: Double = 0
+
+  var coordinate: CLLocationCoordinate2D? {
+    return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+  }
 
   override func mapping(map: Map) {
     super.mapping(map: map)
     audio <- map["audio"]
     images <- map["images"]
     children <- map["children"]
+    triggerZones <- map["trigger_zones"]
+    latitude <- map["location.latitude"]
+    longitude <- map["location.longitude"]
   }
 
   class TriggerZone: Mappable {

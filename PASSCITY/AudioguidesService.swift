@@ -71,7 +71,8 @@ enum AudioguidesTarget: TargetType {
     case .getObject(_), .downloadAudio(_, _, _), .downloadImage(_, _):
       return [
         "languages": (ProfileService.instance.currentSettings?.language ?? .ru).rawValue,
-        "audio_duration": "true"
+        "audio_duration": "true",
+        "lat_lon": defLanLon,
       ]
     }
   }
@@ -188,7 +189,13 @@ class AudioguidesService {
           completion(.failure(DataError.serializationError(response.data)))
           return
         }
-        try? StorageHelper.save(Array(self.fullTours), forKey: .fullTours)
+        if !self.fullTours.contains(tour) {
+          self.fullTours.insert(tour)
+        } else {
+          self.fullTours.remove(tour)
+          self.fullTours.insert(tour)
+        }
+        try? StorageHelper.save(Array(self.fullTours).toJSONString(), forKey: .fullTours)
         completion(.success(tour))
       case .failure(_):
         completion(.failure(DataError.noData))
@@ -264,8 +271,12 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
     return currentItemIndex
   }
 
+  var autoPlay: Bool = true
+
   func itemDidFinishPlaying() {
-    playNextTrackIfPossible()
+    if autoPlay {
+      playNextTrackIfPossible()
+    }
   }
 
   func playNextTrackIfPossible() {
@@ -321,6 +332,7 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
   }
 
   func togglePlay() {
+    MainTabBarController.instance.playerIsHidden = false
     if let player = audioPlayer, playing {
       MainTabBarController.instance.playerView.isPlaying = false
       player.pause()
@@ -332,6 +344,7 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
   }
 
   func togglePlayAudioguide(tourId: String, itemId: String? = nil) {
+    MainTabBarController.instance.playerIsHidden = false
     guard !isPlaying(tourId: tourId, itemId: itemId) || !playing else {
       if let player = audioPlayer, playing {
         MainTabBarController.instance.playerView.isPlaying = false
@@ -343,7 +356,7 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
       return
     }
     isNowPlaying = NowPlayingData(audioguideId: tourId, itemId: itemId)
-    if let tour = AudioguidesService.instande.fullTours.first(where: { $0.uuid == itemId }) {
+    if let tour = AudioguidesService.instande.fullTours.first(where: { $0.uuid == tourId }) {
       playTourGuide(tour: tour, itemId: itemId)
     } else {
       audioPlayer = nil
@@ -361,6 +374,7 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
   }
 
   func playTourGuide(tour: MTGFullObject, itemId: String? = nil) {
+    MainTabBarController.instance.playerIsHidden = false
     let docsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     let id = itemId ?? tour.content.first?.children.first?.uuid ?? ""
     guard !isPlaying(tourId: tour.uuid, itemId: id) || !playing else {
@@ -409,10 +423,12 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
   }
 
   func downloadTour(tourId: String) {
+    guard downloadingToursIds.index(of: tourId) == nil else { return }
     if let tour = AudioguidesService.instande.fullTours.first(where: { $0.uuid == tourId }) {
       download(tour: tour)
     } else {
       audioPlayer = nil
+      downloadingToursIds.insert(tourId)
       _ = AudioguidesService.instande.fetchAudioguide(id: tourId, { result in
         switch result {
         case .success(let tour):
@@ -433,7 +449,7 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
     var downloadCount: Int = 0
     for item in content.children {
       self.downloadingTourItemsIds.insert(item.uuid)
-      AudioguidesService.instande.fetchAudioguideItem(id: item.uuid, { result in
+      _ = AudioguidesService.instande.fetchAudioguideItem(id: item.uuid, { result in
         switch result {
         case .success(let tourItem):
           tour.isDownloaded = true

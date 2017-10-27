@@ -9,36 +9,41 @@
 import Foundation
 import UIKit
 import EasyPeasy
+import GoogleMaps
 
-class AudioguideCardViewController: UIViewController {
-  let headerView = CardHeaderView.nibInstance()!
-  let contentView = UIScrollView()
+class AudioguideCardViewController: UIViewController, LightContentViewController, TransparentViewController {
+  let headerView = AudioguideCardHeaderView.nibInstance()!
   let contentContainerView = UIView()
+  let listTableView = AudioguideCardItemsListTableView()
+  var mapView: GMSMapView!
+  var markers: [GMSMarker] = []
 
-  let footerView = CardFooterView()
-
-  let ownerView = CardUserView()
-  let bonusView = CardBonusView()
-  let promoCodeView = CardPromoCodeView()
-  let balanceView = CardBalanceView()
-
-  let lineView = UIView()
-
-  var currentItem: CardScreenItem = .owner {
+  var currentItem: AudioguideScreenItem = .list {
     didSet {
       headerView.currentItem = currentItem
-
-      guard currentItem != oldValue else { return }
       switch currentItem {
-      case .owner:
-        currentView = ownerView
-      case .balance:
-        currentView = balanceView
-      case .promoCode:
-        currentView = promoCodeView
-      case .bonus:
-        currentView = bonusView
+      case .map:
+        currentView = mapView
+      default:
+        currentView = listTableView
       }
+    }
+  }
+
+  var tour: MTGFullObject? = nil {
+    didSet {
+      guard let tour = tour else { return }
+      headerView.configure(tour)
+      listTableView.tour = tour
+      setMarkers()
+    }
+  }
+
+  var shortTour: MTGChildObject? = nil {
+    didSet {
+      guard let shortTour = shortTour else { return }
+      refresh()
+      headerView.configure(shortTour)
     }
   }
 
@@ -57,121 +62,116 @@ class AudioguideCardViewController: UIViewController {
     }
   }
 
-  var card: PassCityCard? = nil {
+  var rectangle: GMSPolyline? = nil {
     didSet {
-      configure()
+      oldValue?.map = nil
     }
   }
 
   func configure() {
-    guard let card = card else { return }
-    headerView.configure(card: card)
-    footerView.configure(card: card)
-    ownerView.configure(card: card)
-    bonusView.configure(card: card)
-    promoCodeView.configure(card: card)
-    balanceView.configure(card: card)
   }
 
   func refresh() {
-    card = ProfileService.instance.currentCard
-    ProfileService.instance.fetchCard { result in
-      switch result {
-      case .success(let card):
-        self.card = card
-      case .failure(_):
-        break
-      }
+    if let id = shortTour?.uuid {
+      tour = AudioguidesService.instande.fullTours.first(where: { $0.uuid == id })
     }
+    _ = AudioguidesService.instande.fetchAudioguide(id: shortTour?.uuid ?? "", { [weak self] result in
+      switch result {
+      case .success(let guide):
+        self?.tour = guide
+      case .failure(_):
+        return
+      }
+    })
   }
 
+  func setMarkers() {
+    markers.forEach { $0.map = nil }
+    markers = []
+    let categories = ProfileService.instance.currentSettings?.allCategories
+    let path = GMSMutablePath()
+    for (offset, item) in (tour?.content.first?.children ?? []).enumerated() {
+      DispatchQueue.main.async { [weak self] in
+        let markerView = AudioguideCardPlayingItemMarkerView()
+        markerView.configure(index: offset, isPlaying: AudioguidesPlayer.instance.isPlaying(tourId: self?.tour?.uuid ?? "", itemId: item.uuid))
+        guard let coordinates = item.coordinate else { return }
+        path.add(coordinates)
+        let marker = GMSMarker()
+        marker.position = coordinates
+        marker.iconView = markerView
+        marker.userData = item.uuid
+        marker.isDraggable = false
+        marker.map = self?.mapView
+        self?.markers.append(marker)
+      }
+    }
+    rectangle = GMSPolyline(path: path)
+    rectangle?.strokeWidth = 2
+    rectangle?.strokeColor = UIColor.seafoamBlue
+    rectangle?.map = mapView
+  }
+
+
   override func viewDidLoad() {
+    mapView = GMSMapView()
+    mapView.delegate = self
     automaticallyAdjustsScrollViewInsets = false
 
     super.viewDidLoad()
-
-    navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "logoNavbarRw")))
-    navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarSettings").withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(settingsAction))
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     view.addSubview(headerView)
-    view.addSubview(contentView)
-
-    contentView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    view.addSubview(contentContainerView)
 
     headerView <- [
       Top(),
-      Height(323),
       Left(),
       Right()
     ]
 
-    contentView <- [
+    contentContainerView <- [
       Top().to(headerView),
       Left(),
       Right(),
-      Width().like(view),
-      Bottom().to(bottomLayoutGuide)
-    ]
-
-    contentView.addSubview(contentContainerView)
-
-    contentContainerView <- [
-      Top(),
-      Left(),
-      Right(),
-      Width().like(view)
-    ]
-
-    currentView = ownerView
-
-    contentView.addSubview(lineView)
-    lineView.backgroundColor = UIColor.disabledBtnColor
-    lineView <- [
-      Height(0.5),
-      Left(),
-      Right(),
-      Top().to(contentContainerView)
-    ]
-
-    contentView.addSubview(footerView)
-
-    footerView <- [
-      Left(),
-      Right(),
-      Top().to(lineView),
       Bottom()
     ]
 
+    currentView = listTableView
+
     configureHandlers()
-    refresh()
   }
 
   func configureHandlers() {
-    headerView.itemChangedHandler = { [weak self] in self?.currentItem = $0 }
-
-    ownerView.menuHandler = {
-
+    listTableView.updateLayoutHanlder = { [weak self] in
+      self?.updateLayout()
     }
 
-    ownerView.isActiveHandler = { [weak self] in
-      self?.updateViewConstraints()
-      self?.view.layoutIfNeeded()
+    headerView.downloadHandler = { [weak self] in
+      guard let tourId = self?.shortTour?.uuid ?? self?.tour?.uuid else { return }
+      AudioguidesPlayer.instance.downloadTour(tourId: tourId)
     }
 
-    footerView.handler = { [weak self] document in
-      let viewController = PassCityWebViewController(document.url)
-      self?.navigationController?.pushViewController(viewController, animated: true)
+    headerView.itemChangedHandler = { [weak self] item in
+      self?.currentItem = item
     }
+  }
+
+  func updateLayout() {
+    contentContainerView <- [
+      Top().to(headerView),
+      Left(),
+      Right(),
+      Bottom(MainTabBarController.instance.playerWidgetHeight)
+    ]
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     refresh()
+    updateLayout()
   }
 
-  func settingsAction() {
-    let viewController = SettingsViewController()
-    navigationController?.pushViewController(viewController, animated: true)
-  }
+}
+
+extension AudioguideCardViewController: GMSMapViewDelegate {
 
 }

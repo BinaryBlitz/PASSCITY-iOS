@@ -65,6 +65,7 @@
 		8836656D1F87C59B00CEB7D4 /* ProductShort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836656C1F87C59B00CEB7D4 /* ProductShort.swift */; };
 		883665701F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8836656F1F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift */; };
 		883665721F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */; };
+		8837CEF71FA2DDF4008C52E5 /* FeedItemsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8837CEF61FA2DDF4008C52E5 /* FeedItemsFilterViewController.swift */; };
 		883F398D1F95CBAA00FA8FDC /* TicketCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883F398C1F95CBAA00FA8FDC /* TicketCardViewController.swift */; };
 		8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5221F7EB1D8009D58C7 /* LocationService.swift */; };
 		8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */; };
@@ -130,6 +131,9 @@
 		88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */; };
 		88E12A7E1F7E386800EB23ED /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E12A7D1F7E386700EB23ED /* LoginData.swift */; };
 		88E12A801F7E3D9D00EB23ED /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */; };
+		88F65BD21FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65BD11FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift */; };
+		88F65BD51FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65BD41FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift */; };
+		88F65BD71FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65BD61FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift */; };
 		88F9CC7D1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9CC7C1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift */; };
 		88F9CC801F86E501002C4EF9 /* AvailableProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9CC7F1F86E501002C4EF9 /* AvailableProductsViewController.swift */; };
 		88F9CC831F86E6BA002C4EF9 /* PasscityWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9CC821F86E6BA002C4EF9 /* PasscityWebViewController.swift */; };
@@ -201,6 +205,7 @@
 		8836656C1F87C59B00CEB7D4 /* ProductShort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductShort.swift; sourceTree = "<group>"; };
 		8836656F1F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductsTableViewCell.swift; sourceTree = "<group>"; };
 		883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableProductsTableViewCell.xib; sourceTree = "<group>"; };
+		8837CEF61FA2DDF4008C52E5 /* FeedItemsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsFilterViewController.swift; sourceTree = "<group>"; };
 		883F398C1F95CBAA00FA8FDC /* TicketCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCardViewController.swift; sourceTree = "<group>"; };
 		8847E5221F7EB1D8009D58C7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		8847E5251F7ED33E009D58C7 /* AuthenticationTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTarget.swift; sourceTree = "<group>"; };
@@ -269,6 +274,9 @@
 		88E12A791F7E046000EB23ED /* PASSCITY-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PASSCITY-Bridging-Header.h"; sourceTree = "<group>"; };
 		88E12A7D1F7E386700EB23ED /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		88F65BD11FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguideCardItemsListTableView.swift; sourceTree = "<group>"; };
+		88F65BD41FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguideCardItemTableViewCell.swift; sourceTree = "<group>"; };
+		88F65BD61FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguideCardPlayingItemMarkerView.swift; sourceTree = "<group>"; };
 		88F9CC7C1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableAnnouncesViewController.swift; sourceTree = "<group>"; };
 		88F9CC7F1F86E501002C4EF9 /* AvailableProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductsViewController.swift; sourceTree = "<group>"; };
 		88F9CC821F86E6BA002C4EF9 /* PasscityWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscityWebViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +361,7 @@
 		880903BE1F7D4AC700158EC3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8837CEF51FA2D88B008C52E5 /* Filters */,
 				8815E0CA1FA285F300614FA9 /* Player */,
 				88202CCA1F9BED1900322323 /* AudioguideCard */,
 				88202CAE1F981F8100322323 /* Audioguides */,
@@ -565,6 +574,7 @@
 		88202CCA1F9BED1900322323 /* AudioguideCard */ = {
 			isa = PBXGroup;
 			children = (
+				88F65BD31FA2B91400D17159 /* Cells */,
 				88202CCD1F9BED4D00322323 /* Views */,
 				88202CCB1F9BED2D00322323 /* AudioguideCardViewController.swift */,
 			);
@@ -576,6 +586,8 @@
 			children = (
 				88202CD01F9C2C5500322323 /* HeaderView.swift */,
 				88202CD21F9D095600322323 /* AudioguideCardHeaderView.xib */,
+				88F65BD11FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift */,
+				88F65BD61FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -606,6 +618,14 @@
 				883665711F87C90B00CEB7D4 /* AvailableProductsTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		8837CEF51FA2D88B008C52E5 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				8837CEF61FA2DDF4008C52E5 /* FeedItemsFilterViewController.swift */,
+			);
+			name = Filters;
 			sourceTree = "<group>";
 		};
 		883F398B1F95CB9A00FA8FDC /* TicketCard */ = {
@@ -834,6 +854,14 @@
 				88F9CC8B1F86EFA9002C4EF9 /* Localizable.strings */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		88F65BD31FA2B91400D17159 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				88F65BD41FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		88F9CC7B1F86E4AE002C4EF9 /* Announces */ = {
@@ -1109,6 +1137,7 @@
 				880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */,
 				886714221F92EBAA00F10666 /* CardPromoCodeView.swift in Sources */,
 				8817EB8C1F871FF40026553D /* PassCityFeedItem.swift in Sources */,
+				8837CEF71FA2DDF4008C52E5 /* FeedItemsFilterViewController.swift in Sources */,
 				887E34FA1F932DDA00DE4A01 /* PassCityButtonFooterView.swift in Sources */,
 				8817EB911F8730700026553D /* Date+PASSCITY.swift in Sources */,
 				886714181F92B7EC00F10666 /* CardOptionView.swift in Sources */,
@@ -1137,13 +1166,16 @@
 				883665701F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift in Sources */,
 				88BBE6BE1F915EE700EFD94A /* ProductCardHeaderView.swift in Sources */,
 				88202CCF1F9BF0B000322323 /* TimeInterval+toString.swift in Sources */,
+				88F65BD51FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift in Sources */,
 				88B104AA1F86D7E500EDD98E /* UIViewController+passcityExtensions.swift in Sources */,
 				887B16E41F873396006A0BF9 /* FeedItemsFilter.swift in Sources */,
 				8867141C1F92CBA700F10666 /* CardUserView.swift in Sources */,
 				880903D91F7D617A00158EC3 /* RootViewController.swift in Sources */,
+				88F65BD71FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift in Sources */,
 				880903D61F7D594800158EC3 /* UITableView+PASSCITY.swift in Sources */,
 				88202CB01F981F9900322323 /* AudioguidesListViewController.swift in Sources */,
 				88255DCB1F87B8BA0082B8DA /* AvailableAnnouncesTableViewCell.swift in Sources */,
+				88F65BD21FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift in Sources */,
 				887B16EC1F873A9A006A0BF9 /* AvailableItemsTarget.swift in Sources */,
 				8811793B1F92A851008CF07B /* CardHeaderView.swift in Sources */,
 				8867141E1F92E7CB00F10666 /* CardBonusView.swift in Sources */,

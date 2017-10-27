@@ -32,13 +32,13 @@ enum AudioguideScreenItem: Int {
   var image: UIImage {
     switch self {
     case .list:
-      return #imageLiteral(resourceName: "iconMenubarOwner")
+      return #imageLiteral(resourceName: "iconMenubarRecords")
     case .map:
-      return #imageLiteral(resourceName: "iconMenubarBonus")
+      return #imageLiteral(resourceName: "iconMenubarOnmap")
     case .download:
-      return #imageLiteral(resourceName: "iconMenubarPromo")
+      return #imageLiteral(resourceName: "iconMenubarDownload")
     case .autoplay:
-      return #imageLiteral(resourceName: "iconMenubarBalance")
+      return #imageLiteral(resourceName: "iconMenubarAutoplay")
     }
   }
 
@@ -55,6 +55,7 @@ class AudioguideCardHeaderView: UIView {
   @IBOutlet weak var rateButton: UIButton!
   @IBOutlet weak var shareButton: UIButton!
 
+  @IBOutlet weak var backgroundImageView: UIImageView!
   @IBAction func rateButtonAction(_ sender: Any) {
   }
 
@@ -64,6 +65,8 @@ class AudioguideCardHeaderView: UIView {
   var headerItemViews: [CardOptionView] = []
 
   var itemChangedHandler: ((AudioguideScreenItem) -> Void)? = nil
+
+  var downloadHandler: (() -> Void)? = nil
 
   var currentItem: AudioguideScreenItem = .list {
     didSet {
@@ -82,7 +85,17 @@ class AudioguideCardHeaderView: UIView {
       let view = CardOptionView()
       view.configure(icon: item.image, title: item.title)
       view.handler = { [weak self] in
-        self?.currentItem = item
+        switch item {
+        case .autoplay:
+          view.isSelected = !view.isSelected
+          AudioguidesPlayer.instance.autoPlay = view.isSelected
+        case .download:
+          self?.downloadHandler?()
+          view.alpha = 0.8
+          view.button.isEnabled = false
+        default:
+          self?.currentItem = item
+        }
       }
 
       itemsView.addArrangedSubview(view)
@@ -90,25 +103,34 @@ class AudioguideCardHeaderView: UIView {
     }
 
     headerItemViews[AudioguideScreenItem.list.rawValue].isSelected = true
-
+    headerItemViews[AudioguideScreenItem.autoplay.rawValue].isSelected = AudioguidesPlayer.instance.autoPlay
   }
 
 
 
   func configure(_ item: MTGObject) {
+    headerItemViews[AudioguideScreenItem.download.rawValue].iconButton.setImage(!item.isDownloaded ? #imageLiteral(resourceName: "iconMenubarDownload") : #imageLiteral(resourceName: "iconMenubarDownloadDel"), for: .normal)
+
+    headerItemViews[AudioguideScreenItem.download.rawValue].alpha = AudioguidesPlayer.instance.downloadingToursIds.index(of: item.uuid) == nil ? 0.8 : 1.0
+
     var contentItem: MTGChildObject? = nil
     if let childObject = item as? MTGChildObject {
       contentItem = childObject
+      let distanceFormatter = NumberFormatter()
+      distanceFormatter.maximumFractionDigits = 2
+      let distanceString = distanceFormatter.string(from: NSNumber(value: Float(childObject.distance) / 1000)) ?? ""
+      distanceLabel.text = "\(distanceString) км"
     } else if let fullObject = item as? MTGFullObject {
       guard let content = fullObject.content.first else { return }
       contentItem = content
     }
-    guard let item = contentItem else { return }
-    titleLabel.text = item.title
-    durationLabel.text = TimeInterval(item.duration * 60).toString
-    let distanceFormatter = NumberFormatter()
-    distanceFormatter.maximumFractionDigits = 2
-    distanceLabel.text = "\(distanceFormatter.string(from: NSNumber(value: Float(item.distance) / 1000))) км"
+    guard contentItem != nil else { return }
+    titleLabel.text = contentItem!.title
+    if let image = contentItem!.images.first {
+      let url = "https://media.izi.travel/\(item.contentProviderId)/\(image.uuid)_800x600.jpg"
+      backgroundImageView.kf.setImage(with: URL(string: url))
+    }
+    durationLabel.text = TimeInterval(contentItem!.duration).toString
   }
 
 }

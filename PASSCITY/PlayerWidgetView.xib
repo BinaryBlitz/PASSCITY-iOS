@@ -19,11 +19,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EH4-Q9-HFz">
                     <rect key="frame" x="0.0" y="0.0" width="259" height="10"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzR-f2-z5e">
-                            <rect key="frame" x="4" y="-0.5" width="39" height="10"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="8"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFF-Pn-4P0">
                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="10"/>
                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,6 +26,11 @@
                                 <constraint firstAttribute="width" id="It5-DV-xwO"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzR-f2-z5e">
+                            <rect key="frame" x="4" y="-0.5" width="39" height="10"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="8"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNx-Xs-XuB">
                             <rect key="frame" x="216" y="0.0" width="39" height="10"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="8"/>

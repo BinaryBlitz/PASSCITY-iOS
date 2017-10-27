@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -86,6 +85,12 @@
                         <constraint firstItem="hEH-8j-iqd" firstAttribute="leading" secondItem="yFw-e5-E7a" secondAttribute="leading" id="wFr-57-Ahw"/>
                     </constraints>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECW-sI-9Xw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="199" id="mVO-h0-oS5"/>
+                    </constraints>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDb-PU-LXS" customClass="GradientView" customModule="PASSCITY" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                     <subviews>
@@ -174,23 +179,27 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ptH-Uy-Lx9" firstAttribute="trailing" secondItem="yFw-e5-E7a" secondAttribute="trailing" id="0eh-SM-q38"/>
+                <constraint firstAttribute="trailing" secondItem="yFw-e5-E7a" secondAttribute="trailing" id="0eh-SM-q38"/>
+                <constraint firstItem="ECW-sI-9Xw" firstAttribute="leading" secondItem="tDb-PU-LXS" secondAttribute="leading" id="55Q-zB-jVV"/>
                 <constraint firstItem="sYC-3a-CVh" firstAttribute="top" secondItem="yFw-e5-E7a" secondAttribute="bottom" id="BRm-g0-pej"/>
-                <constraint firstItem="yFw-e5-E7a" firstAttribute="leading" secondItem="ptH-Uy-Lx9" secondAttribute="leading" id="EKa-MV-Lvx"/>
-                <constraint firstItem="tDb-PU-LXS" firstAttribute="top" secondItem="ptH-Uy-Lx9" secondAttribute="top" id="NR1-hF-Ij6"/>
+                <constraint firstItem="yFw-e5-E7a" firstAttribute="leading" secondItem="Y0e-mX-Uzh" secondAttribute="leading" id="EKa-MV-Lvx"/>
+                <constraint firstItem="ECW-sI-9Xw" firstAttribute="trailing" secondItem="tDb-PU-LXS" secondAttribute="trailing" id="JT2-Bw-f92"/>
+                <constraint firstItem="tDb-PU-LXS" firstAttribute="top" secondItem="Y0e-mX-Uzh" secondAttribute="top" id="NR1-hF-Ij6"/>
                 <constraint firstItem="yFw-e5-E7a" firstAttribute="top" secondItem="tDb-PU-LXS" secondAttribute="bottom" id="Zdt-8X-DMO"/>
-                <constraint firstItem="tDb-PU-LXS" firstAttribute="leading" secondItem="ptH-Uy-Lx9" secondAttribute="leading" id="a0u-8H-4dD"/>
+                <constraint firstItem="tDb-PU-LXS" firstAttribute="leading" secondItem="Y0e-mX-Uzh" secondAttribute="leading" id="a0u-8H-4dD"/>
                 <constraint firstAttribute="trailing" secondItem="sYC-3a-CVh" secondAttribute="trailing" id="cBh-mu-agS"/>
                 <constraint firstItem="sYC-3a-CVh" firstAttribute="leading" secondItem="Y0e-mX-Uzh" secondAttribute="leading" id="cYJ-k2-hI2"/>
                 <constraint firstAttribute="bottom" secondItem="sYC-3a-CVh" secondAttribute="bottom" id="n9a-aK-EoH"/>
-                <constraint firstItem="tDb-PU-LXS" firstAttribute="trailing" secondItem="ptH-Uy-Lx9" secondAttribute="trailing" id="uwt-Ao-osR"/>
+                <constraint firstItem="ECW-sI-9Xw" firstAttribute="top" secondItem="tDb-PU-LXS" secondAttribute="top" id="oPb-wY-4E7"/>
+                <constraint firstItem="tDb-PU-LXS" firstAttribute="trailing" secondItem="Y0e-mX-Uzh" secondAttribute="trailing" id="uwt-Ao-osR"/>
+                <constraint firstItem="ECW-sI-9Xw" firstAttribute="bottom" secondItem="tDb-PU-LXS" secondAttribute="bottom" id="zxR-TE-HL8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="ptH-Uy-Lx9"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="backgroundImageView" destination="ECW-sI-9Xw" id="Lm1-Tb-pyu"/>
                 <outlet property="distanceLabel" destination="emm-v7-JUZ" id="ufW-vS-21W"/>
                 <outlet property="durationLabel" destination="vMF-Ci-Su6" id="wvX-xK-Agu"/>
                 <outlet property="itemsView" destination="1vn-rz-RqX" id="OtC-Lk-wF8"/>
