@@ -217,4 +217,8 @@ extension AvailableAnnouncesViewController: UISearchResultsUpdating, UISearchCon
     parentVC.isSearching = false
   }
 
+  func didPresentSearchController(_ searchController: UISearchController) {
+    searchController.searchBar.becomeFirstResponder()
+  }
+
 }

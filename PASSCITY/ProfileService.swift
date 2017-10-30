@@ -99,6 +99,7 @@ class ProfileService {
     authProvider.callAPI(.register(loginData, sendCode: false)) { result in
       switch result {
       case .success(let response):
+        loginData.uid = response.login?.uid
         loginData.name = response.login?.name
         loginData.email = response.login?.email
         loginData.phone = response.login?.phone
@@ -116,6 +117,7 @@ class ProfileService {
     authProvider.callAPI(.checkCode(data: loginData, code: code)) { result in
       switch result {
       case .success(let response):
+        loginData.uid = response.login?.uid
         loginData.kid = response.login?.kid
         loginData.client = response.login?.client
         self.loginInternalData = loginData

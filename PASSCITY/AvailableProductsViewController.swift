@@ -179,4 +179,8 @@ extension AvailableProductsViewController: UISearchResultsUpdating, UISearchCont
     guard let parentVC = parent as? AvailableViewController else { return }
     parentVC.isSearching = false
   }
+
+  func didPresentSearchController(_ searchController: UISearchController) {
+    searchController.searchBar.becomeFirstResponder()
+  }
 }

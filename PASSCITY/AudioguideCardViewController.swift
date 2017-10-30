@@ -167,7 +167,12 @@ class AudioguideCardViewController: UIViewController, LightContentViewController
     super.viewWillAppear(animated)
     refresh()
     MainTabBarController.instance.tabBarHidden = true
+    NotificationCenter.default.addObserver(self, selector: #selector(playerUpdatedAction), name: .playerStateUpdated, object: nil)
     updateLayout()
+  }
+
+  func playerUpdatedAction() {
+    listTableView.reloadData()
   }
 
 }

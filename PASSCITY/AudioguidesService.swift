@@ -238,7 +238,7 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
         isNowPlaying = nil
         return
       }
-      NotificationCenter.default.addObserver(self, selector: #selector(itemDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: audioPlayer)
+      NotificationCenter.default.addObserver(self, selector: #selector(itemDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: audioPlayer.currentItem)
       let interval = CMTime(seconds: 0.01,
                             preferredTimescale: CMTimeScale(NSEC_PER_SEC))
       let mainQueue = DispatchQueue.main
@@ -300,7 +300,11 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
 
   var request: Cancellable? = nil
 
-  var isNowPlaying: NowPlayingData? = nil
+  var isNowPlaying: NowPlayingData? = nil {
+    didSet {
+      NotificationCenter.default.post(name: .playerStateUpdated, object: nil)
+    }
+  }
 
   var isPreloading: Bool = false
 
