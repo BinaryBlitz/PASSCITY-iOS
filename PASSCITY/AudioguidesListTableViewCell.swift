@@ -87,7 +87,8 @@ class AudioguidesListTableViewCell: UITableViewCell {
     donwnloadButton.setImage(#imageLiteral(resourceName: "iconDownload"), for: .normal)
     donwnloadButton.tintColor = .black
     addSubview(donwnloadButton)
-    playButton.addTarget(self, action: #selector(downloadButtonAction), for: .touchUpInside)
+    playButton.addTarget(self, action: #selector(playButtonAction), for: .touchUpInside)
+    donwnloadButton.addTarget(self, action: #selector(downloadButtonAction), for: .touchUpInside)
 
     donwnloadButton <- [
       Size(40),
@@ -108,11 +109,12 @@ class AudioguidesListTableViewCell: UITableViewCell {
       donwnloadButton.isEnabled = true
       donwnloadButton.setImage(#imageLiteral(resourceName: "iconNavbarClose"), for: .normal)
       donwnloadButton <- [
-        Size(20)
+        Size(40)
       ]
     case .downloading:
       donwnloadButton.isEnabled = false
-      donwnloadButton.setImage(#imageLiteral(resourceName: "iconDownload"), for: .normal)
+      donwnloadButton.setImage(nil, for: .normal)
+      donwnloadButton.setTitle("Загружаю", for: .normal)
       donwnloadButton <- [
         Size(40)
       ]

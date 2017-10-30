@@ -166,6 +166,7 @@ class AudioguideCardViewController: UIViewController, LightContentViewController
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     refresh()
+    MainTabBarController.instance.tabBarHidden = true
     updateLayout()
   }
 

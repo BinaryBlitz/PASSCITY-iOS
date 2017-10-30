@@ -65,6 +65,7 @@ class AudioguidesListViewController: UITableViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    MainTabBarController.instance.tabBarHidden = false
     updateLayout()
   }
 

@@ -63,17 +63,19 @@ enum AudioguidesTarget: TargetType {
       }
       return [
         "radius": 20000,
-        "lat_lon": defLanLon,
+        "lat_lon": lan_lon,
         "languages": (ProfileService.instance.currentSettings?.language ?? .ru).rawValue,
         "audio_duration": "true",
-        "type": "tour"
+        "type": "tour,museum"
       ]
-    case .getObject(_), .downloadAudio(_, _, _), .downloadImage(_, _):
+    case .getObject(_), .downloadImage(_, _):
       return [
         "languages": (ProfileService.instance.currentSettings?.language ?? .ru).rawValue,
         "audio_duration": "true",
         "lat_lon": defLanLon,
       ]
+    case .downloadAudio(_, _, _):
+      return nil
     }
   }
   
@@ -345,7 +347,7 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
 
   func togglePlayAudioguide(tourId: String, itemId: String? = nil) {
     MainTabBarController.instance.playerIsHidden = false
-    guard !isPlaying(tourId: tourId, itemId: itemId) || !playing else {
+    guard !isPlaying(tourId: tourId, itemId: itemId) else {
       if let player = audioPlayer, playing {
         MainTabBarController.instance.playerView.isPlaying = false
         player.pause()
@@ -355,7 +357,6 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
       }
       return
     }
-    isNowPlaying = NowPlayingData(audioguideId: tourId, itemId: itemId)
     if let tour = AudioguidesService.instande.fullTours.first(where: { $0.uuid == tourId }) {
       playTourGuide(tour: tour, itemId: itemId)
     } else {
@@ -377,7 +378,7 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
     MainTabBarController.instance.playerIsHidden = false
     let docsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     let id = itemId ?? tour.content.first?.children.first?.uuid ?? ""
-    guard !isPlaying(tourId: tour.uuid, itemId: id) || !playing else {
+    guard !isPlaying(tourId: tour.uuid, itemId: id) else {
       if let player = audioPlayer, playing {
         MainTabBarController.instance.playerView.isPlaying = false
         player.pause()
@@ -427,7 +428,6 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
     if let tour = AudioguidesService.instande.fullTours.first(where: { $0.uuid == tourId }) {
       download(tour: tour)
     } else {
-      audioPlayer = nil
       downloadingToursIds.insert(tourId)
       _ = AudioguidesService.instande.fetchAudioguide(id: tourId, { result in
         switch result {
@@ -456,31 +456,35 @@ class AudioguidesPlayer: NSObject, AVAudioPlayerDelegate {
       }
     }
     downloadingToursIds.insert(tour.uuid)
+    fetchTour(tour: tour, itemIdx: 0)
+  }
+
+  private func fetchTour(tour: MTGFullObject, itemIdx: Int) {
     guard let content = tour.content.first else { return }
-    var downloadCount: Int = 0
-    for item in content.children {
-      self.downloadingTourItemsIds.insert(item.uuid)
-      _ = AudioguidesService.instande.fetchAudioguideItem(id: item.uuid, { result in
+    if itemIdx == content.children.count {
+      tour.isDownloaded = true
+      return
+    }
+    let item = content.children[itemIdx]
+    self.downloadingTourItemsIds.insert(item.uuid)
+    _ = AudioguidesService.instande.fetchAudioguideItem(id: item.uuid, { result in
+      switch result {
+      case .success(let tourItem):          AudioguidesService.instande.provider.request(.downloadAudio(CONTENT_PROVIDER_UUID: tourItem.contentProviderId, AUDIO_UUID: tourItem.content.first?.audio.first?.uuid ?? "", playData: (audioguideId: tour.uuid, itemId: item.uuid)), completion: { result in
+        self.downloadingTourItemsIds.remove(item.uuid)
         switch result {
-        case .success(let tourItem):
-          tour.isDownloaded = true
-          AudioguidesService.instande.provider.request(.downloadAudio(CONTENT_PROVIDER_UUID: tourItem.contentProviderId, AUDIO_UUID: tourItem.content.first?.audio.first?.uuid ?? "", playData: (audioguideId: tour.uuid, itemId: item.uuid)), completion: { result in
-            self.downloadingTourItemsIds.remove(item.uuid)
-            switch result {
-            case .success(_):
-              downloadCount += 1
-              if downloadCount == content.children.count {
-                tour.isDownloaded = true
-              }
-            case .failure(_):
-              break
-            }
-          })
+        case .success(_):
+          self.fetchTour(tour: tour, itemIdx: itemIdx + 1)
         case .failure(_):
-          self.downloadingTourItemsIds.remove(item.uuid)
+          break
+          //self.fetchTour(tour: tour, itemIdx: itemIdx)
         }
       })
-    }
+      case .failure(_):
+        self.downloadingTourItemsIds.remove(item.uuid)
+        self.fetchTour(tour: tour, itemIdx: itemIdx + 1)
+      }
+    })
+
   }
 }
 
