@@ -68,6 +68,7 @@ class ProductCardItemsTableView: UITableView, UITableViewDelegate, UITableViewDa
         self.expandedSections.insert(section)
       }
       self.reloadSections(IndexSet(integer: section), with: .fade)
+      self.reloadData()
     }
     return view
   }

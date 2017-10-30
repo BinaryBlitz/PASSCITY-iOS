@@ -12,6 +12,8 @@ import UIKit
 @IBDesignable class GoButton: UIButton {
   let animationDuration = 0.2
 
+  var disabledAlpha: CGFloat = 0.5
+
   @IBInspectable var defaultBackgroundColor: UIColor = UIColor.red
 
   override var isEnabled: Bool {
@@ -19,7 +21,7 @@ import UIKit
       let isEnabled = self.isEnabled
       UIView.animate(withDuration: animationDuration, animations: { [weak self] in
         self?.backgroundColor = !isEnabled ? UIColor.disabledBtnColor : self?.defaultBackgroundColor
-        self?.alpha = !isEnabled ? 0.5 : 1
+        self?.alpha = !isEnabled ? (self?.disabledAlpha ?? 0.5) : 1
         self?.layoutIfNeeded()
       })
     }

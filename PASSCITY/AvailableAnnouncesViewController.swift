@@ -166,6 +166,9 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
       self?.isExpandedItemId = isExpanded ? item.id : nil
       tableView.beginUpdates()
       tableView.endUpdates()
+      DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+        tableView.reloadData()
+      })
     }
     cell.moreButtonHandler = {
       RootViewController.instance?.menuVisible = true
@@ -218,7 +221,9 @@ extension AvailableAnnouncesViewController: UISearchResultsUpdating, UISearchCon
   }
 
   func didPresentSearchController(_ searchController: UISearchController) {
-    searchController.searchBar.becomeFirstResponder()
+    DispatchQueue.main.async {
+      searchController.searchBar.becomeFirstResponder()
+    }
   }
 
 }

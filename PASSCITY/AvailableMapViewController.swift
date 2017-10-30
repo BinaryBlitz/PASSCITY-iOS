@@ -177,11 +177,6 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
       Bottom(-100).to(bottomLayoutGuide)
     ]
 
-    audioGuideButton <- [
-      Bottom(20).to(cardView, .top),
-      Right(20)
-    ]
-
     myLocationButton <- [
       Top(20),
       Right(20)
@@ -208,8 +203,14 @@ class AvailableMapViewController: UIViewController, AvailableMapView {
     ]
 
     zoomButtonsView <- [
-      CenterY(),
+      CenterY().with(.medium),
       Right(20)
+    ]
+
+    audioGuideButton <- [
+      Bottom(20).to(cardView, .top),
+      Right(20),
+      Top(>=20).to(zoomMinusButton, .bottom).with(.high)
     ]
 
   }
@@ -280,7 +281,10 @@ extension AvailableMapViewController: UISearchResultsUpdating, UISearchControlle
   }
 
   func didPresentSearchController(_ searchController: UISearchController) {
-    searchController.searchBar.becomeFirstResponder()
+    searchController.isActive = true
+    DispatchQueue.main.async {
+      searchController.searchBar.becomeFirstResponder()
+    }
   }
 
 }

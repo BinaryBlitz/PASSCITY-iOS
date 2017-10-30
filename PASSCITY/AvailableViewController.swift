@@ -84,7 +84,7 @@ class AvailableViewController: UIViewController {
         searchController.searchBar.changeSearchBarColor(color: UIColor.clear)
         searchController.searchBar.searchTextPositionAdjustment = UIOffsetMake(5.0, 0.0)
         searchController.isActive = true
-        searchController.searchBar.becomeFirstResponder()
+        //searchController.searchBar.becomeFirstResponder()
         navigationController?.navigationBar.layoutIfNeeded()
       } else {
         setupNavigationBar()

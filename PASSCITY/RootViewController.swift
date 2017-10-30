@@ -83,7 +83,11 @@ class RootViewController: UIViewController {
   }
 
   func setTabBar() {
-    currentViewController = mainTabBarController
+    if let viewControllers = mainTabBarController.viewControllers, !viewControllers.isEmpty {
+      mainTabBarController.selectedViewController = mainTabBarController.availableNavigationViewController
+      mainTabBarController.availableViewController.currentItem = .map
+      currentViewController = mainTabBarController
+    }
   }
 
   func setRegistration() {

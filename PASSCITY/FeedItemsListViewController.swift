@@ -40,7 +40,8 @@ class FeedItemsListViewController: UITableViewController, UISearchResultsUpdatin
     edgesForExtendedLayout = UIRectEdge()
     automaticallyAdjustsScrollViewInsets = false
     tableView.backgroundColor = .white
-    tableView.tableFooterView = UIView()
+    tableView.backgroundView = UIView()
+    //tableView.tableFooterView = UIView()
     ResultFeedItemTableViewCell.registerNib(in: tableView)
     tableView.separatorStyle = .singleLine
     loaderFooterView.alpha = 0

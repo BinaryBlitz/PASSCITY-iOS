@@ -40,6 +40,9 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
   var isExpanded: Bool = false {
     didSet {
       bottomConstraint?.isActive = isExpanded
+      descriptionButton?.alpha = isExpanded ? 0 : 1
+      descriptionButton?.isHidden = isExpanded
+      //descriptionButton?.isEnabled = !isExpanded
       updateConstraints()
       layoutIfNeeded()
     }
@@ -59,6 +62,7 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     icons.forEach { $0.image = $0.image?.withRenderingMode(.alwaysTemplate) }
+    descriptionButton.disabledAlpha = 0
     bottomConstraint?.isActive = false
   }
 
@@ -73,6 +77,9 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
     descriptionLabel.text = item.description
     datesView.isHidden = item.type != .event
     datesLabel.text = item.dates
+    descriptionButton?.alpha = isExpanded ? 0 : 1
+    descriptionButton.isHidden = isExpanded
+    descriptionButton.isEnabled = !isExpanded
   }
   
   @IBAction func bottomButtonTouchDownAction(_ sender: Any) {
