@@ -173,26 +173,33 @@ class AvailableViewController: UIViewController {
   }
 
   func filtersButtonAction() {
-    let viewController = FeedItemsFilterViewController()
     switch currentItem {
     case .announces:
+      let viewController = FeedItemsFilterViewController()
       viewController.filters = announcesViewController.presenter?.currentFilters.filter
       viewController.handler = { [weak self] filters -> Void in
         self?.announcesViewController.presenter?.currentFilters.filter = filters
         return
       }
+      navigationController?.pushViewController(viewController, animated: true)
     case .products:
-      return
-      //viewController.filters = productsViewController.presenter?.currentFilters
+      let viewController = ProductsFiltersViewController()
+      viewController.filters = productsViewController.presenter?.currentFilters.filter
+      viewController.handler = { [weak self] filters -> Void in
+        self?.productsViewController.presenter?.currentFilters.filter = filters
+        return
+      }
+      navigationController?.pushViewController(viewController, animated: true)
     case .map:
+      let viewController = FeedItemsFilterViewController()
       viewController.filters = mapViewController.presenter?.currentFilters.filter
       viewController.handler = { [weak self] filters -> Void in
         self?.mapViewController.presenter?.currentFilters.filter = filters
         return
       }
+      navigationController?.pushViewController(viewController, animated: true)
     }
 
-    navigationController?.pushViewController(viewController, animated: true)
   }
 
   override func viewDidLayoutSubviews() {
