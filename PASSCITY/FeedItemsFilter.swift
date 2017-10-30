@@ -11,6 +11,7 @@ import ObjectMapper
 
 struct PassCityFeedItemFilter: Mappable, Equatable {
   var coordinates: Coordinates? = nil
+  var nearByFilter: Bool = false
   var locationName: String? = nil
   var categories: [Int] = []
   var now: Int = 0

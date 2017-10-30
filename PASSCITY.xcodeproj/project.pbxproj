@@ -499,7 +499,6 @@
 				887B16E21F873364006A0BF9 /* Transform */,
 				8817EB8D1F8730260026553D /* Common */,
 				88E12A7D1F7E386700EB23ED /* LoginData.swift */,
-				88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */,
 				88B1049C1F86A56000EDD98E /* Settings.swift */,
 				88F9CC8D1F86F987002C4EF9 /* Category.swift */,
 				8817EB8B1F871FF40026553D /* PassCityFeedItem.swift */,
@@ -538,6 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				887B16E31F873396006A0BF9 /* FeedItemsFilter.swift */,
+				88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */,
 				887B16E51F8733C9006A0BF9 /* ReviewsOverview.swift */,
 				887B16E71F8733F1006A0BF9 /* Intervals.swift */,
 				887B16E91F8738C1006A0BF9 /* Pagination.swift */,

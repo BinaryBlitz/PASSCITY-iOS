@@ -50,10 +50,16 @@ class FeedItemsFilterViewController: UITableViewController {
   let favoritesCell = SwitchTableViewCell("Избранное", description: "Показывать только избранное", image: #imageLiteral(resourceName: "iconFilterFavorites"))
   let hotOffersCell = SwitchTableViewCell("Горячие предложения", description: "Показывать только горячие предложения", image: #imageLiteral(resourceName: "iconFilterSentence"))
 
-  var rightNowSelected: Bool = true {
-    didSet {
-      rightNowCell.textLabel?.textColor = rightNowSelected ? UIColor.black : UIColor.lowGrey
-      rightNowCell.accessoryType = rightNowSelected ? .checkmark : .none
+  var rightNowSelected: Bool {
+    get {
+      return filters?.dates == nil
+    }
+    set {
+      if newValue {
+        filters?.dates = nil
+      }
+      rightNowCell.textLabel?.textColor = newValue ? UIColor.black : UIColor.lowGrey
+      rightNowCell.accessoryType = newValue ? .checkmark : .none
     }
   }
 
@@ -64,10 +70,18 @@ class FeedItemsFilterViewController: UITableViewController {
       categoriesCell.badgeView.isHidden = filters.categories.isEmpty
       beginningDateCell.date = filters.dates?.from
       endDateCell.date = filters.dates?.to
+      locationCell.detailTextLabel?.text = filters.coordinates == nil ? "Поблизости" : filters.coordinates?.name
       favoritesCell.isOn = filters.favorites == 1
-      hotOffersCell.isOn = filters.favorites == 1
+      hotOffersCell.isOn = filters.hotOffers == 1
+      rightNowCell.textLabel?.textColor = rightNowSelected ? UIColor.black : UIColor.lowGrey
+      rightNowCell.accessoryType = rightNowSelected ? .checkmark : .none
     }
   }
+
+  var handler: ((PassCityFeedItemFilter) -> Void)? = nil
+
+  let filtersLocationSelectViewController = FiltersLocationSelectViewController()
+
 
   var otherCells: [UITableViewCell] {
     return [categoriesCell, locationCell, favoritesCell, hotOffersCell]
@@ -87,7 +101,7 @@ class FeedItemsFilterViewController: UITableViewController {
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     tableView.tableFooterView = UIView()
     configureCells()
-    navigationItem.title = "Настройки"
+    navigationItem.title = "Фильтры"
   }
 
   func configureCells() {
@@ -101,13 +115,39 @@ class FeedItemsFilterViewController: UITableViewController {
     locationCell.textLabel?.font = UIFont.systemFont(ofSize: 15)
     locationCell.tintColor = UIColor.red
     locationCell.textLabel?.textColor = UIColor.black
-    locationCell.accessoryType = .disclosureIndicator
     locationCell.detailTextLabel?.text = "Поблизости"
     locationCell.imageView?.image = #imageLiteral(resourceName: "iconFilterMap")
 
+    categoriesCell.titleLabel.text = "Категории"
+    categoriesCell.iconView.image = #imageLiteral(resourceName: "iconFilterCategories")
+    categoriesCell.iconView <- Size(20)
+    categoriesCell.circleView <- Size(23)
+    
     beginningDateCell.tableView = tableView
+    beginningDateCell.dateChangedHandler = { [weak self] date in
+      var dateInterval = DateInterval()
+      dateInterval.from = date
+      dateInterval.to = self?.endDateCell.date
+      self?.rightNowSelected = false
+      self?.filters?.dates = dateInterval
+    }
     endDateCell.tableView = tableView
     endDateCell.titleLabel.text = "Конец"
+    endDateCell.dateChangedHandler = { [weak self] date in
+      var dateInterval = DateInterval()
+      dateInterval.to = date
+      dateInterval.from = self?.beginningDateCell.date
+      self?.rightNowSelected = false
+      self?.filters?.dates = dateInterval
+    }
+
+    favoritesCell.handler = { [weak self] isOn in
+      self?.filters?.favorites = isOn ? 1 : 0
+    }
+
+    hotOffersCell.handler = { [weak self] isOn in
+      self?.filters?.hotOffers = isOn ? 1 : 0
+    }
 
     SettingsCategoryTableViewCell.register(in: tableView)
     FiltersCalendarCell.register(in: tableView)
@@ -189,8 +229,10 @@ class FeedItemsFilterViewController: UITableViewController {
         rightNowSelected = !rightNowSelected
       case datesCells.index(of: beginningDateCell)!:
         beginningDateCell.isExpanded = !beginningDateCell.isExpanded
+        endDateCell.isExpanded = false
       case datesCells.index(of: endDateCell)!:
         endDateCell.isExpanded = !endDateCell.isExpanded
+        beginningDateCell.isExpanded = false
       default:
         break
       }
@@ -201,13 +243,29 @@ class FeedItemsFilterViewController: UITableViewController {
         viewController.handler = { [weak self] categories in
           self?.filters?.categories = categories
         }
-      case otherCells.index(of: locationCell):
-        
+        self.navigationController?.pushViewController(viewController, animated: true)
+      case otherCells.index(of: locationCell)!:
+        filtersLocationSelectViewController.selectedCoordinates = filters?.coordinates
+        filtersLocationSelectViewController.handler = { [weak self] coordinates in
+          self?.filters?.coordinates = coordinates
+        }
+        self.navigationController?.pushViewController(filtersLocationSelectViewController, animated: true)
+      default:
+        break
       }
     }
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    guard var filters = filters else { return }
+    categoriesCell.badgeLabel.text = "\(filters.categories.count)"
+    categoriesCell.badgeView.isHidden = filters.categories.isEmpty
+    filters.dates?.from = beginningDateCell.date
+    filters.dates?.to = endDateCell.date
+    filters.favorites = favoritesCell.isOn ? 1 : 0
+    filters.hotOffers = hotOffersCell.isOn ? 1 : 0
+
+    handler?(filters)
   }
 }

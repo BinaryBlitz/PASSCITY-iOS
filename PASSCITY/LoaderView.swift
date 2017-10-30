@@ -22,8 +22,8 @@ class LoaderView: UIView {
     ]
   }
 
-  init(size: Int = 128) {
-    super.init(frame: CGRect.null)
+  init(size: Int = 128, frame: CGRect = CGRect.null) {
+    super.init(frame: frame)
     setup(size: size)
   }
 

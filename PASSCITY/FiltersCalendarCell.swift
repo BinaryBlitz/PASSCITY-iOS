@@ -20,14 +20,13 @@ class FiltersCalendarCell: UITableViewCell, ExpandableCell {
 
   var tableView: UITableView? = nil
 
-  var date: Date? {
-    get {
-      return datePicker.date
-    }
-    set {
-      dateLabel.text = newValue?.shortDate ?? ""
-      datePicker.date = newValue ?? Date()
-      iconCheck.isHidden = newValue == nil
+  var dateChangedHandler: ((Date?) -> Void)? = nil
+
+  var date: Date? = nil {
+    didSet {
+      dateLabel.text = "\(date?.shortDate ?? "") \(date?.time ?? "")"
+      datePicker.date = date ?? Date()
+      iconCheck.isHidden = date == nil
     }
   }
 
@@ -37,21 +36,25 @@ class FiltersCalendarCell: UITableViewCell, ExpandableCell {
     iconCheck.isHidden = true
     datePicker.setValue(UIColor.black, forKeyPath: "textColor")
     contentView.backgroundColor = UIColor.clear
-    datePicker.datePickerMode = .countDownTimer
-    datePicker.datePickerMode = .date
     datePicker.minimumDate = Date()
     datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+    iconCheck.image = iconCheck.image?.withRenderingMode(.alwaysTemplate)
   }
 
   func dateChanged() {
-    dateLabel.text = date?.shortDate ?? ""
+    dateLabel.text = "\(date?.shortDate ?? "") \(date?.time ?? "")"
+    date = datePicker.date
+    dateChangedHandler?(date)
   }
 
   var isExpanded: Bool = false {
     didSet {
-      iconCheck.isHidden = !isExpanded
       datePicker.isHidden = !isExpanded
       dateLabel.textColor = isExpanded ? UIColor.black : UIColor.lowGrey
+      if isExpanded {
+        date = datePicker.date
+        dateChangedHandler?(date)
+      }
       tableView?.beginUpdates()
       tableView?.endUpdates()
     }

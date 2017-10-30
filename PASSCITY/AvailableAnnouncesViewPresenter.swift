@@ -57,11 +57,7 @@ class AvailableAnnouncesViewPresenter {
 
   init(view: AvailableAnnouncesView) {
     self.view = view
-
-    var currentFilters = EventsFiltersState()
-    let coordinates = Coordinates.current
-    currentFilters.filter.coordinates = coordinates
-    self.currentFilters = currentFilters
+    self.currentFilters = EventsFiltersState()
 
     self.refreshSearchAction = debounce(delay: .seconds(1)) { [weak self] in
       guard var filters = self?.currentFilters else { return }
@@ -78,6 +74,9 @@ class AvailableAnnouncesViewPresenter {
     guard !isRefreshing else { return }
     isRefreshing = true
     var filters = currentFilters
+    if filters.filter.coordinates == nil {
+      filters.filter.coordinates = Coordinates.current
+    }
     filters.pagination.currentPage = reset ? 1 : filters.pagination.currentPage
     ItemsService.instance.fetchEvents(target: .getAnnounces(filters)) { [weak self] result in
       completion?()

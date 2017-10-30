@@ -33,6 +33,8 @@ struct DateInterval: Mappable, Equatable {
   init?(map: Map) {
   }
 
+  init() { }
+
   mutating func mapping(map: Map) {
     from <- (map["from"], DateTimeTransform())
     to <- (map["to"], DateTimeTransform())

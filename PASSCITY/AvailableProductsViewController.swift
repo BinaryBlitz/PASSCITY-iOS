@@ -38,7 +38,7 @@ private enum MenuOptions: Int {
 class AvailableProductsViewController: UITableViewController, AvailableProductsView {
   var presenter: AvailableProductsViewPresenter? = nil
   let loaderView = LoaderView(size: 64)
-  let loaderFooterView = LoaderView(size: 64)
+  var loaderFooterView: LoaderView!
   let backgroundLoaderView = LoaderView()
 
   var searchController: UISearchController!
@@ -74,6 +74,7 @@ class AvailableProductsViewController: UITableViewController, AvailableProductsV
     AvailableProductsTableViewCell.registerNib(in: tableView)
     presenter?.fetchProducts()
     tableView.backgroundView = backgroundLoaderView
+    loaderFooterView = LoaderView(size: 64, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80))
     tableView.tableFooterView = loaderFooterView
     loaderFooterView.alpha = 0
     refreshControl = UIRefreshControl()

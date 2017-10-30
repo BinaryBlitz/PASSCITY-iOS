@@ -22,6 +22,13 @@ class CardUserView: UIView {
         self?.easy_reload()
         self?.layoutIfNeeded()
       }
+      for (index, view) in attributesView.arrangedSubviews.enumerated() {
+        if index > 2 && !isActive {
+          view.isHidden = true
+        } else {
+          view.isHidden = false
+        }
+      }
       isActiveHandler?()
     }
   }
@@ -102,11 +109,15 @@ class CardUserView: UIView {
       view.removeFromSuperview()
     }
 
-    for attribute in card.userAttributes {
+    for (index, attribute) in card.userAttributes.enumerated() {
       let label = UILabel()
       label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightLight)
       label.text = attribute.value
-
+      if index > 2 && !isActive {
+        label.isHidden = true
+      } else {
+        label.isHidden = false
+      }
       attributesView.addArrangedSubview(label)
     }
   }

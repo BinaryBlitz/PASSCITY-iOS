@@ -16,6 +16,8 @@ struct Coordinates: Mappable, Equatable {
 
   var mapScale: Int? = 0
 
+  var name: String = ""
+
   var clLocationCoordinate2D: CLLocationCoordinate2D? {
     return CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lng))
   }

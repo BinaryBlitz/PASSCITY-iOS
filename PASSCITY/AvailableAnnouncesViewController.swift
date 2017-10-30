@@ -51,7 +51,7 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
   var searchController: UISearchController!
 
   let loaderView = LoaderView(size: 50)
-  let loaderFooterView = LoaderView(size: 64)
+  var loaderFooterView: LoaderView!
   let backgroundLoaderView = LoaderView()
 
   let searchResultsController = FeedItemsListViewController()
@@ -98,6 +98,7 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
     AvailableAnnouncesTableViewCell.registerNib(in: tableView)
     presenter?.fetchAnnounces()
     tableView.backgroundView = backgroundLoaderView
+    loaderFooterView = LoaderView(size: 64, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80))
     tableView.tableFooterView = loaderFooterView
     loaderFooterView.alpha = 0
     refreshControl = UIRefreshControl()

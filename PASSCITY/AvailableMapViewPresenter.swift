@@ -26,6 +26,10 @@ class AvailableMapViewPresenter: NSObject {
     didSet {
       guard currentFilters != oldValue else { return }
       currentPage = 1
+      currentItems = Set()
+      if let coordinates = currentFilters.filter.coordinates, coordinates != oldValue.filter.coordinates {
+        view.coordinates = coordinates.clLocationCoordinate2D
+      }
       fetchMap()
     }
   }
@@ -47,6 +51,7 @@ class AvailableMapViewPresenter: NSObject {
       currentSearchFilters.pagination.currentPage = newValue
     }
   }
+
   var currentSearchFilters = EventsFiltersState() {
     didSet {
       guard currentSearchFilters != oldValue else { return }
@@ -85,11 +90,8 @@ class AvailableMapViewPresenter: NSObject {
 
   var zoom: Int = 14 {
     didSet {
-      var currentFilters = self.currentFilters
-      var coordinates = currentFilters.filter.coordinates
-      coordinates?.mapScale = zoom
-      currentFilters.filter.coordinates = coordinates
-      self.currentFilters = currentFilters
+      currentPage = 1
+      fetchMap()
     }
   }
 
@@ -99,11 +101,9 @@ class AvailableMapViewPresenter: NSObject {
     locationManager.delegate = self
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
 
-    var currentFilters = EventsFiltersState()
+    self.currentFilters = EventsFiltersState()
     var coordinates = Coordinates.current
     coordinates?.mapScale = zoom
-    currentFilters.filter.coordinates = coordinates
-    self.currentFilters = currentFilters
     view.zoom = zoom
     view.coordinates = coordinates?.clLocationCoordinate2D
 
@@ -121,30 +121,28 @@ class AvailableMapViewPresenter: NSObject {
     locationManager.startUpdatingLocation()
   }
 
-  var currentLocation: Coordinates? {
-    get {
-      return Coordinates(currentFilters.filter.coordinates?.clLocationCoordinate2D)
-    }
-    set {
-      var currentFilters = self.currentFilters
-      var coordinates = newValue
-      coordinates?.mapScale = zoom
-      currentFilters.filter.coordinates = coordinates
-      self.currentFilters = currentFilters
-      view.zoom = zoom
-      view.coordinates = coordinates?.clLocationCoordinate2D
+  var currentLocation: Coordinates? = nil {
+    didSet {
+      if currentFilters.filter.coordinates == nil {
+        view.zoom = zoom
+        view.coordinates = currentLocation?.clLocationCoordinate2D
+      }
     }
   }
 
   func fetchMap() {
     guard !pageLimit else { return }
     isRefreshing = true
-    let filters = currentFilters
+    var filters = currentFilters
+    if filters.filter.coordinates == nil {
+      filters.filter.coordinates = currentLocation
+      filters.filter.coordinates?.mapScale = zoom
+    }
     ItemsService.instance.fetchEvents(target: .getMap(filters)) { [weak self] result in
       self?.isRefreshing = false
       switch result {
       case .success(let response):
-        guard let `self` = self, filters == self.currentFilters else { return }
+        guard let `self` = self else { return }
         self.totalPages = response.state.pagination.totalPages
         self.currentItems.formUnion(response.objects)
         self.view.setMarkers(Array(self.currentItems))
@@ -159,7 +157,12 @@ class AvailableMapViewPresenter: NSObject {
   func fetchSearchResults(reset: Bool = false) {
     guard !searchPageLimit || reset else { return }
     isRefreshing = true
-    ItemsService.instance.fetchEvents(target: .getMap(currentSearchFilters)) { [weak self] result in
+    var filters = currentSearchFilters
+    if filters.filter.coordinates == nil {
+      filters.filter.coordinates = currentLocation
+      filters.filter.coordinates?.mapScale = zoom
+    }
+    ItemsService.instance.fetchEvents(target: .getMap(filters)) { [weak self] result in
       self?.isRefreshing = false
       switch result {
       case .success(let response):

@@ -174,6 +174,24 @@ class AvailableViewController: UIViewController {
 
   func filtersButtonAction() {
     let viewController = FeedItemsFilterViewController()
+    switch currentItem {
+    case .announces:
+      viewController.filters = announcesViewController.presenter?.currentFilters.filter
+      viewController.handler = { [weak self] filters -> Void in
+        self?.announcesViewController.presenter?.currentFilters.filter = filters
+        return
+      }
+    case .products:
+      return
+      //viewController.filters = productsViewController.presenter?.currentFilters
+    case .map:
+      viewController.filters = mapViewController.presenter?.currentFilters.filter
+      viewController.handler = { [weak self] filters -> Void in
+        self?.mapViewController.presenter?.currentFilters.filter = filters
+        return
+      }
+    }
+
     navigationController?.pushViewController(viewController, animated: true)
   }
 

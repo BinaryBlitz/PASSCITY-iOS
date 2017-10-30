@@ -77,6 +77,7 @@ class FiltersCategoriesViewController: UITableViewController {
       self?.selectedCategories.formUnion(categories.map { $0.id })
       self?.tableView.reloadData()
     }
+    self.navigationController?.pushViewController(viewController, animated: true)
   }
 
 }
