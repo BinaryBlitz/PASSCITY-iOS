@@ -161,7 +161,7 @@ class AvailableViewController: UIViewController {
     let searchItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarSearch"), style: .plain, target: self, action: #selector(searchButtonAction))
     let filtersItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconNavbarFilter"), style: .plain, target: self, action: #selector(filtersButtonAction))
 
-    navigationItem.rightBarButtonItems = [searchItem, filtersItem]
+    navigationItem.rightBarButtonItems = [filtersItem, searchItem]
     navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "logoNavbarRb")))
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     navigationItem.titleView = nil
