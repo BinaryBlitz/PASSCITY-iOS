@@ -292,6 +292,8 @@
 		88D142481FAD0CEE00C54ECF /* WeekDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDates.swift; sourceTree = "<group>"; };
 		88D1424A1FAD11E700C54ECF /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		88D1424C1FAD234200C54ECF /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		88D142591FAD234200C54ECF /* AvailableWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvailableWeekView.swift; path = PASSCITY/UI/EventExpo/View/AvailableWeekView.swift; sourceTree = SOURCE_ROOT; };
+		88D1425B1FAD234200C54ECF /* EvetExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvetExpoViewController.swift; sourceTree = "<group>"; };
 		88D1D11C1F92EE1700BC3A04 /* CardBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceView.swift; sourceTree = "<group>"; };
 		88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PASSCITY.swift"; sourceTree = "<group>"; };
 		88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
@@ -904,9 +906,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		88D1425A1FAD234200C54ECF /* EventExpo */ = {
+			isa = PBXGroup;
+			children = (
+				88D1425B1FAD234200C54ECF /* EvetExpoViewController.swift */,
+				88D1425C1FAD234200C54ECF /* View */,
+			);
+			name = EventExpo;
+			path = PASSCITY/UI/EventExpo;
+			sourceTree = SOURCE_ROOT;
+		};
+		88D1425C1FAD234200C54ECF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		88E12A781F7E042C00EB23ED /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				88D142591FAD234200C54ECF /* AvailableWeekView.swift */,
+				88D1425A1FAD234200C54ECF /* EventExpo */,
 				888C403E1F7C4CC300CAF1EF /* Assets.xcassets */,
 				888C40431F7C4CC300CAF1EF /* Info.plist */,
 				88F9CC8B1F86EFA9002C4EF9 /* Localizable.strings */,
