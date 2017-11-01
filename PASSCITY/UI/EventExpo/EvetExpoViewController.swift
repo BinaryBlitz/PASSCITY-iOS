@@ -11,5 +11,23 @@ import UIKit
 import EasyPeasy
 
 class EventExpoViewController: UITableViewController {
+  let header = EventExpoHeaderView.nibInstance()!
+
+  var screenType: EventExpoScreenType = .event {
+    didSet {
+      header.setup(screenType)
+    }
+  }
   
+  var headerExpoItem: EventHeaderItem = .location {
+    didSet {
+
+    }
+  }
+
+  var headerEventItem: ExpoHeaderItem = .address
+
+  override func viewDidLoad() {
+    
+  }
 }
