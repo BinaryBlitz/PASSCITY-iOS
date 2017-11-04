@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="252" id="qAR-09-3Zr" customClass="InstructionCell" customModule="PASSCITY" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="252"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qAR-09-3Zr" id="WfD-l6-RgM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="251.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="999" verticalHuggingPriority="251" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" image="iconTitleAttendance" translatesAutoresizingMaskIntoConstraints="NO" id="Ir3-hb-Oss">
+                        <rect key="frame" x="20" y="20" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="18l-7D-huf"/>
+                            <constraint firstAttribute="width" constant="12" id="4KV-YX-3KI"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доступные услуги" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dum-iN-ic6">
+                        <rect key="frame" x="39" y="16.5" width="375" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Одна услуга за одно посещение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLI-DL-7wQ">
+                        <rect key="frame" x="20" y="42" width="375" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="top" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="c1t-FO-cTW">
+                        <rect key="frame" x="20" y="66.5" width="375" height="20.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Предъявление карты " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM6-gc-7ET">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="999" verticalHuggingPriority="251" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" insetsLayoutMarginsFromSafeArea="NO" image="iconTittleIcpasscity" translatesAutoresizingMaskIntoConstraints="NO" id="E23-Jp-RhA">
+                        <rect key="frame" x="20" y="146.5" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="HlV-cU-Zmg"/>
+                            <constraint firstAttribute="height" constant="12" id="dOz-3f-mXa"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Предъявление карту PASSCITY при посещении" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOj-cU-nGB">
+                        <rect key="frame" x="39" y="141.5" width="375" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Используйте PASSCITY, как платежную карту в кассе музе,  и получите нужный билет." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFK-WZ-n1J">
+                        <rect key="frame" x="20" y="202.5" width="375" height="29"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ir3-hb-Oss" firstAttribute="top" secondItem="WfD-l6-RgM" secondAttribute="topMargin" id="3oD-h7-mjp"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="DFK-WZ-n1J" secondAttribute="trailing" id="3rg-GY-mDq"/>
+                    <constraint firstItem="c1t-FO-cTW" firstAttribute="leading" secondItem="WfD-l6-RgM" secondAttribute="leadingMargin" id="47f-Om-gfU"/>
+                    <constraint firstItem="BOj-cU-nGB" firstAttribute="trailing" secondItem="WfD-l6-RgM" secondAttribute="trailingMargin" id="BA0-FG-M3h"/>
+                    <constraint firstItem="dum-iN-ic6" firstAttribute="centerY" secondItem="Ir3-hb-Oss" secondAttribute="centerY" id="BGk-Gt-w3X"/>
+                    <constraint firstItem="LLI-DL-7wQ" firstAttribute="leading" secondItem="Ir3-hb-Oss" secondAttribute="leading" id="BUL-Ic-zEa"/>
+                    <constraint firstItem="BOj-cU-nGB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c1t-FO-cTW" secondAttribute="bottom" constant="20" id="Ct6-Yt-Dh8"/>
+                    <constraint firstItem="Ir3-hb-Oss" firstAttribute="leading" secondItem="WfD-l6-RgM" secondAttribute="leadingMargin" id="DOQ-6j-306"/>
+                    <constraint firstItem="DFK-WZ-n1J" firstAttribute="top" secondItem="BOj-cU-nGB" secondAttribute="bottom" constant="20" id="EnL-De-Gcc"/>
+                    <constraint firstItem="dum-iN-ic6" firstAttribute="leading" secondItem="Ir3-hb-Oss" secondAttribute="trailing" constant="7" id="GgT-9g-UO1"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dum-iN-ic6" secondAttribute="trailing" id="SyR-2a-rzw"/>
+                    <constraint firstItem="c1t-FO-cTW" firstAttribute="trailing" secondItem="WfD-l6-RgM" secondAttribute="trailing" id="UwR-kz-Sm4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LLI-DL-7wQ" secondAttribute="trailing" id="a84-Jd-Urc"/>
+                    <constraint firstItem="DFK-WZ-n1J" firstAttribute="leading" secondItem="E23-Jp-RhA" secondAttribute="leading" id="fe9-Yq-x3M"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="DFK-WZ-n1J" secondAttribute="bottom" id="jU3-Hv-big"/>
+                    <constraint firstItem="BOj-cU-nGB" firstAttribute="top" secondItem="E23-Jp-RhA" secondAttribute="top" constant="-5" id="p81-Xt-esn"/>
+                    <constraint firstItem="BOj-cU-nGB" firstAttribute="leading" secondItem="E23-Jp-RhA" secondAttribute="trailing" constant="7" id="tiT-Kl-Qjz"/>
+                    <constraint firstItem="E23-Jp-RhA" firstAttribute="leading" secondItem="WfD-l6-RgM" secondAttribute="leadingMargin" id="upq-AV-Wsf"/>
+                    <constraint firstItem="c1t-FO-cTW" firstAttribute="top" secondItem="LLI-DL-7wQ" secondAttribute="bottom" constant="10" id="vWQ-AN-j6u"/>
+                    <constraint firstItem="LLI-DL-7wQ" firstAttribute="top" secondItem="Ir3-hb-Oss" secondAttribute="bottom" constant="10" id="x61-DC-YgE"/>
+                </constraints>
+                <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="instructionsStackView" destination="c1t-FO-cTW" id="sOW-uZ-ReF"/>
+            </connections>
+            <point key="canvasLocation" x="-216.5" y="187"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="iconTitleAttendance" width="12" height="12"/>
+        <image name="iconTittleIcpasscity" width="12" height="12"/>
+    </resources>
+</document>

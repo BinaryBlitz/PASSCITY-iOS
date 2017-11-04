@@ -132,20 +132,30 @@
 		88C349721F7DAB7F0003C9D4 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */; };
 		88C349741F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88C349731F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard */; };
 		88C5D7BB1FAA916D00F20238 /* EvetExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5D7BA1FAA916D00F20238 /* EvetExpoViewController.swift */; };
-		88C5D7C11FAA993600F20238 /* EventExpoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5D7C01FAA993600F20238 /* EventExpoHeaderView.swift */; };
-		88C5D7C31FAA9B0F00F20238 /* EventExpoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C5D7C21FAA9B0F00F20238 /* EventExpoHeaderView.xib */; };
-		88D142461FAD007600C54ECF /* AvailableWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D142451FAD007600C54ECF /* AvailableWeekView.swift */; };
 		88D142491FAD0CEE00C54ECF /* WeekDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D142481FAD0CEE00C54ECF /* WeekDates.swift */; };
-		88D1424B1FAD11E700C54ECF /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1424A1FAD11E700C54ECF /* ScheduleTableViewCell.swift */; };
-		88D1424D1FAD234200C54ECF /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1424C1FAD234200C54ECF /* AddressCell.swift */; };
+		88D1426F1FAD3E2600C54ECF /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1426E1FAD3E2600C54ECF /* MapCell.swift */; };
+		88D142701FAD477600C54ECF /* EventExpoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1426A1FAD234200C54ECF /* EventExpoHeaderView.swift */; };
+		88D142711FAD477F00C54ECF /* AvailableWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1426C1FAD234200C54ECF /* AvailableWeekView.swift */; };
+		88D142721FAD478100C54ECF /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1426D1FAD234200C54ECF /* AddressCell.swift */; };
+		88D142731FAD478C00C54ECF /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D142691FAD234200C54ECF /* ScheduleTableViewCell.swift */; };
+		88D142741FAD479A00C54ECF /* EventExpoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D1426B1FAD234200C54ECF /* EventExpoHeaderView.xib */; };
+		88D142751FAD484F00C54ECF /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */; };
 		88D1D11D1F92EE1700BC3A04 /* CardBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1D11C1F92EE1700BC3A04 /* CardBalanceView.swift */; };
 		88DCB9CA1F7D838F0058DBF6 /* UIColor+PASSCITY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */; };
 		88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */; };
 		88E12A7E1F7E386800EB23ED /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E12A7D1F7E386700EB23ED /* LoginData.swift */; };
-		88E12A801F7E3D9D00EB23ED /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E12A7F1F7E3D9D00EB23ED /* Coordinate.swift */; };
 		88F65BD21FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65BD11FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift */; };
 		88F65BD51FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65BD41FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift */; };
 		88F65BD71FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F65BD61FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift */; };
+		88F961081FAD50E000724A1F /* InstructionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F961071FAD50E000724A1F /* InstructionCell.swift */; };
+		88F9610A1FAD510100724A1F /* InstructionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F961091FAD510100724A1F /* InstructionCell.xib */; };
+		88F9610C1FAD59D200724A1F /* OverallRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9610B1FAD59D200724A1F /* OverallRatingCell.swift */; };
+		88F9610E1FAD59F600724A1F /* OverallRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F9610D1FAD59F600724A1F /* OverallRatingCell.xib */; };
+		88F961101FAD630500724A1F /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9610F1FAD630500724A1F /* ReviewTableViewCell.swift */; };
+		88F961121FAD634300724A1F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F961111FAD634300724A1F /* AvatarView.swift */; };
+		88F961141FAD6EEA00724A1F /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F961131FAD6EEA00724A1F /* ReviewTableViewCell.xib */; };
+		88F962001FAD8D9800724A1F /* TopBarHeaderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F961FF1FAD8D9700724A1F /* TopBarHeaderItemView.swift */; };
+		88F962031FAD8DF200724A1F /* AudioguideTopBarHeaderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F962021FAD8DF100724A1F /* AudioguideTopBarHeaderItemView.swift */; };
 		88F9CC7D1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9CC7C1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift */; };
 		88F9CC801F86E501002C4EF9 /* AvailableProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9CC7F1F86E501002C4EF9 /* AvailableProductsViewController.swift */; };
 		88F9CC831F86E6BA002C4EF9 /* PasscityWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9CC821F86E6BA002C4EF9 /* PasscityWebViewController.swift */; };
@@ -286,14 +296,15 @@
 		88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		88C349731F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalInfoViewController.storyboard; sourceTree = "<group>"; };
 		88C5D7BA1FAA916D00F20238 /* EvetExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvetExpoViewController.swift; sourceTree = "<group>"; };
-		88C5D7C01FAA993600F20238 /* EventExpoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExpoHeaderView.swift; sourceTree = "<group>"; };
-		88C5D7C21FAA9B0F00F20238 /* EventExpoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventExpoHeaderView.xib; sourceTree = "<group>"; };
-		88D142451FAD007600C54ECF /* AvailableWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableWeekView.swift; sourceTree = "<group>"; };
 		88D142481FAD0CEE00C54ECF /* WeekDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDates.swift; sourceTree = "<group>"; };
-		88D1424A1FAD11E700C54ECF /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
-		88D1424C1FAD234200C54ECF /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		88D142591FAD234200C54ECF /* AvailableWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvailableWeekView.swift; path = PASSCITY/UI/EventExpo/View/AvailableWeekView.swift; sourceTree = SOURCE_ROOT; };
 		88D1425B1FAD234200C54ECF /* EvetExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvetExpoViewController.swift; sourceTree = "<group>"; };
+		88D142691FAD234200C54ECF /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		88D1426A1FAD234200C54ECF /* EventExpoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExpoHeaderView.swift; sourceTree = SOURCE_ROOT; };
+		88D1426B1FAD234200C54ECF /* EventExpoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventExpoHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		88D1426C1FAD234200C54ECF /* AvailableWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableWeekView.swift; sourceTree = SOURCE_ROOT; };
+		88D1426D1FAD234200C54ECF /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = SOURCE_ROOT; };
+		88D1426E1FAD3E2600C54ECF /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		88D1D11C1F92EE1700BC3A04 /* CardBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceView.swift; sourceTree = "<group>"; };
 		88DCB9C91F7D838F0058DBF6 /* UIColor+PASSCITY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PASSCITY.swift"; sourceTree = "<group>"; };
 		88DCB9CB1F7D83D50058DBF6 /* RootViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RootViewController.storyboard; sourceTree = "<group>"; };
@@ -303,6 +314,15 @@
 		88F65BD11FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguideCardItemsListTableView.swift; sourceTree = "<group>"; };
 		88F65BD41FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguideCardItemTableViewCell.swift; sourceTree = "<group>"; };
 		88F65BD61FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioguideCardPlayingItemMarkerView.swift; sourceTree = "<group>"; };
+		88F961071FAD50E000724A1F /* InstructionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionCell.swift; sourceTree = "<group>"; };
+		88F961091FAD510100724A1F /* InstructionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionCell.xib; sourceTree = "<group>"; };
+		88F9610B1FAD59D200724A1F /* OverallRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallRatingCell.swift; sourceTree = "<group>"; };
+		88F9610D1FAD59F600724A1F /* OverallRatingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverallRatingCell.xib; sourceTree = "<group>"; };
+		88F9610F1FAD630500724A1F /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		88F961111FAD634300724A1F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		88F961131FAD6EEA00724A1F /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
+		88F961FF1FAD8D9700724A1F /* TopBarHeaderItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopBarHeaderItemView.swift; path = PASSCITY/UI/Audioguides/Views/TopBarHeaderItemView.swift; sourceTree = SOURCE_ROOT; };
+		88F962021FAD8DF100724A1F /* AudioguideTopBarHeaderItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioguideTopBarHeaderItemView.swift; sourceTree = "<group>"; };
 		88F9CC7C1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableAnnouncesViewController.swift; sourceTree = "<group>"; };
 		88F9CC7F1F86E501002C4EF9 /* AvailableProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductsViewController.swift; sourceTree = "<group>"; };
 		88F9CC821F86E6BA002C4EF9 /* PasscityWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscityWebViewController.swift; sourceTree = "<group>"; };
@@ -432,6 +452,7 @@
 				88B104AD1F86D9A100EDD98E /* PassCityButtonsRightNavigationItem.swift */,
 				88B104AB1F86D82D00EDD98E /* PassCityLogoLeftNavigationItemView.swift */,
 				880903DA1F7D621600158EC3 /* PassCityNavigationController.swift */,
+				88F961111FAD634300724A1F /* AvatarView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -570,7 +591,7 @@
 			isa = PBXGroup;
 			children = (
 				88202CB11F9833B600322323 /* Cells */,
-				88202CC91F9BED0B00322323 /* Views */,
+				88F961FC1FAD8CDE00724A1F /* Views */,
 				88202CAF1F981F9900322323 /* AudioguidesListViewController.swift */,
 			);
 			path = Audioguides;
@@ -592,13 +613,6 @@
 			path = IZI.travel;
 			sourceTree = "<group>";
 		};
-		88202CC91F9BED0B00322323 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		88202CCA1F9BED1900322323 /* AudioguideCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +626,7 @@
 		88202CCD1F9BED4D00322323 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88F961FF1FAD8D9700724A1F /* TopBarHeaderItemView.swift */,
 				88202CD21F9D095600322323 /* AudioguideCardHeaderView.xib */,
 				88F65BD11FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift */,
 				88F65BD61FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift */,
@@ -888,22 +903,10 @@
 		88C5D7BC1FAA971400F20238 /* EventExpo */ = {
 			isa = PBXGroup;
 			children = (
-				88C5D7BF1FAA97CA00F20238 /* View */,
+				88D142681FAD234200C54ECF /* VIews */,
 				88C5D7BA1FAA916D00F20238 /* EvetExpoViewController.swift */,
 			);
 			path = EventExpo;
-			sourceTree = "<group>";
-		};
-		88C5D7BF1FAA97CA00F20238 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				88C5D7C01FAA993600F20238 /* EventExpoHeaderView.swift */,
-				88D142451FAD007600C54ECF /* AvailableWeekView.swift */,
-				88C5D7C21FAA9B0F00F20238 /* EventExpoHeaderView.xib */,
-				88D1424A1FAD11E700C54ECF /* ScheduleTableViewCell.swift */,
-				88D1424C1FAD234200C54ECF /* AddressCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		88D1425A1FAD234200C54ECF /* EventExpo */ = {
@@ -921,6 +924,25 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		88D142681FAD234200C54ECF /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				88D1426D1FAD234200C54ECF /* AddressCell.swift */,
+				88D1426C1FAD234200C54ECF /* AvailableWeekView.swift */,
+				88D1426A1FAD234200C54ECF /* EventExpoHeaderView.swift */,
+				88D1426B1FAD234200C54ECF /* EventExpoHeaderView.xib */,
+				88D142691FAD234200C54ECF /* ScheduleTableViewCell.swift */,
+				88D1426E1FAD3E2600C54ECF /* MapCell.swift */,
+				88F961071FAD50E000724A1F /* InstructionCell.swift */,
+				88F961091FAD510100724A1F /* InstructionCell.xib */,
+				88F9610B1FAD59D200724A1F /* OverallRatingCell.swift */,
+				88F9610D1FAD59F600724A1F /* OverallRatingCell.xib */,
+				88F9610F1FAD630500724A1F /* ReviewTableViewCell.swift */,
+				88F961131FAD6EEA00724A1F /* ReviewTableViewCell.xib */,
+			);
+			path = VIews;
 			sourceTree = "<group>";
 		};
 		88E12A781F7E042C00EB23ED /* Supporting */ = {
@@ -943,6 +965,23 @@
 				88F65BD41FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		88F961FC1FAD8CDE00724A1F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88F962011FAD8DF100724A1F /* Views */,
+			);
+			name = Views;
+			path = PASSCITY/UI/Audioguides/Views;
+			sourceTree = SOURCE_ROOT;
+		};
+		88F962011FAD8DF100724A1F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88F962021FAD8DF100724A1F /* AudioguideTopBarHeaderItemView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		88F9CC7B1F86E4AE002C4EF9 /* Announces */ = {
@@ -1052,8 +1091,9 @@
 				887B9E941F950DBB004AC6F1 /* ResultFeedItemTableViewCell.xib in Resources */,
 				88255DC91F87B5180082B8DA /* AvailableAnnouncesTableViewCell.xib in Resources */,
 				888C40421F7C4CC300CAF1EF /* LaunchScreen.storyboard in Resources */,
-				88C5D7C31FAA9B0F00F20238 /* EventExpoHeaderView.xib in Resources */,
+				88D142741FAD479A00C54ECF /* EventExpoHeaderView.xib in Resources */,
 				8815E0CC1FA2861000614FA9 /* PlayerWidgetView.xib in Resources */,
+				88F9610E1FAD59F600724A1F /* OverallRatingCell.xib in Resources */,
 				88FD36041F7F236100584BE0 /* CodeConfirmViewController.storyboard in Resources */,
 				888C403F1F7C4CC300CAF1EF /* Assets.xcassets in Resources */,
 				881179371F9285B4008CF07B /* CardHeaderView.xib in Resources */,
@@ -1064,7 +1104,9 @@
 				88DCB9CC1F7D83D50058DBF6 /* RootViewController.storyboard in Resources */,
 				8858B1C71FA2F40000290A17 /* FiltersCalendarCell.xib in Resources */,
 				88255DC41F878E060082B8DA /* PasscityMapCardView.xib in Resources */,
+				88F9610A1FAD510100724A1F /* InstructionCell.xib in Resources */,
 				88BBE6C01F915F0200EFD94A /* ProductCardHeaderView.xib in Resources */,
+				88F961141FAD6EEA00724A1F /* ReviewTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1176,11 +1218,9 @@
 				880903D41F7D592200158EC3 /* UIView+nibInstance.swift in Sources */,
 				88FD35FF1F7F19D100584BE0 /* BaseView.swift in Sources */,
 				880903E71F7D7B5500158EC3 /* NSLayoutConstraint+observeKeyboardChange.swift in Sources */,
-				88D1424B1FAD11E700C54ECF /* ScheduleTableViewCell.swift in Sources */,
 				8817EB8F1F8730340026553D /* DateTimeTransform.swift in Sources */,
 				88B104B71F86E08000EDD98E /* ShopViewController.swift in Sources */,
 				8817EB881F871B5A0026553D /* AvailableMapViewPresenter.swift in Sources */,
-				88E12A801F7E3D9D00EB23ED /* Coordinate.swift in Sources */,
 				880903DE1F7D636F00158EC3 /* MainTabBarController.swift in Sources */,
 				88202CB31F9835B500322323 /* AudioguidesListTableViewCell.swift in Sources */,
 				880903BB1F7D47F400158EC3 /* DataError.swift in Sources */,
@@ -1199,14 +1239,17 @@
 				88B104A81F86D40600EDD98E /* AvailableMapViewController.swift in Sources */,
 				88858E421F7F3160002D2B75 /* Int+getRussianEnumEndings.swift in Sources */,
 				889866461F8C52360065FF57 /* iOSDevCenter+GIF.swift in Sources */,
-				88D142461FAD007600C54ECF /* AvailableWeekView.swift in Sources */,
 				88D142491FAD0CEE00C54ECF /* WeekDates.swift in Sources */,
 				88FD36021F7F229200584BE0 /* CodeConfirmViewController.swift in Sources */,
 				88F9CC801F86E501002C4EF9 /* AvailableProductsViewController.swift in Sources */,
 				88255DC01F877CB70082B8DA /* MarkerView.swift in Sources */,
 				88B1049D1F86A56000EDD98E /* Settings.swift in Sources */,
 				887B9E8F1F936B30004AC6F1 /* FeedItemsListViewController.swift in Sources */,
+				88D142701FAD477600C54ECF /* EventExpoHeaderView.swift in Sources */,
 				880903B31F7D469300158EC3 /* NetworkActivityIndicator.swift in Sources */,
+				88F961121FAD634300724A1F /* AvatarView.swift in Sources */,
+				88D142731FAD478C00C54ECF /* ScheduleTableViewCell.swift in Sources */,
+				88F9610C1FAD59D200724A1F /* OverallRatingCell.swift in Sources */,
 				887E34F61F93288F00DE4A01 /* SliderTableViewCell.swift in Sources */,
 				88F9CC8E1F86F987002C4EF9 /* Category.swift in Sources */,
 				888C403A1F7C4CC300CAF1EF /* ViewController.swift in Sources */,
@@ -1224,6 +1267,7 @@
 				880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */,
 				88B104AC1F86D82D00EDD98E /* PassCityLogoLeftNavigationItemView.swift in Sources */,
 				88C5D7BB1FAA916D00F20238 /* EvetExpoViewController.swift in Sources */,
+				88D1426F1FAD3E2600C54ECF /* MapCell.swift in Sources */,
 				887B9E921F950DA9004AC6F1 /* ResultFeedItemTableViewCell.swift in Sources */,
 				880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */,
 				886714221F92EBAA00F10666 /* CardPromoCodeView.swift in Sources */,
@@ -1242,7 +1286,9 @@
 				8847E5261F7ED33E009D58C7 /* AuthenticationTarget.swift in Sources */,
 				88A3D6C21F8BEF6E0063375F /* IdTransform.swift in Sources */,
 				888C40381F7C4CC300CAF1EF /* AppDelegate.swift in Sources */,
+				88F962001FAD8D9800724A1F /* TopBarHeaderItemView.swift in Sources */,
 				88B104A21F86CB9C00EDD98E /* AvailableViewController.swift in Sources */,
+				88F962031FAD8DF200724A1F /* AudioguideTopBarHeaderItemView.swift in Sources */,
 				8869B0A11F87D1D700F5A4E4 /* AvailableProductsViewPresenter.swift in Sources */,
 				8851BE441F9176580032C177 /* ProductCardTableSectionHeaderView.swift in Sources */,
 				8817EB8A1F871BF90026553D /* ItemsService.swift in Sources */,
@@ -1250,6 +1296,7 @@
 				88C349721F7DAB7F0003C9D4 /* PersonalInfoViewController.swift in Sources */,
 				880903E51F7D75EE00158EC3 /* MaskedInput.swift in Sources */,
 				88202CCC1F9BED2D00322323 /* AudioguideCardViewController.swift in Sources */,
+				88D142711FAD477F00C54ECF /* AvailableWeekView.swift in Sources */,
 				880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */,
 				881179341F91917D008CF07B /* ProductCardConditionsTableViewCell.swift in Sources */,
 				880903CA1F7D4D9B00158EC3 /* UIView+IBInspectable.swift in Sources */,
@@ -1257,8 +1304,8 @@
 				883665701F87C8EF00CEB7D4 /* AvailableProductsTableViewCell.swift in Sources */,
 				88BBE6BE1F915EE700EFD94A /* ProductCardHeaderView.swift in Sources */,
 				88202CCF1F9BF0B000322323 /* TimeInterval+toString.swift in Sources */,
+				88D142721FAD478100C54ECF /* AddressCell.swift in Sources */,
 				88F65BD51FA2B92400D17159 /* AudioguideCardItemTableViewCell.swift in Sources */,
-				88D1424D1FAD234200C54ECF /* AddressCell.swift in Sources */,
 				88B104AA1F86D7E500EDD98E /* UIViewController+passcityExtensions.swift in Sources */,
 				887B16E41F873396006A0BF9 /* FeedItemsFilter.swift in Sources */,
 				8858B1C51FA2F3EF00290A17 /* FiltersCalendarCell.swift in Sources */,
@@ -1267,6 +1314,7 @@
 				88F65BD71FA2C0C800D17159 /* AudioguideCardPlayingItemMarkerView.swift in Sources */,
 				880903D61F7D594800158EC3 /* UITableView+PASSCITY.swift in Sources */,
 				88202CB01F981F9900322323 /* AudioguidesListViewController.swift in Sources */,
+				88F961101FAD630500724A1F /* ReviewTableViewCell.swift in Sources */,
 				88255DCB1F87B8BA0082B8DA /* AvailableAnnouncesTableViewCell.swift in Sources */,
 				88F65BD21FA2B89A00D17159 /* AudioguideCardItemsListTableView.swift in Sources */,
 				887B16EC1F873A9A006A0BF9 /* AvailableItemsTarget.swift in Sources */,
@@ -1275,14 +1323,15 @@
 				88255DC61F87B4060082B8DA /* AvailableAnnouncesViewPresenter.swift in Sources */,
 				889866441F8C51590065FF57 /* LoaderView.swift in Sources */,
 				8851BE471F9181C10032C177 /* ProductCardItemTableViewCell.swift in Sources */,
-				88C5D7C11FAA993600F20238 /* EventExpoHeaderView.swift in Sources */,
 				885D2DD71F8C8D1F001D2A91 /* MenuOptionItem.swift in Sources */,
 				88BBE6BB1F90F40C00EFD94A /* ProductCardViewController.swift in Sources */,
 				88F9CC7D1F86E4C7002C4EF9 /* AvailableAnnouncesViewController.swift in Sources */,
 				88E12A7E1F7E386800EB23ED /* LoginData.swift in Sources */,
 				887B16EA1F8738C1006A0BF9 /* Pagination.swift in Sources */,
+				88F961081FAD50E000724A1F /* InstructionCell.swift in Sources */,
 				88202CC81F9B8D0900322323 /* MTGObject.swift in Sources */,
 				880903B81F7D470800158EC3 /* JSONAPISerializedDataObject.swift in Sources */,
+				88D142751FAD484F00C54ECF /* Coordinate.swift in Sources */,
 				887E34F81F932A4A00DE4A01 /* SettingsSelectableCell.swift in Sources */,
 				8847E5231F7EB1D8009D58C7 /* LocationService.swift in Sources */,
 				88202CB51F9A922300322323 /* AudioguidesService.swift in Sources */,
