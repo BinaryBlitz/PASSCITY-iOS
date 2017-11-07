@@ -51,7 +51,7 @@ enum EventHeaderItem: Int {
 
 class AvailableWeekView: UIView {
   let timeLabel = UILabel()
-
+  let expandButton = UIButton()
   var weekDatesiews: [DayWeekView] {
     return weekDatesStackView.arrangedSubviews.map { $0 as! DayWeekView }
   }
@@ -65,30 +65,36 @@ class AvailableWeekView: UIView {
   }
 
   func setup() {
-    weekDatesStackView.alignment = .trailing
+    weekDatesStackView.axis = .horizontal
+    weekDatesStackView.alignment = .center
     weekDatesStackView.spacing = 4
     WeekDays.allValues.forEach { day in
       let view = DayWeekView(color: day.color, text: day.shortName)
       view <- Size(22)
+	  view.cornerRadius = 11
       weekDatesStackView.addArrangedSubview(view)
     }
 
     addSubview(timeLabel)
-
+	timeLabel.font  = UIFont.systemFont(ofSize: 16)
     timeLabel <- [
-      Left(30),
-      CenterY()
+      Left(0),
+      Top(3),
+      Bottom(3)
     ]
     weekDatesStackView.backgroundColor = .clear
     addSubview(weekDatesStackView)
     weekDatesStackView <- [
-      Left(>=30),
+      Left(20).to(timeLabel),
       Right(30),
+      Height(30),
       CenterY()
     ]
   }
 
   func configure(time: String, days: [Int]) {
+    timeLabel.text = time
+
     days.enumerated().forEach { [weak self] offset, value in
       self?.weekDatesiews[offset].isHidden = value == -1
     }
@@ -105,6 +111,7 @@ class DayWeekView: UIView {
   init(color: UIColor = .frogGreen, text: String) {
     super.init(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
     label.text = text
+	label.font = UIFont.systemFont(ofSize: 10, weight: UIFontWeightHeavy)
     backgroundColor = color
     addSubview(label)
     label <- Center()

@@ -61,7 +61,10 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
 
   override func awakeFromNib() {
     super.awakeFromNib()
-    icons.forEach { $0.image = $0.image?.withRenderingMode(.alwaysTemplate) }
+    icons.forEach { icon in
+      icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+      icon.tintColor = UIColor.white
+    }
     descriptionButton.disabledAlpha = 0
     bottomConstraint?.isActive = false
   }

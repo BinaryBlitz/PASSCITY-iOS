@@ -18,6 +18,10 @@ class OverallRatingCell: UITableViewCell {
   @IBOutlet weak var interestingRatingView: FloatRatingView!
   @IBOutlet weak var comfortableRatingView: FloatRatingView!
   
+  @IBOutlet weak var interestingCountLabel: UILabel!
+
+  @IBOutlet weak var comfortableCountLabel: UILabel!
+  
   var reviewHandler: (() -> Void)? = nil
 
   @IBAction func reviewButtonAction(_ sender: Any) {
@@ -25,8 +29,14 @@ class OverallRatingCell: UITableViewCell {
   }
 
   func configure(reviewsState: ReviewsState) {
-    comfortableAverageLabel.text = "\(reviewsState.qty)"
-    interestingAverageLabel.text = "\(reviewsState.qty)"
+    let formatter = NumberFormatter()
+    formatter.maximumFractionDigits = 2
+    comfortableAverageLabel.text = "\(formatter.string(from: NSNumber(value: reviewsState.rating))!)"
+    interestingAverageLabel.text = "\(formatter.string(from: NSNumber(value: reviewsState.rating))!)"
+
+    interestingCountLabel.text = "\(reviewsState.qty) оценок"
+    comfortableCountLabel.text = "\(reviewsState.qty) оценок"
+    interestingRatingView.rating = reviewsState.rating
     interestingRatingView.rating = reviewsState.rating
     comfortableRatingView.rating = reviewsState.rating
 

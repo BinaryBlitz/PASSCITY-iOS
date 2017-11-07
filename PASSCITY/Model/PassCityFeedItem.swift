@@ -190,12 +190,11 @@ class Review: Mappable {
 
   func mapping(map: Map) {
     id <- map["id"]
-    user <- map["attributes.user"]
-    date <- (map["attributes.date"], DateTransform())
-    text <- map["attributes.text"]
-    interesting <- (map["attributes.interesting"], IdTransform())
-    convenient <- (map["attributes.convenient"], IdTransform())
-    user <- map["attributes.user"]
+    user <- map["user"]
+    date <- (map["date"], DateTransform())
+    text <- map["text"]
+    interesting <- (map["interesting"], IdTransform())
+    convenient <- (map["convenient"], IdTransform())
     imgs <- (map["links.imgs"], URLTransform())
     
   }

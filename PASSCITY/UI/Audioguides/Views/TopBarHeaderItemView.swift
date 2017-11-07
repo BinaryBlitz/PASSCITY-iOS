@@ -1,5 +1,5 @@
 //
-//  TopBarHeaderItemView.swift
+//  GoBarHeaderItemView.swift
 //  PASSCITY
 //
 //  Created by Алексей on 05.10.17.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import EasyPeasy
 
-class TopBarHeaderItemView: UIView {
+class GoBarHeaderItemView: UIView {
   private let lineView = UIView()
   private let titleButton = UIButton(type: .system)
 

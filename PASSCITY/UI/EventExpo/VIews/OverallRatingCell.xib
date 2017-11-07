@@ -47,11 +47,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="9" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szx-AW-f9n">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szx-AW-f9n">
                                 <rect key="frame" x="57.5" y="27" width="26" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="26" id="GOt-2V-aaE"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -172,18 +169,24 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="2wE-Hz-EAa" firstAttribute="top" secondItem="BPw-Dg-bdZ" secondAttribute="topMargin" constant="20" id="0P5-pT-uNF"/>
+                    <constraint firstItem="2wE-Hz-EAa" firstAttribute="bottom" secondItem="iGV-0o-XRb" secondAttribute="bottom" id="3SV-HP-r4T"/>
                     <constraint firstItem="qLl-b5-GwW" firstAttribute="top" secondItem="iGV-0o-XRb" secondAttribute="bottom" constant="20" id="80v-64-XYa"/>
                     <constraint firstItem="qLl-b5-GwW" firstAttribute="centerX" secondItem="BPw-Dg-bdZ" secondAttribute="centerX" id="B1D-rP-5Ab"/>
+                    <constraint firstAttribute="bottom" secondItem="qLl-b5-GwW" secondAttribute="bottom" constant="24" id="HSh-aO-Mts"/>
                     <constraint firstItem="qLl-b5-GwW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iGV-0o-XRb" secondAttribute="bottom" constant="20" id="QXc-5e-z02"/>
                     <constraint firstItem="iGV-0o-XRb" firstAttribute="leading" secondItem="BPw-Dg-bdZ" secondAttribute="leadingMargin" constant="40" id="TfU-hK-MS6"/>
                     <constraint firstItem="iGV-0o-XRb" firstAttribute="top" secondItem="BPw-Dg-bdZ" secondAttribute="topMargin" constant="20" id="Xwx-Mc-cBx"/>
+                    <constraint firstItem="iGV-0o-XRb" firstAttribute="centerY" secondItem="2wE-Hz-EAa" secondAttribute="centerY" id="mBH-QP-HHL"/>
+                    <constraint firstItem="qLl-b5-GwW" firstAttribute="top" secondItem="2wE-Hz-EAa" secondAttribute="bottom" constant="20" id="qm3-IC-4mz"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2wE-Hz-EAa" secondAttribute="trailing" constant="40" id="x8s-D2-OOk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="comfortableAverageLabel" destination="81l-ho-zHB" id="Yu7-aQ-0Ip"/>
+                <outlet property="comfortableCountLabel" destination="bv3-Z7-V77" id="mTh-Xm-37o"/>
                 <outlet property="comfortableRatingView" destination="PfI-ls-Du3" id="4hA-R2-JxZ"/>
-                <outlet property="interestingAverageLabel" destination="Szx-AW-f9n" id="MVZ-Wg-jp3"/>
+                <outlet property="interestingAverageLabel" destination="Szx-AW-f9n" id="xBi-be-zY3"/>
+                <outlet property="interestingCountLabel" destination="IVW-q7-bGd" id="J6F-kV-wfv"/>
                 <outlet property="interestingRatingView" destination="nbw-ic-jbb" id="cAu-CH-lp6"/>
                 <outlet property="leftReviewButton" destination="qLl-b5-GwW" id="39z-df-QMq"/>
             </connections>

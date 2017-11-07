@@ -94,6 +94,8 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.separatorStyle = .none
+    edgesForExtendedLayout = UIRectEdge()
+    automaticallyAdjustsScrollViewInsets = false
     presenter = AvailableAnnouncesViewPresenter(view: self)
     AvailableAnnouncesTableViewCell.registerNib(in: tableView)
     presenter?.fetchAnnounces()
@@ -155,6 +157,9 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    let viewController = EventExpoViewController()
+    viewController.item = items[indexPath.row]
+    self.navigationController?.pushViewController(viewController, animated: true)
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

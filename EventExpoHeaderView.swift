@@ -36,14 +36,36 @@ class EventExpoHeaderView: UIView {
   @IBAction func shareButtonAction(_ sender: Any) {
   }
   @IBOutlet weak var footerButtonView: UIView!
+
+  var tableView: UITableView? = nil
+
+  var isActive: Bool = false {
+    didSet {
+      
+      tableView?.beginUpdates()
+      tableView?.endUpdates()
+    }
+  }
   
   @IBAction func footerButtonTapped(_ sender: Any) {
+    isActive = !isActive
   }
 
-  var headerItemViews: [TopBarHeaderItemView] = []
-
-  var screenType: EventExpoScreenType = .event
   
+  @IBOutlet var dateTimePlaceIcons: [UIImageView]!
+  
+  var headerItemViews: [GoBarHeaderItemView] = []
+
+  var screenType: PassCityFeedItemType = .event {
+    didSet {
+      setup()
+    }
+  }
+
+  override func awakeFromNib() {
+    eventBeforeView.isHidden = true
+  }
+
   var currentEventItem: EventHeaderItem = .location {
     didSet {
       eventItemChanged?(currentEventItem)
@@ -62,34 +84,34 @@ class EventExpoHeaderView: UIView {
   func configure(item: PassCityFeedItem) {
     titleLabel.text = item.title
     descriptionLabel.text = item.description
+    eventBeforeDateLabel.text = item.schedule.isEmpty ? item.dates : item.schedule
+    dateLabel.text = item.dates
+
   }
 
-  func setup(_ screenType: EventExpoScreenType) {
-    self.screenType = screenType
+  func setup() {
     itemsStackView.arrangedSubviews.forEach { subview in
       itemsStackView.removeArrangedSubview(subview)
       subview.removeFromSuperview()
     }
-   switch screenType {
+   switch  screenType {
     case .event:
       EventHeaderItem.allValues.forEach { item in
-        let view = TopBarHeaderItemView(title: item.name)
+        let view = GoBarHeaderItemView(title: item.name)
         view.handler = { [weak self] in
           self?.currentEventItem = item
         }
 
-        itemsStackView.addArrangedSubview(view)
         headerItemViews.append(view)
         itemsStackView.addArrangedSubview(view)
       }
     case .expo:
       ExpoHeaderItem.allValues.forEach { item in
-        let view = TopBarHeaderItemView(title: item.name)
+        let view = GoBarHeaderItemView(title: item.name)
         view.handler = { [weak self] in
           self?.currentExpoItem = item
         }
 
-        itemsStackView.addArrangedSubview(view)
         headerItemViews.append(view)
         itemsStackView.addArrangedSubview(view)
 

@@ -45,7 +45,7 @@ private let avatarColors: [UIColor] = [
   }
 
   func setBgColor(character: Character?) {
-    let number = Int(character.asciiValue ?? 0)
+    let number = Int(character?.asciiValue ?? 0)
     let index = number % avatarColors.count
     backgroundColor = avatarColors[index]
   }
@@ -99,7 +99,7 @@ private let avatarColors: [UIColor] = [
     } else {
       var nameText = ""
       let firstNameChar = user?.characters.first
-      let surnameChar = user?.components(separatedBy: " ").element(1)?.characters.first
+      let surnameChar = user?.components(separatedBy: " ").last?.characters.first
 
       if let firstNameChar = firstNameChar {
         nameText += "\(firstNameChar)".uppercased()

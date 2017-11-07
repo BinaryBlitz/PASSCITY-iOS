@@ -19,22 +19,31 @@ enum EventExpoScreenType {
 class EventExpoViewController: UITableViewController, TransparentViewController, LightContentViewController {
   let header = EventExpoHeaderView.nibInstance()!
 
-  lazy var mapCell = { MapCell() }()
-  lazy var scheduleCell = { ScheduleTableViewCell() }()
-  lazy var addressCell = { AddressCell() }()
+  lazy var mapCell = MapCell()
+  lazy var scheduleCell = ScheduleTableViewCell()
+  lazy var addressCell = AddressCell()
 
   var addressCells: [UITableViewCell] {
     return [scheduleCell, addressCell, mapCell]
   }
-  lazy var overallRatingCell = { OverallRatingCell() }()
-  lazy var instructionCell = { InstructionCell() }()
+  lazy var overallRatingCell = OverallRatingCell.nibInstance()!
+  lazy var instructionCell = InstructionCell.nibInstance()!
 
   var loaderFooterView: LoaderView!
 
+  var expandedAddressCell: Bool = false {
+    didSet {
+      scheduleCell.isExpanded = true
+      tableView.beginUpdates()
+      tableView.endUpdates()
+    }
+  }
 
   var item: PassCityFeedItem! {
     didSet {
+      itemType = item.type
       header.configure(item: item)
+		scheduleCell.confure(item)
     }
   }
 
@@ -46,7 +55,7 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
     }
   }
 
-  var screenType: EventExpoScreenType! {
+  var itemType: PassCityFeedItemType! {
     get {
       return header.screenType
     }
@@ -55,7 +64,7 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
     }
   }
 
-  var headerExpoItem: ExpoHeaderItem! {
+  var headerExpoItem: ExpoHeaderItem = .address {
     didSet {
       tableView.reloadData()
     }
@@ -68,12 +77,30 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
   }
 
   func reconfigureStaticCells() {
-    scheduleCell.configure(item)
+    scheduleCell.confure(item)
     addressCell.configure(address: item.addressFull, contacts: item.contacts)
     instructionCell.configure(instructions: item.instruction)
+    if let state = item.reviewsState {
+      overallRatingCell.configure(reviewsState: state)
+
+    }
+    scheduleCell.isExpandedHanlder = { [weak self] in
+      self?.expandedAddressCell = false
+    }
+	if let coordinates = item.coordinates, let category = item.categoryObject {
+		mapCell.configure(coordinates: coordinates, category: category)
+	}
+    tableView.reloadData()
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tabBarController?.tabBar.isHidden = true
+  }
+
+
   override func viewDidLoad() {
+    loaderFooterView = LoaderView(size: 64, frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 80))
     ItemsService.instance.fetchFullItem(item) { [weak self] result in
       switch result {
       case .success(let feedItem):
@@ -83,17 +110,17 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
       }
     }
     ResultFeedItemTableViewCell.register(in: tableView)
-    edgesForExtendedLayout = UIRectEdge()
     automaticallyAdjustsScrollViewInsets = false
+    extendedLayoutIncludesOpaqueBars = true
+    MainTabBarController.instance.tabBarHidden = true
     tableView.backgroundColor = .white
     tableView.backgroundView = UIView()
-    //tableView.tableFooterView = UIView()
+    tableView.tableHeaderView = header
     ResultFeedItemTableViewCell.registerNib(in: tableView)
     tableView.separatorStyle = .singleLine
     ReviewTableViewCell.registerNib(in: tableView)
-    tableView.tableFooterView = loaderFooterView
-    tableView.separatorInset = UIEdgeInsets(top: 0, left: 90, bottom: 0, right: 0)
-
+    tableView.tableFooterView = nil
+    tableView.tableFooterView?.isHidden = true
     header.expoItemChanged = { [weak self] item in
       self?.headerExpoItem = item
     }
@@ -107,16 +134,9 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    switch screenType! {
-    case .event:
-      switch headerEventItem! {
-      case .location:
-        return item.expos.count
-      case .ratings:
-        return 1 + (item.reviewsState?.data.count ?? 0)
-      }
+    switch itemType! {
     case .expo:
-      switch  headerExpoItem! {
+      switch headerExpoItem {
       case .address:
         return addressCells.count
       case .announces:
@@ -126,11 +146,20 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
       case .ratings:
         return 1 + (item.reviewsState?.data.count ?? 0)
       }
+    case .event:
+      switch  headerEventItem {
+
+      case .location:
+        return item.expos.count
+      case .ratings:
+        return 1 + (item.reviewsState?.data.count ?? 0)
+
+      }
     }
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    switch screenType! {
+    switch itemType! {
     case .event:
       switch headerEventItem {
       case .location:
@@ -143,19 +172,19 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
           return overallRatingCell
         } else {
           guard let rating = item.reviewsState?.data[indexPath.row - 1 ] else { return UITableViewCell() }
-          let cell = ReviewTableViewCell()
+          let cell = ReviewTableViewCell.instance(tableView, indexPath)!
           cell.configure(review: rating)
           return cell
 
         }
       }
     case .expo:
-      switch  headerExpoItem! {
+      switch  headerExpoItem {
       case .address:
         return addressCells[indexPath.row]
       case .announces:
         let event = item.events[indexPath.row]
-        let cell = ResultFeedItemTableViewCell()
+        let cell = ResultFeedItemTableViewCell.instance(tableView, indexPath)!
         cell.configure(event)
       case .instructions:
         return instructionCell
@@ -164,12 +193,86 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
           return overallRatingCell
         } else {
           guard let rating = item.reviewsState?.data[indexPath.row - 1] else { return UITableViewCell() }
-          let cell = ReviewTableViewCell()
+          let cell = ReviewTableViewCell.instance(tableView, indexPath)!
           cell.configure(review: rating)
           return cell
 
         }
       }
     }
+    return UITableViewCell()
   }
+
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    switch itemType! {
+    case .event:
+      switch headerEventItem {
+      case .location:
+        return 90
+      case .ratings:
+        if indexPath.row == 0 {
+          return 210
+        } else {
+          return 200
+        }
+      }
+    case .expo:
+      switch  headerExpoItem {
+      case .address:
+        switch indexPath.row {
+        case addressCells.index(of: scheduleCell)!:
+          return UITableViewAutomaticDimension
+        case addressCells.index(of: addressCell)!:
+          return 124
+        case addressCells.index(of: mapCell)!:
+          return 200
+        default:
+          return UITableViewAutomaticDimension
+      }
+      case .instructions:
+        return UITableViewAutomaticDimension
+      case .announces:
+        return 90
+      case .ratings:
+        if indexPath.row == 0 {
+          return 220
+        } else {
+          return 200
+        }
+      }
+    }
+  }
+
+  override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    switch itemType! {
+    case .event:
+      switch headerEventItem {
+      case .location:
+        return 90
+      case .ratings:
+        return 220
+      }
+    case .expo:
+      switch  headerExpoItem {
+
+      case .address:
+        switch indexPath.row {
+        case addressCells.index(of: scheduleCell)!:
+          return scheduleCell.isExpanded ? 200 : 87
+        case addressCells.index(of: addressCell)!:
+          return 124
+        default:
+          return 0
+        }
+      case .instructions:
+        return UITableViewAutomaticDimension
+      case .announces:
+        return 90
+      case .ratings:
+        return 220
+      }
+    }
+
+  }
+
 }

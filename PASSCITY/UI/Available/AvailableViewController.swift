@@ -31,7 +31,7 @@ enum AvailableHeaderItem: Int {
 
 class AvailableViewController: UIViewController {
   let headerView = UIStackView()
-  var headerItemViews: [TopBarHeaderItemView] = []
+  var headerItemViews: [GoBarHeaderItemView] = []
   let containerView = UIView()
   let mapViewController = AvailableMapViewController()
   let productsViewController = AvailableProductsViewController()
@@ -132,7 +132,7 @@ class AvailableViewController: UIViewController {
     headerView.distribution = .fillEqually
     
     AvailableHeaderItem.allItems.forEach { item in
-      let view = TopBarHeaderItemView(title: item.title)
+      let view = GoBarHeaderItemView(title: item.title)
       view.handler = { [weak self] in
         self?.currentItem = item
       }

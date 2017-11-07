@@ -21,6 +21,7 @@ class Category: Mappable, Hashable {
 
   var conditions: [String] = []
   var objects: [PassCityFeedItem] = []
+  
 
   var fullObject: Category? {
     let categories = ProfileService.instance.currentSettings?.allCategories

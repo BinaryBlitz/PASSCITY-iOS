@@ -41,6 +41,7 @@ class PassCityNavigationController: UINavigationController, UINavigationControll
 
     view.backgroundColor = viewController is TransparentViewController ? .clear : .white
     navigationBar.backgroundColor = viewController is TransparentViewController ? .clear : .white
+    navigationBar.isTranslucent = viewController is TransparentViewController
     navigationBar.barStyle = viewController is TransparentViewController ? UIBarStyle.blackOpaque : UIBarStyle.default
     setNeedsStatusBarAppearanceUpdate()
   }

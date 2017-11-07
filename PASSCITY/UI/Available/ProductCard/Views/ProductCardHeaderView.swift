@@ -38,7 +38,7 @@ class ProductCardHeaderView: UIView {
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var itemsView: UIStackView!
 
-  var headerItemViews: [TopBarHeaderItemView] = []
+  var headerItemViews: [GoBarHeaderItemView] = []
 
   var itemChangedHandler: ((ProductCardHeaderItem) -> Void)? = nil
 
@@ -57,7 +57,7 @@ class ProductCardHeaderView: UIView {
 
     iconViews.forEach { $0.image = $0.image?.withRenderingMode(.alwaysTemplate) }
     ProductCardHeaderItem.allItems.forEach { item in
-      let view = TopBarHeaderItemView(title: item.title)
+      let view = GoBarHeaderItemView(title: item.title)
       view.handler = { [weak self] in
         self?.currentItem = item
       }

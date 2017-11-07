@@ -75,8 +75,9 @@ class AddressCell: UITableViewCell {
   }
 
   func setup() {
+    addressesStackView.distribution = .fillEqually
     addressesStackView.axis = .vertical
-    addressesStackView.spacing = 9
+    addressesStackView.spacing = 10
     for item in AddressItem.allValues {
       let view = DateItemView(item)
       view.handler = { [weak self] in
@@ -84,6 +85,8 @@ class AddressCell: UITableViewCell {
       }
       addressesStackView.addArrangedSubview(view)
     }
+
+    addSubview(addressesStackView)
 
     addressesStackView <- [
       Top(20),
@@ -95,13 +98,11 @@ class AddressCell: UITableViewCell {
 
   func configure(address: Address?, contacts: Contacts?) {
     guard let address = address, let contacts = contacts else { return }
-    var items = self.items
 
     items[AddressItem.location.rawValue].text = address.city + ", " + address.street
     items[AddressItem.subway.rawValue].text = address.metro
     items[AddressItem.phone.rawValue].text = contacts.phone
     items[AddressItem.phone.rawValue].text = contacts.web?.path ?? ""
-    self.items = items
   }
 }
 
@@ -127,19 +128,18 @@ class DateItemView: UIView {
     addSubview(titleLabel)
     iconView.image = item.image
     titleLabel.text = item.emptyTitle
-
+    titleLabel.font = UIFont.systemFont(ofSize: 13)
     titleLabel.numberOfLines = 0
 
     iconView <- [
-      Top().to(iconView).when { self.titleLabel.frame.height > 14 },
-      CenterY().to(iconView).when { self.titleLabel.frame.height <= 14 },
-      Left().to(iconView)
+      CenterY().to(titleLabel),
+      Left()
     ]
 
     titleLabel <- [
       Top(),
       CenterY(),
-      Left(),
+      Left(20).to(iconView),
       Bottom()
     ]
 
