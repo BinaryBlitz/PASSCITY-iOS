@@ -16,7 +16,7 @@ enum EventExpoScreenType {
   case expo
 }
 
-class EventExpoViewController: UITableViewController, TransparentViewController, LightContentViewController {
+class EventExpoViewController: UITableViewController, TransparentViewController {
   let header = EventExpoHeaderView.nibInstance()!
 
   lazy var mapCell = MapCell()
@@ -42,8 +42,7 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
   var item: PassCityFeedItem! {
     didSet {
       itemType = item.type
-      header.configure(item: item)
-		scheduleCell.confure(item)
+	  reconfigureStaticCells()
     }
   }
 
@@ -61,6 +60,7 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
     }
     set {
       header.screenType = newValue
+	  reconfigureStaticCells()
     }
   }
 
@@ -77,15 +77,28 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
   }
 
   func reconfigureStaticCells() {
+	header.configure(item: item)
+	scheduleCell.confure(item)
     scheduleCell.confure(item)
+	header.tableView = tableView
+
+	header.isActiveHandler = { [weak self] isActive in
+		guard let `self` = `self` else { return }
+		self.header.configure(item: self.item)
+		self.tableView?.setTableHeaderView(headerView: self.header)
+		self.view.layoutIfNeeded()
+		self.view.updateConstraints()
+		self.tableView?.reloadData()
+		//self.updateLayout()
+	}
     addressCell.configure(address: item.addressFull, contacts: item.contacts)
     instructionCell.configure(instructions: item.instruction)
     if let state = item.reviewsState {
       overallRatingCell.configure(reviewsState: state)
-
     }
-    scheduleCell.isExpandedHanlder = { [weak self] in
-      self?.expandedAddressCell = false
+    scheduleCell.isExpandedHanlder = { [weak self] _ in
+		self?.tableView.reloadData()
+
     }
 	if let coordinates = item.coordinates, let category = item.categoryObject {
 		mapCell.configure(coordinates: coordinates, category: category)
@@ -95,9 +108,12 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    tabBarController?.tabBar.isHidden = true
+	//view.safeAreaInsets.safeAreaLayoutGuide.translatesResiaingMasksIntoConstraints = false
+	extendedLayoutIncludesOpaqueBars = true 
+	automaticallyAdjustsScrollViewInsets = false
+    MainTabBarController.instance.tabBarHidden = true
+	reconfigureStaticCells()
   }
-
 
   override func viewDidLoad() {
     loaderFooterView = LoaderView(size: 64, frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 80))
@@ -105,6 +121,7 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
       switch result {
       case .success(let feedItem):
         self?.item = feedItem
+		self?.reconfigureStaticCells()
       case .failure(_):
         break
       }
@@ -116,10 +133,11 @@ class EventExpoViewController: UITableViewController, TransparentViewController,
     tableView.backgroundColor = .white
     tableView.backgroundView = UIView()
     tableView.tableHeaderView = header
+	//edgesForExtendedLayout = []
     ResultFeedItemTableViewCell.registerNib(in: tableView)
     tableView.separatorStyle = .singleLine
     ReviewTableViewCell.registerNib(in: tableView)
-    tableView.tableFooterView = nil
+    tableView.tableFooterView = UIView()
     tableView.tableFooterView?.isHidden = true
     header.expoItemChanged = { [weak self] item in
       self?.headerExpoItem = item

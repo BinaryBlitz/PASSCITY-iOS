@@ -36,8 +36,10 @@ class MapCell: UITableViewCell {
 
   func configure(coordinates: Coordinates, category: Category) {
     let marker = GMSMarker()
+	currentMarker = marker
     marker.iconView = PasscityMarkerView(color: category.color ?? .red, iconUrl: category.icon)
     marker.position = coordinates.clLocationCoordinate2D!
-	mapView.camera = GMSCameraPosition.camera(withTarget: coordinates.clLocationCoordinate2D!, zoom: Float(coordinates.mapScale ?? 14))
+	marker.map = mapView
+	mapView.camera = GMSCameraPosition.camera(withTarget: marker.position, zoom: 14)
   }
 }

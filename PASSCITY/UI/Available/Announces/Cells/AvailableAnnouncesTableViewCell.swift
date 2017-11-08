@@ -42,7 +42,7 @@ class AvailableAnnouncesTableViewCell: UITableViewCell {
       bottomConstraint?.isActive = isExpanded
       descriptionButton?.alpha = isExpanded ? 0 : 1
       descriptionButton?.isHidden = isExpanded
-      //descriptionButton?.isEnabled = !isExpanded
+	  icons.forEach { $0.image = $0.image?.withRenderingMode(.alwaysTemplate)}
       updateConstraints()
       layoutIfNeeded()
     }

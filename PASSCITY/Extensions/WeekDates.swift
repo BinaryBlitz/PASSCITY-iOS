@@ -45,5 +45,5 @@ enum WeekDays: Int {
     }
   }
 
-    static let allValues = [monday, monday, tuesday, wednesday, thursday, friday, saturday]
+    static let allValues = [monday, tuesday, wednesday, thursday, friday, saturday]
 }

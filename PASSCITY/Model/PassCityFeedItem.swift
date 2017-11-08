@@ -22,7 +22,7 @@ class PassCityFeedItem: Mappable, Hashable {
   var reviews: ReviewsOverview = ReviewsOverview()
   var schedule: String = ""
   var description: String = ""
-  var fullDecription: String = ""
+  var fullDescription: String = ""
   var dates: String = ""
   var address: String = ""
   var favorites: Int = 0
@@ -73,7 +73,7 @@ class PassCityFeedItem: Mappable, Hashable {
     imgURL <- (map["links.img"], URLTransform())
     imgs <- (map["links.img"], URLTransform())
     dates <- map["attributes.dates"]
-    fullDecription <- map["attributes.full_decription"]
+    fullDescription <- map["attributes.full_description"]
     addressFull <- map["attributes.address"]
     contacts <- map["attributes.contacts"]
     reviewsState <- map["attributes.reviews"]

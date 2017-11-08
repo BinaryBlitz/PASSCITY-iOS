@@ -38,147 +38,150 @@
                             <action selector="reviewButtonAction:" destination="ntv-ns-LLo" eventType="touchUpInside" id="JiJ-BM-cne"/>
                         </connections>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGV-0o-XRb">
-                        <rect key="frame" x="48" y="28" width="140" height="89.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZd-K2-OWa">
+                        <rect key="frame" x="48" y="28" width="280" height="90"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="400" verticalHuggingPriority="999" verticalCompressionResistancePriority="1000" text="ИНТЕРЕСНО" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XrM-ZX-vfi">
-                                <rect key="frame" x="0.0" y="0.0" width="140" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szx-AW-f9n">
-                                <rect key="frame" x="57.5" y="27" width="26" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbw-ic-jbb" customClass="FloatRatingView" customModule="FloatRatingView">
-                                <rect key="frame" x="36.5" y="54" width="68" height="12"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGV-0o-XRb">
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="400" verticalHuggingPriority="999" verticalCompressionResistancePriority="1000" text="ИНТЕРЕСНО" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XrM-ZX-vfi">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szx-AW-f9n">
+                                        <rect key="frame" x="57.5" y="26.5" width="25.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbw-ic-jbb" customClass="FloatRatingView" customModule="FloatRatingView">
+                                        <rect key="frame" x="36" y="53" width="68" height="12"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="68" id="1NA-yU-Pxy"/>
+                                            <constraint firstAttribute="height" constant="12" id="gB6-qd-Ii0"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="iconRatingStrocke"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="iconRatingFill"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="minImageSize">
+                                                <size key="value" width="12" height="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="halfRatings" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="floatRatings" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 оценок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVW-q7-bGd">
+                                        <rect key="frame" x="42.5" y="75" width="55" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="1NA-yU-Pxy"/>
-                                    <constraint firstAttribute="height" constant="12" id="gB6-qd-Ii0"/>
+                                    <constraint firstItem="Szx-AW-f9n" firstAttribute="centerX" secondItem="iGV-0o-XRb" secondAttribute="centerX" id="3wB-ej-7OM"/>
+                                    <constraint firstAttribute="trailing" secondItem="XrM-ZX-vfi" secondAttribute="trailing" id="BTn-ZW-YOE"/>
+                                    <constraint firstItem="XrM-ZX-vfi" firstAttribute="leading" secondItem="iGV-0o-XRb" secondAttribute="leading" id="CL1-Lv-OIy"/>
+                                    <constraint firstItem="IVW-q7-bGd" firstAttribute="top" secondItem="nbw-ic-jbb" secondAttribute="bottom" constant="10" id="JZl-JE-8AI"/>
+                                    <constraint firstAttribute="width" constant="140" id="RA1-x4-NfB"/>
+                                    <constraint firstItem="nbw-ic-jbb" firstAttribute="top" secondItem="Szx-AW-f9n" secondAttribute="bottom" constant="6" id="Wal-dB-bHu"/>
+                                    <constraint firstItem="nbw-ic-jbb" firstAttribute="centerX" secondItem="iGV-0o-XRb" secondAttribute="centerX" id="Ylj-3k-Who"/>
+                                    <constraint firstAttribute="bottom" secondItem="IVW-q7-bGd" secondAttribute="bottom" id="bvD-BO-OU4"/>
+                                    <constraint firstItem="Szx-AW-f9n" firstAttribute="top" secondItem="XrM-ZX-vfi" secondAttribute="bottom" constant="6" id="db0-pZ-q4y"/>
+                                    <constraint firstItem="XrM-ZX-vfi" firstAttribute="top" secondItem="iGV-0o-XRb" secondAttribute="top" id="e7F-rW-sQG"/>
+                                    <constraint firstItem="IVW-q7-bGd" firstAttribute="centerX" secondItem="iGV-0o-XRb" secondAttribute="centerX" id="z01-Uo-opC"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="iconRatingStrocke"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="iconRatingFill"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minRating">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="minImageSize">
-                                        <size key="value" width="12" height="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="halfRatings" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="floatRatings" value="NO"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 оценок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVW-q7-bGd">
-                                <rect key="frame" x="42.5" y="76" width="55" height="13.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Szx-AW-f9n" firstAttribute="centerX" secondItem="iGV-0o-XRb" secondAttribute="centerX" id="3wB-ej-7OM"/>
-                            <constraint firstAttribute="trailing" secondItem="XrM-ZX-vfi" secondAttribute="trailing" id="BTn-ZW-YOE"/>
-                            <constraint firstItem="XrM-ZX-vfi" firstAttribute="leading" secondItem="iGV-0o-XRb" secondAttribute="leading" id="CL1-Lv-OIy"/>
-                            <constraint firstItem="IVW-q7-bGd" firstAttribute="top" secondItem="nbw-ic-jbb" secondAttribute="bottom" constant="10" id="JZl-JE-8AI"/>
-                            <constraint firstAttribute="width" constant="140" id="RA1-x4-NfB"/>
-                            <constraint firstItem="nbw-ic-jbb" firstAttribute="top" secondItem="Szx-AW-f9n" secondAttribute="bottom" constant="6" id="Wal-dB-bHu"/>
-                            <constraint firstItem="nbw-ic-jbb" firstAttribute="centerX" secondItem="iGV-0o-XRb" secondAttribute="centerX" id="Ylj-3k-Who"/>
-                            <constraint firstAttribute="bottom" secondItem="IVW-q7-bGd" secondAttribute="bottom" id="bvD-BO-OU4"/>
-                            <constraint firstItem="Szx-AW-f9n" firstAttribute="top" secondItem="XrM-ZX-vfi" secondAttribute="bottom" constant="6" id="db0-pZ-q4y"/>
-                            <constraint firstItem="XrM-ZX-vfi" firstAttribute="top" secondItem="iGV-0o-XRb" secondAttribute="top" id="e7F-rW-sQG"/>
-                            <constraint firstItem="IVW-q7-bGd" firstAttribute="centerX" secondItem="iGV-0o-XRb" secondAttribute="centerX" id="z01-Uo-opC"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wE-Hz-EAa">
-                        <rect key="frame" x="187" y="28" width="140" height="89.5"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="УДОБНО" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX1-ty-UUR">
-                                <rect key="frame" x="0.0" y="0.0" width="140" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81l-ho-zHB">
-                                <rect key="frame" x="57.5" y="27" width="26" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfI-ls-Du3" customClass="FloatRatingView" customModule="FloatRatingView">
-                                <rect key="frame" x="36.5" y="54" width="68" height="12"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wE-Hz-EAa">
+                                <rect key="frame" x="140" y="0.0" width="140" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="УДОБНО" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX1-ty-UUR">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="999" horizontalCompressionResistancePriority="999" verticalCompressionResistancePriority="999" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81l-ho-zHB">
+                                        <rect key="frame" x="58" y="26.5" width="25.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfI-ls-Du3" customClass="FloatRatingView" customModule="FloatRatingView">
+                                        <rect key="frame" x="36.5" y="53" width="68" height="12"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="68" id="41T-WM-jMY"/>
+                                            <constraint firstAttribute="height" constant="12" id="Ajr-2R-zkz"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="iconRatingStrocke"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="iconRatingFill"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="minImageSize">
+                                                <size key="value" width="12" height="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="halfRatings" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="floatRatings" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="10 оценок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bv3-Z7-V77">
+                                        <rect key="frame" x="42.5" y="75" width="55" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="41T-WM-jMY"/>
-                                    <constraint firstAttribute="height" constant="12" id="Ajr-2R-zkz"/>
+                                    <constraint firstItem="bv3-Z7-V77" firstAttribute="centerX" secondItem="2wE-Hz-EAa" secondAttribute="centerX" id="77v-kj-w37"/>
+                                    <constraint firstItem="PfI-ls-Du3" firstAttribute="centerX" secondItem="2wE-Hz-EAa" secondAttribute="centerX" id="B1Z-VO-VBW"/>
+                                    <constraint firstItem="hX1-ty-UUR" firstAttribute="leading" secondItem="2wE-Hz-EAa" secondAttribute="leading" id="Cac-pf-8nH"/>
+                                    <constraint firstItem="hX1-ty-UUR" firstAttribute="top" secondItem="2wE-Hz-EAa" secondAttribute="top" id="DPo-Rh-7w4"/>
+                                    <constraint firstAttribute="width" constant="140" id="Mnm-rr-i50"/>
+                                    <constraint firstAttribute="bottom" secondItem="bv3-Z7-V77" secondAttribute="bottom" id="Qlj-CP-9Sp"/>
+                                    <constraint firstAttribute="trailing" secondItem="hX1-ty-UUR" secondAttribute="trailing" id="RJd-zs-c1a"/>
+                                    <constraint firstItem="PfI-ls-Du3" firstAttribute="top" secondItem="81l-ho-zHB" secondAttribute="bottom" constant="6" id="TCl-Uw-p3M"/>
+                                    <constraint firstItem="bv3-Z7-V77" firstAttribute="top" secondItem="PfI-ls-Du3" secondAttribute="bottom" constant="10" id="mQx-2e-XQi"/>
+                                    <constraint firstItem="81l-ho-zHB" firstAttribute="centerX" secondItem="2wE-Hz-EAa" secondAttribute="centerX" id="nhh-y9-PEu"/>
+                                    <constraint firstItem="81l-ho-zHB" firstAttribute="top" secondItem="hX1-ty-UUR" secondAttribute="bottom" constant="6" id="vt5-9O-WC4"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="iconRatingStrocke"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="iconRatingFill"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minRating">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="minImageSize">
-                                        <size key="value" width="12" height="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="halfRatings" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="floatRatings" value="NO"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 оценок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bv3-Z7-V77">
-                                <rect key="frame" x="42.5" y="76" width="55" height="13.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bv3-Z7-V77" firstAttribute="centerX" secondItem="2wE-Hz-EAa" secondAttribute="centerX" id="77v-kj-w37"/>
-                            <constraint firstItem="PfI-ls-Du3" firstAttribute="centerX" secondItem="2wE-Hz-EAa" secondAttribute="centerX" id="B1Z-VO-VBW"/>
-                            <constraint firstItem="hX1-ty-UUR" firstAttribute="leading" secondItem="2wE-Hz-EAa" secondAttribute="leading" id="Cac-pf-8nH"/>
-                            <constraint firstItem="hX1-ty-UUR" firstAttribute="top" secondItem="2wE-Hz-EAa" secondAttribute="top" id="DPo-Rh-7w4"/>
-                            <constraint firstAttribute="width" constant="140" id="Mnm-rr-i50"/>
-                            <constraint firstAttribute="bottom" secondItem="bv3-Z7-V77" secondAttribute="bottom" id="Qlj-CP-9Sp"/>
-                            <constraint firstAttribute="trailing" secondItem="hX1-ty-UUR" secondAttribute="trailing" id="RJd-zs-c1a"/>
-                            <constraint firstItem="PfI-ls-Du3" firstAttribute="top" secondItem="81l-ho-zHB" secondAttribute="bottom" constant="6" id="TCl-Uw-p3M"/>
-                            <constraint firstItem="bv3-Z7-V77" firstAttribute="top" secondItem="PfI-ls-Du3" secondAttribute="bottom" constant="10" id="mQx-2e-XQi"/>
-                            <constraint firstItem="81l-ho-zHB" firstAttribute="centerX" secondItem="2wE-Hz-EAa" secondAttribute="centerX" id="nhh-y9-PEu"/>
-                            <constraint firstItem="81l-ho-zHB" firstAttribute="top" secondItem="hX1-ty-UUR" secondAttribute="bottom" constant="6" id="vt5-9O-WC4"/>
+                            <constraint firstItem="hX1-ty-UUR" firstAttribute="top" secondItem="XrM-ZX-vfi" secondAttribute="top" id="aqI-he-CpD"/>
+                            <constraint firstItem="Szx-AW-f9n" firstAttribute="centerY" secondItem="81l-ho-zHB" secondAttribute="centerY" id="jqo-QJ-tHl"/>
                         </constraints>
-                    </view>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="2wE-Hz-EAa" firstAttribute="top" secondItem="BPw-Dg-bdZ" secondAttribute="topMargin" constant="20" id="0P5-pT-uNF"/>
-                    <constraint firstItem="2wE-Hz-EAa" firstAttribute="bottom" secondItem="iGV-0o-XRb" secondAttribute="bottom" id="3SV-HP-r4T"/>
-                    <constraint firstItem="qLl-b5-GwW" firstAttribute="top" secondItem="iGV-0o-XRb" secondAttribute="bottom" constant="20" id="80v-64-XYa"/>
+                    <constraint firstItem="rZd-K2-OWa" firstAttribute="centerX" secondItem="BPw-Dg-bdZ" secondAttribute="centerX" id="0Og-3K-zoZ"/>
+                    <constraint firstItem="rZd-K2-OWa" firstAttribute="top" secondItem="BPw-Dg-bdZ" secondAttribute="topMargin" constant="20" id="97i-bK-Ahu"/>
                     <constraint firstItem="qLl-b5-GwW" firstAttribute="centerX" secondItem="BPw-Dg-bdZ" secondAttribute="centerX" id="B1D-rP-5Ab"/>
                     <constraint firstAttribute="bottom" secondItem="qLl-b5-GwW" secondAttribute="bottom" constant="24" id="HSh-aO-Mts"/>
-                    <constraint firstItem="qLl-b5-GwW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iGV-0o-XRb" secondAttribute="bottom" constant="20" id="QXc-5e-z02"/>
-                    <constraint firstItem="iGV-0o-XRb" firstAttribute="leading" secondItem="BPw-Dg-bdZ" secondAttribute="leadingMargin" constant="40" id="TfU-hK-MS6"/>
-                    <constraint firstItem="iGV-0o-XRb" firstAttribute="top" secondItem="BPw-Dg-bdZ" secondAttribute="topMargin" constant="20" id="Xwx-Mc-cBx"/>
-                    <constraint firstItem="iGV-0o-XRb" firstAttribute="centerY" secondItem="2wE-Hz-EAa" secondAttribute="centerY" id="mBH-QP-HHL"/>
-                    <constraint firstItem="qLl-b5-GwW" firstAttribute="top" secondItem="2wE-Hz-EAa" secondAttribute="bottom" constant="20" id="qm3-IC-4mz"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="2wE-Hz-EAa" secondAttribute="trailing" constant="40" id="x8s-D2-OOk"/>
+                    <constraint firstItem="qLl-b5-GwW" firstAttribute="top" secondItem="rZd-K2-OWa" secondAttribute="bottom" constant="20" id="X2v-2f-GJb"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -190,7 +193,7 @@
                 <outlet property="interestingRatingView" destination="nbw-ic-jbb" id="cAu-CH-lp6"/>
                 <outlet property="leftReviewButton" destination="qLl-b5-GwW" id="39z-df-QMq"/>
             </connections>
-            <point key="canvasLocation" x="-59" y="801"/>
+            <point key="canvasLocation" x="-59.5" y="801"/>
         </tableViewCell>
     </objects>
     <resources>

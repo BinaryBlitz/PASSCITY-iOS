@@ -94,7 +94,6 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.separatorStyle = .none
-    edgesForExtendedLayout = UIRectEdge()
     automaticallyAdjustsScrollViewInsets = false
     presenter = AvailableAnnouncesViewPresenter(view: self)
     AvailableAnnouncesTableViewCell.registerNib(in: tableView)
@@ -129,6 +128,12 @@ class AvailableAnnouncesViewController: UITableViewController, AvailableAnnounce
       RootViewController.instance?.menuVisible = true
     }
   }
+
+
+	func updateLayout() {
+		tableView.contentInset = UIEdgeInsets(top: 66, left: 0, bottom: MainTabBarController.instance.playerWidgetHeight, right: 0)
+	}
+
 
   func refreshingChanged() {
     UIView.animate(withDuration: 0.8, animations: { [weak self] in

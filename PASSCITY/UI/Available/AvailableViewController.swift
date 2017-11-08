@@ -107,7 +107,7 @@ class AvailableViewController: UIViewController {
 
     setupView()
     setupNavigationBar()
-
+	automaticallyAdjustsScrollViewInsets = false
     currentViewController = mapViewController
   }
 

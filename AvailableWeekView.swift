@@ -76,6 +76,8 @@ class AvailableWeekView: UIView {
     }
 
     addSubview(timeLabel)
+	timeLabel.setContentHuggingPriority(999, for: .horizontal)
+	timeLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
 	timeLabel.font  = UIFont.systemFont(ofSize: 16)
     timeLabel <- [
       Left(0),
@@ -96,8 +98,10 @@ class AvailableWeekView: UIView {
     timeLabel.text = time
 
     days.enumerated().forEach { [weak self] offset, value in
-      self?.weekDatesiews[offset].isHidden = value == -1
+      self?.weekDatesiews[offset].isHidden = value != 1
     }
+
+	layoutIfNeeded()
   }
 
   required init?(coder aDecoder: NSCoder) {

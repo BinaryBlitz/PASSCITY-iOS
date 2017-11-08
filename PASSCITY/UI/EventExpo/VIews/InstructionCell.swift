@@ -25,6 +25,14 @@ class InstructionCell: UITableViewCell {
       instructionsStackView.addArrangedSubview(view)
     }
   }
+
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		for view in instructionViews  {
+			instructionsStackView.removeArrangedSubview(view)
+			view.removeFromSuperview()
+		}
+	}
 }
 
 
@@ -38,10 +46,12 @@ class InstructionView: UIView {
     label.text = "•   \(text)"
     label.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightLight)
     addSubview(label)
+	label.numberOfLines = 2
     label <- [
       Top(4),
       Bottom(4),
-      Left(20)
+      Left(20),
+      Right(20)
     ]
     addSubview(lineView)
     lineView <- [

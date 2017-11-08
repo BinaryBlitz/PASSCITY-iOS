@@ -130,7 +130,7 @@
 		88C3496F1F7D95970003C9D4 /* BarcodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3496E1F7D95970003C9D4 /* BarcodeScanViewController.swift */; };
 		88C349721F7DAB7F0003C9D4 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */; };
 		88C349741F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88C349731F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard */; };
-		88C5D7BB1FAA916D00F20238 /* EvetExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5D7BA1FAA916D00F20238 /* EvetExpoViewController.swift */; };
+		88C5D7BB1FAA916D00F20238 /* table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5D7BA1FAA916D00F20238 /* table.swift */; };
 		88D142491FAD0CEE00C54ECF /* WeekDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D142481FAD0CEE00C54ECF /* WeekDates.swift */; };
 		88D1426F1FAD3E2600C54ECF /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1426E1FAD3E2600C54ECF /* MapCell.swift */; };
 		88D142701FAD477600C54ECF /* EventExpoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1426A1FAD234200C54ECF /* EventExpoHeaderView.swift */; };
@@ -292,7 +292,7 @@
 		88C3496E1F7D95970003C9D4 /* BarcodeScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScanViewController.swift; sourceTree = "<group>"; };
 		88C349711F7DAB7F0003C9D4 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		88C349731F7DEBA10003C9D4 /* PersonalInfoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalInfoViewController.storyboard; sourceTree = "<group>"; };
-		88C5D7BA1FAA916D00F20238 /* EvetExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvetExpoViewController.swift; sourceTree = "<group>"; };
+		88C5D7BA1FAA916D00F20238 /* table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = table.swift; sourceTree = "<group>"; };
 		88D142481FAD0CEE00C54ECF /* WeekDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDates.swift; sourceTree = "<group>"; };
 		88D1425B1FAD234200C54ECF /* EvetExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvetExpoViewController.swift; sourceTree = "<group>"; };
 		88D142691FAD234200C54ECF /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -890,7 +890,7 @@
 			isa = PBXGroup;
 			children = (
 				88D142681FAD234200C54ECF /* VIews */,
-				88C5D7BA1FAA916D00F20238 /* EvetExpoViewController.swift */,
+				88C5D7BA1FAA916D00F20238 /* table.swift */,
 			);
 			path = EventExpo;
 			sourceTree = "<group>";
@@ -1233,7 +1233,7 @@
 				887E34F41F93258A00DE4A01 /* SwitchTableViewCell.swift in Sources */,
 				880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */,
 				88B104AC1F86D82D00EDD98E /* PassCityLogoLeftNavigationItemView.swift in Sources */,
-				88C5D7BB1FAA916D00F20238 /* EvetExpoViewController.swift in Sources */,
+				88C5D7BB1FAA916D00F20238 /* table.swift in Sources */,
 				88D1426F1FAD3E2600C54ECF /* MapCell.swift in Sources */,
 				887B9E921F950DA9004AC6F1 /* ResultFeedItemTableViewCell.swift in Sources */,
 				880903C71F7D4C9B00158EC3 /* GoButton.swift in Sources */,

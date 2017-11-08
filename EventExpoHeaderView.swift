@@ -37,13 +37,18 @@ class EventExpoHeaderView: UIView {
   }
   @IBOutlet weak var footerButtonView: UIView!
 
+	@IBOutlet weak var toggleButton: UIButton!
+	var isActiveHandler: ((Bool) -> Void)? = nil
+
   var tableView: UITableView? = nil
 
   var isActive: Bool = false {
     didSet {
-      
-      tableView?.beginUpdates()
-      tableView?.endUpdates()
+		descriptionLabel.numberOfLines  =  0
+		layoutIfNeeded()
+		isActiveHandler?(isActive)
+		toggleButton.setImage ( isActive ? #imageLiteral(resourceName: "iconNavbarClose") : #imageLiteral(resourceName: "handle")
+			, for: .normal)
     }
   }
   
@@ -56,7 +61,7 @@ class EventExpoHeaderView: UIView {
   
   var headerItemViews: [GoBarHeaderItemView] = []
 
-  var screenType: PassCityFeedItemType = .event {
+  var screenType: PassCityFeedItemType! {
     didSet {
       setup()
     }
@@ -83,18 +88,29 @@ class EventExpoHeaderView: UIView {
 
   func configure(item: PassCityFeedItem) {
     titleLabel.text = item.title
-    descriptionLabel.text = item.description
+	toggleButton.setImage ( isActive ? #imageLiteral(resourceName: "iconNavbarClose") : #imageLiteral(resourceName: "handle"), for: .normal)
+	descriptionLabel.text = (isActive && !item.fullDescription.isEmpty) ? item.fullDescription : item.description
     eventBeforeDateLabel.text = item.schedule.isEmpty ? item.dates : item.schedule
     dateLabel.text = item.dates
+	backgroundImageView.kf.setImage(with: item.imgURL)
 
+	ratingView.rating = item.reviews.rating
+	backgroundImageView.kf.setImage(with: item.imgURL)
+	commentsCountLabel.text = "\(item.reviews.qty)"
+	distationLabel.text = item.distance
+	dateLabel.text = item.schedule.isEmpty ? item.dates : item.schedule
+	descriptionLabel.text = item.description
+	eventBeforeView.isHidden = item.type != .event
+	eventBeforeDateLabel.text = item.dates
   }
 
   func setup() {
+	toggleButton.setImage ( isActive ? #imageLiteral(resourceName: "iconNavbarClose") : #imageLiteral(resourceName: "handle"), for: .normal)
     itemsStackView.arrangedSubviews.forEach { subview in
       itemsStackView.removeArrangedSubview(subview)
       subview.removeFromSuperview()
     }
-   switch  screenType {
+   switch  screenType! {
     case .event:
       EventHeaderItem.allValues.forEach { item in
         let view = GoBarHeaderItemView(title: item.name)

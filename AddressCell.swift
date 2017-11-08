@@ -102,7 +102,7 @@ class AddressCell: UITableViewCell {
     items[AddressItem.location.rawValue].text = address.city + ", " + address.street
     items[AddressItem.subway.rawValue].text = address.metro
     items[AddressItem.phone.rawValue].text = contacts.phone
-    items[AddressItem.phone.rawValue].text = contacts.web?.path ?? ""
+    items[AddressItem.link.rawValue].text = contacts.web?.path ?? ""
   }
 }
 

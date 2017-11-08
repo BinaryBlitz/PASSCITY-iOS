@@ -27,17 +27,28 @@ class ScheduleTableViewCell: UITableViewCell {
 
   var isExpandedHanlder: (() -> Void)? = nil
 
+
+  var isExpandedConstraint: NSLayoutConstraint? = nil
+
   var isExpanded: Bool = false {
     didSet {
+		isExpandedConstraint?.isActive = !isExpanded
+		schedulesView.isHidden = !isExpanded
+		easy_reload()
+		layoutIfNeeded()
+		updateConstraints()
       isExpandedHanlder?()
     }
   }
 
   func confure(_ item: PassCityFeedItem) {
     titleLabel.text = item.shortSchedule.isEmpty ? item.schedule : item.shortSchedule
-    descriptionLabel.text = item.description
-	descriptionLabel.numberOfLines = 3
+	descriptionLabel.textAlignment = .center
+    descriptionLabel.text = item.fullSchedule?.short ?? item.schedule
+	descriptionLabel.numberOfLines = 0
 	schedulesView.spacing = 8
+	schedulesView.isHidden = !isExpanded
+	isExpandedConstraint?.isActive = !isExpanded
     guard let scheduleState: ScheduleState = item.fullSchedule else { return }
 
     for (offset, day) in scheduleState.full.enumerated() {
@@ -72,40 +83,42 @@ class ScheduleTableViewCell: UITableViewCell {
 	selectionStyle = .none
     addSubview(titleLabel)
 	addSubview(schedulesView)
-	addSubview(descriptionLabel)
-	addSubview(closeButton)
-	titleLabel.adjustsFontSizeToFitWidth = true	
+	  addSubview(closeButton)
 
     titleLabel.font = UIFont.systemFont(ofSize: 9)
     titleLabel <- [
-      Top(16),
-      CenterX()
+      Top(16).with(.high),
+      CenterX(),
+      Bottom(>=10).to(closeButton)
     ]
 	schedulesView.axis = .vertical
 	schedulesView.distribution = .equalSpacing
 	schedulesView <- [
-		Top(20).to(titleLabel),
+		Top(20).to(titleLabel, .bottom),
 		Left(20),
-		Height(>=30),
 		Right(10)
 	]
 
-	descriptionLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightLight)
-	descriptionLabel <- [
-		Top(20).to(schedulesView, .bottom),
-		Height(20),
-		Left(20),
-		Right(20),
-		CenterX()
-	]
+	isExpandedConstraint = schedulesView.heightAnchor.constraint(equalToConstant: 1)
+	isExpandedConstraint?.priority = UILayoutPriorityRequired
+	schedulesView.isHidden = isExpanded
+	isExpandedConstraint?.isActive = !isExpanded
+	schedulesView.isHidden = !isExpanded
 
-    closeButton.setImage(#imageLiteral(resourceName: "iconNavbarClose"), for: .normal)
+	closeButton.setImage ( isExpanded ? #imageLiteral(resourceName: "iconNavbarClose") : #imageLiteral(resourceName: "handle"), for: .normal)
+
+	closeButton.addTarget(self, action: #selector(toggleExpandButton), for: .touchUpInside)
 
     closeButton <- [
-      Top(20).to(descriptionLabel, .bottom),
+      Top(20).to(schedulesView, .bottom).with(.medium),
       Bottom(20),
       Height(20),
       CenterX()
     ]
   }
+
+	func toggleExpandButton() {
+		isExpanded = !isExpanded
+		isExpandedHanlder?()
+	}
 }

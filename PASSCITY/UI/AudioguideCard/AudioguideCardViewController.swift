@@ -159,7 +159,7 @@ class AudioguideCardViewController: UIViewController, LightContentViewController
       Top().to(headerView),
       Left(),
       Right(),
-      Bottom(MainTabBarController.instance.playerWidgetHeight)
+      Bottom()
     ]
   }
 
