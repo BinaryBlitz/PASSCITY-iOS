@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64039B61B0599233AEFEB6C4 /* Pods_PASSCITY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E647B44C928D64723B4F7624 /* Pods_PASSCITY.framework */; };
+		12526687CCB4EE9A86D59C65 /* Pods_PASSCITY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51ACC275E6184083DCE6E591 /* Pods_PASSCITY.framework */; };
 		880903AD1F7D44FD00158EC3 /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903AC1F7D44FD00158EC3 /* StorageHelper.swift */; };
 		880903AF1F7D459E00158EC3 /* JSONAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903AE1F7D459E00158EC3 /* JSONAPIProvider.swift */; };
 		880903B11F7D45F000158EC3 /* JSONAPITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880903B01F7D45F000158EC3 /* JSONAPITargetType.swift */; };
@@ -165,6 +165,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51ACC275E6184083DCE6E591 /* Pods_PASSCITY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PASSCITY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5678BD6A11552FF3B6EA2CDE /* Pods-PASSCITY-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSCITY-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5B8B1627985CC7755FD89FA1 /* Pods-PASSCITY-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSCITY-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PASSCITY-iOS/Pods-PASSCITY-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		6DB54A967C132602DEA17E53 /* Pods-PASSCITY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSCITY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PASSCITY/Pods-PASSCITY.debug.xcconfig"; sourceTree = "<group>"; };
@@ -328,8 +329,6 @@
 		88FD35FE1F7F19D100584BE0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		88FD36011F7F229200584BE0 /* CodeConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeConfirmViewController.swift; sourceTree = "<group>"; };
 		88FD36031F7F236100584BE0 /* CodeConfirmViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CodeConfirmViewController.storyboard; sourceTree = "<group>"; };
-		A60C0C334177EF8BE0FEA7AA /* Pods_PASSCITY_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PASSCITY_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E647B44C928D64723B4F7624 /* Pods_PASSCITY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PASSCITY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED89C9C26BAC7E23510B351E /* Pods-PASSCITY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSCITY.release.xcconfig"; path = "Pods/Target Support Files/Pods-PASSCITY/Pods-PASSCITY.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,7 +337,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64039B61B0599233AEFEB6C4 /* Pods_PASSCITY.framework in Frameworks */,
+				12526687CCB4EE9A86D59C65 /* Pods_PASSCITY.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,11 +355,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		7F73771F09CA846AA8730922 /* Frameworks */ = {
+		1AEFD20B6A6B5DF1C3F239B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A60C0C334177EF8BE0FEA7AA /* Pods_PASSCITY_iOS.framework */,
-				E647B44C928D64723B4F7624 /* Pods_PASSCITY.framework */,
+				51ACC275E6184083DCE6E591 /* Pods_PASSCITY.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -765,11 +763,11 @@
 		888C402B1F7C4CC200CAF1EF = {
 			isa = PBXGroup;
 			children = (
-				7F73771F09CA846AA8730922 /* Frameworks */,
 				888C40361F7C4CC300CAF1EF /* PASSCITY */,
 				0E7D90AD9B86954836CA8065 /* Pods */,
 				888C40351F7C4CC300CAF1EF /* Products */,
 				885976E91F7F51B300C9B091 /* Default-568h@2x.png */,
+				1AEFD20B6A6B5DF1C3F239B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

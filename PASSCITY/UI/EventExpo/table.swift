@@ -97,12 +97,16 @@ class EventExpoViewController: UITableViewController, TransparentViewController 
       overallRatingCell.configure(reviewsState: state)
     }
     scheduleCell.isExpandedHanlder = { [weak self] _ in
+		self?.tableView.beginUpdates()
+		self?.tableView.endUpdates()
 		self?.tableView.reloadData()
 
     }
 	if let coordinates = item.coordinates, let category = item.categoryObject {
 		mapCell.configure(coordinates: coordinates, category: category)
 	}
+	tableView.beginUpdates()
+	tableView.endUpdates()
     tableView.reloadData()
   }
 
