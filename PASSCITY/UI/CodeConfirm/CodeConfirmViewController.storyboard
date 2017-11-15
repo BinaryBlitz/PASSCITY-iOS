@@ -13,7 +13,7 @@
         <!-- -->
         <scene sceneID="4rp-ob-zfD">
             <objects>
-                <viewController title=" " id="du3-M2-dpr" customClass="CodeConfirmViewController" customModule="PASSCITY_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title=" " id="du3-M2-dpr" customClass="CodeConfirmViewController" customModule="PASSCITY" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Abf-DC-Uru"/>
                         <viewControllerLayoutGuide type="bottom" id="ySO-1W-PyU"/>
@@ -44,7 +44,7 @@
                                             <constraint firstAttribute="height" constant="1" id="LLC-uH-tHF"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-dT-nVn" customClass="GoButton" customModule="PASSCITY_iOS" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-dT-nVn" customClass="GoButton" customModule="PASSCITY" customModuleProvider="target">
                                         <rect key="frame" x="87.5" y="509" width="200" height="48"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
